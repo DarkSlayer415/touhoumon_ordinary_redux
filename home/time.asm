@@ -264,8 +264,7 @@ ClearRTCStatus:: ; unreferenced
 	call OpenSRAM
 	pop af
 	ld [sRTCStatusFlags], a
-	call CloseSRAM
-	ret
+	jmp  CloseSRAM
 
 RecordRTCStatus::
 ; append flags to sRTCStatusFlags

@@ -16,6 +16,13 @@ Bankswitch::
 
 SECTION "rst18", ROM0[$0018]
 	rst $38
+	
+SwapHLDE::
+	push de
+	ld d, h
+	ld e, l
+	pop hl
+	ret
 
 SECTION "rst20", ROM0[$0020]
 	rst $38
@@ -68,3 +75,5 @@ Start::
 ; This makes sure it doesn't get used for anything else.
 
 	ds $0150 - @, $00
+
+ENDSECTION

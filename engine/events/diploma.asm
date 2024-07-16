@@ -31,7 +31,7 @@ PlaceDiplomaOnScreen:
 	call WaitBGMap
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	call DelayFrame
 	ret
 
@@ -76,7 +76,7 @@ PrintDiplomaPage2:
 	ret
 
 .PlayTime: db "PLAY TIME@"
-.GameFreak: db "GAME FREAK@"
+.GameFreak: db "DarkSlayer415@"
 
 DiplomaGFX:
 INCBIN "gfx/diploma/diploma.2bpp.lz"

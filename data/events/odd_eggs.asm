@@ -9,38 +9,38 @@ OddEggProbabilities:
 ; entries correspond to OddEggs (below)
 	table_width 2, OddEggProbabilities
 DEF prob_total = 0
-; Pichu
-	prob 8
-	prob 1
-; Cleffa
-	prob 16
-	prob 3
-; Igglybuff
-	prob 16
-	prob 3
-; Smoochum
-	prob 14
-	prob 2
-; Magby
-	prob 10
-	prob 2
-; Elekid
+; CReimu
 	prob 12
 	prob 2
-; Tyrogue
-	prob 10
-	prob 1
+; CMarisa
+	prob 12
+	prob 2
+; CSakuya
+	prob 12
+	prob 2
+; CKaguya
+	prob 12
+	prob 2
+; CMokou
+	prob 12
+	prob 2
+; CEirin
+	prob 12
+	prob 2
+; CAlice
+	prob 12
+	prob 4
 	assert_table_length NUM_ODD_EGGS
 	assert prob_total == 100, "OddEggProbabilities do not sum to 100%!"
 
 OddEggs:
 	table_width NICKNAMED_MON_STRUCT_LENGTH, OddEggs
 
-	db PICHU
+	db BULBASAUR
 	db NO_ITEM
-	db THUNDERSHOCK, CHARM, DIZZY_PUNCH, 0
+	db POUND, GROWL, DIZZY_PUNCH, 0
 	dw 02048 ; OT ID
-	dt 125 ; Exp
+	dt 135 ; Exp
 	; Stat exp
 	bigdw 0
 	bigdw 0
@@ -62,11 +62,11 @@ OddEggs:
 	bigdw 8 ; SDef
 	db "EGG@@@@@@@@"
 
-	db PICHU
+	db BULBASAUR
 	db NO_ITEM
-	db THUNDERSHOCK, CHARM, DIZZY_PUNCH, 0
+	db POUND, GROWL, DIZZY_PUNCH, 0
 	dw 00256 ; OT ID
-	dt 125 ; Exp
+	dt 135 ; Exp
 	; Stat exp
 	bigdw 0
 	bigdw 0
@@ -88,11 +88,11 @@ OddEggs:
 	bigdw 9 ; SDef
 	db "EGG@@@@@@@@"
 
-	db CLEFFA
+	db CHARMANDER
 	db NO_ITEM
-	db POUND, CHARM, DIZZY_PUNCH, 0
+	db TACKLE, GROWL, DIZZY_PUNCH, 0
 	dw 04096 ; OT ID
-	dt 125 ; Exp
+	dt 135 ; Exp
 	; Stat exp
 	bigdw 0
 	bigdw 0
@@ -114,11 +114,11 @@ OddEggs:
 	bigdw 10 ; SDef
 	db "EGG@@@@@@@@"
 
-	db CLEFFA
+	db CHARMANDER
 	db NO_ITEM
-	db POUND, CHARM, DIZZY_PUNCH, 0
+	db TACKLE, GROWL, DIZZY_PUNCH, 0
 	dw 00768 ; OT ID
-	dt 125 ; Exp
+	dt 135 ; Exp
 	; Stat exp
 	bigdw 0
 	bigdw 0
@@ -140,11 +140,11 @@ OddEggs:
 	bigdw 11 ; SDef
 	db "EGG@@@@@@@@"
 
-	db IGGLYBUFF
+	db SQUIRTLE
 	db NO_ITEM
-	db SING, CHARM, DIZZY_PUNCH, 0
+	db SCRATCH, LEER, DIZZY_PUNCH, 0
 	dw 04096 ; OT ID
-	dt 125 ; Exp
+	dt 135 ; Exp
 	; Stat exp
 	bigdw 0
 	bigdw 0
@@ -166,11 +166,11 @@ OddEggs:
 	bigdw 7 ; SDef
 	db "EGG@@@@@@@@"
 
-	db IGGLYBUFF
+	db SQUIRTLE
 	db NO_ITEM
-	db SING, CHARM, DIZZY_PUNCH, 0
+	db SCRATCH, LEER, DIZZY_PUNCH, 0
 	dw 00768 ; OT ID
-	dt 125 ; Exp
+	dt 135 ; Exp
 	; Stat exp
 	bigdw 0
 	bigdw 0
@@ -192,11 +192,11 @@ OddEggs:
 	bigdw 8 ; SDef
 	db "EGG@@@@@@@@"
 
-	db SMOOCHUM
+	db CHIKORITA
 	db NO_ITEM
-	db POUND, LICK, DIZZY_PUNCH, 0
+	db POUND, GROWL, ABSORB, DIZZY_PUNCH
 	dw 03584 ; OT ID
-	dt 125 ; Exp
+	dt 135 ; Exp
 	; Stat exp
 	bigdw 0
 	bigdw 0
@@ -218,11 +218,11 @@ OddEggs:
 	bigdw 11 ; SDef
 	db "EGG@@@@@@@@"
 
-	db SMOOCHUM
+	db CHIKORITA
 	db NO_ITEM
-	db POUND, LICK, DIZZY_PUNCH, 0
+	db POUND, GROWL, ABSORB, DIZZY_PUNCH
 	dw 00512 ; OT ID
-	dt 125 ; Exp
+	dt 135 ; Exp
 	; Stat exp
 	bigdw 0
 	bigdw 0
@@ -244,11 +244,11 @@ OddEggs:
 	bigdw 12 ; SDef
 	db "EGG@@@@@@@@"
 
-	db MAGBY
+	db CYNDAQUIL
 	db NO_ITEM
-	db EMBER, DIZZY_PUNCH, 0, 0
+	db TACKLE, LEER, EMBER, DIZZY_PUNCH
 	dw 02560 ; OT ID
-	dt 125 ; Exp
+	dt 135 ; Exp
 	; Stat exp
 	bigdw 0
 	bigdw 0
@@ -270,11 +270,11 @@ OddEggs:
 	bigdw 10 ; SDef
 	db "EGG@@@@@@@@"
 
-	db MAGBY
+	db CYNDAQUIL
 	db NO_ITEM
-	db EMBER, DIZZY_PUNCH, 0, 0
+	db TACKLE, LEER, EMBER, DIZZY_PUNCH
 	dw 00512 ; OT ID
-	dt 125 ; Exp
+	dt 135 ; Exp
 	; Stat exp
 	bigdw 0
 	bigdw 0
@@ -296,11 +296,11 @@ OddEggs:
 	bigdw 11 ; SDef
 	db "EGG@@@@@@@@"
 
-	db ELEKID
+	db TOTODILE
 	db NO_ITEM
-	db QUICK_ATTACK, LEER, DIZZY_PUNCH, 0
+	db SCRATCH, LEER, WATER_GUN, DIZZY_PUNCH
 	dw 03072 ; OT ID
-	dt 125 ; Exp
+	dt 135 ; Exp
 	; Stat exp
 	bigdw 0
 	bigdw 0
@@ -322,11 +322,11 @@ OddEggs:
 	bigdw 10 ; SDef
 	db "EGG@@@@@@@@"
 
-	db ELEKID
+	db TOTODILE
 	db NO_ITEM
-	db QUICK_ATTACK, LEER, DIZZY_PUNCH, 0
+	db SCRATCH, LEER, WATER_GUN, DIZZY_PUNCH
 	dw 00512 ; OT ID
-	dt 125 ; Exp
+	dt 135 ; Exp
 	; Stat exp
 	bigdw 0
 	bigdw 0
@@ -348,11 +348,11 @@ OddEggs:
 	bigdw 11 ; SDef
 	db "EGG@@@@@@@@"
 
-	db TYROGUE
+	db IGGLYBUFF
 	db NO_ITEM
-	db TACKLE, DIZZY_PUNCH, 0, 0
+	db POUND, STRING_SHOT, GUST, DIZZY_PUNCH
 	dw 02560 ; OT ID
-	dt 125 ; Exp
+	dt 135 ; Exp
 	; Stat exp
 	bigdw 0
 	bigdw 0
@@ -374,11 +374,11 @@ OddEggs:
 	bigdw 8 ; SDef
 	db "EGG@@@@@@@@"
 
-	db TYROGUE
+	db IGGLYBUFF
 	db NO_ITEM
-	db TACKLE, DIZZY_PUNCH, 0, 0
+	db POUND, STRING_SHOT, GUST, DIZZY_PUNCH
 	dw 00256 ; OT ID
-	dt 125 ; Exp
+	dt 135 ; Exp
 	; Stat exp
 	bigdw 0
 	bigdw 0

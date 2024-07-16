@@ -1,7 +1,7 @@
 GiveDratini:
-; if wScriptVar is 0 or 1, change the moveset of the last Dratini in the party.
+; if wScriptVar is 0 or 1, change the moveset of the last CKasen in the party.
 ;  0: give it a special moveset with Extremespeed.
-;  1: give it the normal moveset of a level 15 Dratini.
+;  1: give it the normal moveset of a level 35 CKasen.
 
 	ld a, [wScriptVar]
 	cp $2
@@ -14,9 +14,9 @@ GiveDratini:
 	ld c, a
 	ld de, PARTYMON_STRUCT_LENGTH
 .CheckForDratini:
-; start at the end of the party and search backwards for a Dratini
+; start at the end of the party and search backwards for a CKasen
 	ld a, [hl]
-	cp DRATINI
+	cp MEWTWO
 	jr z, .GiveMoveset
 	ld a, l
 	sub e
@@ -70,18 +70,18 @@ GiveDratini:
 
 .Movesets:
 .Moveset0:
-; Dratini does not normally learn Extremespeed. This is a special gift.
-	db WRAP
-	db THUNDER_WAVE
-	db TWISTER
+; CKasen does not normally learn Extremespeed. This is a special gift.
+	db DRAGONBREATH
+	db MEGA_PUNCH
+	db MILK_DRINK
 	db EXTREMESPEED
 	db 0
 .Moveset1:
-; This is the normal moveset of a level 15 Dratini
-	db WRAP
-	db LEER
-	db THUNDER_WAVE
-	db TWISTER
+; This is the normal moveset of a level 35 CKasen
+	db DRAGONBREATH
+	db MEGA_PUNCH
+	db MILK_DRINK
+	db SCARY_FACE
 	db 0
 
 .GetNthPartyMon:

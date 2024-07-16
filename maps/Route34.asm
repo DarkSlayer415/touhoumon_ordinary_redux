@@ -418,14 +418,14 @@ TrainerCooltrainerfIrene:
 .Script:
 	endifjustbattled
 	opentext
-	checkevent EVENT_GOT_SOFT_SAND_FROM_KATE
-	iftrue .GotSoftSand
+	checkevent EVENT_GOT_FOCUS_BAND_FROM_KATE
+	iftrue .GotFocusBand
 	writetext CooltrainerfIreneAfterText1
 	waitbutton
 	closetext
 	end
 
-.GotSoftSand:
+.GotFocusBand:
 	writetext CooltrainerfIreneAfterText2
 	waitbutton
 	closetext
@@ -437,14 +437,14 @@ TrainerCooltrainerfJenn:
 .Script:
 	endifjustbattled
 	opentext
-	checkevent EVENT_GOT_SOFT_SAND_FROM_KATE
-	iftrue .GotSoftSand
+	checkevent EVENT_GOT_FOCUS_BAND_FROM_KATE
+	iftrue .GotFocusBand
 	writetext CooltrainerfJennAfterText1
 	waitbutton
 	closetext
 	end
 
-.GotSoftSand:
+.GotFocusBand:
 	writetext CooltrainerfJennAfterText2
 	waitbutton
 	closetext
@@ -456,14 +456,14 @@ TrainerCooltrainerfKate:
 .Script:
 	endifjustbattled
 	opentext
-	checkevent EVENT_GOT_SOFT_SAND_FROM_KATE
-	iftrue .GotSoftSand
-	writetext CooltrainerfKateOfferSoftSandText
+	checkevent EVENT_GOT_FOCUS_BAND_FROM_KATE
+	iftrue .GotFocusBand
+	writetext CooltrainerfKateOfferFocusBandText
 	promptbutton
-	verbosegiveitem SOFT_SAND
+	verbosegiveitem FOCUS_BAND
 	iffalse .BagFull
-	setevent EVENT_GOT_SOFT_SAND_FROM_KATE
-.GotSoftSand:
+	setevent EVENT_GOT_FOCUS_BAND_FROM_KATE
+.GotFocusBand:
 	writetext CooltrainerfKateAfterText
 	waitbutton
 .BagFull:
@@ -704,7 +704,7 @@ CooltrainerfKateBeatenText:
 	line "believe I lost."
 	done
 
-CooltrainerfKateOfferSoftSandText:
+CooltrainerfKateOfferFocusBandText:
 	text "KATE: You're too"
 	line "strong. I didn't"
 	cont "stand a chance."

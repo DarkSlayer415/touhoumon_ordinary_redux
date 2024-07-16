@@ -22,6 +22,7 @@ LoadSGBLayout:
 	jp hl
 
 SGBLayoutJumptable:
+; entries correspond to SCGB_* constants (see constants/scgb_constants.asm)
 	table_width 2, SGBLayoutJumptable
 	dw .SGB_BattleGrayscale
 	dw .SGB_BattleColors
@@ -45,6 +46,7 @@ SGBLayoutJumptable:
 	dw .SGB_MagnetTrain
 	dw .SGB_PackPals
 	dw .SGB_TrainerCard
+	dw .SGB_TrainerCardKanto
 	dw .SGB_PokedexUnownMode
 	dw .SGB_BillsPC
 	dw .SGB_UnownPuzzle
@@ -401,6 +403,7 @@ endr
 
 .SGB_Unused0D:
 .SGB_TrainerCard:
+.SGB_TrainerCardKanto:
 	ld hl, PalPacket_Diploma
 	ld de, BlkPacket_AllPal0
 	ret

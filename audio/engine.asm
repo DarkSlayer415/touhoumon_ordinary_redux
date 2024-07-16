@@ -241,6 +241,8 @@ UpdateChannels:
 
 .Channel1:
 	ld a, [wLowHealthAlarm]
+	cp $ff
+	jr z, .Channel5
 	bit DANGER_ON_F, a
 	ret nz
 .Channel5:
@@ -531,29 +533,25 @@ PlayDanger:
 	ld a, [wLowHealthAlarm]
 	bit DANGER_ON_F, a
 	ret z
+	cp $ff
+	ret z
 
 	; Don't do anything if SFX is being played
-	and ~(1 << DANGER_ON_F)
 	ld d, a
 	call _CheckSFX
 	jr c, .increment
+	ld a, d
 
 	; Play the high tone
-	and a
-	jr z, .begin
-
+	and $1f
+	ld hl, DangerSoundHigh
+	jr z, .applychannel
+	
 	; Play the low tone
 	cp 16
-	jr z, .halfway
+	jr nz, .increment
 
-	jr .increment
-
-.halfway
 	ld hl, DangerSoundLow
-	jr .applychannel
-
-.begin
-	ld hl, DangerSoundHigh
 
 .applychannel
 	xor a
@@ -569,13 +567,19 @@ PlayDanger:
 
 .increment
 	ld a, d
+	and $e0
+	ld e, a
+	ld a, d
+	and $1f
 	inc a
 	cp 30 ; Ending frame
 	jr c, .noreset
-	xor a
+	add 2
 .noreset
-	; Make sure the danger sound is kept on
-	or 1 << DANGER_ON_F
+	add e
+	jr nz, .load
+	dec a
+.load
 	ld [wLowHealthAlarm], a
 
 	; Enable channel 1 if it's off
@@ -733,7 +737,7 @@ LoadNote:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	; get direction of pitch slide
+	; subtract pitch slide from frequency
 	ld hl, CHANNEL_PITCH_SLIDE_TARGET
 	add hl, bc
 	ld a, e
@@ -755,7 +759,7 @@ LoadNote:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	; ????
+	; subtract frequency from pitch slide
 	ld hl, CHANNEL_PITCH_SLIDE_TARGET
 	add hl, bc
 	ld a, [hl]
@@ -764,7 +768,6 @@ LoadNote:
 	ld a, d
 	sbc 0
 	ld d, a
-	; ????
 	ld hl, CHANNEL_PITCH_SLIDE_TARGET + 1
 	add hl, bc
 	ld a, [hl]
@@ -906,7 +909,7 @@ HandleTrackVibrato:
 	swap [hl]
 	or [hl]
 	ld [hl], a
-	; ????
+	; get the frequency
 	ld a, [wCurTrackFrequency]
 	ld e, a
 	; toggle vibrato up/down
@@ -1190,7 +1193,7 @@ ParseMusic:
 	ld [hl], e
 	inc hl
 	ld [hl], d
-	; ????
+	; set noise sampling
 	ld hl, CHANNEL_NOTE_FLAGS
 	add hl, bc
 	set NOTE_NOISE_SAMPLING, [hl]
@@ -1209,10 +1212,10 @@ ParseMusic:
 	add hl, bc
 	bit SOUND_SUBROUTINE, [hl] ; in a subroutine?
 	jr nz, .readcommand ; execute
+	; are we in a sfx channel right now?
 	ld a, [wCurChannel]
-	cp CHAN5
+	cp NUM_MUSIC_CHANS
 	jr nc, .chan_5to8
-	; ????
 	ld hl, CHANNEL_STRUCT_LENGTH * NUM_MUSIC_CHANS + CHANNEL_FLAGS1
 	add hl, bc
 	bit SOUND_CHANNEL_ON, [hl]
@@ -1226,9 +1229,9 @@ ParseMusic:
 	ld a, [wCurChannel]
 	cp CHAN5
 	jr nz, .ok
-	; ????
+	; sweep = 0
 	xor a
-	ldh [rNR10], a ; sweep = 0
+	ldh [rNR10], a
 .ok
 ; stop playing
 	; turn channel off
@@ -1348,7 +1351,7 @@ GetNoiseSample:
 	ld [wNoiseSampleAddress], a
 	ld a, [hl]
 	ld [wNoiseSampleAddress + 1], a
-	; clear ????
+	; clear noise sample delay
 	xor a
 	ld [wNoiseSampleDelay], a
 	ret
@@ -1414,7 +1417,7 @@ MusicCommands:
 	dw MusicF6 ; nothing
 	dw MusicF7 ; nothing
 	dw MusicF8 ; nothing
-	dw MusicF9 ; unused
+	dw Music_ChangeNoiseSampleSet
 	dw Music_SetCondition
 	dw Music_JumpIf
 	dw Music_Jump
@@ -1629,7 +1632,7 @@ MusicEE:
 ; params: 2
 ;		ll hh ; pointer
 
-; if ????, jump
+; if condition is set, jump
 	; get channel
 	ld a, [wCurChannel]
 	maskbits NUM_MUSIC_CHANS
@@ -1672,14 +1675,6 @@ MusicEE:
 	ld [hl], e
 	inc hl
 	ld [hl], d
-	ret
-
-MusicF9:
-; unused
-; sets some flag
-; params: 0
-	ld a, TRUE
-	ld [wUnusedMusicF9Flag], a
 	ret
 
 MusicE2:
@@ -1871,6 +1866,7 @@ Music_ToggleNoise:
 .on
 	; turn noise sampling on
 	set SOUND_NOISE, [hl]
+Music_ChangeNoiseSampleSet:
 	call GetMusicByte
 	ld [wMusicNoiseSampleSet], a
 	ret
@@ -2206,7 +2202,7 @@ SetNoteDuration:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	; add ???? to the next result
+	; add ??? to the next result
 	ld hl, CHANNEL_FIELD16
 	add hl, bc
 	ld l, [hl]
@@ -2215,7 +2211,7 @@ SetNoteDuration:
 	; copy result to de
 	ld e, l
 	ld d, h
-	; store result in ????
+	; store result in ???
 	ld hl, CHANNEL_FIELD16
 	add hl, bc
 	ld [hl], e
@@ -2250,7 +2246,7 @@ SetGlobalTempo:
 	push bc ; save current channel
 	; are we dealing with music or sfx?
 	ld a, [wCurChannel]
-	cp CHAN5
+	cp NUM_MUSIC_CHANS
 	jr nc, .sfxchannels
 	ld bc, wChannel1
 	call Tempo
@@ -2284,7 +2280,7 @@ Tempo:
 	ld [hl], e
 	inc hl
 	ld [hl], d
-	; clear ????
+	; clear ???
 	xor a
 	ld hl, CHANNEL_FIELD16
 	add hl, bc

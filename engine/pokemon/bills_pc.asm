@@ -3,10 +3,10 @@ _DepositPKMN:
 	ld a, [hl]
 	push af
 	set NO_TEXT_SCROLL, [hl]
-	ld a, [wVramState]
+	ld a, [wStateFlags]
 	push af
 	xor a
-	ld [wVramState], a
+	ld [wStateFlags], a
 	ldh a, [hInMenu]
 	push af
 	ld a, $1
@@ -30,7 +30,7 @@ _DepositPKMN:
 	pop af
 	ldh [hInMenu], a
 	pop af
-	ld [wVramState], a
+	ld [wStateFlags], a
 	pop af
 	ld [wOptions], a
 	ret
@@ -259,10 +259,10 @@ _WithdrawPKMN:
 	ld a, [hl]
 	push af
 	set NO_TEXT_SCROLL, [hl]
-	ld a, [wVramState]
+	ld a, [wStateFlags]
 	push af
 	xor a
-	ld [wVramState], a
+	ld [wStateFlags], a
 	ldh a, [hInMenu]
 	push af
 	ld a, $1
@@ -286,7 +286,7 @@ _WithdrawPKMN:
 	pop af
 	ldh [hInMenu], a
 	pop af
-	ld [wVramState], a
+	ld [wStateFlags], a
 	pop af
 	ld [wOptions], a
 	ret
@@ -497,10 +497,10 @@ _MovePKMNWithoutMail:
 	ld a, [hl]
 	push af
 	set NO_TEXT_SCROLL, [hl]
-	ld a, [wVramState]
+	ld a, [wStateFlags]
 	push af
 	xor a
-	ld [wVramState], a
+	ld [wStateFlags], a
 	ldh a, [hInMenu]
 	push af
 	ld a, $1
@@ -527,7 +527,7 @@ _MovePKMNWithoutMail:
 	pop af
 	ldh [hInMenu], a
 	pop af
-	ld [wVramState], a
+	ld [wStateFlags], a
 	pop af
 	ld [wOptions], a
 	ret
@@ -1060,8 +1060,6 @@ PCMonInfo:
 	ld a, [wTempSpecies]
 	ld [wCurPartySpecies], a
 	ld [wCurSpecies], a
-	ld hl, wTempMonDVs
-	predef GetUnownLetter
 	call GetBaseData
 	ld de, vTiles2 tile $00
 	predef GetMonFrontpic
@@ -1681,8 +1679,6 @@ StatsScreenDPad:
 	ld a, [wTempSpecies]
 	ld [wCurPartySpecies], a
 	ld [wCurSpecies], a
-	ld hl, wTempMonDVs
-	predef GetUnownLetter
 	call GetBaseData
 	call BillsPC_CopyMon
 .pressed_a_b_right_left
@@ -1929,8 +1925,6 @@ MovePKMNWithoutMail_InsertMon:
 	hlcoord 1, 16
 	ld de, .Saving_LeaveOn
 	call PlaceString
-	ld c, 20
-	call DelayFrames
 	pop af
 	pop bc
 	pop de

@@ -43,7 +43,7 @@ RuinsOfAlphKabutoChamberWallOpenScript:
 	pause 30
 	playsound SFX_STRENGTH
 	changeblock 4, 0, $30 ; open wall
-	reloadmappart
+	refreshmap
 	earthquake 50
 	setscene SCENE_RUINSOFALPHKABUTOCHAMBER_NOOP
 	closetext
@@ -53,7 +53,7 @@ RuinsOfAlphKabutoChamberReceptionistScript:
 	jumptextfaceplayer RuinsOfAlphKabutoChamberReceptionistText
 
 RuinsOfAlphKabutoChamberPuzzle:
-	refreshscreen
+	reanchormap
 	setval UNOWNPUZZLE_KABUTO
 	special UnownPuzzle
 	closetext
@@ -63,14 +63,13 @@ RuinsOfAlphKabutoChamberPuzzle:
 .PuzzleComplete:
 	setevent EVENT_RUINS_OF_ALPH_INNER_CHAMBER_TOURISTS
 	setevent EVENT_SOLVED_KABUTO_PUZZLE
-	setflag ENGINE_UNLOCKED_UNOWNS_A_TO_K
 	setevent EVENT_RUINS_OF_ALPH_KABUTO_CHAMBER_RECEPTIONIST
 	setmapscene RUINS_OF_ALPH_INNER_CHAMBER, SCENE_RUINSOFALPHINNERCHAMBER_STRANGE_PRESENCE
 	earthquake 30
 	showemote EMOTE_SHOCK, PLAYER, 15
 	changeblock 2, 2, $18 ; left hole
 	changeblock 4, 2, $19 ; right hole
-	reloadmappart
+	refreshmap
 	playsound SFX_STRENGTH
 	earthquake 80
 	applymovement PLAYER, RuinsOfAlphKabutoChamberSkyfallTopMovement
@@ -83,8 +82,6 @@ RuinsOfAlphKabutoChamberPuzzle:
 RuinsOfAlphKabutoChamberScientistScript:
 	faceplayer
 	opentext
-	readvar VAR_UNOWNCOUNT
-	ifequal NUM_UNOWN, .AllUnownCaught
 	checkevent EVENT_WALL_OPENED_IN_KABUTO_CHAMBER
 	iftrue .WallOpen
 	checkevent EVENT_SOLVED_KABUTO_PUZZLE
@@ -100,12 +97,6 @@ RuinsOfAlphKabutoChamberScientistScript:
 
 .WallOpen:
 	writetext RuinsOfAlphKabutoChamberScientistHoleText
-	waitbutton
-	closetext
-	end
-
-.AllUnownCaught:
-	writetext RuinsOfAlphResearchCenterScientist1Text_GotAllUnown
 	waitbutton
 	closetext
 	end

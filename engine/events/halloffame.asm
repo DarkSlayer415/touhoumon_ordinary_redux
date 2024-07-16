@@ -41,9 +41,9 @@ RedCredits::
 	ld [wMusicFadeID + 1], a
 	ld a, 10
 	ld [wMusicFade], a
-	farcall FadeOutPalettes
+	farcall FadeOutToWhite
 	xor a
-	ld [wVramState], a
+	ld [wStateFlags], a
 	ldh [hMapAnims], a
 	farcall InitDisplayForRedCredits
 	ld c, 8
@@ -63,13 +63,12 @@ HallOfFame_FadeOutMusic:
 	ld [wMusicFadeID + 1], a
 	ld a, 10
 	ld [wMusicFade], a
-	farcall FadeOutPalettes
+	farcall FadeOutToWhite
 	xor a
-	ld [wVramState], a
+	ld [wStateFlags], a
 	ldh [hMapAnims], a
 	farcall InitDisplayForHallOfFame
-	ld c, 100
-	jp DelayFrames
+	ret
 
 HallOfFame_PlayMusicDE:
 	push de
@@ -123,10 +122,8 @@ AnimateHallOfFame:
 	hlcoord 1, 2
 	call PlaceString
 	call WaitBGMap
-	decoord 6, 5
-	ld c, ANIM_MON_HOF
-	predef HOF_AnimateFrontpic
-	ld c, 60
+	call HOF_PlayCry
+	ld c, 180
 	call DelayFrames
 	and a
 	ret
@@ -172,7 +169,7 @@ GetHallOfFameParty:
 	ld [de], a
 	inc de
 
-	ld hl, MON_ID
+	ld hl, MON_OT_ID
 	add hl, bc
 	ld a, [hli]
 	ld [de], a
@@ -234,8 +231,6 @@ AnimateHOFMonEntrance:
 	ld [wTempMonDVs], a
 	ld a, [hli]
 	ld [wTempMonDVs + 1], a
-	ld hl, wTempMonDVs
-	predef GetUnownLetter
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	ld a, " "
@@ -256,7 +251,7 @@ AnimateHOFMonEntrance:
 	ldh [hBGMapMode], a
 	ld b, SCGB_PLAYER_OR_MON_FRONTPIC_PALS
 	call GetSGBLayout
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	call HOF_SlideBackpic
 	xor a
 	ld [wBoxAlignment], a
@@ -389,10 +384,15 @@ _HallOfFamePC:
 	call WaitBGMap
 	ld b, SCGB_PLAYER_OR_MON_FRONTPIC_PALS
 	call GetSGBLayout
+<<<<<<< HEAD
 	call SetPalettes
+	call HOF_PlayCry
+=======
+	call SetDefaultBGPAndOBP
 	decoord 6, 5
 	ld c, ANIM_MON_HOF
 	predef HOF_AnimateFrontpic
+>>>>>>> 024c8749a0e7aa7f72082b0fa17498bf42c5359f
 	and a
 	ret
 
@@ -464,8 +464,6 @@ DisplayHOFMon:
 	ld a, [wTempMonSpecies]
 	ld [wCurPartySpecies], a
 	ld [wTextDecimalByte], a
-	ld hl, wTempMonDVs
-	predef GetUnownLetter
 	xor a
 	ld [wBoxAlignment], a
 	hlcoord 6, 5
@@ -543,7 +541,7 @@ HOF_AnimatePlayerPic:
 	ld [wCurPartySpecies], a
 	ld b, SCGB_PLAYER_OR_MON_FRONTPIC_PALS
 	call GetSGBLayout
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	call HOF_SlideBackpic
 	xor a
 	ld [wBoxAlignment], a
@@ -600,6 +598,20 @@ HOF_AnimatePlayerPic:
 	call WaitBGMap
 	farcall ProfOaksPCRating
 	ret
-
+	
 .PlayTime:
 	db "PLAY TIME@"
+	
+HOF_PlayCry::
+	ld a, [wCurPartySpecies]
+	cp EGG
+	jr z, .fail
+	call IsAPokemon
+	jr c, .fail
+	ld a, [wCurPartySpecies]
+	call PlayMonCry2
+	ret
+.fail
+	ld a, 1
+	ld [wCurPartySpecies], a
+	ret

@@ -189,20 +189,9 @@ _WouldYouLikeToSaveTheGameText::
 	line "save the game?"
 	done
 
-_SavingDontTurnOffThePowerText::
-	text "SAVING… DON'T TURN"
-	line "OFF THE POWER."
-	done
-
 _SavedTheGameText::
 	text "<PLAYER> saved"
 	line "the game."
-	done
-
-_AlreadyASaveFileText::
-	text "There is already a"
-	line "save file. Is it"
-	cont "OK to overwrite?"
 	done
 
 _AnotherSaveFileText::
@@ -910,22 +899,12 @@ _SpaceSpaceColonText:: ; unreferenced
 	done
 
 _PasswordAskResetText::
-	text "Password OK."
-	line "Select CONTINUE &"
-	cont "reset settings."
-	prompt
-
-_PasswordWrongText::
-	text "Wrong password!"
+	text "Select CONTINUE &"
+	line "reset settings."
 	prompt
 
 _PasswordAskResetClockText::
 	text "Reset the clock?"
-	done
-
-_PasswordAskEnterText::
-	text "Please enter the"
-	line "password."
 	done
 
 _ClearAllSaveDataText::
@@ -1183,7 +1162,7 @@ _YouCantTakeAnEggText::
 
 _BallDodgedText::
 	text "It dodged the"
-	line "thrown BALL!"
+	line "thrown ORB!"
 
 	para "This #MON"
 	line "can't be caught!"
@@ -1374,7 +1353,7 @@ _ItemWontHaveEffectText::
 
 _BallBlockedText::
 	text "The trainer"
-	line "blocked the BALL!"
+	line "blocked the ORB!"
 	prompt
 
 _BallDontBeAThiefText::

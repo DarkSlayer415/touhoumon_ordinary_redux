@@ -20,8 +20,8 @@ BillsBrotherText:
 	done
 
 BillsBrothersHouseYoungsterText:
-	text "I saw these weird,"
-	line "slow #MON on"
+	text "I saw many super-"
+	line "fast #MON on"
 	cont "CYCLING ROAD."
 	done
 

@@ -12,11 +12,9 @@ SECTION "Songs 1", ROMX
 
 INCLUDE "audio/music/route36.asm"
 INCLUDE "audio/music/rivalbattle.asm"
-INCLUDE "audio/music/rocketbattle.asm"
 INCLUDE "audio/music/elmslab.asm"
 INCLUDE "audio/music/darkcave.asm"
 INCLUDE "audio/music/johtogymbattle.asm"
-INCLUDE "audio/music/championbattle.asm"
 INCLUDE "audio/music/ssaqua.asm"
 INCLUDE "audio/music/newbarktown.asm"
 INCLUDE "audio/music/goldenrodcity.asm"
@@ -33,14 +31,11 @@ INCLUDE "audio/music/route1.asm"
 INCLUDE "audio/music/route3.asm"
 INCLUDE "audio/music/route12.asm"
 INCLUDE "audio/music/kantogymbattle.asm"
-INCLUDE "audio/music/kantotrainerbattle.asm"
 INCLUDE "audio/music/kantowildbattle.asm"
-INCLUDE "audio/music/pokemoncenter.asm"
 INCLUDE "audio/music/looklass.asm"
 INCLUDE "audio/music/lookofficer.asm"
 INCLUDE "audio/music/route2.asm"
 INCLUDE "audio/music/mtmoon.asm"
-INCLUDE "audio/music/showmearound.asm"
 INCLUDE "audio/music/gamecorner.asm"
 INCLUDE "audio/music/bicycle.asm"
 INCLUDE "audio/music/looksage.asm"
@@ -103,7 +98,6 @@ INCLUDE "audio/music/johtowildbattle.asm"
 INCLUDE "audio/music/johtowildbattlenight.asm"
 assert BANK(Music_JohtoWildBattle) == BANK(Music_JohtoWildBattleNight)
 
-INCLUDE "audio/music/johtotrainerbattle.asm"
 INCLUDE "audio/music/lookyoungster.asm"
 INCLUDE "audio/music/tintower.asm"
 INCLUDE "audio/music/sprouttower.asm"
@@ -148,6 +142,20 @@ INCLUDE "audio/music/mobileadapter.asm"
 SECTION "Extra Songs 2", ROMX
 
 INCLUDE "audio/music/postcredits.asm"
+
+SECTION "New Songs", ROMX
+
+INCLUDE "audio/music/ceruleancity.asm"
+INCLUDE "audio/music/cinnabarisland.asm"
+INCLUDE "audio/music/nuggetbridge.asm"
+INCLUDE "audio/music/pokemart.asm"
+INCLUDE "audio/music/route47.asm"
+INCLUDE "audio/music/eirincenter.asm"
+INCLUDE "audio/music/rocketyoumu.asm"
+INCLUDE "audio/music/followmehiroshige.asm"
+INCLUDE "audio/music/championyukari.asm"
+INCLUDE "audio/music/johtosanae.asm"
+INCLUDE "audio/music/kantomarisa.asm"
 
 
 SECTION "Sound Effects", ROMX

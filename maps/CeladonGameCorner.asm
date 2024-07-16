@@ -111,21 +111,21 @@ CeladonGameCornerPoster2Script:
 CeladonGameCornerLuckySlotMachineScript:
 	random 6
 	ifequal 0, CeladonGameCornerSlotMachineScript
-	refreshscreen
+	reanchormap
 	setval FALSE
 	special SlotMachine
 	closetext
 	end
 
 CeladonGameCornerSlotMachineScript:
-	refreshscreen
+	reanchormap
 	setval TRUE
 	special SlotMachine
 	closetext
 	end
 
 CeladonGameCornerCardFlipScript:
-	refreshscreen
+	reanchormap
 	special CardFlip
 	closetext
 	end
@@ -283,7 +283,7 @@ else
 	text "Hmmm… The odds are"
 	line "surely better for"
 
-	para "PIKACHU's line,"
+	para "Reimu's line,"
 	line "but… What to do?"
 	done
 endc

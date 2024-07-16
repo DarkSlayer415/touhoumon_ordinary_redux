@@ -226,14 +226,14 @@ DEF TM01 EQU const_value
 	add_tm TOXIC        ; c5
 	add_tm ZAP_CANNON   ; c6
 	add_tm ROCK_SMASH   ; c7
-	add_tm PSYCH_UP     ; c8
-	add_tm HIDDEN_POWER ; c9
+	add_tm LIGHT_SCREEN ; c8
+	add_tm REFLECT      ; c9
 	add_tm SUNNY_DAY    ; ca
-	add_tm SWEET_SCENT  ; cb
-	add_tm SNORE        ; cc
+	add_tm RAZOR_WIND   ; cb
+	add_tm ROCK_SLIDE   ; cc
 	add_tm BLIZZARD     ; cd
-	add_tm HYPER_BEAM   ; ce
-	add_tm ICY_WIND     ; cf
+	add_tm DOUBLE_EDGE  ; ce
+	add_tm HAIL         ; cf
 	add_tm PROTECT      ; d0
 	add_tm RAIN_DANCE   ; d1
 	add_tm GIGA_DRAIN   ; d2
@@ -250,7 +250,7 @@ DEF TM01 EQU const_value
 	add_tm PSYCHIC_M    ; dd
 	add_tm SHADOW_BALL  ; de
 	add_tm MUD_SLAP     ; df
-	add_tm DOUBLE_TEAM  ; e0
+	add_tm BODY_SLAM    ; e0
 	add_tm ICE_PUNCH    ; e1
 	add_tm SWAGGER      ; e2
 	add_tm SLEEP_TALK   ; e3
@@ -258,17 +258,17 @@ DEF TM01 EQU const_value
 	add_tm SANDSTORM    ; e5
 	add_tm FIRE_BLAST   ; e6
 	add_tm SWIFT        ; e7
-	add_tm DEFENSE_CURL ; e8
+	add_tm SLAM         ; e8
 	add_tm THUNDERPUNCH ; e9
-	add_tm DREAM_EATER  ; ea
-	add_tm DETECT       ; eb
+	add_tm SWORDS_DANCE ; ea
+	add_tm MEDITATE     ; eb
 	add_tm REST         ; ec
-	add_tm ATTRACT      ; ed
+	add_tm MORNING_SUN  ; ed
 	add_tm THIEF        ; ee
 	add_tm STEEL_WING   ; ef
 	add_tm FIRE_PUNCH   ; f0
 	add_tm FURY_CUTTER  ; f1
-	add_tm NIGHTMARE    ; f2
+	add_tm SUBSTITUTE   ; f2
 DEF NUM_TMS EQU __tmhm_value__ - 1
 
 MACRO add_hm

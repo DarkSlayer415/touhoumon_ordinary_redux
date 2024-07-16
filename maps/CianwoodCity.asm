@@ -269,8 +269,8 @@ CianwoodCityUnusedText:
 	line "islands between"
 	cont "here and OLIVINE."
 
-	para "A mythical sea"
-	line "creature supposed-"
+	para "A mythical"
+	line "youkai supposed-"
 	cont "ly lives there."
 	done
 
@@ -279,16 +279,16 @@ EusineSuicuneText:
 	line "<PLAYER>."
 
 	para "Wasn't that"
-	line "SUICUNE just now?"
+	line "Satsuki just now?"
 
 	para "I only caught a"
 	line "quick glimpse, but"
 
 	para "I thought I saw"
-	line "SUICUNE running on"
-	cont "the waves."
+	line "Satsuki flying"
+	cont "over the waves."
 
-	para "SUICUNE is beau-"
+	para "Satsuki is beau-"
 	line "tiful and grand."
 
 	para "And it races"
@@ -300,13 +300,13 @@ EusineSuicuneText:
 	para "It's wonderful…"
 
 	para "I want to see"
-	line "SUICUNE up close…"
+	line "Satsuki up close…"
 
 	para "I've decided."
 
 	para "I'll battle you as"
 	line "a trainer to earn"
-	cont "SUICUNE's respect!"
+	cont "Satsuki's respect!"
 
 	para "Come on, <PLAYER>."
 	line "Let's battle now!"
@@ -328,7 +328,7 @@ EusineAfterText:
 
 	para "I'm going to keep"
 	line "searching for"
-	cont "SUICUNE."
+	cont "Satsuki."
 
 	para "I'm sure we'll see"
 	line "each other again."
@@ -403,7 +403,7 @@ CianwoodCity_MapEvents:
 	bg_event  5, 29, BGEVENT_ITEM, CianwoodCityHiddenMaxEther
 
 	def_object_events
-	object_event 21, 37, SPRITE_STANDING_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CianwoodCityYoungster, -1
+	object_event 21, 37, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CianwoodCityYoungster, -1
 	object_event 17, 33, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodCityPokefanM, -1
 	object_event 14, 42, SPRITE_LASS, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodCityLass, -1
 	object_event  8, 16, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodCityRock, -1

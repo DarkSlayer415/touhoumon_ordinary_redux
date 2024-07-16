@@ -1,15 +1,18 @@
-HasNoItems:
-	ld a, [wNumItems]
+ HasNoItems:
+ 	ld a, [wNumItems]
+ 	and a
+ 	ret nz
+ 	ld a, [wNumKeyItems]
+ 	and a
+ 	ret nz
+ 	ld a, [wNumBalls]
+ 	and a
+ 	ret nz
+	ld a, [wNumBerries]
 	and a
 	ret nz
-	ld a, [wNumKeyItems]
-	and a
-	ret nz
-	ld a, [wNumBalls]
-	and a
-	ret nz
-	ld hl, wTMsHMs
-	ld b, NUM_TMS + NUM_HMS
+ 	ld hl, wTMsHMs
+ 	ld b, NUM_TMS + NUM_HMS
 .loop
 	ld a, [hli]
 	and a
@@ -164,7 +167,7 @@ SwitchPartyMons:
 	ld a, PARTYMENUACTION_MOVE
 	ld [wPartyMenuActionText], a
 	farcall WritePartyMenuTilemap
-	farcall PrintPartyMenuText
+	farcall PlacePartyMenuText
 
 	hlcoord 0, 1
 	ld bc, SCREEN_WIDTH * 2
@@ -173,7 +176,7 @@ SwitchPartyMons:
 	call AddNTimes
 	ld [hl], "▷"
 	call WaitBGMap
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	call DelayFrame
 
 	farcall PartyMenuSelect
@@ -910,10 +913,13 @@ MoveScreenLoop:
 	hlcoord 1, 11
 	ld bc, 5
 	call ByteFill
+	hlcoord 1, 11
+	lb bc, 5, 7
+	call ClearBox
 	hlcoord 1, 12
 	lb bc, 5, SCREEN_WIDTH - 2
 	call ClearBox
-	hlcoord 1, 12
+	hlcoord 2, 13
 	ld de, String_MoveWhere
 	call PlaceString
 	jp .joy_loop
@@ -946,6 +952,8 @@ MoveScreenLoop:
 	ld a, [wCurPartyMon]
 	cp b
 	jp z, .joy_loop
+	ld de, SFX_SWITCH_POCKETS
+	call PlaySFX
 	jp MoveScreenLoop
 
 .d_left
@@ -960,6 +968,8 @@ MoveScreenLoop:
 	ld a, [wCurPartyMon]
 	cp b
 	jp z, .joy_loop
+	ld de, SFX_SWITCH_POCKETS
+	call PlaySFX	
 	jp MoveScreenLoop
 
 .cycle_right
@@ -1085,7 +1095,7 @@ MoveScreen2DMenuData:
 	db D_UP | D_DOWN | D_LEFT | D_RIGHT | A_BUTTON | B_BUTTON ; accepted buttons
 
 String_MoveWhere:
-	db "Where?@"
+	db "Select a move<NEXT>to swap places.@"
 
 SetUpMoveScreenBG:
 	call ClearBGPalettes
@@ -1104,8 +1114,8 @@ SetUpMoveScreenBG:
 	ld [wTempIconSpecies], a
 	ld e, MONICON_MOVES
 	farcall LoadMenuMonIcon
-	hlcoord 0, 1
-	ld b, 9
+	hlcoord 0, -1
+	ld b, 1
 	ld c, 18
 	call Textbox
 	hlcoord 0, 11
@@ -1151,7 +1161,7 @@ SetUpMoveList:
 	hlcoord 10, 4
 	predef ListMovePP
 	call WaitBGMap
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	ld a, [wNumMoves]
 	inc a
 	ld [w2DMenuNumRows], a
@@ -1179,19 +1189,27 @@ PrepareToPlaceMoveData:
 PlaceMoveData:
 	xor a
 	ldh [hBGMapMode], a
+
+; Print UI elements
 	hlcoord 0, 10
 	ld de, String_MoveType_Top
 	call PlaceString
 	hlcoord 0, 11
 	ld de, String_MoveType_Bottom
 	call PlaceString
-	hlcoord 12, 12
+	hlcoord 1, 11
 	ld de, String_MoveAtk
 	call PlaceString
-	ld a, [wCurSpecies]
-	ld b, a
-	hlcoord 2, 12
-	predef PrintMoveType
+	hlcoord 1, 12
+	ld de, String_MoveAcc
+	call PlaceString
+	hlcoord 1, 13
+	ld de, String_MoveEff
+	call PlaceString
+
+; Print move category
+
+; Verify if it has power
 	ld a, [wCurSpecies]
 	dec a
 	ld hl, Moves + MOVE_POWER
@@ -1200,6 +1218,100 @@ PlaceMoveData:
 	ld a, BANK(Moves)
 	call GetFarByte
 	hlcoord 16, 12
+	cp 2
+	jr c, .status_move
+	
+; Verifify if physical or special
+	ld a, [wCurSpecies]
+	dec a
+	ld bc, MOVE_LENGTH
+	ld hl, Moves
+	call AddNTimes
+	ld de, wStringBuffer1
+	ld a, BANK(Moves)
+	call FarCopyBytes
+	ld a, [wStringBuffer1 + MOVE_TYPE]
+	cp SPECIAL
+	jr nc, .special_category
+
+; IF PHYSICAL
+	hlcoord 11, 13
+	ld de, String_MovePhy
+	call PlaceString
+	jr .printed_category
+
+; IF SPECIAL
+.special_category
+	hlcoord 11, 13
+	ld de, String_MoveSpe
+	call PlaceString
+	jr .printed_category
+
+; IF STATUS
+.status_move
+	hlcoord 11, 13
+	ld de, String_MoveSta
+	call PlaceString
+
+.printed_category
+	hlcoord 10, 13
+	ld [hl], "/"
+	call PlaceString
+
+; Print move effect chance
+	ld a, [wCurSpecies]
+	ld bc, MOVE_LENGTH
+	ld hl, (Moves + MOVE_CHANCE) - MOVE_LENGTH
+	call AddNTimes
+	ld a, BANK(Moves)
+	call GetFarByte
+	cp 1
+	jr c, .if_null_chance
+	Call ConvertPercentages
+	ld [wBuffer1], a
+	ld de, wBuffer1
+	lb bc, 1, 3
+	hlcoord 5, 13
+	call PrintNum
+	jr .skip_null_chance
+
+.if_null_chance
+	ld de, String_MoveNoPower
+	ld bc, 3
+	hlcoord 5, 13
+	call PlaceString
+
+.skip_null_chance
+
+; Print move accuracy
+	ld a, [wCurSpecies]
+	ld bc, MOVE_LENGTH
+	ld hl, (Moves + MOVE_ACC) - MOVE_LENGTH
+	call AddNTimes
+	ld a, BANK(Moves)
+	call GetFarByte
+	Call ConvertPercentages
+	ld [wBuffer1], a
+	ld de, wBuffer1
+	lb bc, 1, 3
+	hlcoord 5, 12
+	call PrintNum
+
+; Print move type
+	ld a, [wCurSpecies]
+	ld b, a
+	hlcoord 10, 12
+	predef PrintMoveType
+
+; Print move power
+	ld a, [wCurSpecies]
+	dec a
+	ld hl, Moves + MOVE_POWER
+	ld bc, MOVE_LENGTH
+	call AddNTimes
+	ld a, BANK(Moves)
+	call GetFarByte
+	hlcoord 5, 11
 	cp 2
 	jr c, .no_power
 	ld [wTextDecimalByte], a
@@ -1211,23 +1323,35 @@ PlaceMoveData:
 .no_power
 	ld de, String_MoveNoPower
 	call PlaceString
-
+	
+; Print move description
 .description
-	hlcoord 1, 14
+	hlcoord 1, 15
 	predef PrintMoveDescription
 	ld a, $1
 	ldh [hBGMapMode], a
 	ret
 
+; UI elements
 String_MoveType_Top:
-	db "┌─────┐@"
+	db "┌───────┐@"
 String_MoveType_Bottom:
-	db "│TYPE/└@"
+	db "│       └@"
 String_MoveAtk:
 	db "ATK/@"
+String_MoveAcc:
+	db "ACC/@"	
+String_MoveEff:
+	db "EFF/@"	
 String_MoveNoPower:
 	db "---@"
-
+String_MovePhy:
+	db "PHYSICAL@"
+String_MoveSpe:
+	db "SPECIAL @"
+String_MoveSta:
+	db "STATUS  @"
+	
 PlaceMoveScreenArrows:
 	call PlaceMoveScreenLeftArrow
 	call PlaceMoveScreenRightArrow

@@ -27,6 +27,7 @@ DoSleep:
 	usedmovetext
 	doturn
 	checkhit
+	checkpowder
 	checksafeguard
 	sleeptarget
 	endmove
@@ -475,6 +476,7 @@ SpeedDown2:
 	usedmovetext
 	doturn
 	checkhit
+	checkpowder
 	speeddown2
 	lowersub
 	statdownanim
@@ -1001,13 +1003,6 @@ Heal:
 	heal
 	endmove
 
-Transform:
-	checkobedience
-	usedmovetext
-	doturn
-	transform
-	endmove
-
 LightScreen:
 Reflect:
 	checkobedience
@@ -1042,6 +1037,7 @@ DoPoison:
 	usedmovetext
 	doturn
 	checkhit
+	checkpowder
 	stab
 	checksafeguard
 	poison
@@ -1053,6 +1049,7 @@ DoParalyze:
 	doturn
 	stab
 	checkhit
+	checkpowder
 	checksafeguard
 	paralyze
 	endmove
@@ -1625,27 +1622,6 @@ Return:
 	kingsrock
 	endmove
 
-Present:
-	checkobedience
-	usedmovetext
-	doturn
-	checkhit
-	critical
-	damagestats
-	present
-	damagecalc
-	stab
-	damagevariation
-	clearmissdamage
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	buildopponentrage
-	kingsrock
-	endmove
-
 Frustration:
 	checkobedience
 	usedmovetext
@@ -1786,26 +1762,6 @@ Moonlight:
 	usedmovetext
 	doturn
 	healnite
-	endmove
-
-HiddenPower:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	hiddenpower
-	damagecalc
-	stab
-	damagevariation
-	checkhit
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	buildopponentrage
-	kingsrock
 	endmove
 
 RainDance:
@@ -2077,3 +2033,11 @@ DefenseCurl:
 	statupmessage
 	statupfailtext
 	endmove
+
+Hail:
+	checkobedience
+	usedmovetext
+	doturn
+	starthail
+	endmove
+	

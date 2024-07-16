@@ -545,6 +545,40 @@ _WhitedOutText::
 	para "<PLAYER> whited"
 	line "out!"
 	done
+	
+_WhitedOutToWildMonText::
+	text "<PLAYER> is out of"
+	line "useable #MON!"
+
+	para "<PLAYER> panicked"
+	line "and dropped"
+	cont "¥@"
+	text_decimal hMoneyTemp, 3, 6
+	text "…"
+
+	para "<……><……><……>"
+	line "<……><……><……>"
+
+	para "<PLAYER> whited"
+	line "out!"
+	done
+
+_WhitedOutToTrainerText::
+	text "<PLAYER> is out of"
+	line "useable #MON!"
+
+	para "<PLAYER> paid"
+	line "¥@"
+	text_decimal hMoneyTemp, 3, 6
+	text " to the"
+	cont "winner…"
+
+	para "<……><……><……>"
+	line "<……><……><……>"
+
+	para "<PLAYER> whited"
+	line "out!"
+	done
 
 _ItemfinderItemNearbyText::
 	text "Yes! ITEMFINDER"
@@ -663,8 +697,8 @@ _YouCantUseItInABattleText::
 	prompt
 
 _AreYouABoyOrAreYouAGirlText::
-	text "Are you a boy?"
-	line "Or are you a girl?"
+	text "Are you girlish?"
+	line "Or tomboyish?"
 	done
 
 Text_BattleEffectActivate::
@@ -739,12 +773,7 @@ _ActorNameText::
 	text "<USER>@"
 	text_end
 
-_UsedMove1Text::
-	text_start
-	line "used @"
-	text_end
-
-_UsedMove2Text::
+_UsedMoveText::
 	text_start
 	line "used @"
 	text_end
@@ -756,27 +785,6 @@ _UsedInsteadText::
 
 _MoveNameText::
 	text_ram wStringBuffer2
-	text_end
-
-	text_end ; unreferenced
-
-_EndUsedMove1Text::
-	text "!"
-	done
-
-_EndUsedMove2Text::
-	text "!"
-	done
-
-_EndUsedMove3Text::
-	text "!"
-	done
-
-_EndUsedMove4Text::
-	text "!"
-	done
-
-_EndUsedMove5Text::
 	text "!"
 	done
 
@@ -1213,7 +1221,7 @@ _OakRating01::
 _OakRating02::
 	text "Good. I see you"
 	line "understand how to"
-	cont "use # BALLS."
+	cont "use # ORBS."
 	done
 
 _OakRating03::
@@ -1286,7 +1294,7 @@ _OakRating11::
 
 _OakRating12::
 	text "Have you met KURT?"
-	line "His custom BALLS"
+	line "His custom ORBS"
 	cont "should help."
 	done
 

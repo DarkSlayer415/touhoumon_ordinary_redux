@@ -28,7 +28,7 @@ UnownWalls:
 	unownwall "WATER"
 ; UNOWNWORDS_HO_OH
 	; db $0e, $2c, $64, $2c, $0e, -1
-	unownwall "HO-OH"
+	unownwall "SATSUKI"
 
 MenuHeaders_UnownWalls:
 ; UNOWNWORDS_ESCAPE

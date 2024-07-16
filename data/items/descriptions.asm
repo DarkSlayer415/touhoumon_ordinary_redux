@@ -260,11 +260,11 @@ ItemDescriptions:
 	assert_table_length $ff
 
 MasterBallDesc:
-	db   "The best BALL. It"
+	db   "The best ORB. It"
 	next "never misses.@"
 
 UltraBallDesc:
-	db   "A BALL with a high"
+	db   "An ORB with a high"
 	next "rate of success.@"
 
 BrightpowderDesc:
@@ -272,7 +272,7 @@ BrightpowderDesc:
 	next "accuracy. (HOLD)@"
 
 GreatBallDesc:
-	db   "A BALL with a de-"
+	db   "An ORB with a de-"
 	next "cent success rate.@"
 
 PokeBallDesc:
@@ -299,8 +299,8 @@ BurnHealDesc:
 	next "#MON.@"
 
 IceHealDesc:
-	db   "Defrosts frozen"
-	next "#MON.@"
+	db   "Heals a frostbit-"
+	next "ten #MON.@"
 
 AwakeningDesc:
 	db   "Awakens sleeping"
@@ -320,11 +320,11 @@ MaxPotionDesc:
 
 HyperPotionDesc:
 	db   "Restores #MON"
-	next "HP by 200.@"
+	next "HP by 120.@"
 
 SuperPotionDesc:
 	db   "Restores #MON"
-	next "HP by 50.@"
+	next "HP by 60.@"
 
 PotionDesc:
 	db   "Restores #MON"
@@ -375,7 +375,7 @@ CarbosDesc:
 
 LuckyPunchDesc:
 	db   "Ups critical hit"
-	next "ratio of CHANSEY.@"
+	next "rate of Toyohime.@"
 
 CalciumDesc:
 	db   "Ups SPECIAL stats"
@@ -394,8 +394,8 @@ LeafStoneDesc:
 	next "kinds of #MON.@"
 
 MetalPowderDesc:
-	db   "Raises DEFENSE of"
-	next "DITTO. (HOLD)@"
+	db   "Raises defenses of"
+	next "EOrange. (HOLD)@"
 
 NuggetDesc:
 	db   "Made of pure gold."
@@ -427,7 +427,7 @@ SuperRepelDesc:
 
 MaxRepelDesc:
 	db   "Repels weak #-"
-	next "MON for 250 steps.@"
+	next "MON for 300 steps.@"
 
 DireHitDesc:
 	db   "Ups critical hit"
@@ -438,15 +438,15 @@ TeruSama3Desc:
 
 FreshWaterDesc:
 	db   "Restores #MON"
-	next "HP by 50.@"
+	next "HP by 30.@"
 
 SodaPopDesc:
 	db   "Restores #MON"
-	next "HP by 60.@"
+	next "HP by 50.@"
 
 LemonadeDesc:
 	db   "Restores #MON"
-	next "HP by 80.@"
+	next "HP by 70.@"
 
 XAttackDesc:
 	db   "Raises ATTACK."
@@ -515,8 +515,8 @@ ElixerDesc:
 	next "moves by 10.@"
 
 RedScaleDesc:
-	db   "A scale from the"
-	next "red GYARADOS.@"
+	db   "Golden Robes from"
+	next "EKanako.@"
 
 SecretPotionDesc:
 	db   "Fully heals any"
@@ -532,11 +532,11 @@ MysteryEggDesc:
 
 ClearBellDesc:
 	db   "Makes a gentle"
-	next "ringing.@"
+	next "sound.@"
 
 SilverWingDesc:
-	db   "A strange, silver-"
-	next "colored feather.@"
+	db   "A mystical music"
+	next "composition.@"
 
 MoomooMilkDesc:
 	db   "Restores #MON"
@@ -568,7 +568,7 @@ PrzCureBerryDesc:
 
 BurntBerryDesc:
 	db   "A self-cure for"
-	next "freezing. (HOLD)@"
+	next "frostbite. (HOLD)@"
 
 IceBerryDesc:
 	db   "A self-heal for a"
@@ -664,8 +664,8 @@ PinkBowDesc:
 	next "type moves. (HOLD)@"
 
 StickDesc:
-	db   "An ordinary stick."
-	next "Sell low.@"
+	db   "Ups critical hit"
+	next "rate of Yorihime.@"
 
 SmokeBallDesc:
 	db   "Escape from wild"
@@ -705,7 +705,7 @@ RageCandyBarDesc:
 
 GSBallDesc:
 	db   "The mysterious"
-	next "BALL.@"
+	next "ORB.@"
 
 BlueCardDesc:
 	db   "Card to save"
@@ -716,8 +716,8 @@ MiracleSeedDesc:
 	next "type moves. (HOLD)@"
 
 ThickClubDesc:
-	db   "A bone of some"
-	next "sort. Sell low.@"
+	db   "Raises ATTACK of"
+	next "EOrange. (HOLD)@"
 
 FocusBandDesc:
 	db   "May prevent faint-"
@@ -728,11 +728,11 @@ TeruSama8Desc:
 
 EnergyPowderDesc:
 	db   "Restores #MON"
-	next "HP by 50. Bitter.@"
+	next "HP by 60. Bitter.@"
 
 EnergyRootDesc:
 	db   "Restores #MON"
-	next "HP by 200. Bitter.@"
+	next "HP by 120. Bitter.@"
 
 HealPowderDesc:
 	db   "Cures all status"
@@ -858,7 +858,7 @@ SacredAshDesc:
 	next "fainted #MON.@"
 
 HeavyBallDesc:
-	db   "A BALL for catch-"
+	db   "An ORB for catch-"
 	next "ing heavy #MON.@"
 
 FlowerMailDesc:
@@ -866,30 +866,30 @@ FlowerMailDesc:
 	next "(HOLD)@"
 
 LevelBallDesc:
-	db   "A BALL for lower-"
+	db   "An ORB for lower-"
 	next "level #MON.@"
 
 LureBallDesc:
-	db   "A BALL for #MON"
+	db   "An ORB for #MON"
 	next "hooked by a ROD.@"
 
 FastBallDesc:
-	db   "A BALL for catch-"
+	db   "An ORB for catch-"
 	next "ing fast #MON.@"
 
 TeruSama21Desc:
 	db   "?@"
 
 LightBallDesc:
-	db   "An odd, electrical"
-	next "orb. (HOLD)@"
+	db   "Raises SP.ATK of"
+	next "EOrange. (HOLD)@"
 
 FriendBallDesc:
-	db   "A BALL that makes"
+	db   "An ORB that makes"
 	next "#MON friendly.@"
 
 MoonBallDesc:
-	db   "A BALL for MOON"
+	db   "An ORB for MOON"
 	next "STONE evolvers.@"
 
 LoveBallDesc:
@@ -909,7 +909,7 @@ SunStoneDesc:
 	next "kinds of #MON.@"
 
 PolkadotBowDesc:
-	db   "Powers up normal-"
+	db   "Powers up fairy-"
 	next "type moves. (HOLD)@"
 
 TeruSama22Desc:
@@ -928,19 +928,19 @@ GoldBerryDesc:
 	next "item. (30HP, HOLD)@"
 
 SquirtBottleDesc:
-	db   "A bottle used for"
-	next "watering plants.@"
+	db   "A frog encased in"
+	next "a block of ice.@"
 
 TeruSama23Desc:
 	db   "?@"
 
 ParkBallDesc:
 	db   "The Bug-Catching"
-	next "Contest BALL.@"
+	next "Contest ORB.@"
 
 RainbowWingDesc:
-	db   "A mystical feather"
-	next "of rainbow colors.@"
+	db   "A mystical energy"
+	next "source for robots.@"
 
 TeruSama24Desc:
 	db   "?@"
@@ -950,11 +950,11 @@ BrickPieceDesc:
 	next "tile.@"
 
 SurfMailDesc:
-	db   "LAPRAS-print MAIL."
+	db   "Komachi-print MAIL."
 	next "(HOLD)@"
 
 LiteBlueMailDesc:
-	db   "DRATINI-print"
+	db   "Iku-print"
 	next "MAIL. (HOLD)@"
 
 PortraitMailDesc:
@@ -966,11 +966,11 @@ LovelyMailDesc:
 	next "(HOLD)@"
 
 EonMailDesc:
-	db   "EEVEE-print MAIL."
+	db   "Fairy-print MAIL."
 	next "(HOLD)@"
 
 MorphMailDesc:
-	db   "DITTO-print MAIL."
+	db   "Meira-print MAIL."
 	next "(HOLD)@"
 
 BlueSkyMailDesc:
@@ -978,11 +978,11 @@ BlueSkyMailDesc:
 	next "(HOLD)@"
 
 MusicMailDesc:
-	db   "NATU-print MAIL."
+	db   "Hatate-print MAIL."
 	next "(HOLD)@"
 
 MirageMailDesc:
-	db   "MEW-print MAIL."
+	db   "VIVIT-print MAIL."
 	next "(HOLD)@"
 
 TeruSama25Desc:

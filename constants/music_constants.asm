@@ -8,9 +8,7 @@
 	const MUSIC_ROUTE_12                     ; 04
 	const MUSIC_MAGNET_TRAIN                 ; 05
 	const MUSIC_KANTO_GYM_LEADER_BATTLE      ; 06
-	const MUSIC_KANTO_TRAINER_BATTLE         ; 07
 	const MUSIC_KANTO_WILD_BATTLE            ; 08
-	const MUSIC_POKEMON_CENTER               ; 09
 	const MUSIC_HIKER_ENCOUNTER              ; 0a
 	const MUSIC_LASS_ENCOUNTER               ; 0b
 	const MUSIC_OFFICER_ENCOUNTER            ; 0c
@@ -18,7 +16,6 @@
 	const MUSIC_LAVENDER_TOWN                ; 0e
 	const MUSIC_ROUTE_2                      ; 0f
 	const MUSIC_MT_MOON                      ; 10
-	const MUSIC_SHOW_ME_AROUND               ; 11
 	const MUSIC_GAME_CORNER                  ; 12
 	const MUSIC_BICYCLE                      ; 13
 	const MUSIC_HALL_OF_FAME                 ; 14
@@ -43,14 +40,11 @@
 	const MUSIC_KIMONO_ENCOUNTER             ; 27
 	const MUSIC_UNION_CAVE                   ; 28
 	const MUSIC_JOHTO_WILD_BATTLE            ; 29
-	const MUSIC_JOHTO_TRAINER_BATTLE         ; 2a
 	const MUSIC_ROUTE_30                     ; 2b
 	const MUSIC_ECRUTEAK_CITY                ; 2c
 	const MUSIC_VIOLET_CITY                  ; 2d
 	const MUSIC_JOHTO_GYM_LEADER_BATTLE      ; 2e
-	const MUSIC_CHAMPION_BATTLE              ; 2f
 	const MUSIC_RIVAL_BATTLE                 ; 30
-	const MUSIC_ROCKET_BATTLE                ; 31
 	const MUSIC_PROF_ELM                     ; 32
 	const MUSIC_DARK_CAVE                    ; 33
 	const MUSIC_ROUTE_29                     ; 34
@@ -105,15 +99,25 @@
 	const MUSIC_SUICUNE_BATTLE               ; 64
 	const MUSIC_BATTLE_TOWER_LOBBY           ; 65
 	const MUSIC_MOBILE_CENTER                ; 66
+;Remixes from HGSS
+	const MUSIC_CERULEAN_CITY 				 ; 67
+	const MUSIC_CINNABAR_ISLAND              ; 68
+	const MUSIC_NUGGET_BRIDGE                ; 69
+	const MUSIC_POKEMART                     ; 6d
+	const MUSIC_ROUTE_47					 ; 6e
+;Touhoumon Remixes
+	const MUSIC_EIRIN_CENTER
+	const MUSIC_ROCKET_YOUMU_BATTLE
+	const MUSIC_FOLLOWME_HIROSHIGE
+	const MUSIC_CHAMPION_YUKARI_BATTLE
+	const MUSIC_JOHTO_SANAE_BATTLE
+	const MUSIC_KANTO_MARISA_BATTLE
 DEF NUM_MUSIC_SONGS EQU const_value
 
-; GetMapMusic picks music for this value (see home/map.asm)
-DEF MUSIC_MAHOGANY_MART EQU $64
+; GetMapMusic picks music for these values (see home/map.asm)
+DEF MUSIC_MAHOGANY_MART EQU $fc
+DEF MUSIC_RADIO_TOWER   EQU $fd
 
 ; ExitPokegearRadio_HandleMusic uses these values
 DEF RESTART_MAP_MUSIC EQU $fe
 DEF ENTER_MAP_MUSIC   EQU $ff
-
-; GetMapMusic picks music for this bit flag
-DEF RADIO_TOWER_MUSIC_F EQU 7
-DEF RADIO_TOWER_MUSIC EQU 1 << RADIO_TOWER_MUSIC_F

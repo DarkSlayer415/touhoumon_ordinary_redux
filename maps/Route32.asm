@@ -50,7 +50,7 @@ Route32CooltrainerMContinueScene:
 	iftrue .GotMiracleSeed
 	checkflag ENGINE_ZEPHYRBADGE
 	iffalse .DontHaveZephyrBadge
-	checkevent EVENT_GOT_TOGEPI_EGG_FROM_ELMS_AIDE
+	checkevent EVENT_GOT_HATATE_EGG_FROM_ELMS_AIDE
 	iftrue .GiveMiracleSeed
 	writetext Route32CooltrainerMText_AideIsWaiting
 	waitbutton
@@ -543,7 +543,7 @@ Route32CooltrainerMText_AideIsWaiting:
 
 Route32CooltrainerMText_UnusedSproutTower:
 	text "Have you gone to"
-	line "SPROUT TOWER?"
+	line "AUTUMN TOWER?"
 
 	para "If you ever visit"
 	line "VIOLET CITY, "
@@ -553,7 +553,7 @@ Route32CooltrainerMText_UnusedSproutTower:
 
 	para "That's basic for"
 	line "trainers. Go to"
-	cont "SPROUT TOWER!"
+	cont "AUTUMN TOWER!"
 	done
 
 Route32CooltrainerMText_VioletGym:
@@ -607,7 +607,7 @@ Text_MillionDollarSlowpokeTail:
 	line "to have this"
 
 	para "tasty, nutritious"
-	line "SLOWPOKETAIL?"
+	line "Cucumber?"
 
 	para "For you right now,"
 	line "just ¥1,000,000!"
@@ -911,7 +911,7 @@ Route32SignText:
 	done
 
 Route32RuinsSignText:
-	text "RUINS OF ALPH"
+	text "RUINS OF MEMORY"
 	line "EAST ENTRANCE"
 	done
 

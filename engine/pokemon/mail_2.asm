@@ -53,7 +53,7 @@ ReadAnyMail:
 	ld a, [wCurMailIndex]
 	ld e, a
 	farcall LoadMailPalettes
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	xor a
 	ldh [hJoyPressed], a
 	call .loop
@@ -579,9 +579,6 @@ LoadPortraitMailGFX:
 	ld b, $a
 	call Mail_DrawRowLoop
 	call LovelyEonMail_PlaceIcons
-	ld a, $1
-	ld [wUnownLetter], a
-	hlcoord 1, 10
 	call PrepMonFrontpic
 	pop hl
 	jp MailGFX_PlaceMessage

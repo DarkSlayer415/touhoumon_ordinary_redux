@@ -5,7 +5,7 @@ MACRO anim_obj_gfx
 ENDM
 
 AnimObjGFX:
-; entries correspond to ANIM_GFX_* constants
+; entries correspond to BATTLE_ANIM_GFX_* constants
 	table_width 4, AnimObjGFX
 	anim_obj_gfx  0, AnimObj00GFX
 	anim_obj_gfx 21, AnimObjHitGFX
@@ -49,4 +49,17 @@ AnimObjGFX:
 	anim_obj_gfx 24, AnimObjAeroblastGFX
 	anim_obj_gfx  1, NULL
 	anim_obj_gfx  1, NULL
+<<<<<<< HEAD
+	anim_obj_gfx 13, AnimObjBigGlowGFX
+	anim_obj_gfx 13, AnimObjBigGlowClearGFX
+	anim_obj_gfx  6, AnimObjLeafStormGFX
+	anim_obj_gfx 18, AnimObjHurricaneGFX
+	anim_obj_gfx 24, AnimObjSwirlGFX
+	anim_obj_gfx 22, AnimObjObjects4GFX
+	anim_obj_gfx 32, AnimObjVortexGFX
+	anim_obj_gfx 14, AnimObjSmokePuffBigGFX
+	anim_obj_gfx 10, AnimObjGlowGFX
 	assert_table_length NUM_ANIM_GFX + 1
+=======
+	assert_table_length NUM_BATTLE_ANIM_GFX + 1
+>>>>>>> 024c8749a0e7aa7f72082b0fa17498bf42c5359f

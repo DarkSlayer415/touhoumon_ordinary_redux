@@ -1,6 +1,6 @@
 	object_const_def
 	const GOLDENRODPOKECENTER1F_NURSE
-	const GOLDENRODPOKECENTER1F_LINK_RECEPTIONIST
+	const GOLDENRODPOKECENTER1F_PCC_TRADE_CORNER_RECEPTIONIST
 	const GOLDENRODPOKECENTER1F_GAMEBOY_KID
 	const GOLDENRODPOKECENTER1F_LASS
 	const GOLDENRODPOKECENTER1F_POKEFAN_F
@@ -15,65 +15,81 @@ GoldenrodPokecenter1FNurseScript:
 	jumpstd PokecenterNurseScript
 
 GoldenrodPokecenter1F_GSBallSceneLeft:
-	setval BATTLETOWERACTION_CHECKMOBILEEVENT
+	setval BATTLETOWERACTION_GSBALL
 	special BattleTowerAction
-	ifequal MOBILE_EVENT_OBJECT_GS_BALL, .gsball
+	ifequal GS_BALL_AVAILABLE, .gsball
 	end
 
 .gsball
-	checkevent EVENT_GOT_GS_BALL_FROM_POKECOM_CENTER
+	checkevent EVENT_GOT_GS_BALL_FROM_GOLDENROD_POKEMON_CENTER
 	iftrue .cancel
 	playsound SFX_EXIT_BUILDING
+<<<<<<< HEAD
 	moveobject GOLDENRODPOKECENTER1F_LINK_RECEPTIONIST, 0, 7
 	disappear GOLDENRODPOKECENTER1F_LINK_RECEPTIONIST
 	appear GOLDENRODPOKECENTER1F_LINK_RECEPTIONIST
-	playmusic MUSIC_SHOW_ME_AROUND
+	playmusic MUSIC_FOLLOWME_HIROSHIGE
 	applymovement GOLDENRODPOKECENTER1F_LINK_RECEPTIONIST, GoldenrodPokeCenter1FLinkReceptionistApproachPlayerAtLeftDoorwayTileMovement
+=======
+	moveobject GOLDENRODPOKECENTER1F_PCC_TRADE_CORNER_RECEPTIONIST, 0, 7
+	disappear GOLDENRODPOKECENTER1F_PCC_TRADE_CORNER_RECEPTIONIST
+	appear GOLDENRODPOKECENTER1F_PCC_TRADE_CORNER_RECEPTIONIST
+	playmusic MUSIC_SHOW_ME_AROUND
+	applymovement GOLDENRODPOKECENTER1F_PCC_TRADE_CORNER_RECEPTIONIST, GoldenrodPokeCenter1FLinkReceptionistApproachPlayerAtLeftDoorwayTileMovement
+>>>>>>> 024c8749a0e7aa7f72082b0fa17498bf42c5359f
 	turnobject PLAYER, UP
 	opentext
 	writetext GoldenrodPokeCenter1FLinkReceptionistPleaseAcceptGSBallText
 	waitbutton
 	verbosegiveitem GS_BALL
-	setevent EVENT_GOT_GS_BALL_FROM_POKECOM_CENTER
+	setevent EVENT_GOT_GS_BALL_FROM_GOLDENROD_POKEMON_CENTER
 	setevent EVENT_CAN_GIVE_GS_BALL_TO_KURT
 	writetext GoldenrodPokeCenter1FLinkReceptionistPleaseDoComeAgainText
 	waitbutton
 	closetext
-	applymovement GOLDENRODPOKECENTER1F_LINK_RECEPTIONIST, GoldenrodPokeCenter1FLinkReceptionistWalkToStairsFromLeftDoorwayTileMovement
+	applymovement GOLDENRODPOKECENTER1F_PCC_TRADE_CORNER_RECEPTIONIST, GoldenrodPokeCenter1FLinkReceptionistWalkToStairsFromLeftDoorwayTileMovement
 	special RestartMapMusic
-	disappear GOLDENRODPOKECENTER1F_LINK_RECEPTIONIST
+	disappear GOLDENRODPOKECENTER1F_PCC_TRADE_CORNER_RECEPTIONIST
 	playsound SFX_EXIT_BUILDING
 .cancel
 	end
 
 GoldenrodPokecenter1F_GSBallSceneRight:
-	setval BATTLETOWERACTION_CHECKMOBILEEVENT
+	setval BATTLETOWERACTION_GSBALL
 	special BattleTowerAction
-	ifequal MOBILE_EVENT_OBJECT_GS_BALL, .gsball
+	ifequal GS_BALL_AVAILABLE, .gsball
 	end
 
 .gsball
-	checkevent EVENT_GOT_GS_BALL_FROM_POKECOM_CENTER
+	checkevent EVENT_GOT_GS_BALL_FROM_GOLDENROD_POKEMON_CENTER
 	iftrue .cancel
 	playsound SFX_EXIT_BUILDING
+<<<<<<< HEAD
 	moveobject GOLDENRODPOKECENTER1F_LINK_RECEPTIONIST, 0, 7
 	disappear GOLDENRODPOKECENTER1F_LINK_RECEPTIONIST
 	appear GOLDENRODPOKECENTER1F_LINK_RECEPTIONIST
-	playmusic MUSIC_SHOW_ME_AROUND
+	playmusic MUSIC_FOLLOWME_HIROSHIGE
 	applymovement GOLDENRODPOKECENTER1F_LINK_RECEPTIONIST, GoldenrodPokeCenter1FLinkReceptionistApproachPlayerAtRightDoorwayTileMovement
+=======
+	moveobject GOLDENRODPOKECENTER1F_PCC_TRADE_CORNER_RECEPTIONIST, 0, 7
+	disappear GOLDENRODPOKECENTER1F_PCC_TRADE_CORNER_RECEPTIONIST
+	appear GOLDENRODPOKECENTER1F_PCC_TRADE_CORNER_RECEPTIONIST
+	playmusic MUSIC_SHOW_ME_AROUND
+	applymovement GOLDENRODPOKECENTER1F_PCC_TRADE_CORNER_RECEPTIONIST, GoldenrodPokeCenter1FLinkReceptionistApproachPlayerAtRightDoorwayTileMovement
+>>>>>>> 024c8749a0e7aa7f72082b0fa17498bf42c5359f
 	turnobject PLAYER, UP
 	opentext
 	writetext GoldenrodPokeCenter1FLinkReceptionistPleaseAcceptGSBallText
 	waitbutton
 	verbosegiveitem GS_BALL
-	setevent EVENT_GOT_GS_BALL_FROM_POKECOM_CENTER
+	setevent EVENT_GOT_GS_BALL_FROM_GOLDENROD_POKEMON_CENTER
 	setevent EVENT_CAN_GIVE_GS_BALL_TO_KURT
 	writetext GoldenrodPokeCenter1FLinkReceptionistPleaseDoComeAgainText
 	waitbutton
 	closetext
-	applymovement GOLDENRODPOKECENTER1F_LINK_RECEPTIONIST, GoldenrodPokeCenter1FLinkReceptionistWalkToStairsFromRightDoorwayTileMovement
+	applymovement GOLDENRODPOKECENTER1F_PCC_TRADE_CORNER_RECEPTIONIST, GoldenrodPokeCenter1FLinkReceptionistWalkToStairsFromRightDoorwayTileMovement
 	special RestartMapMusic
-	disappear GOLDENRODPOKECENTER1F_LINK_RECEPTIONIST
+	disappear GOLDENRODPOKECENTER1F_PCC_TRADE_CORNER_RECEPTIONIST
 	playsound SFX_EXIT_BUILDING
 .cancel
 	end

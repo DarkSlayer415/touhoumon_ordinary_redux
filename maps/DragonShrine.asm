@@ -213,7 +213,7 @@ DragonShrineElder1Script:
 	writetext DragonShrinePlayerReceivedDratiniText
 	playsound SFX_CAUGHT_MON
 	waitsfx
-	givepoke DRATINI, 15
+	givepoke MEWTWO, 35 ;CKasen
 	checkevent EVENT_ANSWERED_DRAGON_MASTER_QUIZ_WRONG
 	special GiveDratini
 	setevent EVENT_GOT_DRATINI
@@ -503,7 +503,7 @@ DragonShrineTakeThisDratiniText:
 	para "I have something"
 	line "for you."
 
-	para "Take this DRATINI"
+	para "Take this CRan"
 	line "as proof that I"
 
 	para "have recognized"
@@ -512,7 +512,7 @@ DragonShrineTakeThisDratiniText:
 
 DragonShrinePlayerReceivedDratiniText:
 	text "<PLAYER> received"
-	line "DRATINI!"
+	line "CRan!"
 	done
 
 DragonShrinePartyFullText:

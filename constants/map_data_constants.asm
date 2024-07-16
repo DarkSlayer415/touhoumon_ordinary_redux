@@ -29,7 +29,7 @@ DEF MAP_LENGTH EQU _RS
 	const DUNGEON
 DEF NUM_ENVIRONMENTS EQU const_value - 1
 
-; map palettes (wEnvironment)
+; map palettes (wMapTimeOfDay)
 	const_def
 	const PALETTE_AUTO
 	const PALETTE_DAY
@@ -138,4 +138,3 @@ DEF KANTO_FLYPOINT EQU const_value
 	const FLY_INDIGO
 DEF NUM_FLYPOINTS EQU const_value
 
-DEF MAX_OUTDOOR_SPRITES EQU 23 ; see engine/overworld/overworld.asm

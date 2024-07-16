@@ -133,7 +133,7 @@ Buena:
 	waitbutton
 	closetext
 	turnobject RADIOTOWER2F_BUENA, DOWN
-	refreshscreen
+	reanchormap
 	special BuenasPassword
 	closetext
 	iffalse .WrongAnswer
@@ -362,8 +362,8 @@ RadioTower2FTeacherText_Rockets:
 	done
 
 RadioTowerJigglypuffText:
-	text "JIGGLYPUFF:"
-	line "Jiggly…"
+	text "Alice:"
+	line "Dolls…"
 	done
 
 RadioTower2FBlackBelt1Text:

@@ -38,8 +38,29 @@ DecorationAttributes:
 	decoration DECO_BIGDOLL, ONIX,            SET_UP_BIG_DOLL,   EVENT_DECO_BIG_ONIX_DOLL,           SPRITE_BIG_ONIX
 	decoration DECO_BIGDOLL, LAPRAS,          SET_UP_BIG_DOLL,   EVENT_DECO_BIG_LAPRAS_DOLL,         SPRITE_BIG_LAPRAS
 	decoration DECO_PLANT,   PUT_IT_AWAY,     PUT_AWAY_DOLL,     EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1, 0
-	decoration DECO_DOLL,    PIKACHU,         SET_UP_DOLL,       EVENT_DECO_PIKACHU_DOLL,            SPRITE_PIKACHU
+	decoration DECO_DOLL,    MARILL,          SET_UP_DOLL,       EVENT_DECO_PIKACHU_DOLL,            SPRITE_POLITOED ;Suwako
 	decoration DECO_PLANT,   SURF_PIKA_DOLL,  SET_UP_DOLL,       EVENT_DECO_SURFING_PIKACHU_DOLL,    SPRITE_SURFING_PIKACHU
+<<<<<<< HEAD
+	decoration DECO_DOLL,    NIDORAN_F,       SET_UP_DOLL,       EVENT_DECO_CLEFAIRY_DOLL,           SPRITE_CLEFAIRY ;Reisen
+	decoration DECO_DOLL,    JIGGLYPUFF,      SET_UP_DOLL,       EVENT_DECO_JIGGLYPUFF_DOLL,         SPRITE_JIGGLYPUFF ;Alice
+	decoration DECO_DOLL,    BULBASAUR,       SET_UP_DOLL,       EVENT_DECO_BULBASAUR_DOLL,          SPRITE_BULBASAUR ;Reimu
+	decoration DECO_DOLL,    CHARMANDER,      SET_UP_DOLL,       EVENT_DECO_CHARMANDER_DOLL,         SPRITE_CHARMANDER ;Marisa
+	decoration DECO_DOLL,    SQUIRTLE,        SET_UP_DOLL,       EVENT_DECO_SQUIRTLE_DOLL,           SPRITE_PIDGEY ;Aya
+	decoration DECO_DOLL,    POLIWAG,         SET_UP_DOLL,       EVENT_DECO_POLIWAG_DOLL,            SPRITE_BELLSPROUT ;Yuuka
+	decoration DECO_DOLL,    DIGLETT,         SET_UP_DOLL,       EVENT_DECO_DIGLETT_DOLL,            SPRITE_RHYDON ;Ran
+	decoration DECO_DOLL,    STARYU,          SET_UP_DOLL,       EVENT_DECO_STARMIE_DOLL,            SPRITE_CHIKORITA ;Kaguya
+	decoration DECO_DOLL,    MAGIKARP,        SET_UP_DOLL,       EVENT_DECO_MAGIKARP_DOLL,           SPRITE_GROWLITHE ;Rumia
+	decoration DECO_DOLL,    ODDISH,          SET_UP_DOLL,       EVENT_DECO_ODDISH_DOLL,             SPRITE_TOTODILE ;Eirin
+	decoration DECO_DOLL,    GENGAR,          SET_UP_DOLL,       EVENT_DECO_GENGAR_DOLL,             SPRITE_BUTTERFREE ;Patchouli
+	decoration DECO_DOLL,    SHELLDER,        SET_UP_DOLL,       EVENT_DECO_SHELLDER_DOLL,           SPRITE_CYNDAQUIL ;Mokou
+	decoration DECO_DOLL,    GRIMER,          SET_UP_DOLL,       EVENT_DECO_GRIMER_DOLL,             SPRITE_JYNX ;Chen
+	decoration DECO_DOLL,    VOLTORB,         SET_UP_DOLL,       EVENT_DECO_VOLTORB_DOLL,            SPRITE_SMOOCHUM ;Suika
+	decoration DECO_DOLL,    WEEDLE,          SET_UP_DOLL,       EVENT_DECO_WEEDLE_DOLL,             SPRITE_WEEDLE ;Cirno
+	decoration DECO_DOLL,    UNOWN,           SET_UP_DOLL,       EVENT_DECO_UNOWN_DOLL,              SPRITE_GIRAFARIG ;Tenshi
+	decoration DECO_DOLL,    GEODUDE,         SET_UP_DOLL,       EVENT_DECO_GEODUDE_DOLL,            SPRITE_GEODUDE ;Youmu
+	decoration DECO_DOLL,    MACHOP,          SET_UP_DOLL,       EVENT_DECO_MACHOP_DOLL,             SPRITE_MACHOP ;Meiling
+	decoration DECO_DOLL,    TENTACOOL,       SET_UP_DOLL,       EVENT_DECO_TENTACOOL_DOLL,          SPRITE_DRATINI ;Yukari
+=======
 	decoration DECO_DOLL,    CLEFAIRY,        SET_UP_DOLL,       EVENT_DECO_CLEFAIRY_DOLL,           SPRITE_CLEFAIRY
 	decoration DECO_DOLL,    JIGGLYPUFF,      SET_UP_DOLL,       EVENT_DECO_JIGGLYPUFF_DOLL,         SPRITE_JIGGLYPUFF
 	decoration DECO_DOLL,    BULBASAUR,       SET_UP_DOLL,       EVENT_DECO_BULBASAUR_DOLL,          SPRITE_BULBASAUR
@@ -47,7 +68,7 @@ DecorationAttributes:
 	decoration DECO_DOLL,    SQUIRTLE,        SET_UP_DOLL,       EVENT_DECO_SQUIRTLE_DOLL,           SPRITE_SQUIRTLE
 	decoration DECO_DOLL,    POLIWAG,         SET_UP_DOLL,       EVENT_DECO_POLIWAG_DOLL,            SPRITE_POLIWAG
 	decoration DECO_DOLL,    DIGLETT,         SET_UP_DOLL,       EVENT_DECO_DIGLETT_DOLL,            SPRITE_DIGLETT
-	decoration DECO_DOLL,    STARYU,          SET_UP_DOLL,       EVENT_DECO_STARMIE_DOLL,            SPRITE_STARMIE
+	decoration DECO_DOLL,    STARYU,          SET_UP_DOLL,       EVENT_DECO_STARYU_DOLL,             SPRITE_STARMIE
 	decoration DECO_DOLL,    MAGIKARP,        SET_UP_DOLL,       EVENT_DECO_MAGIKARP_DOLL,           SPRITE_MAGIKARP
 	decoration DECO_DOLL,    ODDISH,          SET_UP_DOLL,       EVENT_DECO_ODDISH_DOLL,             SPRITE_ODDISH
 	decoration DECO_DOLL,    GENGAR,          SET_UP_DOLL,       EVENT_DECO_GENGAR_DOLL,             SPRITE_GENGAR
@@ -59,6 +80,7 @@ DecorationAttributes:
 	decoration DECO_DOLL,    GEODUDE,         SET_UP_DOLL,       EVENT_DECO_GEODUDE_DOLL,            SPRITE_GEODUDE
 	decoration DECO_DOLL,    MACHOP,          SET_UP_DOLL,       EVENT_DECO_MACHOP_DOLL,             SPRITE_MACHOP
 	decoration DECO_DOLL,    TENTACOOL,       SET_UP_DOLL,       EVENT_DECO_TENTACOOL_DOLL,          SPRITE_TENTACOOL
+>>>>>>> 024c8749a0e7aa7f72082b0fa17498bf42c5359f
 	decoration DECO_PLANT,   GOLD_TROPHY,     SET_UP_DOLL,       EVENT_DECO_GOLD_TROPHY,             SPRITE_GOLD_TROPHY
 	decoration DECO_PLANT,   SILVER_TROPHY,   SET_UP_DOLL,       EVENT_DECO_SILVER_TROPHY,           SPRITE_SILVER_TROPHY
 	assert_table_length NUM_DECOS + NUM_DECO_CATEGORIES + 1

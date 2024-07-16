@@ -210,22 +210,16 @@ PrintPartyMonPage1:
 	ld a, [wTempMonMoves + 0]
 	call PlaceMoveNameString
 	call PlaceGenderAndShininess
-	ld hl, wTempMonDVs
-	predef GetUnownLetter
 	ld hl, wBoxAlignment
 	xor a
 	ld [hl], a
-	ld a, [wCurPartySpecies]
-	cp UNOWN
-	jr z, .got_alignment
 	inc [hl]
-.got_alignment
 	hlcoord 0, 0
 	call _PrepMonFrontpic
 	call WaitBGMap
 	ld b, SCGB_STATS_SCREEN_HP_PALS
 	call GetSGBLayout
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	ret
 
 PrintPartyMonPage2:
@@ -276,7 +270,7 @@ PrintPartyMonPage2:
 	call WaitBGMap
 	ld b, SCGB_STATS_SCREEN_HP_PALS
 	call GetSGBLayout
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	ret
 
 .PrintTempMonStats:

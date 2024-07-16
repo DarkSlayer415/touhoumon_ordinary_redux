@@ -90,7 +90,6 @@ ENDM
 	map_const RUINS_OF_ALPH_OMANYTE_CHAMBER,                4,  5 ; 25
 	map_const RUINS_OF_ALPH_AERODACTYL_CHAMBER,             4,  5 ; 26
 	map_const RUINS_OF_ALPH_INNER_CHAMBER,                 10, 14 ; 27
-	map_const RUINS_OF_ALPH_RESEARCH_CENTER,                4,  4 ; 28
 	map_const RUINS_OF_ALPH_HO_OH_ITEM_ROOM,                4,  5 ; 29
 	map_const RUINS_OF_ALPH_KABUTO_ITEM_ROOM,               4,  5 ; 30
 	map_const RUINS_OF_ALPH_OMANYTE_ITEM_ROOM,              4,  5 ; 31
@@ -224,7 +223,6 @@ ENDM
 
 	newgroup LAKE_OF_RAGE                                         ;  9
 	map_const LAKE_OF_RAGE_HIDDEN_POWER_HOUSE,              4,  4 ;  1
-	map_const LAKE_OF_RAGE_MAGIKARP_HOUSE,                  4,  4 ;  2
 	map_const ROUTE_43_MAHOGANY_GATE,                       5,  4 ;  3
 	map_const ROUTE_43_GATE,                                5,  4 ;  4
 	map_const ROUTE_43,                                    10, 27 ;  5

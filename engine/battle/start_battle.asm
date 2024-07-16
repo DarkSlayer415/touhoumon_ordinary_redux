@@ -87,17 +87,22 @@ PlayBattleMusic:
 	jr .done
 
 .trainermusic
-	ld de, MUSIC_CHAMPION_BATTLE
+	ld de, MUSIC_CHAMPION_YUKARI_BATTLE
 	cp CHAMPION
 	jr z, .done
 	cp RED
 	jr z, .done
 
-; BUG: Team Rocket battle music is not used for Executives or Scientists (see docs/bugs_and_glitches.md)
-	ld de, MUSIC_ROCKET_BATTLE
+	ld de, MUSIC_ROCKET_YOUMU_BATTLE
 	cp GRUNTM
 	jr z, .done
 	cp GRUNTF
+	jr z, .done
+	cp EXECUTIVEM
+	jr z, .done
+	cp EXECUTIVEF
+	jr z, .done
+	cp SCIENTIST
 	jr z, .done
 
 	ld de, MUSIC_KANTO_GYM_LEADER_BATTLE
@@ -120,7 +125,7 @@ PlayBattleMusic:
 	ld a, [wOtherTrainerID]
 	cp RIVAL2_2_CHIKORITA ; Rival in Indigo Plateau
 	jr c, .done
-	ld de, MUSIC_CHAMPION_BATTLE
+	ld de, MUSIC_RIVAL_BATTLE
 	jr .done
 
 .othertrainer
@@ -134,11 +139,11 @@ PlayBattleMusic:
 	jr nz, .kantotrainer
 
 .johtotrainer
-	ld de, MUSIC_JOHTO_TRAINER_BATTLE
+	ld de, MUSIC_JOHTO_SANAE_BATTLE
 	jr .done
 
 .kantotrainer
-	ld de, MUSIC_KANTO_TRAINER_BATTLE
+	ld de, MUSIC_KANTO_MARISA_BATTLE
 
 .done
 	call PlayMusic

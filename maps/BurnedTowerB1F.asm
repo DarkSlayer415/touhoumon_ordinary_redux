@@ -90,10 +90,14 @@ ReleaseTheBeasts:
 	setevent EVENT_BURNED_TOWER_MORTY
 	setevent EVENT_BURNED_TOWER_1F_EUSINE
 	appear BURNEDTOWERB1F_EUSINE
-	refreshscreen
+	reanchormap
 	changeblock 6, 14, $1b ; ladder
+<<<<<<< HEAD
 	reloadmappart
+=======
+	refreshmap
 	closetext
+>>>>>>> 024c8749a0e7aa7f72082b0fa17498bf42c5359f
 	setscene SCENE_BURNEDTOWERB1F_NOOP
 	end
 
@@ -196,14 +200,14 @@ BurnedTowerB1FEusineText:
 
 	para "I was shocked!"
 
-	para "SUICUNE raced by"
+	para "Satsuki raced by"
 	line "like a blur, right"
 
 	para "in front of my"
 	line "eyes!"
 
 	para "For ten years I"
-	line "chased SUICUNE,"
+	line "chased Satsuki,"
 
 	para "and I finally got"
 	line "to see it."
@@ -225,7 +229,7 @@ BurnedTowerB1FEusineText:
 	line "get close."
 
 	para "I'm going to track"
-	line "SUICUNE."
+	line "Satsuki."
 
 	para "<PLAYER>, let's"
 	line "meet again!"

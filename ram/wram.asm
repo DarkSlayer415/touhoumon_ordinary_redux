@@ -203,7 +203,7 @@ wSpriteAnimData::
 
 wSpriteAnimDict::
 ; wSpriteAnimDict pairs keys with values
-; keys: SPRITE_ANIM_DICT_* indexes (taken from SpriteAnimSeqData)
+; keys: SPRITE_ANIM_DICT_* indexes (taken from SpriteAnimObjects)
 ; values: vTiles0 offsets
 	ds NUM_SPRITEANIMDICT_ENTRIES * 2
 
@@ -211,7 +211,7 @@ wSpriteAnimationStructs::
 ; wSpriteAnim1 - wSpriteAnim10
 for n, 1, NUM_SPRITE_ANIM_STRUCTS + 1
 ; field  0:   index
-; fields 1-3: loaded from SpriteAnimSeqData
+; fields 1-3: loaded from SpriteAnimObjects
 wSpriteAnim{d:n}:: sprite_anim_struct wSpriteAnim{d:n}
 endr
 wSpriteAnimationStructsEnd::
@@ -608,9 +608,8 @@ wWildMonPP:: ds NUM_MOVES
 wAmuletCoin:: db
 
 wSomeoneIsRampaging:: db
-
-wPlayerJustGotFrozen:: db
-wEnemyJustGotFrozen:: db
+	ds 2
+	
 wBattleEnd::
 
 
@@ -730,23 +729,20 @@ wDexArrowCursorPosIndex:: db
 wDexArrowCursorDelayCounter:: db
 wDexArrowCursorBlinkCounter:: db
 wDexSearchSlowpokeFrame:: db
-wUnlockedUnownMode:: db
-wDexCurUnownIndex:: db
-wDexUnownCount:: db
+	ds 1
+	ds 1
+	ds 1
 wDexConvertedMonType:: db ; mon type converted from dex search mon type
 wDexListingScrollOffsetBackup:: db
 wDexListingCursorBackup:: db
 wBackupDexListingCursor:: db
 wBackupDexListingPage:: db
 wDexCurLocation:: db
-if DEF(_CRYSTAL11)
 wPokedexStatus:: db
-wPokedexDataEnd::
-else
-wPokedexDataEnd::
+wPokedexShinyToggle:: db ; bit 0: set if displaying shiny palettes	
+wPokedexDataEnd:: 
 	ds 1
-endc
-	ds 2
+	
 
 NEXTU
 ; pokegear
@@ -1303,8 +1299,8 @@ SECTION "Video", WRAM0
 
 UNION
 ; bg map
-wBGMapBuffer::    ds 40
-wBGMapPalBuffer:: ds 40
+wBGMapBuffer::    ds 2 * SCREEN_WIDTH
+wBGMapPalBuffer:: ds 2 * SCREEN_WIDTH
 wBGMapBufferPointers:: ds 20 * 2
 wBGMapBufferEnd::
 
@@ -1533,14 +1529,7 @@ wCreditsLYOverride:: db
 NEXTU
 ; pokedex
 wPrevDexEntryJumptableIndex:: db
-if DEF(_CRYSTAL11)
 wPrevDexEntryBackup:: db
-else
-; BUG: Crystal 1.0 reused the same byte in WRAM for
-; wPokedexStatus and wPrevDexEntryBackup.
-wPokedexStatus::
-wPrevDexEntryBackup:: db
-endc
 wUnusedPokedexByte:: db
 
 NEXTU
@@ -1893,6 +1882,16 @@ wMartItem7BCD:: ds 3
 wMartItem8BCD:: ds 3
 wMartItem9BCD:: ds 3
 wMartItem10BCD:: ds 3
+wMartItem11BCD:: ds 3
+wMartItem12BCD:: ds 3
+wMartItem13BCD:: ds 3
+wMartItem14BCD:: ds 3
+wMartItem15BCD:: ds 3
+wMartItem16BCD:: ds 3
+wMartItem17BCD:: ds 3
+wMartItem18BCD:: ds 3
+wMartItem19BCD:: ds 3
+wMartItem20BCD:: ds 3
 
 
 SECTION UNION "Miscellaneous WRAM 1", WRAMX
@@ -2208,7 +2207,7 @@ wWalkingDirection:: db
 wFacingDirection:: db
 wWalkingX:: db
 wWalkingY:: db
-wWalkingTile:: db
+wWalkingTileCollision:: db
 	ds 6
 wPlayerTurningDirection:: db
 
@@ -2258,7 +2257,7 @@ wStringBuffer5:: ds STRING_BUFFER_LENGTH
 
 wBattleMenuCursorPosition:: db
 
-	ds 1
+wBuffer1:: db
 
 wCurBattleMon::
 ; index of the player's mon currently in battle (0-5)
@@ -2274,13 +2273,15 @@ wItemsPocketCursor::    db
 wKeyItemsPocketCursor:: db
 wBallsPocketCursor::    db
 wTMHMPocketCursor::     db
+wBerryPocketCursor::    db
 
 wPCItemsScrollPosition::        db
-	ds 1
+wPartyMenuScrollPosition::      db ; unused
 wItemsPocketScrollPosition::    db
 wKeyItemsPocketScrollPosition:: db
 wBallsPocketScrollPosition::    db
 wTMHMPocketScrollPosition::     db
+wBerryPocketScrollPosition::    db
 
 wSwitchMon::
 wSwitchItem::
@@ -2304,12 +2305,11 @@ wBattlePlayerAction::
 wSolvedUnownPuzzle::
 	db
 
-wVramState::
+wStateFlags::
 ; bit 0: overworld sprite updating on/off
-; bit 1: something to do with sprite updates
-; bit 6: something to do with text
-; bit 7: on when surf initiates
-;        flickers when climbing waterfall
+; bit 1: last 12 sprite OAM structs reserved
+; bit 6: in text state
+; bit 7: in scripted movement
 	db
 
 wBattleResult::
@@ -2322,7 +2322,7 @@ wUsingItemWithSelect:: db
 UNION
 ; mart data
 wCurMartCount:: db
-wCurMartItems:: ds 15
+wCurMartItems:: ds 21
 
 NEXTU
 ; elevator data
@@ -2786,9 +2786,10 @@ NEXTU
 ; catch tutorial dude pack
 wDudeNumItems:: db
 wDudeItems:: ds 2 * 4 + 1
-
-wDudeNumKeyItems:: db
-wDudeKeyItems:: ds 18 + 1
+wDudeNumBerries::
+wDudeNumKeyItems:: db ; d292
+wDudeKeyItems:: ds 18
+wDudeKeyItemsEnd:: db
 
 wDudeNumBalls:: db
 wDudeBalls:: ds 2 * 4 + 1
@@ -2807,7 +2808,7 @@ wScriptFlags::
 ; bit 3: run deferred script
 	db
 	ds 1
-wScriptFlags2::
+wEnabledPlayerEvents::
 ; bit 0: count steps
 ; bit 1: coord events
 ; bit 2: warps and connections
@@ -2831,7 +2832,7 @@ wScriptTextBank::
 wDeferredScriptAddr::
 wScriptTextAddr::
 	dw
-	ds 1
+wWildBattlePanic:: db	
 wWildEncounterCooldown:: db
 
 wXYComparePointer:: dw
@@ -2939,8 +2940,6 @@ endr
 
 wCmdQueue:: ds CMDQUEUE_CAPACITY * CMDQUEUE_ENTRY_SIZE
 
-	ds 40
-
 wMapObjects::
 wPlayerObject:: map_object wPlayer ; player is map object 0
 ; wMap1Object - wMap15Object
@@ -3009,11 +3008,8 @@ wItems:: ds MAX_ITEMS * 2 + 1
 wNumKeyItems:: db
 wKeyItems:: ds MAX_KEY_ITEMS + 1
 
-wNumBalls:: db
-wBalls:: ds MAX_BALLS * 2 + 1
-
-wNumPCItems:: db
-wPCItems:: ds MAX_PC_ITEMS * 2 + 1
+wNumBalls:: db ; d8d7
+wBalls:: ds MAX_BALLS * 2 + 1 ; d8d8
 
 wPokegearFlags::
 ; bit 0: map
@@ -3120,8 +3116,12 @@ wFastShipB1FSceneID::                             db
 wMountMoonSquareSceneID::                         db
 wMobileTradeRoomSceneID::                         db
 wMobileBattleRoomSceneID::                        db
+wMountMortar1FOutsideSceneID::                    db
 
-	ds 49
+wNumBerries:: db
+wBerries:: ds MAX_BERRIES * 2 + 1
+
+	ds 22
 
 ; fight counts
 wJackFightCount::    db
@@ -3153,7 +3153,8 @@ wKenjiFightCount::   db ; unreferenced
 wParryFightCount::   db
 wErinFightCount::    db
 
-	ds 100
+wNumPCItems:: db
+wPCItems:: ds MAX_PC_ITEMS * 2 + 1
 
 wEventFlags:: flag_array NUM_EVENTS
 
@@ -3179,8 +3180,8 @@ wBikeFlags::
 wCurMapSceneScriptPointer:: dw
 
 wCurCaller:: dw
-wCurMapWarpCount:: db
-wCurMapWarpsPointer:: dw
+wCurMapWarpEventCount:: db
+wCurMapWarpEventsPointer:: dw
 wCurMapCoordEventCount:: db
 wCurMapCoordEventsPointer:: dw
 wCurMapBGEventCount:: db
@@ -3249,9 +3250,7 @@ wdc60:: db
 
 wStepCount:: db
 wPoisonStepCount:: db
-	ds 2
 wHappinessStepCount:: db
-	ds 1
 
 wParkBallsRemaining::
 wSafariBallsRemaining:: db
@@ -3259,10 +3258,8 @@ wSafariTimeRemaining:: dw
 
 wPhoneList:: ds CONTACT_LIST_SIZE + 1
 
-	ds 22
-
 wLuckyNumberShowFlag:: db
-	ds 1
+wRepelType:: db
 wLuckyIDNumber:: dw
 
 wRepelEffect:: db ; If a Repel is in use, it contains the nr of steps it's still active
@@ -3335,9 +3332,9 @@ wEndPokedexCaught::
 wPokedexSeen:: flag_array NUM_POKEMON
 wEndPokedexSeen::
 
-wUnownDex:: ds NUM_UNOWN
-wUnlockedUnowns:: db
-wFirstUnownSeen:: db
+	ds 1
+	ds 1
+	ds 1
 
 wDayCareMan::
 ; bit 7: active
@@ -3399,39 +3396,6 @@ SECTION "Pic Animations", WRAMX
 wTempTilemap::
 ; 20x18 grid of 8x8 tiles
 	ds SCREEN_WIDTH * SCREEN_HEIGHT
-
-; PokeAnim data
-wPokeAnimStruct::
-wPokeAnimSceneIndex:: db
-wPokeAnimPointer:: dw
-wPokeAnimSpecies:: db
-wPokeAnimUnownLetter:: db
-wPokeAnimSpeciesOrUnown:: db
-wPokeAnimGraphicStartTile:: db
-wPokeAnimCoord:: dw
-wPokeAnimFrontpicHeight:: db
-wPokeAnimIdleFlag:: db
-wPokeAnimSpeed:: db
-wPokeAnimPointerBank:: db
-wPokeAnimPointerAddr:: dw
-wPokeAnimFramesBank:: db
-wPokeAnimFramesAddr:: dw
-wPokeAnimBitmaskBank:: db
-wPokeAnimBitmaskAddr:: dw
-wPokeAnimFrame:: db
-wPokeAnimJumptableIndex:: db
-wPokeAnimRepeatTimer:: db
-wPokeAnimCurBitmask:: db
-wPokeAnimWaitCounter:: db
-wPokeAnimCommand:: db
-wPokeAnimParameter:: db
-	ds 1
-wPokeAnimBitmaskCurCol:: db
-wPokeAnimBitmaskCurRow:: db
-wPokeAnimBitmaskCurBit:: db
-wPokeAnimBitmaskBuffer:: ds 7
-	ds 2
-wPokeAnimStructEnd::
 
 
 SECTION "Battle Tower RAM", WRAMX
@@ -3542,13 +3506,13 @@ SECTION "Battle Animations", WRAMX
 
 wBattleAnimTileDict::
 ; wBattleAnimTileDict pairs keys with values
-; keys: ANIM_GFX_* indexes (taken from anim_*gfx arguments)
+; keys: BATTLE_ANIM_GFX_* indexes (taken from anim_*gfx arguments)
 ; values: vTiles0 offsets
 	ds NUM_BATTLEANIMTILEDICT_ENTRIES * 2
 
 wActiveAnimObjects::
 ; wAnimObject1 - wAnimObject10
-for n, 1, NUM_ANIM_OBJECTS + 1
+for n, 1, NUM_BATTLE_ANIM_STRUCTS + 1
 wAnimObject{d:n}:: battle_anim_struct wAnimObject{d:n}
 endr
 
@@ -3650,3 +3614,5 @@ SECTION "Stack RAM", WRAMX
 
 wWindowStack:: ds $1000 - 1
 wWindowStackBottom:: ds 1
+
+ENDSECTION

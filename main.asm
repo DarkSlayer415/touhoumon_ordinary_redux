@@ -49,27 +49,27 @@ INCLUDE "engine/overworld/time.asm"
 INCLUDE "engine/items/tmhm2.asm"
 INCLUDE "engine/menus/naming_screen.asm"
 INCLUDE "engine/events/misc_scripts.asm"
-INCLUDE "engine/events/heal_machine_anim.asm"
 INCLUDE "engine/events/whiteout.asm"
 INCLUDE "engine/events/forced_movement.asm"
 INCLUDE "engine/events/itemfinder.asm"
 INCLUDE "engine/menus/start_menu.asm"
 INCLUDE "engine/pokemon/mon_menu.asm"
+INCLUDE "engine/events/move_reminder.asm"
 INCLUDE "engine/overworld/select_menu.asm"
 INCLUDE "engine/events/elevator.asm"
-INCLUDE "engine/events/bug_contest/contest.asm"
 INCLUDE "engine/events/repel.asm"
 INCLUDE "engine/events/hidden_item.asm"
 INCLUDE "engine/events/std_collision.asm"
-INCLUDE "engine/events/bug_contest/judging.asm"
 INCLUDE "engine/events/pokerus/apply_pokerus_tick.asm"
-INCLUDE "engine/events/bug_contest/contest_2.asm"
 INCLUDE "engine/pokemon/correct_party_errors.asm"
-INCLUDE "engine/math/get_square_root.asm"
+
 
 
 SECTION "bank5", ROMX
-
+INCLUDE "engine/events/heal_machine_anim.asm" ;From Bank 4
+INCLUDE "engine/events/bug_contest/contest.asm" ;From Bank 4
+INCLUDE "engine/events/bug_contest/judging.asm" ;From Bank 4
+INCLUDE "engine/events/bug_contest/contest_2.asm" ;From Bank 4
 INCLUDE "engine/rtc/rtc.asm"
 INCLUDE "engine/overworld/overworld.asm"
 INCLUDE "engine/overworld/tile_events.asm"
@@ -82,9 +82,9 @@ INCLUDE "engine/events/money.asm"
 INCLUDE "data/items/marts.asm"
 INCLUDE "engine/events/mom.asm"
 INCLUDE "engine/events/daycare.asm"
-INCLUDE "engine/events/print_unown.asm"
 INCLUDE "engine/events/print_photo.asm"
 INCLUDE "engine/pokemon/breeding.asm"
+INCLUDE "engine/math/get_square_root.asm"
 
 
 SECTION "Roofs", ROMX
@@ -147,6 +147,7 @@ SECTION "Effect Commands", ROMX
 INCLUDE "engine/battle/effect_commands.asm"
 
 
+
 SECTION "Enemy Trainers", ROMX
 
 INCLUDE "engine/battle/ai/items.asm"
@@ -163,13 +164,13 @@ INCLUDE "data/battle/effect_command_pointers.asm"
 
 SECTION "bank10", ROMX
 
-INCLUDE "engine/pokedex/pokedex.asm"
 INCLUDE "data/moves/moves.asm"
 INCLUDE "engine/pokemon/evolve.asm"
 
 
 SECTION "bank11", ROMX
 
+INCLUDE "engine/pokedex/pokedex.asm"
 INCLUDE "engine/events/fruit_trees.asm"
 INCLUDE "engine/battle/ai/move.asm"
 INCLUDE "engine/pokedex/pokedex_2.asm"
@@ -304,7 +305,7 @@ INCLUDE "engine/battle/battle_transition.asm"
 INCLUDE "engine/events/field_moves.asm"
 INCLUDE "engine/events/magnet_train.asm"
 INCLUDE "engine/battle/battlestart_copytilemapatonce.asm"
-INCLUDE "engine/gfx/sprites.asm"
+INCLUDE "engine/sprite_anims/core.asm"
 INCLUDE "engine/gfx/mon_icons.asm"
 
 
@@ -367,6 +368,7 @@ INCLUDE "engine/pokemon/mail_2.asm"
 SECTION "Phone Scripts 2", ROMX
 
 INCLUDE "engine/events/std_scripts.asm"
+INCLUDE "engine/events/init_events.asm"
 INCLUDE "engine/phone/scripts/unused.asm"
 INCLUDE "engine/phone/scripts/mom.asm"
 INCLUDE "engine/phone/scripts/bill.asm"
@@ -412,46 +414,13 @@ INCLUDE "engine/events/poisonstep_pals.asm"
 
 SECTION "Move Animations", ROMX
 
-INCLUDE "engine/events/bug_contest/display_stats.asm"
 INCLUDE "engine/battle_anims/anim_commands.asm"
 INCLUDE "engine/battle_anims/core.asm"
 INCLUDE "engine/battle_anims/functions.asm"
 INCLUDE "engine/battle_anims/helpers.asm"
 
-
-SECTION "Pic Animations 1", ROMX
-
-INCLUDE "engine/gfx/pic_animation.asm"
-INCLUDE "gfx/pokemon/anim_pointers.asm"
-INCLUDE "gfx/pokemon/anims.asm"
-INCLUDE "gfx/pokemon/idle_pointers.asm"
-INCLUDE "gfx/pokemon/idles.asm"
-INCLUDE "gfx/pokemon/unown_anim_pointers.asm"
-INCLUDE "gfx/pokemon/unown_anims.asm"
-INCLUDE "gfx/pokemon/unown_idle_pointers.asm"
-INCLUDE "gfx/pokemon/unown_idles.asm"
-INCLUDE "gfx/pokemon/bitmask_pointers.asm"
-INCLUDE "gfx/pokemon/bitmasks.asm"
-INCLUDE "gfx/pokemon/unown_bitmask_pointers.asm"
-INCLUDE "gfx/pokemon/unown_bitmasks.asm"
-
-
-SECTION "Pic Animations 2", ROMX
-
-INCLUDE "gfx/pokemon/frame_pointers.asm"
-INCLUDE "gfx/pokemon/kanto_frames.asm"
-
-
-SECTION "Pic Animations 3", ROMX
-
-INCLUDE "gfx/pokemon/johto_frames.asm"
-INCLUDE "gfx/pokemon/unown_frame_pointers.asm"
-INCLUDE "gfx/pokemon/unown_frames.asm"
-
-
 SECTION "bank38", ROMX
 
-INCLUDE "engine/events/print_unown_2.asm"
 INCLUDE "engine/games/card_flip.asm"
 INCLUDE "engine/games/unown_puzzle.asm"
 INCLUDE "engine/games/memory_game.asm"
@@ -473,9 +442,8 @@ INCLUDE "engine/events/name_rater.asm"
 INCLUDE "engine/events/play_slow_cry.asm"
 INCLUDE "engine/pokedex/new_pokedex_entry.asm"
 INCLUDE "engine/link/time_capsule_2.asm"
-INCLUDE "engine/pokedex/unown_dex.asm"
 INCLUDE "engine/events/magikarp.asm"
-INCLUDE "engine/battle/hidden_power.asm"
+INCLUDE "engine/events/bug_contest/display_stats.asm"
 INCLUDE "engine/battle/misc.asm"
 
 
@@ -681,6 +649,10 @@ SECTION "Crystal Events", ROMX
 
 INCLUDE "engine/events/battle_tower/load_trainer.asm"
 INCLUDE "engine/events/odd_egg.asm"
+
+SECTION "Battle Weather Images", ROMX
+
+INCLUDE "gfx/weather_icons.asm"
 
 
 SECTION "Stadium 2 Checksums", ROMX[$7DE0], BANK[$7F]

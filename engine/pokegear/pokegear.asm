@@ -33,10 +33,10 @@ PokeGear:
 	push af
 	ld a, $1
 	ldh [hInMenu], a
-	ld a, [wVramState]
+	ld a, [wStateFlags]
 	push af
 	xor a
-	ld [wVramState], a
+	ld [wStateFlags], a
 	call .InitTilemap
 	call DelayFrame
 .loop
@@ -55,7 +55,7 @@ PokeGear:
 	call PlaySFX
 	call WaitSFX
 	pop af
-	ld [wVramState], a
+	ld [wStateFlags], a
 	pop af
 	ldh [hInMenu], a
 	pop af
@@ -103,7 +103,7 @@ PokeGear:
 	call InitPokegearTilemap
 	ld b, SCGB_POKEGEAR_PALS
 	call GetSGBLayout
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	ldh a, [hCGB]
 	and a
 	ret z
@@ -164,7 +164,7 @@ INCBIN "gfx/pokegear/fast_ship.2bpp"
 
 InitPokegearModeIndicatorArrow:
 	depixel 4, 2, 4, 0
-	ld a, SPRITE_ANIM_INDEX_POKEGEAR_ARROW
+	ld a, SPRITE_ANIM_OBJ_POKEGEAR_ARROW
 	call InitSpriteAnimStruct
 	ld hl, SPRITEANIMSTRUCT_TILE_ID
 	add hl, bc
@@ -518,7 +518,7 @@ Pokegear_UpdateClock:
 	farcall PrintHoursMins
 	ld hl, .GearTodayText
 	bccoord 6, 6
-	call PlaceHLTextAtBC
+	call PrintTextboxTextAt
 	ret
 
 	db "ごぜん@"
@@ -655,11 +655,19 @@ PokegearMap_ContinueMap:
 PokegearMap_InitPlayerIcon:
 	push af
 	depixel 0, 0
-	ld b, SPRITE_ANIM_INDEX_RED_WALK
+<<<<<<< HEAD
+	ld b, SPRITE_ANIM_INDEX_PURPLE_WALK
 	ld a, [wPlayerGender]
 	bit PLAYERGENDER_FEMALE_F, a
 	jr z, .got_gender
-	ld b, SPRITE_ANIM_INDEX_BLUE_WALK
+	ld b, SPRITE_ANIM_INDEX_BROWN_WALK
+=======
+	ld b, SPRITE_ANIM_OBJ_RED_WALK
+	ld a, [wPlayerGender]
+	bit PLAYERGENDER_FEMALE_F, a
+	jr z, .got_gender
+	ld b, SPRITE_ANIM_OBJ_BLUE_WALK
+>>>>>>> 024c8749a0e7aa7f72082b0fa17498bf42c5359f
 .got_gender
 	ld a, b
 	call InitSpriteAnimStruct
@@ -682,14 +690,14 @@ PokegearMap_InitPlayerIcon:
 PokegearMap_InitCursor:
 	push af
 	depixel 0, 0
-	ld a, SPRITE_ANIM_INDEX_POKEGEAR_ARROW
+	ld a, SPRITE_ANIM_OBJ_POKEGEAR_ARROW
 	call InitSpriteAnimStruct
 	ld hl, SPRITEANIMSTRUCT_TILE_ID
 	add hl, bc
 	ld [hl], $04
 	ld hl, SPRITEANIMSTRUCT_ANIM_SEQ_ID
 	add hl, bc
-	ld [hl], SPRITE_ANIM_SEQ_NULL
+	ld [hl], SPRITE_ANIM_FUNC_NULL
 	pop af
 	push bc
 	call PokegearMap_UpdateCursorPosition
@@ -740,7 +748,7 @@ TownMap_GetKantoLandmarkLimits:
 PokegearRadio_Init:
 	call InitPokegearTilemap
 	depixel 4, 10, 4, 4
-	ld a, SPRITE_ANIM_INDEX_RADIO_TUNING_KNOB
+	ld a, SPRITE_ANIM_OBJ_RADIO_TUNING_KNOB
 	call InitSpriteAnimStruct
 	ld hl, SPRITEANIMSTRUCT_TILE_ID
 	add hl, bc
@@ -1363,7 +1371,7 @@ INCBIN "gfx/pokegear/clock.tilemap.rle"
 _UpdateRadioStation:
 	jr UpdateRadioStation
 
-; called from engine/gfx/sprite_anims.asm
+; called from engine/sprite_anims/functions.asm
 
 AnimateTuningKnob:
 	push bc
@@ -1764,10 +1772,10 @@ _TownMap:
 	ld a, $1
 	ldh [hInMenu], a
 
-	ld a, [wVramState]
+	ld a, [wStateFlags]
 	push af
 	xor a
-	ld [wVramState], a
+	ld [wStateFlags], a
 
 	call ClearBGPalettes
 	call ClearTilemap
@@ -1796,7 +1804,7 @@ _TownMap:
 	ld [wTownMapCursorObjectPointer + 1], a
 	ld b, SCGB_POKEGEAR_PALS
 	call GetSGBLayout
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	ldh a, [hCGB]
 	and a
 	jr z, .dmg
@@ -1819,7 +1827,7 @@ _TownMap:
 
 .resume
 	pop af
-	ld [wVramState], a
+	ld [wStateFlags], a
 	pop af
 	ldh [hInMenu], a
 	pop af
@@ -2042,7 +2050,7 @@ _FlyMap:
 	call Pokegear_DummyFunction
 	ld b, SCGB_POKEGEAR_PALS
 	call GetSGBLayout
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 .loop
 	call JoyTextDelay
 	ld hl, hJoyPressed
@@ -2363,7 +2371,7 @@ Pokedex_GetArea:
 	call TownMapBGUpdate
 	ld b, SCGB_POKEGEAR_PALS
 	call GetSGBLayout
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	xor a
 	ldh [hBGMapMode], a
 	xor a ; JOHTO_REGION
@@ -2535,11 +2543,16 @@ Pokedex_GetArea:
 	ld [hli], a ; tile id
 	inc de
 	push bc
-	ld c, PAL_OW_RED
+	ld c, PAL_OW_PURPLE
 	ld a, [wPlayerGender]
 	bit PLAYERGENDER_FEMALE_F, a
 	jr z, .male
-	inc c ; PAL_OW_BLUE
+<<<<<<< HEAD
+	ld c, PAL_OW_BROWN
+=======
+	assert PAL_OW_RED + 1 == PAL_OW_BLUE
+	inc c
+>>>>>>> 024c8749a0e7aa7f72082b0fa17498bf42c5359f
 .male
 	ld a, c
 	ld [hli], a ; attributes
@@ -2555,10 +2568,10 @@ Pokedex_GetArea:
 
 .PlayerOAM:
 	; y pxl, x pxl, tile offset
-	db -1 * 8, -1 * 8, 0 ; top left
-	db -1 * 8,  0 * 8, 1 ; top right
-	db  0 * 8, -1 * 8, 2 ; bottom left
-	db  0 * 8,  0 * 8, 3 ; bottom right
+	db -1 * TILE_WIDTH, -1 * TILE_WIDTH, 0 ; top left
+	db -1 * TILE_WIDTH,  0 * TILE_WIDTH, 1 ; top right
+	db  0 * TILE_WIDTH, -1 * TILE_WIDTH, 2 ; bottom left
+	db  0 * TILE_WIDTH,  0 * TILE_WIDTH, 3 ; bottom right
 	db $80 ; terminator
 
 .CheckPlayerLocation:
@@ -2719,14 +2732,14 @@ TownMapMon:
 	farcall GetSpeciesIcon
 ; Animation/palette
 	depixel 0, 0
-	ld a, SPRITE_ANIM_INDEX_PARTY_MON
+	ld a, SPRITE_ANIM_OBJ_PARTY_MON
 	call InitSpriteAnimStruct
 	ld hl, SPRITEANIMSTRUCT_TILE_ID
 	add hl, bc
 	ld [hl], $08
 	ld hl, SPRITEANIMSTRUCT_ANIM_SEQ_ID
 	add hl, bc
-	ld [hl], SPRITE_ANIM_SEQ_NULL
+	ld [hl], SPRITE_ANIM_FUNC_NULL
 	ret
 
 TownMapPlayerIcon:
@@ -2748,11 +2761,19 @@ TownMapPlayerIcon:
 	call Request2bpp
 ; Animation/palette
 	depixel 0, 0
-	ld b, SPRITE_ANIM_INDEX_RED_WALK ; Male
+<<<<<<< HEAD
+	ld b, SPRITE_ANIM_INDEX_PURPLE_WALK ; Maribel
 	ld a, [wPlayerGender]
 	bit PLAYERGENDER_FEMALE_F, a
 	jr z, .got_gender
-	ld b, SPRITE_ANIM_INDEX_BLUE_WALK ; Female
+	ld b, SPRITE_ANIM_INDEX_BROWN_WALK ; Renko
+=======
+	ld b, SPRITE_ANIM_OBJ_RED_WALK ; Male
+	ld a, [wPlayerGender]
+	bit PLAYERGENDER_FEMALE_F, a
+	jr z, .got_gender
+	ld b, SPRITE_ANIM_OBJ_BLUE_WALK ; Female
+>>>>>>> 024c8749a0e7aa7f72082b0fa17498bf42c5359f
 .got_gender
 	ld a, b
 	call InitSpriteAnimStruct
@@ -2827,7 +2848,7 @@ EntireFlyMap: ; unreferenced
 	ld [wTownMapCursorCoordinates + 1], a
 	ld b, SCGB_POKEGEAR_PALS
 	call GetSGBLayout
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 .loop
 	call JoyTextDelay
 	ld hl, hJoyPressed

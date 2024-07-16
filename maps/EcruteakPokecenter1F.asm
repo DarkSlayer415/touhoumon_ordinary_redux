@@ -59,7 +59,7 @@ EcruteakPokecenter1FNurseScript:
 	jumpstd PokecenterNurseScript
 
 EcruteakPokecenter1FPokefanMScript:
-	special Mobile_DummyReturnFalse
+	special CheckMobileAdapterStatusSpecial
 	iftrue .mobile
 	jumptextfaceplayer EcruteakPokecenter1FPokefanMText
 
@@ -198,7 +198,7 @@ EcruteakPokecenter1FGymGuideText:
 	text "LAKE OF RAGE…"
 
 	para "The appearance of"
-	line "a GYARADOS swarm…"
+	line "a Kanako swarm…"
 
 	para "I smell a conspir-"
 	line "acy. I know it!"

@@ -49,7 +49,6 @@ ENDM
 	command confuse                 ; 2a
 	command confusetarget           ; 2b
 	command heal                    ; 2c
-	command transform               ; 2d
 	command screen                  ; 2e
 	command poison                  ; 2f
 	command paralyze                ; 30
@@ -64,7 +63,7 @@ ENDM
 	command charge                  ; 39
 	command checkcharge             ; 3a
 	command traptarget              ; 3b
-	command effect0x3c              ; 3c
+	command checkpowder             ; 3c
 	command rampage                 ; 3d
 	command checkrampage            ; 3e
 	command constantdamage          ; 3f
@@ -101,7 +100,6 @@ ENDM
 	command furycutter              ; 5e
 	command attract                 ; 5f
 	command happinesspower          ; 60
-	command present                 ; 61
 	command damagecalc              ; 62
 	command frustrationpower        ; 63
 	command safeguard               ; 64
@@ -113,7 +111,6 @@ ENDM
 	command healmorn                ; 6a
 	command healday                 ; 6b
 	command healnite                ; 6c
-	command hiddenpower             ; 6d
 	command startrain               ; 6e
 	command startsun                ; 6f
 	command attackup                ; 70
@@ -180,6 +177,7 @@ ENDM
 	command supereffectivelooptext  ; ad
 	command startloop               ; ae
 	command curl                    ; af
+	command starthail               ; b0
 DEF NUM_EFFECT_COMMANDS EQU const_value - 1
 
 	const_def -1, -1

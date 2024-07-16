@@ -49,7 +49,6 @@ BattleCommandPointers:
 	dw BattleCommand_Confuse
 	dw BattleCommand_ConfuseTarget
 	dw BattleCommand_Heal
-	dw BattleCommand_Transform
 	dw BattleCommand_Screen
 	dw BattleCommand_Poison
 	dw BattleCommand_Paralyze
@@ -64,7 +63,7 @@ BattleCommandPointers:
 	dw BattleCommand_Charge
 	dw BattleCommand_CheckCharge
 	dw BattleCommand_TrapTarget
-	dw BattleCommand_Unused3C
+	dw BattleCommand_CheckPowder
 	dw BattleCommand_Rampage
 	dw BattleCommand_CheckRampage
 	dw BattleCommand_ConstantDamage
@@ -101,7 +100,6 @@ BattleCommandPointers:
 	dw BattleCommand_FuryCutter
 	dw BattleCommand_Attract
 	dw BattleCommand_HappinessPower
-	dw BattleCommand_Present
 	dw BattleCommand_DamageCalc
 	dw BattleCommand_FrustrationPower
 	dw BattleCommand_Safeguard
@@ -113,7 +111,6 @@ BattleCommandPointers:
 	dw BattleCommand_HealMorn
 	dw BattleCommand_HealDay
 	dw BattleCommand_HealNite
-	dw BattleCommand_HiddenPower
 	dw BattleCommand_StartRain
 	dw BattleCommand_StartSun
 	dw BattleCommand_AttackUp
@@ -180,4 +177,5 @@ BattleCommandPointers:
 	dw BattleCommand_SuperEffectiveLoopText
 	dw BattleCommand_StartLoop
 	dw BattleCommand_Curl
+	dw BattleCommand_StartHail
 	assert_table_length NUM_EFFECT_COMMANDS

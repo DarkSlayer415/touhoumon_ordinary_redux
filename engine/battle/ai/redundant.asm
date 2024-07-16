@@ -20,7 +20,6 @@ AI_Redundant:
 	dbw EFFECT_MIST,         .Mist
 	dbw EFFECT_FOCUS_ENERGY, .FocusEnergy
 	dbw EFFECT_CONFUSE,      .Confuse
-	dbw EFFECT_TRANSFORM,    .Transform
 	dbw EFFECT_REFLECT,      .Reflect
 	dbw EFFECT_SUBSTITUTE,   .Substitute
 	dbw EFFECT_LEECH_SEED,   .LeechSeed
@@ -44,6 +43,7 @@ AI_Redundant:
 	dbw EFFECT_MOONLIGHT,    .Moonlight
 	dbw EFFECT_SWAGGER,      .Swagger
 	dbw EFFECT_FUTURE_SIGHT, .FutureSight
+	dbw EFFECT_HAIL,         .Hail
 	db -1
 
 .LightScreen:
@@ -176,10 +176,15 @@ AI_Redundant:
 	ret
 
 .FutureSight:
-; BUG: AI does not discourage Future Sight when it's already been used (see docs/bugs_and_glitches.md)
-	ld a, [wEnemyScreens]
-	bit 5, a
+	ld a, [wEnemyFutureSightCount]
+	and a
 	ret
+
+.Hail:
+	ld a, [wBattleWeather]
+	cp WEATHER_HAIL
+	jr z, .Redundant
+	jr .NotRedundant
 
 .Heal:
 .MorningSun:

@@ -45,9 +45,10 @@ CrystalIntro:
 	ret
 
 .InitRAMAddrs:
+	assert VBLANK_NORMAL == 0
 	xor a
 	ldh [hVBlank], a
-	ld a, $1
+	ld a, TRUE
 	ldh [hInMenu], a
 	xor a
 	ldh [hMapAnims], a
@@ -58,33 +59,6 @@ IntroSceneJumper:
 	jumptable IntroScenes, wJumptableIndex
 
 IntroScenes:
-	dw IntroScene1
-	dw IntroScene2
-	dw IntroScene3
-	dw IntroScene4
-	dw IntroScene5
-	dw IntroScene6
-	dw IntroScene7
-	dw IntroScene8
-	dw IntroScene9
-	dw IntroScene10
-	dw IntroScene11
-	dw IntroScene12
-	dw IntroScene13
-	dw IntroScene14
-	dw IntroScene15
-	dw IntroScene16
-	dw IntroScene17
-	dw IntroScene18
-	dw IntroScene19
-	dw IntroScene20
-	dw IntroScene21
-	dw IntroScene22
-	dw IntroScene23
-	dw IntroScene24
-	dw IntroScene25
-	dw IntroScene26
-	dw IntroScene27
 	dw IntroScene28
 
 NextIntroScene:
@@ -388,7 +362,7 @@ IntroScene7:
 	call Intro_ResetLYOverrides
 	farcall ClearSpriteAnims
 	depixel 13, 27, 4, 0
-	ld a, SPRITE_ANIM_INDEX_INTRO_SUICUNE
+	ld a, SPRITE_ANIM_OBJ_INTRO_SUICUNE
 	call InitSpriteAnimStruct
 	ld a, $f0
 	ld [wGlobalAnimXOffset], a
@@ -481,7 +455,7 @@ IntroScene10:
 
 .pichu
 	depixel 21, 16, 1, 0
-	ld a, SPRITE_ANIM_INDEX_INTRO_PICHU
+	ld a, SPRITE_ANIM_OBJ_INTRO_PICHU
 	call InitSpriteAnimStruct
 	ld de, SFX_INTRO_PICHU
 	call PlaySFX
@@ -489,7 +463,7 @@ IntroScene10:
 
 .wooper
 	depixel 22, 6
-	ld a, SPRITE_ANIM_INDEX_INTRO_WOOPER
+	ld a, SPRITE_ANIM_OBJ_INTRO_WOOPER
 	call InitSpriteAnimStruct
 	ld de, SFX_INTRO_PICHU
 	call PlaySFX
@@ -668,7 +642,7 @@ IntroScene13:
 	ldh [hWY], a
 	farcall ClearSpriteAnims
 	depixel 13, 11, 4, 0
-	ld a, SPRITE_ANIM_INDEX_INTRO_SUICUNE
+	ld a, SPRITE_ANIM_OBJ_INTRO_SUICUNE
 	call InitSpriteAnimStruct
 	ld de, MUSIC_CRYSTAL_OPENING
 	call PlayMusic
@@ -779,10 +753,10 @@ IntroScene15:
 	farcall ClearSpriteAnims
 	call Intro_SetCGBPalUpdate
 	depixel 8, 5
-	ld a, SPRITE_ANIM_INDEX_INTRO_UNOWN_F
+	ld a, SPRITE_ANIM_OBJ_INTRO_UNOWN_F
 	call InitSpriteAnimStruct
 	depixel 12, 0
-	ld a, SPRITE_ANIM_INDEX_INTRO_SUICUNE_AWAY
+	ld a, SPRITE_ANIM_OBJ_INTRO_SUICUNE_AWAY
 	call InitSpriteAnimStruct
 	xor a
 	ld [wIntroSceneFrameCounter], a
@@ -931,7 +905,7 @@ IntroScene19:
 	ld [hl], $7f
 	call Intro_SetCGBPalUpdate
 	depixel 12, 0
-	ld a, SPRITE_ANIM_INDEX_INTRO_SUICUNE_AWAY
+	ld a, SPRITE_ANIM_OBJ_INTRO_SUICUNE_AWAY
 	call InitSpriteAnimStruct
 	xor a
 	ld [wIntroSceneFrameCounter], a
@@ -1189,7 +1163,7 @@ INCLUDE "gfx/intro/fade.pal"
 
 CrystalIntro_InitUnownAnim:
 	push de
-	ld a, SPRITE_ANIM_INDEX_INTRO_UNOWN
+	ld a, SPRITE_ANIM_OBJ_INTRO_UNOWN
 	call InitSpriteAnimStruct
 	ld hl, SPRITEANIMSTRUCT_VAR1
 	add hl, bc
@@ -1199,7 +1173,7 @@ CrystalIntro_InitUnownAnim:
 	pop de
 
 	push de
-	ld a, SPRITE_ANIM_INDEX_INTRO_UNOWN
+	ld a, SPRITE_ANIM_OBJ_INTRO_UNOWN
 	call InitSpriteAnimStruct
 	ld hl, SPRITEANIMSTRUCT_VAR1
 	add hl, bc
@@ -1209,7 +1183,7 @@ CrystalIntro_InitUnownAnim:
 	pop de
 
 	push de
-	ld a, SPRITE_ANIM_INDEX_INTRO_UNOWN
+	ld a, SPRITE_ANIM_OBJ_INTRO_UNOWN
 	call InitSpriteAnimStruct
 	ld hl, SPRITEANIMSTRUCT_VAR1
 	add hl, bc
@@ -1218,7 +1192,7 @@ CrystalIntro_InitUnownAnim:
 	call ReinitSpriteAnimFrame
 	pop de
 
-	ld a, SPRITE_ANIM_INDEX_INTRO_UNOWN
+	ld a, SPRITE_ANIM_OBJ_INTRO_UNOWN
 	call InitSpriteAnimStruct
 	ld hl, SPRITEANIMSTRUCT_VAR1
 	add hl, bc

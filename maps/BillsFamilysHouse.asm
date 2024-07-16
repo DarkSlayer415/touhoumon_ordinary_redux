@@ -11,7 +11,7 @@ BillsFamilysHouse_MapScripts:
 BillScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_EEVEE
+	checkevent EVENT_GOT_KEINE
 	iftrue .GotEevee
 	writetext BillTakeThisEeveeText
 	yesorno
@@ -24,8 +24,8 @@ BillScript:
 	writetext ReceivedEeveeText
 	playsound SFX_CAUGHT_MON
 	waitsfx
-	givepoke EEVEE, 20
-	setevent EVENT_GOT_EEVEE
+	givepoke CYUUTO, 20
+	setevent EVENT_GOT_KEINE
 	writetext BillEeveeMayEvolveText
 	waitbutton
 	closetext
@@ -109,7 +109,7 @@ BillsHouseRadio:
 BillTakeThisEeveeText:
 	text "BILL: Hi, <PLAYER>!"
 	line "Do us a favor and"
-	cont "take this EEVEE."
+	cont "take this CYuuto."
 
 	para "It came over when"
 	line "I was adjusting"
@@ -142,15 +142,15 @@ BillImCountingOnYouText:
 
 ReceivedEeveeText:
 	text "<PLAYER> received"
-	line "EEVEE!"
+	line "CYuuto!"
 	done
 
 BillEeveeMayEvolveText:
 	text "BILL: PROF.ELM"
-	line "claims EEVEE may"
+	line "claims CYuuto may"
 
-	para "evolve in new and"
-	line "unknown ways."
+	para "come from another"
+	line "world or time."
 	done
 
 BillPartyFullText:

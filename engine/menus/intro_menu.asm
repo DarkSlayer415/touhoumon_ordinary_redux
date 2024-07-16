@@ -63,7 +63,7 @@ NewGame:
 	ld [wDebugFlags], a
 	call ResetWRAM
 	call NewGame_ClearTilemapEtc
-	call AreYouABoyOrAreYouAGirl
+	call PlayerProfileSetup
 	call OakSpeech
 	call InitializeWorld
 
@@ -77,15 +77,14 @@ NewGame:
 	ldh [hMapEntryMethod], a
 	jp FinishContinueFunction
 
-AreYouABoyOrAreYouAGirl:
-	farcall Mobile_AlwaysReturnNotCarry ; mobile
+PlayerProfileSetup:
+	farcall CheckMobileAdapterStatus
 	jr c, .ok
 	farcall InitGender
 	ret
-
 .ok
 	ld c, 0
-	farcall InitMobileProfile ; mobile
+	farcall InitMobileProfile
 	ret
 
 if DEF(_DEBUG)
@@ -106,8 +105,8 @@ _ResetWRAM:
 	xor a
 	call ByteFill
 
-	ld hl, WRAM1_Begin
-	ld bc, wGameData - WRAM1_Begin
+	ld hl, STARTOF(WRAMX)
+	ld bc, wGameData - STARTOF(WRAMX)
 	xor a
 	call ByteFill
 
@@ -156,6 +155,9 @@ _ResetWRAM:
 	call .InitList
 
 	ld hl, wNumBalls
+	call .InitList
+	
+	ld hl, wNumBerries
 	call .InitList
 
 	ld hl, wNumPCItems
@@ -220,7 +222,7 @@ endc
 
 	farcall DeletePartyMonMail
 
-	farcall DeleteMobileEventIndex
+	farcall ClearGSBallFlag
 
 	call ResetGameTime
 	ret
@@ -308,6 +310,7 @@ InitializeWorld:
 	call ShrinkPlayer
 	farcall SpawnPlayer
 	farcall _InitializeStartDay
+	farcall InitializeEvents
 	ret
 
 LoadOrRegenerateLuckyIDNumber:
@@ -400,12 +403,9 @@ PostCreditsSpawn:
 	ldh [hMapEntryMethod], a
 	ret
 
-Continue_MobileAdapterMenu:
-	farcall Mobile_AlwaysReturnNotCarry ; mobile check
+Continue_MobileAdapterMenu: ; unused
+	farcall CheckMobileAdapterStatus
 	ret nc
-
-; the rest of this stuff is never reached because
-; the previous function returns with carry not set
 	ld hl, wd479
 	bit 1, [hl]
 	ret nz
@@ -466,7 +466,7 @@ FinishContinueFunction:
 	ld [wDontPlayMapMusicOnReload], a
 	ld [wLinkMode], a
 	ld hl, wGameTimerPaused
-	set GAME_TIMER_PAUSED_F, [hl]
+	set GAME_TIMER_COUNTING_F, [hl]
 	res GAME_TIMER_MOBILE_F, [hl]
 	ld hl, wEnteredMapFromContinue
 	set 1, [hl]
@@ -784,9 +784,9 @@ NamePlayer:
 	ret
 
 .Chris:
-	db "CHRIS@@@@@@"
+	db "MARIBEL@@@@"
 .Kris:
-	db "KRIS@@@@@@@"
+	db "RENKO@@@@@@"
 
 GSShowPlayerNamingChoices: ; unreferenced
 	call LoadMenuHeader
@@ -939,11 +939,11 @@ Intro_PlacePlayerSprite:
 	inc de
 	ld [hli], a ; tile id
 
-	ld b, PAL_OW_RED
+	ld b, PAL_OW_PURPLE
 	ld a, [wPlayerGender]
 	bit PLAYERGENDER_FEMALE_F, a
 	jr z, .male
-	ld b, PAL_OW_BLUE
+	ld b, PAL_OW_BROWN
 .male
 	ld a, b
 
@@ -955,10 +955,10 @@ Intro_PlacePlayerSprite:
 .sprites
 	db 4
 	; y pxl, x pxl, tile offset
-	db  9 * 8 + 4,  9 * 8, 0
-	db  9 * 8 + 4, 10 * 8, 1
-	db 10 * 8 + 4,  9 * 8, 2
-	db 10 * 8 + 4, 10 * 8, 3
+	db  9 * TILE_WIDTH + 4,  9 * TILE_WIDTH, 0
+	db  9 * TILE_WIDTH + 4, 10 * TILE_WIDTH, 1
+	db 10 * TILE_WIDTH + 4,  9 * TILE_WIDTH, 2
+	db 10 * TILE_WIDTH + 4, 10 * TILE_WIDTH, 3
 
 
 	const_def
@@ -1166,35 +1166,19 @@ TitleScreenMain:
 	cp  D_UP + B_BUTTON + SELECT
 	jr z, .delete_save_data
 
-; To bring up the clock reset dialog:
-
-; Hold Down + B + Select to initiate the sequence.
+; Clock can be reset by pressing Down + B.
 	ldh a, [hClockResetTrigger]
 	cp $34
-	jr z, .check_clock_reset
+	jr z, .reset_clock
 
 	ld a, [hl]
-	and D_DOWN + B_BUTTON + SELECT
-	cp  D_DOWN + B_BUTTON + SELECT
+	and D_DOWN + B_BUTTON
+	cp  D_DOWN + B_BUTTON
 	jr nz, .check_start
 
 	ld a, $34
 	ldh [hClockResetTrigger], a
 	jr .check_start
-
-; Keep Select pressed, and hold Left + Up.
-; Then let go of Select.
-.check_clock_reset
-	bit SELECT_F, [hl]
-	jr nz, .check_start
-
-	xor a
-	ldh [hClockResetTrigger], a
-
-	ld a, [hl]
-	and D_LEFT + D_UP
-	cp  D_LEFT + D_UP
-	jr z, .reset_clock
 
 ; Press Start or A to start the game.
 .check_start
@@ -1297,7 +1281,7 @@ UpdateTitleTrailSprite: ; unreferenced
 	ret z
 	ld e, a
 	ld d, [hl]
-	ld a, SPRITE_ANIM_INDEX_GS_TITLE_TRAIL
+	ld a, SPRITE_ANIM_OBJ_GS_TITLE_TRAIL
 	call InitSpriteAnimStruct
 	ret
 

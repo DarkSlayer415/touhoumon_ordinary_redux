@@ -93,12 +93,12 @@ RadioTower5FRocketBossScript:
 	writetext RadioTower5FRocketBossAfterText
 	waitbutton
 	closetext
-	special FadeBlackQuickly
+	special FadeOutToBlack
 	special ReloadSpritesNoPalettes
 	disappear RADIOTOWER5F_ROCKET
 	disappear RADIOTOWER5F_ROCKET_GIRL
 	pause 15
-	special FadeInQuickly
+	special FadeInFromBlack
 	setevent EVENT_BEAT_ROCKET_EXECUTIVEM_1
 	setevent EVENT_CLEARED_RADIO_TOWER
 	clearflag ENGINE_ROCKETS_IN_RADIO_TOWER
@@ -348,7 +348,7 @@ RadioTower5FDirectorDescribeClearBellText:
 	cont "TOWER."
 
 	para "We dug up that"
-	line "bell during"
+	line "erhu during"
 	cont "construction."
 
 	para "I heard that all"
@@ -359,7 +359,7 @@ RadioTower5FDirectorDescribeClearBellText:
 
 	para "Perhaps…"
 
-	para "That bell has some"
+	para "That erhu has some"
 	line "connection to the"
 
 	para "TIN TOWER in"

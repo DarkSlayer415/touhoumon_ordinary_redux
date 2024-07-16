@@ -18,8 +18,8 @@ MACRO anim_obj
 	else
 	; LEGACY: Support the tile+offset format
 		db \1 ; object
-		db (\2) * 8 + (\3) ; x_tile, x
-		db (\4) * 8 + (\5) ; y_tile, y
+		db (\2) * TILE_WIDTH + (\3) ; x_tile, x
+		db (\4) * TILE_WIDTH + (\5) ; y_tile, y
 		db \6 ; param
 	endc
 ENDM
@@ -171,14 +171,18 @@ MACRO anim_minimize
 	db anim_minimize_command
 ENDM
 
-	const anim_0xea_command ; $ea
-MACRO anim_0xea
-	db anim_0xea_command
+	const anim_setbgpal_command ; ea
+MACRO anim_setbgpal
+	db anim_setbgpal_command
+	db \1 ; pal index to set (0-7)
+	db \2 ; battle pal
 ENDM
 
-	const anim_0xeb_command ; $eb
-MACRO anim_0xeb
-	db anim_0xeb_command
+	const anim_setobjpal_command ; eb
+MACRO anim_setobjpal
+	db anim_setobjpal_command
+	db \1 ; pal index to set (0-7)
+	db \2 ; battle pal
 ENDM
 
 	const anim_0xec_command ; $ec

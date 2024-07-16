@@ -19,7 +19,7 @@ SplashScreen:
 	call WaitBGMap
 	ld b, SCGB_GAMEFREAK_LOGO
 	call GetSGBLayout
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	ld c, 10
 	call DelayFrames
 
@@ -89,11 +89,11 @@ GameFreakPresentsInit:
 
 	farcall ClearSpriteAnims
 	depixel 10, 11, 4, 0
-	ld a, SPRITE_ANIM_INDEX_GAMEFREAK_LOGO
+	ld a, SPRITE_ANIM_OBJ_GAMEFREAK_LOGO
 	call InitSpriteAnimStruct
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc
-	ld [hl], 160
+	ld [hl], OAM_YCOORD_HIDDEN
 	ld hl, SPRITEANIMSTRUCT_VAR1
 	add hl, bc
 	ld [hl], 96

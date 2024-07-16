@@ -124,10 +124,7 @@ EvolutionAnimation:
 
 	ld a, [wPlayerHPPal]
 	ld [wCurPartySpecies], a
-	hlcoord 7, 2
-	ld d, $0
-	ld e, ANIM_MON_EVOLVE
-	predef AnimateFrontpic
+	call PlayMonCry2
 
 	pop af
 	ld [wCurPartySpecies], a
@@ -311,7 +308,7 @@ EvolutionAnimation:
 .GenerateBallOfLight:
 	push de
 	depixel 9, 11
-	ld a, SPRITE_ANIM_INDEX_EVOLUTION_BALL_OF_LIGHT
+	ld a, SPRITE_ANIM_OBJ_EVOLUTION_BALL_OF_LIGHT
 	call InitSpriteAnimStruct
 	ld hl, SPRITEANIMSTRUCT_JUMPTABLE_INDEX
 	add hl, bc

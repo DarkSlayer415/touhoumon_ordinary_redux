@@ -335,7 +335,7 @@ endr
 	ld bc, PARTYMON_STRUCT_LENGTH - MON_MAXHP
 	call CopyBytes
 	pop hl
-	jr .registerunowndex
+	jr .done
 
 .generatestats
 	pop hl
@@ -343,21 +343,6 @@ endr
 	add hl, bc
 	ld b, FALSE
 	call CalcMonStats
-
-.registerunowndex
-	ld a, [wMonType]
-	and $f
-	jr nz, .done
-	ld a, [wCurPartySpecies]
-	cp UNOWN
-	jr nz, .done
-	ld hl, wPartyMon1DVs
-	ld a, [wPartyCount]
-	dec a
-	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
-	predef GetUnownLetter
-	callfar UpdateUnownDex
 
 .done
 	scf ; When this function returns, the carry flag indicates success vs failure.
@@ -457,21 +442,6 @@ AddTempmonToParty:
 	ld [hl], BASE_HAPPINESS
 .egg
 
-	ld a, [wCurPartySpecies]
-	cp UNOWN
-	jr nz, .done
-	ld hl, wPartyMon1DVs
-	ld a, [wPartyCount]
-	dec a
-	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
-	predef GetUnownLetter
-	callfar UpdateUnownDex
-	ld a, [wFirstUnownSeen]
-	and a
-	jr nz, .done
-	ld a, [wUnownLetter]
-	ld [wFirstUnownSeen], a
 .done
 
 	and a
@@ -879,23 +849,36 @@ RetrieveBreedmon:
 	ld a, TRUE
 	ld [wSkipMovesBeforeLevelUp], a
 	predef FillMoves
-; BUG: Pokémon deposited in the Day-Care might lose experience (see docs/bugs_and_glitches.md)
+
 	ld a, [wPartyCount]
 	dec a
 	ld [wCurPartyMon], a
 	farcall HealPartyMon
-	ld a, [wCurPartyLevel]
-	ld d, a
+	ld d, MAX_LEVEL
 	callfar CalcExpAtLevel
 	pop bc
-	ld hl, MON_EXP
+	ld hl, MON_EXP + 2
 	add hl, bc
 	ldh a, [hMultiplicand]
-	ld [hli], a
+	ld b, a
 	ldh a, [hMultiplicand + 1]
-	ld [hli], a
+	ld c, a
 	ldh a, [hMultiplicand + 2]
+	ld d, a
+	ld a, [hld]
+	sub d
+	ld a, [hld]
+	sbc c
+	ld a, [hl]
+	sbc b
+	jr c, .not_max_exp
+	ld a, b
+	ld [hli], a
+	ld a, c
+	ld [hli], a
+	ld a, d
 	ld [hl], a
+.not_max_exp
 	and a
 	ret
 
@@ -1041,12 +1024,6 @@ SendMonIntoBox:
 	ld a, [wCurPartySpecies]
 	dec a
 	call SetSeenAndCaughtMon
-	ld a, [wCurPartySpecies]
-	cp UNOWN
-	jr nz, .not_unown
-	ld hl, sBoxMon1DVs
-	predef GetUnownLetter
-	callfar UpdateUnownDex
 
 .not_unown
 	ld hl, sBoxMon1Moves

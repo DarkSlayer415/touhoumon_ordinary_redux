@@ -64,6 +64,11 @@ HurtByBurnText:
 	line "hurt by its burn!"
 	prompt
 
+HurtByFrostbiteText:
+	text "<USER>'s"
+	line "hurt by frostbite!"
+	prompt
+
 LeechSeedSapsText:
 	text "LEECH SEED saps"
 	line "<USER>!"
@@ -141,8 +146,13 @@ BattleText_TheSunlightIsStrong:
 	prompt
 
 BattleText_TheSandstormRages:
-	text "The SANDSTORM"
+	text "The sandstorm"
 	line "rages."
+	prompt
+
+BattleText_HailContinuesToFall:
+	text "Hail continues to"
+	line "fall."
 	prompt
 
 BattleText_TheRainStopped:
@@ -155,8 +165,12 @@ BattleText_TheSunlightFaded:
 	prompt
 
 BattleText_TheSandstormSubsided:
-	text "The SANDSTORM"
+	text "The sandstorm"
 	line "subsided."
+	prompt
+
+BattleText_TheHailStopped:
+	text "The hail stopped."
 	prompt
 
 BattleText_EnemyMonFainted:
@@ -251,7 +265,7 @@ BattleText_TheresNoWillToBattle:
 	prompt
 
 BattleText_AnEGGCantBattle:
-	text "An EGG can't"
+	text "An Egg can't"
 	line "battle!"
 	prompt
 
@@ -283,7 +297,7 @@ BattleText_CantEscape:
 
 BattleText_UserHurtBySpikes:
 	text "<USER>'s"
-	line "hurt by SPIKES!"
+	line "hurt by Spikes!"
 	prompt
 
 RecoveredUsingText:
@@ -337,7 +351,7 @@ BattleText_MonHasNoMovesLeft:
 
 BattleText_TargetsEncoreEnded:
 	text "<TARGET>'s"
-	line "ENCORE ended!"
+	line "Encore ended!"
 	prompt
 
 BattleText_StringBuffer1GrewToLevel:
@@ -373,11 +387,6 @@ FastAsleepText:
 WokeUpText:
 	text "<USER>"
 	line "woke up!"
-	prompt
-
-FrozenSolidText:
-	text "<USER>"
-	line "is frozen solid!"
 	prompt
 
 FlinchedText:
@@ -462,13 +471,13 @@ FireSpinTrapText:
 
 WrappedByText:
 	text "<TARGET>"
-	line "was WRAPPED by"
+	line "was wrapped by"
 	cont "<USER>!"
 	prompt
 
 ClampedByText:
 	text "<TARGET>"
-	line "was CLAMPED by"
+	line "was clamped by"
 	cont "<USER>!"
 	prompt
 
@@ -492,7 +501,7 @@ HungOnText:
 
 EnduredText:
 	text "<TARGET>"
-	line "ENDURED the hit!"
+	line "endured the hit!"
 	prompt
 
 InLoveWithText:
@@ -512,7 +521,7 @@ DisabledMoveText:
 	line "@"
 	text_ram wStringBuffer1
 	text " is"
-	cont "DISABLED!"
+	cont "disabled!"
 	prompt
 
 LoafingAroundText:
@@ -632,7 +641,7 @@ TookDownWithItText:
 
 RageBuildingText:
 	text "<USER>'s"
-	line "RAGE is building!"
+	line "Rage is building!"
 	prompt
 
 GotAnEncoreText:
@@ -652,7 +661,7 @@ TookAimText:
 
 SketchedText:
 	text "<USER>"
-	line "SKETCHED"
+	line "Sketched"
 	cont "@"
 	text_ram wStringBuffer1
 	text "!"
@@ -724,9 +733,9 @@ DefrostedOpponentText:
 	line "was defrosted!"
 	prompt
 
-WasFrozenText:
+GotAFrostbiteText:
 	text "<TARGET>"
-	line "was frozen solid!"
+	line "got a frostbite!"
 	prompt
 
 WontRiseAnymoreText:
@@ -774,12 +783,12 @@ EnemyHitTimesText:
 
 MistText:
 	text "<USER>'s"
-	line "shrouded in MIST!"
+	line "shrouded in Mist!"
 	prompt
 
 ProtectedByMistText:
 	text "<TARGET>'s"
-	line "protected by MIST."
+	line "protected by Mist."
 	prompt
 
 GettingPumpedText:
@@ -795,28 +804,28 @@ RecoilText:
 
 MadeSubstituteText:
 	text "<USER>"
-	line "made a SUBSTITUTE!"
+	line "made a Substitute!"
 	prompt
 
 HasSubstituteText:
 	text "<USER>"
-	line "has a SUBSTITUTE!"
+	line "has a Substitute!"
 	prompt
 
 TooWeakSubText:
 	text "Too weak to make"
-	line "a SUBSTITUTE!"
+	line "a Substitute!"
 	prompt
 
 SubTookDamageText:
-	text "The SUBSTITUTE"
+	text "The Substitute"
 	line "took damage for"
 	cont "<TARGET>!"
 	prompt
 
 SubFadedText:
 	text "<TARGET>'s"
-	line "SUBSTITUTE faded!"
+	line "Substitute faded!"
 	prompt
 
 MimicLearnedMoveText:
@@ -842,7 +851,7 @@ WasDisabledText:
 	line "@"
 	text_ram wStringBuffer1
 	text " was"
-	cont "DISABLED!"
+	cont "disabled!"
 	prompt
 
 CoinsScatteredText:
@@ -865,7 +874,7 @@ EliminatedStatsText:
 
 TransformedText:
 	text "<USER>"
-	line "TRANSFORMED into"
+	line "transformed into"
 	cont "@"
 	text_ram wStringBuffer1
 	text "!"
@@ -971,22 +980,22 @@ PutACurseText:
 	text "<USER>"
 	line "cut its own HP and"
 
-	para "put a CURSE on"
+	para "put a curse on"
 	line "<TARGET>!"
 	prompt
 
 ProtectedItselfText:
 	text "<USER>"
-	line "PROTECTED itself!"
+	line "protected itself!"
 	prompt
 
 ProtectingItselfText:
 	text "<TARGET>'s"
-	line "PROTECTING itself!"
+	line "protecting itself!"
 	done
 
 SpikesText:
-	text "SPIKES scattered"
+	text "Spikes scattered"
 	line "all around"
 	cont "<TARGET>!"
 	prompt
@@ -1003,7 +1012,7 @@ StartPerishText:
 	prompt
 
 SandstormBrewedText:
-	text "A SANDSTORM"
+	text "A sandstorm"
 	line "brewed!"
 	prompt
 
@@ -1025,7 +1034,7 @@ CoveredByVeilText:
 SafeguardProtectText:
 	text "<TARGET>"
 	line "is protected by"
-	cont "SAFEGUARD!"
+	cont "Safeguard!"
 	prompt
 
 MagnitudeText:
@@ -1042,12 +1051,12 @@ ReleasedByText:
 
 ShedLeechSeedText:
 	text "<USER>"
-	line "shed LEECH SEED!"
+	line "shed Leech Seed!"
 	prompt
 
 BlewSpikesText:
 	text "<USER>"
-	line "blew away SPIKES!"
+	line "blew away Spikes!"
 	prompt
 
 DownpourText:
@@ -1106,3 +1115,13 @@ BattleText_NoTimeLeftToday: ; unreferenced
 	text "There is no time"
 	line "left today!"
 	done
+
+ItStartedToHailText:
+	text "It started"
+	line "to hail!"
+	prompt
+
+PeltedByHailText:
+	text "<USER>"
+	line "is pelted by hail!"
+	prompt

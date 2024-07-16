@@ -1,4 +1,6 @@
 NewPokedexEntry:
+	xor a
+	ld [wPokedexShinyToggle], a
 	ldh a, [hMapAnims]
 	push af
 	xor a
@@ -46,5 +48,5 @@ NewPokedexEntry:
 	ld [wTempMonDVs + 1], a
 	ld b, SCGB_TRAINER_OR_MON_FRONTPIC_PALS
 	call GetSGBLayout
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	ret

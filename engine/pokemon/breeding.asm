@@ -40,16 +40,16 @@ CheckBreedmonCompatibility:
 .genderless
 	ld c, $0
 	ld a, [wBreedMon1Species]
-	cp DITTO
+	cp UNOWN
 	jr z, .ditto1
 	ld a, [wBreedMon2Species]
-	cp DITTO
+	cp UNOWN
 	jr nz, .done
 	jr .compute
 
 .ditto1
 	ld a, [wBreedMon2Species]
-	cp DITTO
+	cp UNOWN
 	jr z, .done
 
 .compute
@@ -119,10 +119,10 @@ CheckBreedmonCompatibility:
 	cp EGG_NONE * $11
 	jr z, .Incompatible
 
-; Ditto is automatically compatible with everything.
-; If not Ditto, load the breeding groups into b/c and d/e.
+; Rinnosuke is automatically compatible with everything.
+; If not Rinnosuke, load the breeding groups into b/c and d/e.
 	ld a, [wBreedMon2Species]
-	cp DITTO
+	cp UNOWN
 	jr z, .Compatible
 	ld [wCurSpecies], a
 	call GetBaseData
@@ -136,7 +136,7 @@ CheckBreedmonCompatibility:
 	ld c, a
 
 	ld a, [wBreedMon1Species]
-	cp DITTO
+	cp UNOWN
 	jr z, .Compatible
 	ld [wCurSpecies], a
 	push bc
@@ -196,7 +196,7 @@ DoEggStep::
 	jr .loop
 
 OverworldHatchEgg::
-	call RefreshScreen
+	call ReanchorMap
 	call LoadStandardMenuHeader
 	call HatchEggs
 	call ExitAllMenus
@@ -237,10 +237,10 @@ HatchEggs:
 	call SetSeenAndCaughtMon
 
 	ld a, [wCurPartySpecies]
-	cp TOGEPI
+	cp NATU
 	jr nz, .nottogepi
 	; set the event flag for hatching togepi
-	ld de, EVENT_TOGEPI_HATCHED
+	ld de, EVENT_HATATE_HATCHED
 	ld b, SET_FLAG
 	call EventFlagAction
 .nottogepi
@@ -296,7 +296,7 @@ HatchEggs:
 	ld [hli], a
 	ld a, [de]
 	ld [hl], a
-	ld hl, MON_ID
+	ld hl, MON_OT_ID
 	add hl, bc
 	ld a, [wPlayerID]
 	ld [hli], a
@@ -358,8 +358,8 @@ HatchEggs:
 	; Huh? @ @
 	text_far Text_BreedHuh
 	text_asm
-	ld hl, wVramState
-	res 0, [hl]
+	ld hl, wStateFlags
+	res SPRITE_UPDATES_DISABLED_F, [hl]
 	push hl
 	push de
 	push bc
@@ -549,10 +549,10 @@ LoadEggMove:
 GetHeritableMoves:
 	ld hl, wBreedMon2Moves
 	ld a, [wBreedMon1Species]
-	cp DITTO
+	cp UNOWN
 	jr z, .ditto1
 	ld a, [wBreedMon2Species]
-	cp DITTO
+	cp UNOWN
 	jr z, .ditto2
 	ld a, [wBreedMotherOrNonDitto]
 	and a
@@ -606,10 +606,10 @@ GetHeritableMoves:
 GetBreedmonMovePointer:
 	ld hl, wBreedMon1Moves
 	ld a, [wBreedMon1Species]
-	cp DITTO
+	cp UNOWN
 	ret z
 	ld a, [wBreedMon2Species]
-	cp DITTO
+	cp UNOWN
 	jr z, .ditto
 	ld a, [wBreedMotherOrNonDitto]
 	and a
@@ -625,8 +625,6 @@ GetEggFrontpic:
 	ld [wCurPartySpecies], a
 	ld [wCurSpecies], a
 	call GetBaseData
-	ld hl, wBattleMonDVs
-	predef GetUnownLetter
 	pop de
 	predef_jump GetMonFrontpic
 
@@ -635,8 +633,6 @@ GetHatchlingFrontpic:
 	ld [wCurPartySpecies], a
 	ld [wCurSpecies], a
 	call GetBaseData
-	ld hl, wBattleMonDVs
-	predef GetUnownLetter
 	pop de
 	predef_jump GetAnimatedFrontpic
 
@@ -659,7 +655,7 @@ Hatch_UpdateFrontpicBGMapCenter:
 	predef PlaceGraphic
 	pop af
 	call Hatch_LoadFrontpicPal
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	jp WaitBGMap
 
 EggHatch_DoAnimFrame:
@@ -755,10 +751,7 @@ EggHatch_AnimationSequence:
 	call WaitSFX
 	ld a, [wJumptableIndex]
 	ld [wCurPartySpecies], a
-	hlcoord 6, 3
-	ld d, $0
-	ld e, ANIM_MON_HATCH
-	predef AnimateFrontpic
+	call PlayMonCry2
 	pop af
 	ld [wCurSpecies], a
 	ret
@@ -779,10 +772,10 @@ EggHatch_CrackShell:
 	ret nc
 	swap a
 	srl a
-	add 9 * 8 + 4
+	add 9 * TILE_WIDTH + 4
 	ld d, a
-	ld e, 11 * 8
-	ld a, SPRITE_ANIM_INDEX_EGG_CRACK
+	ld e, 11 * TILE_WIDTH
+	ld a, SPRITE_ANIM_OBJ_EGG_CRACK
 	call InitSpriteAnimStruct
 	ld hl, SPRITEANIMSTRUCT_TILE_ID
 	add hl, bc
@@ -810,7 +803,7 @@ Hatch_InitShellFragments:
 	push hl
 	push bc
 
-	ld a, SPRITE_ANIM_INDEX_EGG_HATCH
+	ld a, SPRITE_ANIM_OBJ_EGG_HATCH
 	call InitSpriteAnimStruct
 
 	ld hl, SPRITEANIMSTRUCT_TILE_ID
@@ -837,8 +830,11 @@ Hatch_InitShellFragments:
 	ret
 
 MACRO shell_fragment
-; y tile, y pxl, x tile, x pxl, frameset offset, ???
-	db (\1 * 8) % $100 + \2, (\3 * 8) % $100 + \4, \5 - SPRITE_ANIM_FRAMESET_EGG_HATCH_1, \6
+; y tile, y pxl, x tile, x pxl, frameset, angle
+	db (\1) * TILE_WIDTH + (\2) ; y coord
+	db (\3) * TILE_WIDTH + (\4) ; x coord
+	db (\5) - SPRITE_ANIM_FRAMESET_EGG_HATCH_1 ; frameset offset
+	db \6 ; angle (6 bits)
 ENDM
 
 .SpriteData:

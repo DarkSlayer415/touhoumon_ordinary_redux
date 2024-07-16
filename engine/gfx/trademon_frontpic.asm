@@ -3,9 +3,6 @@ GetTrademonFrontpic:
 	ld hl, wOTTrademonDVs
 	ld de, vTiles2
 	push de
-	push af
-	predef GetUnownLetter
-	pop af
 	ld [wCurPartySpecies], a
 	ld [wCurSpecies], a
 	call GetBaseData
@@ -31,8 +28,4 @@ AnimateTrademonFrontpic:
 	farcall TradeAnim_ShowGetmonFrontpic
 	ld a, [wOTTrademonSpecies]
 	ld [wCurPartySpecies], a
-	hlcoord 7, 2
-	ld d, $0
-	ld e, ANIM_MON_TRADE
-	predef AnimateFrontpic
-	ret
+	jp PlayMonCry

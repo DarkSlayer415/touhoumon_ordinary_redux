@@ -1,31 +1,40 @@
 ; Used by CheckSleepingTreeMon
 
-AsleepTreeMonsNite:
-	db CATERPIE
-	db METAPOD
-	db BUTTERFREE
-	db WEEDLE
-	db KAKUNA
-	db BEEDRILL
-	db SPEAROW
-	db EKANS
-	db EXEGGCUTE
-	db LEDYBA
-	db AIPOM
+AsleepTreeMonsNite: ;LilyWhite, CSunny/Sunny, Kanako/EKanako, Daiyousei, Himawari, CKanako
+	db VULPIX
+	db MANKEY
+	db PRIMEAPE
+	db GOLDEEN
+	db SEAKING
+	db MAGIKARP
+	db EEVEE
+	db MURKROW
 	db -1 ; end
 
-AsleepTreeMonsDay:
-	db VENONAT
-	db HOOTHOOT
-	db NOCTOWL
-	db SPINARAK
-	db HERACROSS
+AsleepTreeMonsDay: ;Suika/ESuika, LilyBlack, CStar/Star, CLuna/Luna, CYuyuko/Yuyuko/EYuyuko, CSuika
+	db RATTATA
+	db RATICATE
+	db ZUBAT
+	db MEOWTH
+	db PERSIAN
+	db PSYDUCK
+	db GOLDUCK
+	db HOUNDOUR
+	db HOUNDOOM
+	db KINGDRA
+	db SMOOCHUM
 	db -1 ; end
 
 AsleepTreeMonsMorn:
-	db VENONAT
-	db HOOTHOOT
-	db NOCTOWL
-	db SPINARAK
-	db HERACROSS
+	db RATTATA
+	db RATICATE
+	db ZUBAT
+	db MEOWTH
+	db PERSIAN
+	db PSYDUCK
+	db GOLDUCK
+	db HOUNDOUR
+	db HOUNDOOM
+	db KINGDRA
+	db SMOOCHUM
 	db -1 ; end

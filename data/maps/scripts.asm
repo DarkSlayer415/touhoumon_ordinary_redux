@@ -27,7 +27,6 @@ INCLUDE "maps/RuinsOfAlphKabutoChamber.asm"
 INCLUDE "maps/RuinsOfAlphOmanyteChamber.asm"
 INCLUDE "maps/RuinsOfAlphAerodactylChamber.asm"
 INCLUDE "maps/RuinsOfAlphInnerChamber.asm"
-INCLUDE "maps/RuinsOfAlphResearchCenter.asm"
 INCLUDE "maps/RuinsOfAlphHoOhItemRoom.asm"
 INCLUDE "maps/RuinsOfAlphKabutoItemRoom.asm"
 INCLUDE "maps/RuinsOfAlphOmanyteItemRoom.asm"
@@ -386,7 +385,6 @@ INCLUDE "maps/MahoganyGym.asm"
 INCLUDE "maps/MahoganyPokecenter1F.asm"
 INCLUDE "maps/Route42EcruteakGate.asm"
 INCLUDE "maps/LakeOfRageHiddenPowerHouse.asm"
-INCLUDE "maps/LakeOfRageMagikarpHouse.asm"
 INCLUDE "maps/Route43MahoganyGate.asm"
 INCLUDE "maps/Route43Gate.asm"
 INCLUDE "maps/RedsHouse1F.asm"
@@ -484,3 +482,5 @@ SECTION "Map Scripts 25", ROMX
 
 INCLUDE "maps/SilverCaveOutside.asm"
 INCLUDE "maps/Route10North.asm"
+
+ENDSECTION

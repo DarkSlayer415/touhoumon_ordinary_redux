@@ -40,14 +40,14 @@ RuinsOfAlphHoOhChamberWallOpenScript:
 	pause 30
 	playsound SFX_STRENGTH
 	changeblock 4, 0, $30 ; open wall
-	reloadmappart
+	refreshmap
 	earthquake 50
 	setscene SCENE_RUINSOFALPHHOOHCHAMBER_NOOP
 	closetext
 	end
 
 RuinsOfAlphHoOhChamberPuzzle:
-	refreshscreen
+	reanchormap
 	setval UNOWNPUZZLE_HO_OH
 	special UnownPuzzle
 	closetext
@@ -57,13 +57,12 @@ RuinsOfAlphHoOhChamberPuzzle:
 .PuzzleComplete:
 	setevent EVENT_RUINS_OF_ALPH_INNER_CHAMBER_TOURISTS
 	setevent EVENT_SOLVED_HO_OH_PUZZLE
-	setflag ENGINE_UNLOCKED_UNOWNS_X_TO_Z
 	setmapscene RUINS_OF_ALPH_INNER_CHAMBER, SCENE_RUINSOFALPHINNERCHAMBER_STRANGE_PRESENCE
 	earthquake 30
 	showemote EMOTE_SHOCK, PLAYER, 15
 	changeblock 2, 2, $18 ; left hole
 	changeblock 4, 2, $19 ; right hole
-	reloadmappart
+	refreshmap
 	playsound SFX_STRENGTH
 	earthquake 80
 	applymovement PLAYER, RuinsOfAlphHoOhChamberSkyfallTopMovement
@@ -114,7 +113,7 @@ RuinsOfAlphHoOhChamberWallPatternLeftText:
 	done
 
 RuinsOfAlphHoOhChamberUnownText: ; unreferenced
-	text "It's UNOWN text!"
+	text "It's ancient text!"
 	done
 
 RuinsOfAlphHoOhChamberWallPatternRightText:

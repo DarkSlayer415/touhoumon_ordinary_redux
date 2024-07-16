@@ -50,18 +50,17 @@ SpecialsPointers::
 	add_special NameRival
 	add_special SetDayOfWeek
 	add_special OverworldTownMap
-	add_special UnownPrinter
 	add_special MapRadio
 	add_special UnownPuzzle
 	add_special SlotMachine
 	add_special CardFlip
 	add_special UnusedMemoryGame ; unused
 	add_special ClearBGPalettesBufferScreen ; unused
-	add_special FadeOutPalettes
+	add_special FadeOutToWhite
 	add_special BattleTowerFade
-	add_special FadeBlackQuickly
-	add_special FadeInPalettes
-	add_special FadeInQuickly
+	add_special FadeOutToBlack
+	add_special FadeInFromWhite
+	add_special FadeInFromBlack
 	add_special ReloadSpritesNoPalettes ; bank 0
 	add_special ClearBGPalettes ; bank 0
 	add_special UpdateTimePals ; bank 0
@@ -173,7 +172,7 @@ SpecialsPointers::
 	add_special StubbedTrainerRankings_Healings
 	add_special RefreshSprites
 	add_special Function1037c2
-	add_special Mobile_DummyReturnFalse
+	add_special CheckMobileAdapterStatusSpecial
 	add_special Function103780
 	add_special Function10387b
 	add_special AskRememberPassword
@@ -183,3 +182,5 @@ SpecialsPointers::
 	add_special InitialSetDSTFlag
 	add_special InitialClearDSTFlag
 	add_special UnusedDummySpecial ; unused
+	
+	add_special MoveReminder

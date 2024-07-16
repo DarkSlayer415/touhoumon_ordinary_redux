@@ -1,13 +1,13 @@
 NurseMornText:
 	text "Good morning!"
 	line "Welcome to our"
-	cont "#MON CENTER."
+	cont "Eirin Center."
 	done
 
 NurseDayText:
 	text "Hello!"
 	line "Welcome to our"
-	cont "#MON CENTER."
+	cont "Eirin Center."
 	done
 
 NurseNiteText:
@@ -15,7 +15,7 @@ NurseNiteText:
 	line "You're out late."
 
 	para "Welcome to our"
-	line "#MON CENTER."
+	line "Eirin Center."
 	done
 
 PokeComNurseMornText:
@@ -68,6 +68,11 @@ NurseReturnPokemonText:
 	line "waiting."
 
 	para "Your #MON are"
+	line "fully healed."
+	done
+
+NurseReturnPokemonShortText:
+	text "Your #MON are"
 	line "fully healed."
 	done
 
@@ -204,7 +209,7 @@ TrashCanText:
 
 PokecenterSignText:
 	text "Heal Your #MON!"
-	line "#MON CENTER"
+	line "Eirin Center"
 	done
 
 MartSignText:

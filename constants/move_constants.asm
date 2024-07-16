@@ -25,7 +25,7 @@
 	const WING_ATTACK  ; 11
 	const WHIRLWIND    ; 12
 	const FLY          ; 13
-	const BIND         ; 14
+	const HEADWIND     ; 14
 	const SLAM         ; 15
 	const VINE_WHIP    ; 16
 	const STOMP        ; 17
@@ -149,13 +149,13 @@
 	const LEECH_LIFE   ; 8d
 	const LOVELY_KISS  ; 8e
 	const SKY_ATTACK   ; 8f
-	const TRANSFORM    ; 90
+	const MYSTIC_BOMB  ; 90
 	const BUBBLE       ; 91
 	const DIZZY_PUNCH  ; 92
 	const SPORE        ; 93
 	const FLASH        ; 94
 	const PSYWAVE      ; 95
-	const SPLASH       ; 96
+	const HAIL         ; 96
 	const ACID_ARMOR   ; 97
 	const CRABHAMMER   ; 98
 	const EXPLOSION    ; 99
@@ -222,7 +222,7 @@
 	const SLEEP_TALK   ; d6
 	const HEAL_BELL    ; d7
 	const RETURN       ; d8
-	const PRESENT      ; d9
+	const PHANTOM_DAZE ; d9
 	const FRUSTRATION  ; da
 	const SAFEGUARD    ; db
 	const PAIN_SPLIT   ; dc
@@ -242,7 +242,7 @@
 	const MORNING_SUN  ; ea
 	const SYNTHESIS    ; eb
 	const MOONLIGHT    ; ec
-	const HIDDEN_POWER ; ed
+	const LEAF_STORM   ; ed
 	const CROSS_CHOP   ; ee
 	const TWISTER      ; ef
 	const RAIN_DANCE   ; f0
@@ -285,6 +285,7 @@ DEF NUM_ATTACKS EQU const_value - 1
 	const ANIM_WOBBLE            ; 113
 	const ANIM_SHAKE             ; 114
 	const ANIM_HIT_CONFUSION     ; 115
+	const ANIM_IN_HAIL           ; 116
 DEF NUM_BATTLE_ANIMS EQU const_value - 1
 
 ; wNumHits uses offsets from ANIM_MISS

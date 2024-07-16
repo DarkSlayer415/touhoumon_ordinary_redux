@@ -1,6 +1,6 @@
 BattleCommand_Teleport:
 	ld a, [wBattleType]
-	cp BATTLETYPE_SHINY
+	cp BATTLETYPE_FORCESHINY
 	jr z, .failed
 	cp BATTLETYPE_TRAP
 	jr z, .failed
@@ -66,7 +66,7 @@ BattleCommand_Teleport:
 	inc c
 	; Generate a number less than c
 .loop_enemy
-; BUG: Wild Pokémon can always Teleport regardless of level difference (see docs/bugs_and_glitches.md)
+; If a random number >= player level / 4, Teleport will succeed
 	call BattleRandom
 	cp c
 	jr nc, .loop_enemy
@@ -74,7 +74,7 @@ BattleCommand_Teleport:
 	srl b
 	srl b
 	cp b
-	jr nc, .run_away
+	jr c, .failed
 
 .run_away
 	call UpdateBattleMonInParty

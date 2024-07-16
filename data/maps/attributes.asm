@@ -31,52 +31,52 @@ MACRO connection
 
 		; Calculate tile offsets for source (current) and target maps
 		DEF _src = 0
-		DEF _tgt = (\4) + 3
+		DEF _tgt = (\4) + MAP_CONNECTION_PADDING_WIDTH
 		if _tgt < 0
 			DEF _src = -_tgt
 			DEF _tgt = 0
 		endc
 
 		if !STRCMP("\1", "north")
-			DEF _blk = \3_WIDTH * (\3_HEIGHT - 3) + _src
+			DEF _blk = \3_WIDTH * (\3_HEIGHT - MAP_CONNECTION_PADDING_WIDTH) + _src
 			DEF _map = _tgt
-			DEF _win = (\3_WIDTH + 6) * \3_HEIGHT + 1
+			DEF _win = (\3_WIDTH + MAP_CONNECTION_PADDING_WIDTH * 2) * \3_HEIGHT + 1
 			DEF _y = \3_HEIGHT * 2 - 1
 			DEF _x = (\4) * -2
-			DEF _len = CURRENT_MAP_WIDTH + 3 - (\4)
+			DEF _len = CURRENT_MAP_WIDTH + MAP_CONNECTION_PADDING_WIDTH - (\4)
 			if _len > \3_WIDTH
 				DEF _len = \3_WIDTH
 			endc
 
 		elif !STRCMP("\1", "south")
 			DEF _blk = _src
-			DEF _map = (CURRENT_MAP_WIDTH + 6) * (CURRENT_MAP_HEIGHT + 3) + _tgt
-			DEF _win = \3_WIDTH + 7
+			DEF _map = (CURRENT_MAP_WIDTH + MAP_CONNECTION_PADDING_WIDTH * 2) * (CURRENT_MAP_HEIGHT + MAP_CONNECTION_PADDING_WIDTH) + _tgt
+			DEF _win = \3_WIDTH + MAP_CONNECTION_PADDING_WIDTH * 2 + 1
 			DEF _y = 0
 			DEF _x = (\4) * -2
-			DEF _len = CURRENT_MAP_WIDTH + 3 - (\4)
+			DEF _len = CURRENT_MAP_WIDTH + MAP_CONNECTION_PADDING_WIDTH - (\4)
 			if _len > \3_WIDTH
 				DEF _len = \3_WIDTH
 			endc
 
 		elif !STRCMP("\1", "west")
-			DEF _blk = (\3_WIDTH * _src) + \3_WIDTH - 3
-			DEF _map = (CURRENT_MAP_WIDTH + 6) * _tgt
-			DEF _win = (\3_WIDTH + 6) * 2 - 6
+			DEF _blk = (\3_WIDTH * _src) + \3_WIDTH - MAP_CONNECTION_PADDING_WIDTH
+			DEF _map = (CURRENT_MAP_WIDTH + MAP_CONNECTION_PADDING_WIDTH * 2) * _tgt
+			DEF _win = (\3_WIDTH + MAP_CONNECTION_PADDING_WIDTH * 2) * 2 - MAP_CONNECTION_PADDING_WIDTH * 2
 			DEF _y = (\4) * -2
 			DEF _x = \3_WIDTH * 2 - 1
-			DEF _len = CURRENT_MAP_HEIGHT + 3 - (\4)
+			DEF _len = CURRENT_MAP_HEIGHT + MAP_CONNECTION_PADDING_WIDTH - (\4)
 			if _len > \3_HEIGHT
 				DEF _len = \3_HEIGHT
 			endc
 
 		elif !STRCMP("\1", "east")
 			DEF _blk = (\3_WIDTH * _src)
-			DEF _map = (CURRENT_MAP_WIDTH + 6) * _tgt + CURRENT_MAP_WIDTH + 3
-			DEF _win = \3_WIDTH + 7
+			DEF _map = (CURRENT_MAP_WIDTH + MAP_CONNECTION_PADDING_WIDTH * 2) * _tgt + CURRENT_MAP_WIDTH + MAP_CONNECTION_PADDING_WIDTH
+			DEF _win = \3_WIDTH + MAP_CONNECTION_PADDING_WIDTH * 2 + 1
 			DEF _y = (\4) * -2
 			DEF _x = 0
-			DEF _len = CURRENT_MAP_HEIGHT + 3 - (\4)
+			DEF _len = CURRENT_MAP_HEIGHT + MAP_CONNECTION_PADDING_WIDTH - (\4)
 			if _len > \3_HEIGHT
 				DEF _len = \3_HEIGHT
 			endc
@@ -403,7 +403,6 @@ ENDM
 	map_attributes RuinsOfAlphOmanyteChamber, RUINS_OF_ALPH_OMANYTE_CHAMBER, $00, 0
 	map_attributes RuinsOfAlphAerodactylChamber, RUINS_OF_ALPH_AERODACTYL_CHAMBER, $00, 0
 	map_attributes RuinsOfAlphInnerChamber, RUINS_OF_ALPH_INNER_CHAMBER, $00, 0
-	map_attributes RuinsOfAlphResearchCenter, RUINS_OF_ALPH_RESEARCH_CENTER, $00, 0
 	map_attributes RuinsOfAlphHoOhItemRoom, RUINS_OF_ALPH_HO_OH_ITEM_ROOM, $00, 0
 	map_attributes RuinsOfAlphKabutoItemRoom, RUINS_OF_ALPH_KABUTO_ITEM_ROOM, $00, 0
 	map_attributes RuinsOfAlphOmanyteItemRoom, RUINS_OF_ALPH_OMANYTE_ITEM_ROOM, $00, 0
@@ -518,7 +517,6 @@ ENDM
 	map_attributes KurtsHouse, KURTS_HOUSE, $00, 0
 	map_attributes AzaleaGym, AZALEA_GYM, $00, 0
 	map_attributes LakeOfRageHiddenPowerHouse, LAKE_OF_RAGE_HIDDEN_POWER_HOUSE, $00, 0
-	map_attributes LakeOfRageMagikarpHouse, LAKE_OF_RAGE_MAGIKARP_HOUSE, $00, 0
 	map_attributes Route43MahoganyGate, ROUTE_43_MAHOGANY_GATE, $00, 0
 	map_attributes Route43Gate, ROUTE_43_GATE, $00, 0
 	map_attributes VioletMart, VIOLET_MART, $00, 0

@@ -11,8 +11,6 @@
 	const DEXSTATE_UPDATE_OPTION_SCR
 	const DEXSTATE_SEARCH_RESULTS_SCR
 	const DEXSTATE_UPDATE_SEARCH_RESULTS_SCR
-	const DEXSTATE_UNOWN_MODE
-	const DEXSTATE_UPDATE_UNOWN_MODE
 	const DEXSTATE_EXIT
 
 DEF POKEDEX_SCX EQU 5
@@ -30,10 +28,10 @@ Pokedex:
 	ld a, [hl]
 	push af
 	set NO_TEXT_SCROLL, [hl]
-	ld a, [wVramState]
+	ld a, [wStateFlags]
 	push af
 	xor a
-	ld [wVramState], a
+	ld [wStateFlags], a
 	ldh a, [hInMenu]
 	push af
 	ld a, $1
@@ -61,10 +59,13 @@ Pokedex:
 	ld a, [wCurDexMode]
 	ld [wLastDexMode], a
 
+	xor a
+	ld [wPokedexShinyToggle], a
+
 	pop af
 	ldh [hInMenu], a
 	pop af
-	ld [wVramState], a
+	ld [wStateFlags], a
 	pop af
 	ld [wOptions], a
 	pop af
@@ -93,8 +94,6 @@ InitPokedex:
 	ld [wPrevDexEntryBackup], a
 	ld [wUnusedPokedexByte], a
 
-	call Pokedex_CheckUnlockedUnownMode
-
 	ld a, [wLastDexMode]
 	ld [wCurDexMode], a
 
@@ -103,20 +102,6 @@ InitPokedex:
 	call Pokedex_GetLandmark
 	farcall DrawDexEntryScreenRightEdge
 	call Pokedex_ResetBGMapMode
-	ret
-
-Pokedex_CheckUnlockedUnownMode:
-	ld a, [wStatusFlags]
-	bit STATUSFLAGS_UNOWN_DEX_F, a
-	jr nz, .unlocked
-
-	xor a
-	ld [wUnlockedUnownMode], a
-	ret
-
-.unlocked
-	ld a, TRUE
-	ld [wUnlockedUnownMode], a
 	ret
 
 Pokedex_InitCursorPosition:
@@ -200,8 +185,6 @@ Pokedex_RunJumptable:
 	dw Pokedex_UpdateOptionScreen
 	dw Pokedex_InitSearchResultsScreen
 	dw Pokedex_UpdateSearchResultsScreen
-	dw Pokedex_InitUnownMode
-	dw Pokedex_UpdateUnownMode
 	dw Pokedex_Exit
 
 Pokedex_IncrementDexPointer:
@@ -350,20 +333,22 @@ Pokedex_InitDexEntryScreen:
 	ret
 
 Pokedex_UpdateDexEntryScreen:
-	ld de, DexEntryScreen_ArrowCursorData
-	call Pokedex_MoveArrowCursor
-	ld hl, hJoyPressed
+ 	ld de, DexEntryScreen_ArrowCursorData
+ 	call Pokedex_MoveArrowCursor
+ 	ld hl, hJoyPressed
+ 	ld a, [hl]
+ 	and B_BUTTON
+ 	jr nz, .return_to_prev_screen
+ 	ld a, [hl]
+ 	and A_BUTTON
+ 	jr nz, .do_menu_action
 	ld a, [hl]
-	and B_BUTTON
-	jr nz, .return_to_prev_screen
-	vc_hook Forbid_printing_Pokedex
-	ld a, [hl]
-	and A_BUTTON
-	jr nz, .do_menu_action
-	call Pokedex_NextOrPreviousDexEntry
-	ret nc
-	call Pokedex_IncrementDexPointer
-	ret
+	and SELECT
+	jr nz, .toggle_shininess
+ 	call Pokedex_NextOrPreviousDexEntry
+ 	ret nc
+ 	call Pokedex_IncrementDexPointer
+ 	ret
 
 .do_menu_action
 	ld a, [wDexArrowCursorPosIndex]
@@ -383,6 +368,24 @@ Pokedex_UpdateDexEntryScreen:
 	ld a, [wPrevDexEntryJumptableIndex]
 	ld [wJumptableIndex], a
 	ret
+	
+.toggle_shininess
+; toggle the current shininess setting
+	ld a, [wPokedexShinyToggle]
+	xor 1
+	ld [wPokedexShinyToggle], a
+	; refresh palettes
+	ld a, SCGB_POKEDEX
+	call Pokedex_GetSGBLayout
+	; play sound based on setting
+	ld a, [wPokedexShinyToggle]
+	and a
+	ld de, SFX_BUMP
+	jr z, .got_sound
+	ld de, SFX_SHINE
+.got_sound
+	call PlaySFX
+	jp WaitSFX
 
 Pokedex_Page:
 	ld a, [wPokedexStatus]
@@ -465,13 +468,8 @@ DexEntryScreen_MenuActionJumptable:
 	ret
 
 .Cry:
-; BUG: Playing Entei's Pokédex cry can distort Raikou's and Suicune's (see docs/bugs_and_glitches.md)
-	call Pokedex_GetSelectedMon
-	ld a, [wTempSpecies]
-	call GetCryIndex
-	ld e, c
-	ld d, b
-	call PlayCry
+	ld a, [wCurPartySpecies]
+	call PlayMonCry
 	ret
 
 .Print:
@@ -526,10 +524,8 @@ Pokedex_InitOptionScreen:
 	ret
 
 Pokedex_UpdateOptionScreen:
-	ld a, [wUnlockedUnownMode]
-	and a
 	jr nz, .okay
-	ld de, .NoUnownModeArrowCursorData
+	ld de, .ArrowCursorData
 	jr .okay2
 .okay
 	ld de, .ArrowCursorData
@@ -557,24 +553,16 @@ Pokedex_UpdateOptionScreen:
 	ld [wJumptableIndex], a
 	ret
 
-.NoUnownModeArrowCursorData:
+.ArrowCursorData: ;Default Cursor Data
 	db D_UP | D_DOWN, 3
 	dwcoord 2,  4 ; NEW
 	dwcoord 2,  6 ; OLD
 	dwcoord 2,  8 ; ABC
 
-.ArrowCursorData:
-	db D_UP | D_DOWN, 4
-	dwcoord 2,  4 ; NEW
-	dwcoord 2,  6 ; OLD
-	dwcoord 2,  8 ; ABC
-	dwcoord 2, 10 ; UNOWN
-
 .MenuActionJumptable:
 	dw .MenuAction_NewMode
 	dw .MenuAction_OldMode
 	dw .MenuAction_ABCMode
-	dw .MenuAction_UnownMode
 
 .MenuAction_NewMode:
 	ld b, DEXMODE_NEW
@@ -604,12 +592,6 @@ Pokedex_UpdateOptionScreen:
 .skip_changing_mode
 	call Pokedex_BlackOutBG
 	ld a, DEXSTATE_MAIN_SCR
-	ld [wJumptableIndex], a
-	ret
-
-.MenuAction_UnownMode:
-	call Pokedex_BlackOutBG
-	ld a, DEXSTATE_UNOWN_MODE
 	ld [wJumptableIndex], a
 	ret
 
@@ -796,113 +778,6 @@ Pokedex_UpdateSearchResultsScreen:
 	ldh [hSCX], a
 	ld a, $a7
 	ldh [hWX], a
-	ret
-
-Pokedex_InitUnownMode:
-	call Pokedex_LoadUnownFont
-	call Pokedex_DrawUnownModeBG
-	xor a
-	ld [wDexCurUnownIndex], a
-	call Pokedex_LoadUnownFrontpicTiles
-	call Pokedex_UnownModePlaceCursor
-	farcall PrintUnownWord
-	call WaitBGMap
-	ld a, SCGB_POKEDEX_UNOWN_MODE
-	call Pokedex_GetSGBLayout
-	call Pokedex_IncrementDexPointer
-	ret
-
-Pokedex_UpdateUnownMode:
-	ld hl, hJoyPressed
-	ld a, [hl]
-	and A_BUTTON | B_BUTTON
-	jr nz, .a_b
-	call Pokedex_UnownModeHandleDPadInput
-	ret
-
-.a_b
-	call Pokedex_BlackOutBG
-	ld a, DEXSTATE_OPTION_SCR
-	ld [wJumptableIndex], a
-	call DelayFrame
-	call Pokedex_CheckSGB
-	jr nz, .decompress
-	farcall LoadSGBPokedexGFX2
-	jr .done
-
-.decompress
-	ld hl, PokedexLZ
-	ld de, vTiles2 tile $31
-	lb bc, BANK(PokedexLZ), 58
-	call DecompressRequest2bpp
-
-.done
-	ret
-
-Pokedex_UnownModeHandleDPadInput:
-	ld hl, hJoyLast
-	ld a, [hl]
-	and D_RIGHT
-	jr nz, .right
-	ld a, [hl]
-	and D_LEFT
-	jr nz, .left
-	ret
-
-.right
-	ld a, [wDexUnownCount]
-	ld e, a
-	ld hl, wDexCurUnownIndex
-	ld a, [hl]
-	inc a
-	cp e
-	ret nc
-	ld a, [hl]
-	inc [hl]
-	jr .update
-
-.left
-	ld hl, wDexCurUnownIndex
-	ld a, [hl]
-	and a
-	ret z
-	ld a, [hl]
-	dec [hl]
-
-.update
-	push af
-	xor a
-	ldh [hBGMapMode], a
-	pop af
-	call Pokedex_UnownModeEraseCursor
-	call Pokedex_LoadUnownFrontpicTiles
-	call Pokedex_UnownModePlaceCursor
-	farcall PrintUnownWord
-	ld a, $1
-	ldh [hBGMapMode], a
-	call DelayFrame
-	call DelayFrame
-	ret
-
-Pokedex_UnownModeEraseCursor:
-	ld c, " "
-	jr Pokedex_UnownModeUpdateCursorGfx
-
-Pokedex_UnownModePlaceCursor:
-	ld a, [wDexCurUnownIndex]
-	ld c, FIRST_UNOWN_CHAR + NUM_UNOWN ; diamond cursor
-
-Pokedex_UnownModeUpdateCursorGfx:
-	ld e, a
-	ld d, 0
-	ld hl, UnownModeLetterAndCursorCoords + 2
-rept 4
-	add hl, de
-endr
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	ld [hl], c
 	ret
 
 Pokedex_NextOrPreviousDexEntry:
@@ -1192,25 +1067,16 @@ Pokedex_DrawOptionScreenBG:
 	hlcoord 3, 4
 	ld de, .Modes
 	call PlaceString
-	ld a, [wUnlockedUnownMode]
-	and a
-	ret z
-	hlcoord 3, 10
-	ld de, .UnownMode
-	call PlaceString
 	ret
 
 .Title:
 	db $3b, " OPTION ", $3c, -1
 
 .Modes:
-	db   "NEW #DEX MODE"
-	next "OLD #DEX MODE"
-	next "A to Z MODE"
+	db   "Ordinary Mode"
+	next "Index Mode"
+	next "Origins Mode"
 	db   "@"
-
-.UnownMode:
-	db "UNOWN MODE@"
 
 Pokedex_DrawSearchScreenBG:
 	call Pokedex_FillBackgroundColor2
@@ -1303,79 +1169,6 @@ Pokedex_PlaceSearchResultsTypeStrings:
 	ld [hl], "/"
 .done
 	ret
-
-Pokedex_DrawUnownModeBG:
-	call Pokedex_FillBackgroundColor2
-	hlcoord 2, 1
-	lb bc, 10, 13
-	call Pokedex_PlaceBorder
-	hlcoord 2, 14
-	lb bc, 1, 13
-	call Pokedex_PlaceBorder
-	hlcoord 2, 15
-	ld [hl], $3d
-	hlcoord 16, 15
-	ld [hl], $3e
-	hlcoord 6, 5
-	call Pokedex_PlaceFrontpicAtHL
-	ld de, 0
-	ld b, 0
-	ld c, NUM_UNOWN
-.loop
-	ld hl, wUnownDex
-	add hl, de
-	ld a, [hl]
-	and a
-	jr z, .done
-	push af
-	ld hl, UnownModeLetterAndCursorCoords
-rept 4
-	add hl, de
-endr
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	pop af
-	add FIRST_UNOWN_CHAR - 1 ; Unown A
-	ld [hl], a
-	inc de
-	inc b
-	dec c
-	jr nz, .loop
-.done
-	ld a, b
-	ld [wDexUnownCount], a
-	ret
-
-UnownModeLetterAndCursorCoords:
-; entries correspond to Unown forms
-;           letter, cursor
-	dwcoord   4,11,   3,11 ; A
-	dwcoord   4,10,   3,10 ; B
-	dwcoord   4, 9,   3, 9 ; C
-	dwcoord   4, 8,   3, 8 ; D
-	dwcoord   4, 7,   3, 7 ; E
-	dwcoord   4, 6,   3, 6 ; F
-	dwcoord   4, 5,   3, 5 ; G
-	dwcoord   4, 4,   3, 4 ; H
-	dwcoord   4, 3,   3, 2 ; I
-	dwcoord   5, 3,   5, 2 ; J
-	dwcoord   6, 3,   6, 2 ; K
-	dwcoord   7, 3,   7, 2 ; L
-	dwcoord   8, 3,   8, 2 ; M
-	dwcoord   9, 3,   9, 2 ; N
-	dwcoord  10, 3,  10, 2 ; O
-	dwcoord  11, 3,  11, 2 ; P
-	dwcoord  12, 3,  12, 2 ; Q
-	dwcoord  13, 3,  13, 2 ; R
-	dwcoord  14, 3,  15, 2 ; S
-	dwcoord  14, 4,  15, 4 ; T
-	dwcoord  14, 5,  15, 5 ; U
-	dwcoord  14, 6,  15, 6 ; V
-	dwcoord  14, 7,  15, 7 ; W
-	dwcoord  14, 8,  15, 8 ; X
-	dwcoord  14, 9,  15, 9 ; Y
-	dwcoord  14,10,  15,10 ; Z
 
 Pokedex_FillBackgroundColor2:
 	hlcoord 0, 0
@@ -1730,7 +1523,6 @@ Pokedex_DisplayModeDescription:
 	dw .NewMode
 	dw .OldMode
 	dw .ABCMode
-	dw .UnownMode
 
 .NewMode:
 	db   "<PK><MN> are listed by"
@@ -1738,15 +1530,11 @@ Pokedex_DisplayModeDescription:
 
 .OldMode:
 	db   "<PK><MN> are listed by"
-	next "official type.@"
+	next "index order.@"
 
 .ABCMode:
 	db   "<PK><MN> are listed"
-	next "alphabetically.@"
-
-.UnownMode:
-	db   "UNOWN are listed"
-	next "in catching order.@"
+	next "by Touhou game.@"
 
 Pokedex_DisplayChangingModesMessage:
 	xor a
@@ -2355,8 +2143,6 @@ Pokedex_LoadSelectedMonTiles:
 	call Pokedex_GetSelectedMon
 	call Pokedex_CheckSeen
 	jr z, .QuestionMark
-	ld a, [wFirstUnownSeen]
-	ld [wUnownLetter], a
 	ld a, [wTempSpecies]
 	ld [wCurPartySpecies], a
 	call GetBaseData
@@ -2478,44 +2264,6 @@ Pokedex_CheckSGB:
 	ret nz
 	ldh a, [hSGB]
 	dec a
-	ret
-
-Pokedex_LoadUnownFont:
-	ld a, BANK(sScratch)
-	call OpenSRAM
-	ld hl, UnownFont
-	; sScratch + $188 was the address of sDecompressBuffer in pokegold
-	ld de, sScratch + $188
-	ld bc, 39 tiles
-	ld a, BANK(UnownFont)
-	call FarCopyBytes
-	ld hl, sScratch + $188
-	ld bc, (NUM_UNOWN + 1) tiles
-	call Pokedex_InvertTiles
-	ld de, sScratch + $188
-	ld hl, vTiles2 tile FIRST_UNOWN_CHAR
-	lb bc, BANK(Pokedex_LoadUnownFont), NUM_UNOWN + 1
-	call Request2bpp
-	call CloseSRAM
-	ret
-
-Pokedex_LoadUnownFrontpicTiles:
-	ld a, [wUnownLetter]
-	push af
-	ld a, [wDexCurUnownIndex]
-	ld e, a
-	ld d, 0
-	ld hl, wUnownDex
-	add hl, de
-	ld a, [hl]
-	ld [wUnownLetter], a
-	ld a, UNOWN
-	ld [wCurPartySpecies], a
-	call GetBaseData
-	ld de, vTiles2 tile $00
-	predef GetMonFrontpic
-	pop af
-	ld [wUnownLetter], a
 	ret
 
 _NewPokedexEntry:

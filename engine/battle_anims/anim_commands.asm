@@ -24,11 +24,11 @@ _PlayBattleAnim:
 	call BattleAnimRequestPals
 	call BattleAnimDelayFrame
 
-	ld c, 1
+	ld c, VBLANK_CUTSCENE
 	ldh a, [rKEY1]
 	bit 7, a ; check CGB double speed mode
 	jr nz, .got_speed
-	ld c, 3
+	ld c, VBLANK_CUTSCENE_CGB
 
 .got_speed
 	ld hl, hVBlank
@@ -116,7 +116,7 @@ RunBattleAnimScript:
 	cp ROLLOUT
 	jr nz, .not_rollout
 
-	ld a, ANIM_BG_ROLLOUT
+	ld a, BATTLE_BG_EFFECT_ROLLOUT
 	ld b, NUM_BG_EFFECTS
 	ld de, BG_EFFECT_STRUCT_LENGTH
 	ld hl, wBGEffect1Function
@@ -134,9 +134,8 @@ RunBattleAnimScript:
 	ld a, [wBattleAnimFlags]
 	bit BATTLEANIM_STOP_F, a
 	jr z, .playframe
-
-	call BattleAnim_ClearOAM
-	ret
+	
+	jmp BattleAnim_ClearOAM
 
 BattleAnimClearHud:
 	call BattleAnimDelayFrame
@@ -158,12 +157,10 @@ BattleAnimRestoreHuds:
 	push af
 	ld a, BANK(wCurBattleMon) ; aka BANK(wTempMon), BANK(wPartyMon1), and several others
 	ldh [rSVBK], a
-
-; this block should just be "call UpdateBattleHuds"
-	ld hl, UpdateBattleHuds
-	ld a, BANK(UpdatePlayerHUD)
-	rst FarCall
-
+	
+	call UpdateBattleHuds
+	farcall FinishBattleAnim
+	
 	pop af
 	ldh [rSVBK], a
 
@@ -360,8 +357,8 @@ BattleAnimCommands::
 	dw BattleAnimCmd_E7
 	dw BattleAnimCmd_UpdateActorPic
 	dw BattleAnimCmd_Minimize
-	dw BattleAnimCmd_EA ; dummy
-	dw BattleAnimCmd_EB ; dummy
+	dw BattleAnimCmd_SetBgPal
+	dw BattleAnimCmd_SetObjPal
 	dw BattleAnimCmd_EC ; dummy
 	dw BattleAnimCmd_ED ; dummy
 	dw BattleAnimCmd_IfParamAnd
@@ -705,7 +702,7 @@ endr
 
 BattleAnimCmd_IncObj:
 	call GetBattleAnimByte
-	ld e, NUM_ANIM_OBJECTS
+	ld e, NUM_BATTLE_ANIM_STRUCTS
 	ld bc, wActiveAnimObjects
 .loop
 	ld hl, BATTLEANIMSTRUCT_INDEX
@@ -755,7 +752,7 @@ BattleAnimCmd_IncBGEffect:
 
 BattleAnimCmd_SetObj:
 	call GetBattleAnimByte
-	ld e, NUM_ANIM_OBJECTS
+	ld e, NUM_BATTLE_ANIM_STRUCTS
 	ld bc, wActiveAnimObjects
 .loop
 	ld hl, BATTLEANIMSTRUCT_INDEX
@@ -790,11 +787,11 @@ BattleAnimCmd_BattlerGFX_1Row:
 	jr .loop
 
 .okay
-	ld a, ANIM_GFX_PLAYERHEAD
+	ld a, BATTLE_ANIM_GFX_PLAYERHEAD
 	ld [hli], a
 	ld a, ($80 - 6 - 7) - BATTLEANIM_BASE_TILE
 	ld [hli], a
-	ld a, ANIM_GFX_ENEMYFEET
+	ld a, BATTLE_ANIM_GFX_ENEMYFEET
 	ld [hli], a
 	ld a, ($80 - 6) - BATTLEANIM_BASE_TILE
 	ld [hl], a
@@ -844,11 +841,11 @@ BattleAnimCmd_BattlerGFX_2Row:
 	jr .loop
 
 .okay
-	ld a, ANIM_GFX_PLAYERHEAD
+	ld a, BATTLE_ANIM_GFX_PLAYERHEAD
 	ld [hli], a
 	ld a, ($80 - 6 * 2 - 7 * 2) - BATTLEANIM_BASE_TILE
 	ld [hli], a
-	ld a, ANIM_GFX_ENEMYFEET
+	ld a, BATTLE_ANIM_GFX_ENEMYFEET
 	ld [hli], a
 	ld a, ($80 - 6 * 2) - BATTLEANIM_BASE_TILE
 	ld [hl], a
@@ -911,8 +908,6 @@ BattleAnimCmd_Transform:
 
 	ld a, [wTempBattleMonSpecies]
 	ld [wCurPartySpecies], a
-	ld hl, wBattleMonDVs
-	predef GetUnownLetter
 	ld de, vTiles0 tile $00
 	predef GetMonFrontpic
 	jr .done
@@ -920,8 +915,6 @@ BattleAnimCmd_Transform:
 .player
 	ld a, [wTempEnemyMonSpecies]
 	ld [wCurPartySpecies], a
-	ld hl, wEnemyMonDVs
-	predef GetUnownLetter
 	ld de, vTiles0 tile $00
 	predef GetMonBackpic
 
@@ -1099,6 +1092,101 @@ BattleAnimCmd_Minimize:
 	pop af
 	ldh [rSVBK], a
 	ret
+	
+	BattleAnimCmd_SetBgPal:
+	xor a
+	jr SetBattleAnimPal
+BattleAnimCmd_SetObjPal:
+	ld a, 1
+SetBattleAnimPal:
+	; This denotes whether to reference bg pals or obj pals.
+	ld b, a
+
+	call GetBattleAnimByte
+	ld d, a
+	call GetBattleAnimByte
+	ld e, a
+	ld a, d
+	cp PAL_BATTLE_BG_USER
+	assert PAL_BATTLE_BG_USER + 1 == PAL_BATTLE_BG_TARGET
+	ld a, b
+
+	; User/Target pal handling should always index based on bg pal.
+	ld b, 0
+	jr z, .UserPal
+	jr nc, .TargetPal
+	ld b, a
+.finish
+	call .SetPaletteData
+	jmp SetPalettes
+
+.UserPal:
+	ldh a, [hBattleTurn]
+	and a
+	jr nz, .EnemyPal
+.PlayerPal:
+	; Backpic.
+	ld d, PAL_BATTLE_BG_PLAYER
+	call .SetPaletteData
+
+	; Head. + 8 to reference object palettes.
+	ld d, PAL_BATTLE_OB_PLAYER + 8
+	jr .finish
+
+.TargetPal:
+	ldh a, [hBattleTurn]
+	and a
+	jr nz, .PlayerPal
+.EnemyPal:
+	; Frontpic.
+	ld d, PAL_BATTLE_BG_ENEMY
+	call .SetPaletteData
+
+	; Feet.
+	ld d, PAL_BATTLE_OB_ENEMY + 8
+	jr .finish
+
+.SetPaletteData:
+	push de
+	push bc
+
+	; Check if we should reference BG or OBJ pals.
+	dec b
+	jr nz, .got_pal_target
+	ld a, d
+	add 8 ; wBGPals + 8 palettes == wOBPals1
+	ld d, a
+
+.got_pal_target
+	; Get palette to change.
+	ld hl, wBGPals1
+	ld bc, 1 palettes
+	ld a, d
+	call AddNTimes
+
+	; Get palette to set.
+	call SwapHLDE
+	ld a, l
+	inc l
+	jr z, .SetDefaultPal
+	ld hl, CustomBattlePalettes
+	call AddNTimes
+
+	; Write the palette.
+	call FarCopyColorWRAM
+.done_setpal
+	pop bc
+	pop de
+	ret
+
+.SetDefaultPal:
+	ld b, h
+	farcall SetDefaultBattlePalette
+	jr .done_setpal
+
+CustomBattlePalettes:
+INCLUDE "gfx/battle_anims/custom.pal"
+
 
 BattleAnimCmd_DropSub:
 	ldh a, [rSVBK]
@@ -1142,15 +1230,11 @@ BattleAnimCmd_BeatUp:
 	and a
 	jr z, .player
 
-	ld hl, wBattleMonDVs
-	predef GetUnownLetter
 	ld de, vTiles2 tile $00
 	predef GetMonFrontpic
 	jr .done
 
 .player
-	ld hl, wEnemyMonDVs
-	predef GetUnownLetter
 	ld de, vTiles2 tile $31
 	predef GetMonBackpic
 
@@ -1455,7 +1539,7 @@ BattleAnim_UpdateOAM_All:
 	ld a, 0
 	ld [wBattleAnimOAMPointerLo], a
 	ld hl, wActiveAnimObjects
-	ld e, NUM_ANIM_OBJECTS
+	ld e, NUM_BATTLE_ANIM_STRUCTS
 .loop
 	ld a, [hl]
 	and a

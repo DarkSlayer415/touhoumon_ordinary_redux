@@ -25,7 +25,7 @@ InitGender:
 	call LoadGenderScreenPal
 	call LoadGenderScreenLightBlueTile
 	call WaitBGMap2
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	ld hl, AreYouABoyOrAreYouAGirlText
 	call PrintText
 	ld hl, .MenuHeader
@@ -49,8 +49,8 @@ InitGender:
 .MenuData:
 	db STATICMENU_CURSOR | STATICMENU_WRAP | STATICMENU_DISABLE_B ; flags
 	db 2 ; items
-	db "Boy@"
 	db "Girl@"
+	db "Tmby@"
 
 AreYouABoyOrAreYouAGirlText:
 	text_far _AreYouABoyOrAreYouAGirlText

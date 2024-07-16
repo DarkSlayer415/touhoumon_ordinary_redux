@@ -1,53 +1,3 @@
-GetUnownLetter:
-; Return Unown letter in wUnownLetter based on DVs at hl
-
-; Take the middle 2 bits of each DV and place them in order:
-;	atk  def  spd  spc
-;	.ww..xx.  .yy..zz.
-
-	; atk
-	ld a, [hl]
-	and %01100000
-	sla a
-	ld b, a
-	; def
-	ld a, [hli]
-	and %00000110
-	swap a
-	srl a
-	or b
-	ld b, a
-
-	; spd
-	ld a, [hl]
-	and %01100000
-	swap a
-	sla a
-	or b
-	ld b, a
-	; spc
-	ld a, [hl]
-	and %00000110
-	srl a
-	or b
-
-; Divide by 10 to get 0-25
-	ldh [hDividend + 3], a
-	xor a
-	ldh [hDividend], a
-	ldh [hDividend + 1], a
-	ldh [hDividend + 2], a
-	ld a, $ff / NUM_UNOWN + 1
-	ldh [hDivisor], a
-	ld b, 4
-	call Divide
-
-; Increment to get 1-26
-	ldh a, [hQuotient + 3]
-	inc a
-	ld [wUnownLetter], a
-	ret
-
 GetMonFrontpic:
 	ld a, [wCurPartySpecies]
 	ld [wCurSpecies], a
@@ -70,7 +20,6 @@ GetAnimatedFrontpic:
 	xor a
 	ldh [hBGMapMode], a
 	call _GetFrontpic
-	call GetAnimatedEnemyFrontpic
 	pop af
 	ldh [rSVBK], a
 	ret
@@ -103,18 +52,13 @@ _GetFrontpic:
 	ret
 
 GetFrontpicPointer:
-	ld a, [wCurPartySpecies]
-	cp UNOWN
-	jr z, .unown
+
 	ld a, [wCurPartySpecies]
 	ld d, BANK(PokemonPicPointers)
 	jr .ok
-.unown
-	ld a, [wUnownLetter]
-	ld d, BANK(UnownPicPointers)
+
 .ok
 	; These are assumed to be at the same address in their respective banks.
-	assert PokemonPicPointers == UnownPicPointers
 	ld hl, PokemonPicPointers
 	dec a
 	ld bc, 6
@@ -129,69 +73,6 @@ GetFrontpicPointer:
 	pop bc
 	ret
 
-GetAnimatedEnemyFrontpic:
-	ld a, BANK(vTiles3)
-	ldh [rVBK], a
-	push hl
-	ld de, wDecompressScratch
-	ld c, 7 * 7
-	ldh a, [hROMBank]
-	ld b, a
-	call Get2bpp
-	pop hl
-	ld de, 7 * 7 tiles
-	add hl, de
-	push hl
-	ld a, BANK(wBasePicSize)
-	ld hl, wBasePicSize
-	call GetFarWRAMByte
-	pop hl
-	and $f
-	ld de, wDecompressEnemyFrontpic + 5 * 5 tiles
-	ld c, 5 * 5
-	cp 5
-	jr z, .got_dims
-	ld de, wDecompressEnemyFrontpic + 6 * 6 tiles
-	ld c, 6 * 6
-	cp 6
-	jr z, .got_dims
-	ld de, wDecompressEnemyFrontpic + 7 * 7 tiles
-	ld c, 7 * 7
-.got_dims
-	push hl
-	push bc
-	call LoadFrontpicTiles
-	pop bc
-	pop hl
-	ld de, wDecompressScratch
-	ldh a, [hROMBank]
-	ld b, a
-	call Get2bpp
-	xor a
-	ldh [rVBK], a
-	ret
-
-LoadFrontpicTiles:
-	ld hl, wDecompressScratch
-	swap c
-	ld a, c
-	and $f
-	ld b, a
-	ld a, c
-	and $f0
-	ld c, a
-	push bc
-	call LoadOrientedFrontpic
-	pop bc
-.loop
-	push bc
-	ld c, 0
-	call LoadOrientedFrontpic
-	pop bc
-	dec b
-	jr nz, .loop
-	ret
-
 GetMonBackpic:
 	ld a, [wCurPartySpecies]
 	call IsAPokemon
@@ -199,8 +80,6 @@ GetMonBackpic:
 
 	ld a, [wCurPartySpecies]
 	ld b, a
-	ld a, [wUnownLetter]
-	ld c, a
 	ldh a, [rSVBK]
 	push af
 	ld a, BANK(wDecompressScratch)
@@ -208,14 +87,9 @@ GetMonBackpic:
 	push de
 
 	; These are assumed to be at the same address in their respective banks.
-	assert PokemonPicPointers == UnownPicPointers
 	ld hl, PokemonPicPointers
 	ld a, b
 	ld d, BANK(PokemonPicPointers)
-	cp UNOWN
-	jr nz, .ok
-	ld a, c
-	ld d, BANK(UnownPicPointers)
 .ok
 	dec a
 	ld bc, 6

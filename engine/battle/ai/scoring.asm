@@ -372,7 +372,6 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_MORNING_SUN,      AI_Smart_MorningSun
 	dbw EFFECT_SYNTHESIS,        AI_Smart_Synthesis
 	dbw EFFECT_MOONLIGHT,        AI_Smart_Moonlight
-	dbw EFFECT_HIDDEN_POWER,     AI_Smart_HiddenPower
 	dbw EFFECT_RAIN_DANCE,       AI_Smart_RainDance
 	dbw EFFECT_SUNNY_DAY,        AI_Smart_SunnyDay
 	dbw EFFECT_BELLY_DRUM,       AI_Smart_BellyDrum
@@ -387,6 +386,7 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_SOLARBEAM,        AI_Smart_Solarbeam
 	dbw EFFECT_THUNDER,          AI_Smart_Thunder
 	dbw EFFECT_FLY,              AI_Smart_Fly
+	dbw EFFECT_HAIL,             AI_Smart_Hail
 	db -1 ; end
 
 AI_Smart_Sleep:
@@ -1488,7 +1488,7 @@ AI_Smart_SleepTalk:
 	ret
 
 AI_Smart_DefrostOpponent:
-; Greatly encourage this move if enemy is frozen.
+; Greatly encourage this move if enemy is frostbitten.
 ; No move has EFFECT_DEFROST_OPPONENT, so this layer is unused.
 
 	ld a, [wEnemyMonStatus]
@@ -1571,7 +1571,7 @@ AI_Smart_SkullBash:
 AI_Smart_HealBell:
 ; Dismiss this move if none of the opponent's Pokemon is statused.
 ; Encourage this move if the enemy is statused.
-; 50% chance to greatly encourage this move if the enemy is fast asleep or frozen.
+; 50% chance to greatly encourage this move if the enemy is fast asleep.
 
 	push hl
 	ld a, [wOTPartyCount]
@@ -1610,7 +1610,7 @@ AI_Smart_HealBell:
 	jr z, .ok
 	dec [hl]
 .ok
-	and 1 << FRZ | SLP_MASK
+	and SLP_MASK
 	ret z
 	call AI_50_50
 	ret c
@@ -1812,7 +1812,7 @@ AI_Smart_Nightmare:
 	ret
 
 AI_Smart_FlameWheel:
-; Use this move if the enemy is frozen.
+; Use this move if the enemy is frostbitten.
 
 	ld a, [wEnemyMonStatus]
 	bit FRZ, a
@@ -2079,6 +2079,60 @@ AI_Smart_Sandstorm:
 	db STEEL
 	db -1 ; end
 
+AI_Smart_Hail:
+; Greatly discourage this move if the player is immune to Hail damage.
+	ld a, [wBattleMonType1]
+	push hl
+	ld hl, .HailImmuneTypes
+	ld de, 1
+	call IsInArray
+	pop hl
+	jr c, .greatly_discourage
+
+	ld a, [wBattleMonType2]
+	push hl
+	ld hl, .HailImmuneTypes
+	ld de, 1
+	call IsInArray
+	pop hl
+	jr c, .greatly_discourage
+
+; Discourage this move if player's HP is below 50%.
+	call AICheckPlayerHalfHP
+	jr nc, .discourage
+
+; Encourage move if AI has good Hail moves
+	push hl
+	ld hl, .GoodHailMoves
+	call AIHasMoveInArray
+	pop hl
+	jr c, .encourage
+
+; 50% chance to encourage this move otherwise.
+	call AI_50_50
+	ret c
+
+.encourage
+	dec [hl]
+	ret
+
+.greatly_discourage
+	inc [hl]
+.discourage
+	inc [hl]
+	ret
+	
+.HailImmuneTypes:
+	db ICE
+	db FIRE
+	db WATER
+	db -1 ; end
+
+.GoodHailMoves
+	db BLIZZARD
+	db -1 ; end
+
+
 AI_Smart_Endure:
 ; Greatly discourage this move if the enemy already used Protect.
 	ld a, [wEnemyProtectCount]
@@ -2304,44 +2358,6 @@ AI_Smart_RapidSpin:
 
 	dec [hl]
 	dec [hl]
-	ret
-
-AI_Smart_HiddenPower:
-	push hl
-	ld a, 1
-	ldh [hBattleTurn], a
-
-; Calculate Hidden Power's type and base power based on enemy's DVs.
-	callfar HiddenPowerDamage
-	callfar BattleCheckTypeMatchup
-	pop hl
-
-; Discourage Hidden Power if not very effective.
-	ld a, [wTypeMatchup]
-	cp EFFECTIVE
-	jr c, .bad
-
-; Discourage Hidden Power if its base power is lower than 50.
-	ld a, d
-	cp 50
-	jr c, .bad
-
-; Encourage Hidden Power if super-effective.
-	ld a, [wTypeMatchup]
-	cp EFFECTIVE + 1
-	jr nc, .good
-
-; Encourage Hidden Power if its base power is 70.
-	ld a, d
-	cp 70
-	ret c
-
-.good
-	dec [hl]
-	ret
-
-.bad
-	inc [hl]
 	ret
 
 AI_Smart_RainDance:
@@ -3113,6 +3129,27 @@ AI_Status:
 
 	inc de
 	call AIGetEnemyMove
+
+; Check if the opponent is immune to powder/spore moves.      
+	ld a, [wEnemyMoveStruct + MOVE_ANIM]
+	push bc
+	push de
+	push hl
+	ld hl, PowderMoves
+	call IsInByteArray
+	pop hl
+	pop de
+	pop bc
+	jr nc, .normal_check
+
+	ld a, [wBattleMonType1]
+	cp GRASS
+	jr z, .immune
+	ld a, [wBattleMonType2]
+	cp GRASS
+	jr z, .immune
+
+.normal_check
 
 	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
 	cp EFFECT_TOXIC

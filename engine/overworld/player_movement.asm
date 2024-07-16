@@ -114,7 +114,7 @@ DoPlayerMovement::
 ; Tiles such as waterfalls and warps move the player
 ; in a given direction, overriding input.
 
-	ld a, [wPlayerTile]
+	ld a, [wPlayerTileCollision]
 	ld c, a
 	call CheckWhirlpoolTile
 	jr c, .not_whirlpool
@@ -270,13 +270,13 @@ DoPlayerMovement::
 	cp 2
 	jr z, .bump
 
-	ld a, [wPlayerTile]
+	ld a, [wPlayerTileCollision]
 	call CheckIceTile
 	jr nc, .ice
 
 ; Downhill riding is slower when not moving down.
 	call .BikeCheck
-	jr nz, .walk
+	jr nz, .HandleWalkAndRun
 
 	ld hl, wBikeFlags
 	bit BIKEFLAGS_DOWNHILL_F, [hl]
@@ -316,6 +316,26 @@ DoPlayerMovement::
 .bump
 	xor a
 	ret
+	
+.HandleWalkAndRun
+	ld a, [wWalkingDirection]
+	cp STANDING
+	jr z, .ensurewalk
+	ldh a, [hJoypadDown]
+	and B_BUTTON
+	cp B_BUTTON
+	jr nz, .ensurewalk
+	ld a, [wPlayerState]
+	cp PLAYER_RUN
+	call nz, .StartRunning
+	jr .fast
+
+.ensurewalk
+	ld a, [wPlayerState]
+	cp PLAYER_NORMAL
+	call nz, .StartWalking
+	jr .walk
+
 
 .TrySurf:
 	call .CheckSurfPerms
@@ -332,11 +352,24 @@ DoPlayerMovement::
 	ld a, [wWalkingIntoLand]
 	and a
 	jr nz, .ExitWater
+	
+	call .FastSurfCheck
+    jr z, .fast
+    ld a, STEP_WALK
 
 	ld a, STEP_WALK
 	call .DoStep
 	scf
 	ret
+
+	.FastSurfCheck:
+    ld a, [wPlayerState]
+    cp PLAYER_SURF
+    ret nz
+    ldh a, [hJoypadDown]
+    and B_BUTTON
+    cp B_BUTTON
+    ret
 
 .ExitWater:
 	call .GetOutOfWater
@@ -352,7 +385,7 @@ DoPlayerMovement::
 	ret
 
 .TryJump:
-	ld a, [wPlayerTile]
+	ld a, [wPlayerTileCollision]
 	ld e, a
 	and $f0
 	cp HI_NYBBLE_LEDGES
@@ -398,7 +431,7 @@ DoPlayerMovement::
 	ld d, 0
 	ld hl, .EdgeWarps
 	add hl, de
-	ld a, [wPlayerTile]
+	ld a, [wPlayerTileCollision]
 	cp [hl]
 	jr nz, .not_warp
 
@@ -592,7 +625,7 @@ DoPlayerMovement::
 	ld h, [hl]
 	ld l, a
 	ld a, [hl]
-	ld [wWalkingTile], a
+	ld [wWalkingTileCollision], a
 	ret
 
 MACRO player_action
@@ -603,7 +636,7 @@ ENDM
 
 .action_table:
 .action_table_1
-	player_action STANDING, FACE_CURRENT, 0,  0, wPlayerTile
+	player_action STANDING, FACE_CURRENT, 0,  0, wPlayerTileCollision
 .action_table_1_end
 	player_action RIGHT,    FACE_RIGHT,   1,  0, wTileRight
 	player_action LEFT,     FACE_LEFT,   -1,  0, wTileLeft
@@ -693,7 +726,7 @@ ENDM
 	and d
 	jr nz, .NotWalkable
 
-	ld a, [wWalkingTile]
+	ld a, [wWalkingTileCollision]
 	call .CheckWalkable
 	jr c, .NotWalkable
 
@@ -714,7 +747,7 @@ ENDM
 	and d
 	jr nz, .NotSurfable
 
-	ld a, [wWalkingTile]
+	ld a, [wWalkingTileCollision]
 	call .CheckSurfable
 	jr c, .NotSurfable
 
@@ -735,7 +768,7 @@ ENDM
 .CheckWalkable:
 ; Return 0 if tile a is land. Otherwise, return carry.
 
-	call GetTileCollision
+	call GetTilePermission
 	and a ; LAND_TILE
 	ret z
 	scf
@@ -745,7 +778,7 @@ ENDM
 ; Return 0 if tile a is water, or 1 if land.
 ; Otherwise, return carry.
 
-	call GetTileCollision
+	call GetTilePermission
 	cp WATER_TILE
 	jr z, .Water
 
@@ -783,13 +816,29 @@ ENDM
 	pop bc
 	ret
 
+.StartRunning:
+	ld a, PLAYER_RUN
+	ld [wPlayerState], a
+	push bc
+	farcall UpdatePlayerSprite
+	pop bc
+	ret
+
+.StartWalking:
+	ld a, PLAYER_NORMAL
+	ld [wPlayerState], a
+	push bc
+	farcall UpdatePlayerSprite
+	pop bc
+	ret
+
 CheckStandingOnIce::
 	ld a, [wPlayerTurningDirection]
 	cp 0
 	jr z, .not_ice
 	cp $f0
 	jr z, .not_ice
-	ld a, [wPlayerTile]
+	ld a, [wPlayerTileCollision]
 	call CheckIceTile
 	jr nc, .yep
 	ld a, [wPlayerState]

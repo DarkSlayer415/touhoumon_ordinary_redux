@@ -129,15 +129,15 @@ endr
 DebugColor_InitVRAM:
 	ld a, $1
 	ldh [rVBK], a
-	ld hl, VRAM_Begin
-	ld bc, VRAM_End - VRAM_Begin
+	ld hl, STARTOF(VRAM)
+	ld bc, SIZEOF(VRAM)
 	xor a
 	call ByteFill
 
 	ld a, $0
 	ldh [rVBK], a
-	ld hl, VRAM_Begin
-	ld bc, VRAM_End - VRAM_Begin
+	ld hl, STARTOF(VRAM)
+	ld bc, SIZEOF(VRAM)
 	xor a
 	call ByteFill
 
@@ -330,8 +330,7 @@ DebugColor_InitScreen:
 	jr nz, .trainer
 
 ; mon
-	ld a, UNOWN_A
-	ld [wUnownLetter], a
+	ld a, UNOWN
 	call GetPokemonName
 	hlcoord 4, 1
 	call PlaceString
@@ -1081,7 +1080,7 @@ TilesetColorPicker: ; unreferenced
 	ld [wDebugTilesetCurColor], a
 	ldh [hMapAnims], a
 	call ClearSprites
-	call OverworldTextModeSwitch
+	call LoadOverworldTilemapAndAttrmapPals
 	call WaitBGMap2
 	xor a
 	ldh [hBGMapMode], a

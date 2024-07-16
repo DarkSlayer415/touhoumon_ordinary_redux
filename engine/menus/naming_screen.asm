@@ -55,7 +55,7 @@ NamingScreen:
 	call .GetNamingScreenSetup
 	call WaitBGMap
 	call WaitTop
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	call NamingScreen_InitNameEntry
 	ret
 
@@ -166,7 +166,7 @@ NamingScreen:
 	ld [hli], a
 	ld [hl], a
 	depixel 4, 4, 4, 0
-	ld a, SPRITE_ANIM_INDEX_RED_WALK
+	ld a, SPRITE_ANIM_OBJ_RED_WALK
 	call InitSpriteAnimStruct
 	ld hl, SPRITEANIMSTRUCT_FRAMESET_ID
 	add hl, bc
@@ -208,14 +208,27 @@ NamingScreen:
 	ld [hli], a
 	ld [hl], a
 	pop de
-	ld b, SPRITE_ANIM_INDEX_RED_WALK
+	ld b, SPRITE_ANIM_OBJ_RED_WALK
+	ld a, d
+	cp HIGH(ChrisSpriteGFX)
+	jr nz, .not_chris
+	ld a, e
+	cp LOW(ChrisSpriteGFX)
+	jr nz, .not_chris
+	ld b, SPRITE_ANIM_INDEX_PURPLE_WALK
+	jr .not_kris
+.not_chris
 	ld a, d
 	cp HIGH(KrisSpriteGFX)
 	jr nz, .not_kris
 	ld a, e
 	cp LOW(KrisSpriteGFX)
 	jr nz, .not_kris
-	ld b, SPRITE_ANIM_INDEX_BLUE_WALK
+<<<<<<< HEAD
+	ld b, SPRITE_ANIM_INDEX_BROWN_WALK
+=======
+	ld b, SPRITE_ANIM_OBJ_BLUE_WALK
+>>>>>>> 024c8749a0e7aa7f72082b0fa17498bf42c5359f
 .not_kris
 	ld a, b
 	depixel 4, 4, 4, 0
@@ -375,9 +388,9 @@ NamingScreenJoypadLoop:
 	depixel 10, 3
 	call NamingScreen_IsTargetBox
 	jr nz, .got_cursor_position
-	ld d, 8 * 8
+	ld d, 8 * TILE_WIDTH
 .got_cursor_position
-	ld a, SPRITE_ANIM_INDEX_NAMING_SCREEN_CURSOR
+	ld a, SPRITE_ANIM_OBJ_NAMING_SCREEN_CURSOR
 	call InitSpriteAnimStruct
 	ld a, c
 	ld [wNamingScreenCursorObjectPointer], a
@@ -932,7 +945,7 @@ _ComposeMailMessage:
 
 	; init mail icon
 	depixel 3, 2
-	ld a, SPRITE_ANIM_INDEX_PARTY_MON
+	ld a, SPRITE_ANIM_OBJ_PARTY_MON
 	call InitSpriteAnimStruct
 
 	ld hl, SPRITEANIMSTRUCT_ANIM_SEQ_ID
@@ -1051,7 +1064,7 @@ INCBIN "gfx/naming_screen/mail.2bpp"
 
 .init_blinking_cursor
 	depixel 9, 2
-	ld a, SPRITE_ANIM_INDEX_COMPOSE_MAIL_CURSOR
+	ld a, SPRITE_ANIM_OBJ_COMPOSE_MAIL_CURSOR
 	call InitSpriteAnimStruct
 	ld a, c
 	ld [wNamingScreenCursorObjectPointer], a
@@ -1152,7 +1165,7 @@ INCBIN "gfx/naming_screen/mail.2bpp"
 	call .PlaceMailCharset
 	ret
 
-; called from engine/gfx/sprite_anims.asm
+; called from engine/sprite_anims/functions.asm
 
 ComposeMail_AnimateCursor:
 	call .GetDPad

@@ -17,115 +17,115 @@ TreeMons:
 ;	db  %, species, level
 
 TreeMonSet_City:
-TreeMonSet_Canyon:
+TreeMonSet_Canyon: ;Suika Trees
 ; common
-	db 50, SPEAROW,    10
-	db 15, SPEAROW,    10
-	db 15, SPEAROW,    10
-	db 10, AIPOM,      10
-	db  5, AIPOM,      10
-	db  5, AIPOM,      10
+	db 25, XATU,  	   20
+	db 25, XATU,       20
+	db 20, SMOOCHUM,   20
+	db 10, SMOOCHUM,   20
+	db 10, SMOOCHUM,   20
+	db 10, RATTATA,    24
 	db -1
 ; rare
-	db 50, SPEAROW,    10
-	db 15, HERACROSS,  10
-	db 15, HERACROSS,  10
-	db 10, AIPOM,      10
-	db  5, AIPOM,      10
-	db  5, AIPOM,      10
+	db 25, SMOOCHUM,   20
+	db 25, SMOOCHUM,   20
+	db 20, SMOOCHUM,   20
+	db 10, RATTATA,    24
+	db 10, RATTATA,    24
+	db 10, RATTATA,    24
 	db -1
 
-TreeMonSet_Town:
+TreeMonSet_Town: ;Yuyuko Trees
 ; common
-	db 50, SPEAROW,    10
-	db 15, EKANS,      10
-	db 15, SPEAROW,    10
-	db 10, AIPOM,      10
-	db  5, AIPOM,      10
-	db  5, AIPOM,      10
+	db 25, NATU,   	   10
+	db 25, NATU,       10
+	db 20, HOUNDOUR,   12
+	db 10, HOUNDOUR,   14
+	db 10, HOUNDOUR,   14
+	db 10, HOUNDOUR,   16
 	db -1
 ; rare
-	db 50, SPEAROW,    10
-	db 15, HERACROSS,  10
-	db 15, HERACROSS,  10
-	db 10, AIPOM,      10
-	db  5, AIPOM,      10
-	db  5, AIPOM,      10
+	db 25, HOUNDOUR,   10
+	db 25, HOUNDOUR,   10
+	db 20, HOUNDOUR,   12
+	db 10, HOUNDOUR,   14
+	db 10, HOUNDOUR,   14
+	db 10, HOUNDOUR,   16
 	db -1
 
-TreeMonSet_Route:
+TreeMonSet_Route: ;Kanako Trees
 ; common
-	db 50, HOOTHOOT,   10
-	db 15, SPINARAK,   10
-	db 15, LEDYBA,     10
-	db 10, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
+	db 25, NATU,       10
+	db 25, NATU,       10
+	db 20, MURKROW,    12
+	db 10, MURKROW,    14
+	db 10, MURKROW,    14
+	db 10, MURKROW,    16
 	db -1
 ; rare
-	db 50, HOOTHOOT,   10
-	db 15, PINECO,     10
-	db 15, PINECO,     10
-	db 10, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
+	db 25, MURKROW,    10
+	db 25, MURKROW,    10
+	db 20, MURKROW,    12
+	db 10, MURKROW,    14
+	db 10, MURKROW,    14
+	db 10, MURKROW,    16
 	db -1
 
-TreeMonSet_Kanto:
+TreeMonSet_Kanto: ;Evolved Form Trees (Suika, Kanako, Yuyuko)
 ; common
-	db 50, HOOTHOOT,   10
-	db 15, EKANS,      10
-	db 15, HOOTHOOT,   10
-	db 10, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
+	db 25, HOUNDOOM,   35
+	db 25, GOLDEEN,    35
+	db 20, RATTATA,    35
+	db 10, KINGDRA,    40
+	db 10, SEAKING,    40
+	db 10, RATICATE,   40
 	db -1
 ; rare
-	db 50, HOOTHOOT,   10
-	db 15, PINECO,     10
-	db 15, PINECO,     10
-	db 10, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
+	db 25, HOUNDOOM,   35
+	db 25, GOLDEEN,    35
+	db 20, RATTATA,    35
+	db 10, KINGDRA,    40
+	db 10, SEAKING,    40
+	db 10, RATICATE,   40
 	db -1
 
-TreeMonSet_Lake:
+TreeMonSet_Lake: ;Kanako/Yuyuko Trees
 ; common
-	db 50, HOOTHOOT,   10
-	db 15, VENONAT,    10
-	db 15, HOOTHOOT,   10
-	db 10, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
+	db 25, HOUNDOUR,   24
+	db 25, MURKROW,    24
+	db 20, HOUNDOUR,   26
+	db 10, MURKROW,    26
+	db 10, MURKROW,    26
+	db 10, HOUNDOOM,   28
 	db -1
 ; rare
-	db 50, HOOTHOOT,   10
-	db 15, PINECO,     10
-	db 15, PINECO,     10
-	db 10, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
+	db 25, HOUNDOUR,   24
+	db 25, MURKROW,    24
+	db 20, HOUNDOUR,   26
+	db 10, MURKROW,    26
+	db 10, MURKROW,    26
+	db 10, GOLDEEN,    28
 	db -1
 
-TreeMonSet_Forest:
-; common
-	db 50, HOOTHOOT,   10
-	db 15, PINECO,     10
-	db 15, PINECO,     10
-	db 10, NOCTOWL,    10
-	db  5, BUTTERFREE, 10
-	db  5, BEEDRILL,   10
+TreeMonSet_Forest: ;Fairy Trees
+; common (Fairies of Light)
+	db 25, MANKEY,     12
+	db 25, PSYDUCK,    12
+	db 20, MEOWTH,     12
+	db 10, PRIMEAPE,   15
+	db 10, GOLDUCK,    15
+	db 10, PERSIAN,    15
 	db -1
-; rare
-	db 50, HOOTHOOT,   10
-	db 15, CATERPIE,   10
-	db 15, WEEDLE,     10
-	db 10, HOOTHOOT,   10
-	db  5, METAPOD,    10
-	db  5, KAKUNA,     10
+; rare (Himawari + Evos)
+	db 35, EEVEE,      12
+	db 10, EEVEE,      13
+	db 10, EEVEE,      13
+	db 15, VULPIX,     15
+	db 15, ZUBAT,      15
+	db 15, MAGIKARP,   15
 	db -1
 
 TreeMonSet_Rock:
-	db 90, KRABBY,     15
-	db 10, SHUCKLE,    15
+	db 80, GIRAFARIG,  20
+	db 20, PINECO,     25
 	db -1

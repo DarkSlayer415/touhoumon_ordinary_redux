@@ -154,8 +154,8 @@ HikerDanielAfterBattleText:
 	done
 
 FirebreatherBillSeenText:
-	text "ZUBAT's SUPERSONIC"
-	line "keeps confusing"
+	text "CParsee's Growl"
+	line "keeps weakening"
 	cont "my #MON."
 
 	para "I'm seriously"

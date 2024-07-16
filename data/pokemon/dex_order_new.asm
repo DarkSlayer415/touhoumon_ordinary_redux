@@ -1,256 +1,258 @@
-; Every Pokémon sorted in New Pokédex Order.
+; Every Toho in Ordinary Dex Order
 
 NewPokedexOrder:
 	table_width 1, NewPokedexOrder
-	db CHIKORITA
-	db BAYLEEF
-	db MEGANIUM
-	db CYNDAQUIL
-	db QUILAVA
-	db TYPHLOSION
-	db TOTODILE
-	db CROCONAW
-	db FERALIGATR
-	db PIDGEY
-	db PIDGEOTTO
-	db PIDGEOT
-	db SPEAROW
-	db FEAROW
-	db HOOTHOOT
-	db NOCTOWL
-	db RATTATA
-	db RATICATE
-	db SENTRET
-	db FURRET
-	db PICHU
-	db PIKACHU
-	db RAICHU
-	db CATERPIE
-	db METAPOD
-	db BUTTERFREE
-	db WEEDLE
-	db KAKUNA
-	db BEEDRILL
-	db LEDYBA
-	db LEDIAN
-	db SPINARAK
-	db ARIADOS
-	db GEODUDE
-	db GRAVELER
-	db GOLEM
-	db ZUBAT
-	db GOLBAT
-	db CROBAT
-	db CLEFFA
-	db CLEFAIRY
-	db CLEFABLE
-	db IGGLYBUFF
-	db JIGGLYPUFF
-	db WIGGLYTUFF
-	db TOGEPI
-	db TOGETIC
-	db SANDSHREW
-	db SANDSLASH
-	db EKANS
-	db ARBOK
-	db DUNSPARCE
-	db MAREEP
-	db FLAAFFY
-	db AMPHAROS
-	db WOOPER
-	db QUAGSIRE
-	db GASTLY
-	db HAUNTER
-	db GENGAR
-	db UNOWN
-	db ONIX
-	db STEELIX
-	db BELLSPROUT
-	db WEEPINBELL
-	db VICTREEBEL
-	db HOPPIP
-	db SKIPLOOM
-	db JUMPLUFF
-	db PARAS
-	db PARASECT
-	db POLIWAG
-	db POLIWHIRL
-	db POLIWRATH
-	db POLITOED
-	db MAGIKARP
-	db GYARADOS
-	db GOLDEEN
-	db SEAKING
-	db SLOWPOKE
-	db SLOWBRO
-	db SLOWKING
-	db ODDISH
-	db GLOOM
-	db VILEPLUME
-	db BELLOSSOM
-	db DROWZEE
-	db HYPNO
-	db ABRA
-	db KADABRA
-	db ALAKAZAM
-	db DITTO
-	db PINECO
-	db FORRETRESS
-	db NIDORAN_F
-	db NIDORINA
-	db NIDOQUEEN
-	db NIDORAN_M
-	db NIDORINO
-	db NIDOKING
-	db YANMA
-	db SUNKERN
-	db SUNFLORA
-	db EXEGGCUTE
-	db EXEGGUTOR
-	db SUDOWOODO
-	db WOBBUFFET
-	db VENONAT
-	db VENOMOTH
-	db SCYTHER
-	db SCIZOR
-	db PINSIR
-	db HERACROSS
-	db KOFFING
-	db WEEZING
-	db GRIMER
-	db MUK
-	db MAGNEMITE
-	db MAGNETON
-	db VOLTORB
-	db ELECTRODE
-	db AIPOM
-	db SNUBBULL
-	db GRANBULL
-	db VULPIX
-	db NINETALES
-	db GROWLITHE
-	db ARCANINE
-	db STANTLER
-	db MARILL
-	db AZUMARILL
-	db DIGLETT
-	db DUGTRIO
-	db MANKEY
-	db PRIMEAPE
-	db MEOWTH
-	db PERSIAN
-	db PSYDUCK
-	db GOLDUCK
-	db MACHOP
-	db MACHOKE
-	db MACHAMP
-	db TYROGUE
-	db HITMONLEE
-	db HITMONCHAN
-	db HITMONTOP
-	db GIRAFARIG
-	db TAUROS
-	db MILTANK
-	db MAGBY
-	db MAGMAR
-	db SMOOCHUM
-	db JYNX
-	db ELEKID
-	db ELECTABUZZ
-	db MR__MIME
-	db SMEARGLE
-	db FARFETCH_D
-	db NATU
-	db XATU
-	db QWILFISH
-	db TENTACOOL
-	db TENTACRUEL
-	db KRABBY
-	db KINGLER
-	db SHUCKLE
-	db STARYU
-	db STARMIE
-	db SHELLDER
-	db CLOYSTER
-	db CORSOLA
-	db REMORAID
-	db OCTILLERY
-	db CHINCHOU
-	db LANTURN
-	db SEEL
-	db DEWGONG
-	db LICKITUNG
-	db TANGELA
-	db EEVEE
-	db VAPOREON
-	db JOLTEON
-	db FLAREON
-	db ESPEON
-	db UMBREON
-	db HORSEA
-	db SEADRA
-	db KINGDRA
-	db GLIGAR
-	db DELIBIRD
-	db SWINUB
-	db PILOSWINE
-	db TEDDIURSA
-	db URSARING
-	db PHANPY
-	db DONPHAN
-	db MANTINE
-	db SKARMORY
-	db DODUO
-	db DODRIO
-	db PONYTA
-	db RAPIDASH
-	db CUBONE
-	db MAROWAK
-	db KANGASKHAN
-	db RHYHORN
-	db RHYDON
-	db MURKROW
-	db HOUNDOUR
-	db HOUNDOOM
-	db SLUGMA
-	db MAGCARGO
-	db SNEASEL
-	db MISDREAVUS
-	db PORYGON
-	db PORYGON2
-	db CHANSEY
-	db BLISSEY
-	db LAPRAS
-	db OMANYTE
-	db OMASTAR
-	db KABUTO
-	db KABUTOPS
-	db AERODACTYL
-	db SNORLAX
-	db BULBASAUR
-	db IVYSAUR
-	db VENUSAUR
-	db CHARMANDER
-	db CHARMELEON
-	db CHARIZARD
-	db SQUIRTLE
-	db WARTORTLE
-	db BLASTOISE
-	db ARTICUNO
-	db ZAPDOS
-	db MOLTRES
-	db RAIKOU
-	db ENTEI
-	db SUICUNE
-	db DRATINI
-	db DRAGONAIR
-	db DRAGONITE
-	db LARVITAR
-	db PUPITAR
-	db TYRANITAR
-	db LUGIA
-	db HO_OH
-	db MEWTWO
-	db MEW
-	db CELEBI
+	db CHIKORITA	;CKaguya
+	db BAYLEEF		;Kaguya
+	db MEGANIUM		;EKaguya
+	db CYNDAQUIL	;CMokou
+	db QUILAVA		;Mokou
+	db TYPHLOSION	;EMokou
+	db TOTODILE		;CEirin
+	db CROCONAW		;Eirin
+	db FERALIGATR	;EEirin
+	db TENTACOOL	;CChen
+	db TENTACRUEL	;Chen
+	db JYNX			;EChen
+	db VOLTORB		;CTokiko
+	db ELECTRODE	;Tokiko
+	db SCIZOR		;ETokiko
+	db PONYTA		;CMomiji
+	db RAPIDASH		;Momiji
+	db ELECTABUZZ	;EMomiji
+	db GASTLY		;CMystia
+	db HAUNTER		;Mystia
+	db GENGAR		;EMystia
+	db GROWLITHE	;CRumia
+	db ARCANINE		;Rumia
+	db CHANSEY		;ERumia
+	db DIGLETT		;CYamame
+	db DUGTRIO		;Yamame
+	db PORYGON		;EYamame
+	db HORSEA		;CWriggle
+	db SEADRA		;Wriggle
+	db SCYTHER		;EWriggle
+	db SPEAROW		;CShizuha
+	db FEAROW		;Shizuha
+	db HITMONLEE	;EShizuha
+	db EKANS		;CMinoriko
+	db ARBOK		;Minoriko
+	db HITMONCHAN	;EMinoriko
+	db CLEFFA		;CTewi
+	db CLEFAIRY		;Tewi
+	db CLEFABLE		;ETewi
+	db NIDORAN_F	;CReisen
+	db NIDORINA		;Reisen
+	db NIDOQUEEN	;EReisen
+	db WOBBUFFET	;CKurumi
+	db REMORAID		;Kurumi
+	db OCTILLERY	;EKurumi
+	db VENONAT		;CKisume
+	db VENOMOTH		;Kisume
+	db KANGASKHAN	;EKisume
+	db STARYU		;CParsee
+	db STARMIE		;Parsee
+	db MR__MIME		;EParsee
+	db MANKEY		;CSunny
+	db PRIMEAPE		;Sunny
+	db FLAREON		;ESunny
+	db PSYDUCK		;CLuna
+	db GOLDUCK		;Luna
+	db JOLTEON		;ELuna
+	db MEOWTH		;CStar
+	db PERSIAN		;Star
+	db VAPOREON		;EStar
+	db SPINARAK		;CRemilia
+	db ARIADOS		;Remilia
+	db CROBAT		;ERemilia
+	db SUNKERN		;CFlandre
+	db SUNFLORA		;Flandre
+	db YANMA		;EFlandre
+	db NIDORAN_M	;CYuugi
+	db NIDORINO		;Yuugi
+	db NIDOKING		;EYuugi
+	db SMOOCHUM		;CSuika
+	db RATTATA		;Suika
+	db RATICATE		;ESuika
+	db GIRAFARIG	;CTenshi
+	db PINECO		;Tenshi
+	db FORRETRESS	;ETenshi
+	db SENTRET		;CKana
+	db FURRET		;Kana
+	db BELLOSSOM	;EKana
+	db PIDGEY		;CAya
+	db PIDGEOTTO	;Aya
+	db PIDGEOT		;EAya
+	db NATU			;CHatate
+	db XATU			;Hatate
+	db CELEBI		;EHatate
+	db WEEDLE		;CCirno
+	db KAKUNA		;Cirno	
+	db BEEDRILL		;ECirno
+	db SHUCKLE		;CLouise
+	db HERACROSS	;Louise
+	db CORSOLA		;ELouise
+	db HOOTHOOT		;CKotohime
+	db NOCTOWL		;Kotohime
+	db SLOWKING		;EKotohime
+	db MAREEP		;CKoishi
+	db FLAAFFY		;Koishi
+	db AMPHAROS		;EKoishi
+	db MAGBY		;CYuki
+	db SLUGMA		;Yuki
+	db MAGCARGO		;EYuki
+	db ELEKID		;CMai
+	db SWINUB		;Mai
+	db PILOSWINE	;EMai
+	db SLOWPOKE		;CHina
+	db SLOWBRO		;Hina
+	db MAGMAR		;EHina
+	db PARAS		;CMedicine
+	db PARASECT		;Medicine
+	db PINSIR		;EMedicine
+	db BELLSPROUT	;CYuuka
+	db WEEPINBELL	;Yuuka
+	db VICTREEBEL	;EYuuka
+	db EEVEE		;Himawari
+	db VULPIX		;LilyWhite
+	db NINETALES	;ELilyWhite
+	db ZUBAT		;LilyBlack
+	db GOLBAT		;ELilyBlack
+	db MAGIKARP		;Daiyousei
+	db GYARADOS		;EDaiyousei
+	db SNUBBULL		;CSara
+	db GRANBULL		;Sara
+	db QWILFISH		;ESara
+	db MACHOP		;CMeiling
+	db MACHOKE		;Meiling
+	db MACHAMP		;EMeiling
+	db PICHU		;CNitori
+	db PIKACHU		;Nitori
+	db RAICHU		;ENitori
+	db LICKITUNG	;CKoakuma
+	db KOFFING		;Koakuma
+	db WEEZING		;EKoakuma
+	db CATERPIE		;CPatchouli
+	db METAPOD		;Patchouli
+	db BUTTERFREE	;EPatchouli
+	db SANDSHREW	;CEllen
+	db SANDSLASH	;Ellen
+	db AERODACTYL	;EEllen
+	db WOOPER		;CKeine
+	db QUAGSIRE		;Keine
+	db ESPEON		;EKeine
+	db UMBREON		;HKeine
+	db IGGLYBUFF	;CAlice
+	db JIGGLYPUFF	;Alice
+	db WIGGLYTUFF	;EAlice
+	db SEEL			;CLunasa
+	db DEWGONG		;Lunasa
+	db ARTICUNO		;ELunasa
+	db GRIMER		;CMerlin
+	db MUK			;Merlin
+	db ZAPDOS		;EMerlin
+	db SHELLDER		;CLyrica
+	db CLOYSTER		;Lyrica
+	db MOLTRES		;ELyrica
+	db GEODUDE		;CYoumu
+	db GRAVELER		;Youmu
+	db GOLEM		;EYoumu
+	db HOUNDOUR		;CYuyuko
+	db HOUNDOOM		;Yuyuko
+	db KINGDRA		;EYuyuko
+	db ODDISH		;CSanae
+	db GLOOM		;Sanae
+	db VILEPLUME	;ESanae
+	db MURKROW		;CKanako	
+	db GOLDEEN		;Kanako
+	db SEAKING		;EKanako
+	db MARILL		;CSuwako
+	db AZUMARILL	;Suwako
+	db POLITOED		;ESuwako
+	db FARFETCH_D	;CSatori
+	db DODUO		;Satori
+	db DODRIO		;ESatori
+	db POLIWAG		;CKomachi
+	db POLIWHIRL	;Komachi
+	db POLIWRATH	;EKomachi	
+	db ABRA			;CEiki
+	db KADABRA		;Eiki
+	db ALAKAZAM		;EEiki
+	db CHINCHOU		;CChiyuri
+	db LANTURN		;Chiyuri
+	db SUDOWOODO	;EChiyuri
+	db DUNSPARCE	;CYumemi
+	db GLIGAR		;Yumemi
+	db STEELIX		;EYumemi
+	db LEDYBA		;CRikako
+	db LEDIAN		;Rikako
+	db AIPOM		;ERikako
+	db PHANPY		;CElly
+	db DONPHAN		;Elly
+	db PORYGON2		;EElly
+	db CUBONE		;CMeira
+	db MAROWAK		;Meira
+	db DITTO		;EMeira
+	db EXEGGCUTE	;CRika
+	db EXEGGUTOR	;Rika
+	db LAPRAS		;ERika
+	db MAGNEMITE	;CRin
+	db MAGNETON		;Rin
+	db TAUROS		;ERin
+	db HOPPIP		;CUtsuho
+	db SKIPLOOM		;Utsuho
+	db JUMPLUFF		;EUtsuho
+	db ONIX			;CIku
+	db DROWZEE		;Iku
+	db HYPNO		;EIku
+	db KRABBY		;CLetty
+	db KINGLER		;Letty
+	db TANGELA		;ELetty
+	db DELIBIRD		;COrange
+	db MANTINE		;Orange
+	db SKARMORY		;EOrange
+	db SNEASEL		;CYumeko
+	db TEDDIURSA	;Yumeko
+	db URSARING		;EYumeko
+	db MISDREAVUS	;CRan
+	db RHYHORN		;Ran
+	db RHYDON		;ERan
+	db STANTLER		;CMugetsu
+	db SMEARGLE		;Mugetsu
+	db MILTANK		;EMugetsu
+	db TYROGUE		;CGengetsu
+	db HITMONTOP	;Gengetsu
+	db BLISSEY		;EGengetsu
+	db SNORLAX		;Genji
+	db OMANYTE		;CKirisame
+	db OMASTAR		;Kirisame
+	db KABUTO		;CHakurei
+	db KABUTOPS		;Hakurei
+	db BULBASAUR	;CReimu
+	db IVYSAUR		;Reimu
+	db VENUSAUR 	;EReimu
+	db CHARMANDER	;CMarisa
+	db CHARMELEON	;Marisa
+	db CHARIZARD	;EMarisa
+	db SQUIRTLE		;CSakuya
+	db WARTORTLE	;Sakuya
+	db BLASTOISE	;ESakuya
+	db CYUUTO		;CYuuto
+	db YUUTO		;Yuuto
+	db TOGEPI		;CShinki
+	db TOGETIC		;Shinki
+	db MEWTWO		;CKasen
+	db MEW		    ;Kasen
+	db DRATINI		;CYukari
+	db DRAGONAIR	;Yukari
+	db DRAGONITE	;EYukari
+	db LARVITAR		;CMima
+	db PUPITAR		;Mima
+	db TYRANITAR	;EMima
+	db UNOWN		;Rinnosuke
+	db RAIKOU		;Toyohime
+	db ENTEI		;Yorihime
+	db SUICUNE		;Satsuki
+	db LUGIA		;Layla
+	db HO_OH		;VIVIT
 	assert_table_length NUM_POKEMON
