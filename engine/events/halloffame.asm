@@ -384,15 +384,8 @@ _HallOfFamePC:
 	call WaitBGMap
 	ld b, SCGB_PLAYER_OR_MON_FRONTPIC_PALS
 	call GetSGBLayout
-<<<<<<< HEAD
 	call SetPalettes
 	call HOF_PlayCry
-=======
-	call SetDefaultBGPAndOBP
-	decoord 6, 5
-	ld c, ANIM_MON_HOF
-	predef HOF_AnimateFrontpic
->>>>>>> 024c8749a0e7aa7f72082b0fa17498bf42c5359f
 	and a
 	ret
 

@@ -655,19 +655,11 @@ PokegearMap_ContinueMap:
 PokegearMap_InitPlayerIcon:
 	push af
 	depixel 0, 0
-<<<<<<< HEAD
 	ld b, SPRITE_ANIM_INDEX_PURPLE_WALK
 	ld a, [wPlayerGender]
 	bit PLAYERGENDER_FEMALE_F, a
 	jr z, .got_gender
 	ld b, SPRITE_ANIM_INDEX_BROWN_WALK
-=======
-	ld b, SPRITE_ANIM_OBJ_RED_WALK
-	ld a, [wPlayerGender]
-	bit PLAYERGENDER_FEMALE_F, a
-	jr z, .got_gender
-	ld b, SPRITE_ANIM_OBJ_BLUE_WALK
->>>>>>> 024c8749a0e7aa7f72082b0fa17498bf42c5359f
 .got_gender
 	ld a, b
 	call InitSpriteAnimStruct
@@ -2547,12 +2539,7 @@ Pokedex_GetArea:
 	ld a, [wPlayerGender]
 	bit PLAYERGENDER_FEMALE_F, a
 	jr z, .male
-<<<<<<< HEAD
 	ld c, PAL_OW_BROWN
-=======
-	assert PAL_OW_RED + 1 == PAL_OW_BLUE
-	inc c
->>>>>>> 024c8749a0e7aa7f72082b0fa17498bf42c5359f
 .male
 	ld a, c
 	ld [hli], a ; attributes
@@ -2761,19 +2748,11 @@ TownMapPlayerIcon:
 	call Request2bpp
 ; Animation/palette
 	depixel 0, 0
-<<<<<<< HEAD
 	ld b, SPRITE_ANIM_INDEX_PURPLE_WALK ; Maribel
 	ld a, [wPlayerGender]
 	bit PLAYERGENDER_FEMALE_F, a
 	jr z, .got_gender
 	ld b, SPRITE_ANIM_INDEX_BROWN_WALK ; Renko
-=======
-	ld b, SPRITE_ANIM_OBJ_RED_WALK ; Male
-	ld a, [wPlayerGender]
-	bit PLAYERGENDER_FEMALE_F, a
-	jr z, .got_gender
-	ld b, SPRITE_ANIM_OBJ_BLUE_WALK ; Female
->>>>>>> 024c8749a0e7aa7f72082b0fa17498bf42c5359f
 .got_gender
 	ld a, b
 	call InitSpriteAnimStruct

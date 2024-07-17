@@ -103,7 +103,6 @@
 	const MUSIC_CERULEAN_CITY 				 ; 67
 	const MUSIC_CINNABAR_ISLAND              ; 68
 	const MUSIC_NUGGET_BRIDGE                ; 69
-	const MUSIC_POKEMART                     ; 6d
 	const MUSIC_ROUTE_47					 ; 6e
 ;Touhoumon Remixes
 	const MUSIC_EIRIN_CENTER

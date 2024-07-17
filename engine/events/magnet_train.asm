@@ -292,11 +292,7 @@ MagnetTrain_Jumptable:
 	ld d, (8 + 2) * TILE_WIDTH + 5
 	ld a, [wMagnetTrainPlayerSpriteInitX]
 	ld e, a
-<<<<<<< HEAD
 	ld b, SPRITE_ANIM_INDEX_MAGNET_TRAIN_PURPLE
-=======
-	ld b, SPRITE_ANIM_OBJ_MAGNET_TRAIN_RED
->>>>>>> 024c8749a0e7aa7f72082b0fa17498bf42c5359f
 	ldh a, [rSVBK]
 	push af
 	ld a, BANK(wPlayerGender)
@@ -304,11 +300,7 @@ MagnetTrain_Jumptable:
 	ld a, [wPlayerGender]
 	bit PLAYERGENDER_FEMALE_F, a
 	jr z, .got_gender
-<<<<<<< HEAD
 	ld b, SPRITE_ANIM_INDEX_MAGNET_TRAIN_BROWN
-=======
-	ld b, SPRITE_ANIM_OBJ_MAGNET_TRAIN_BLUE
->>>>>>> 024c8749a0e7aa7f72082b0fa17498bf42c5359f
 .got_gender
 	pop af
 	ldh [rSVBK], a

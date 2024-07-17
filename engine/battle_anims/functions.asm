@@ -14,7 +14,6 @@ DoBattleAnimFrame:
 .Jumptable:
 ; entries correspond to BATTLE_ANIM_FUNC_* constants
 	table_width 2, DoBattleAnimFrame.Jumptable
-<<<<<<< HEAD
 	dw BattleAnimFunction_Null
 	dw BattleAnimFunction_MoveFromUserToTarget
 	dw BattleAnimFunction_MoveFromUserToTargetAndDisappear
@@ -101,89 +100,6 @@ DoBattleAnimFrame:
 	dw BattleAnimFunction_LeafStorm
 	dw BattleAnimFunction_RadialMoveOutSlow
 	assert_table_length NUM_BATTLEANIMFUNCS
-=======
-	dw BattleAnimFunc_Null
-	dw BattleAnimFunc_MoveFromUserToTarget
-	dw BattleAnimFunc_MoveFromUserToTargetAndDisappear
-	dw BattleAnimFunc_MoveInCircle
-	dw BattleAnimFunc_MoveWaveToTarget
-	dw BattleAnimFunc_ThrowFromUserToTarget
-	dw BattleAnimFunc_ThrowFromUserToTargetAndDisappear
-	dw BattleAnimFunc_Drop
-	dw BattleAnimFunc_MoveFromUserToTargetSpinAround
-	dw BattleAnimFunc_Shake
-	dw BattleAnimFunc_FireBlast
-	dw BattleAnimFunc_RazorLeaf
-	dw BattleAnimFunc_Bubble
-	dw BattleAnimFunc_Surf
-	dw BattleAnimFunc_Sing
-	dw BattleAnimFunc_WaterGun
-	dw BattleAnimFunc_Ember
-	dw BattleAnimFunc_Powder
-	dw BattleAnimFunc_PokeBall
-	dw BattleAnimFunc_PokeBallBlocked
-	dw BattleAnimFunc_Recover
-	dw BattleAnimFunc_ThunderWave
-	dw BattleAnimFunc_Clamp_Encore
-	dw BattleAnimFunc_Bite
-	dw BattleAnimFunc_SolarBeam
-	dw BattleAnimFunc_Gust
-	dw BattleAnimFunc_RazorWind
-	dw BattleAnimFunc_Kick
-	dw BattleAnimFunc_Absorb
-	dw BattleAnimFunc_Egg
-	dw BattleAnimFunc_MoveUp
-	dw BattleAnimFunc_Wrap
-	dw BattleAnimFunc_LeechSeed
-	dw BattleAnimFunc_Sound
-	dw BattleAnimFunc_ConfuseRay
-	dw BattleAnimFunc_Dizzy
-	dw BattleAnimFunc_Amnesia
-	dw BattleAnimFunc_FloatUp
-	dw BattleAnimFunc_Dig
-	dw BattleAnimFunc_String
-	dw BattleAnimFunc_Paralyzed
-	dw BattleAnimFunc_SpiralDescent
-	dw BattleAnimFunc_PoisonGas
-	dw BattleAnimFunc_Horn
-	dw BattleAnimFunc_Needle
-	dw BattleAnimFunc_PetalDance
-	dw BattleAnimFunc_ThiefPayday
-	dw BattleAnimFunc_AbsorbCircle
-	dw BattleAnimFunc_Bonemerang
-	dw BattleAnimFunc_Shiny
-	dw BattleAnimFunc_SkyAttack
-	dw BattleAnimFunc_GrowthSwordsDance
-	dw BattleAnimFunc_SmokeFlameWheel
-	dw BattleAnimFunc_PresentSmokescreen
-	dw BattleAnimFunc_StrengthSeismicToss
-	dw BattleAnimFunc_SpeedLine
-	dw BattleAnimFunc_Sludge
-	dw BattleAnimFunc_MetronomeHand
-	dw BattleAnimFunc_MetronomeSparkleSketch
-	dw BattleAnimFunc_Agility
-	dw BattleAnimFunc_SacredFire
-	dw BattleAnimFunc_SafeguardProtect
-	dw BattleAnimFunc_LockOnMindReader
-	dw BattleAnimFunc_Spikes
-	dw BattleAnimFunc_HealBellNotes
-	dw BattleAnimFunc_BatonPass
-	dw BattleAnimFunc_Conversion
-	dw BattleAnimFunc_EncoreBellyDrum
-	dw BattleAnimFunc_SwaggerMorningSun
-	dw BattleAnimFunc_HiddenPower
-	dw BattleAnimFunc_Curse
-	dw BattleAnimFunc_PerishSong
-	dw BattleAnimFunc_RapidSpin
-	dw BattleAnimFunc_BetaPursuit
-	dw BattleAnimFunc_RainSandstorm
-	dw BattleAnimFunc_AnimObjB0
-	dw BattleAnimFunc_PsychUp
-	dw BattleAnimFunc_AncientPower
-	dw BattleAnimFunc_RockSmash
-	dw BattleAnimFunc_Cotton
-	assert_table_length NUM_BATTLE_ANIM_FUNCS
->>>>>>> 024c8749a0e7aa7f72082b0fa17498bf42c5359f
 
 BattleAnimFunc_Null:
 	call BattleAnim_AnonJumptable
@@ -1087,7 +1003,6 @@ BattleAnim_ScatterHorizontal:
 	ld de, -$100
 	ret
 
-<<<<<<< HEAD
 BattleAnimFunction_BubbleSplash:
 	call BattleAnim_AnonJumptable
 
@@ -1095,9 +1010,6 @@ BattleAnimFunction_BubbleSplash:
 	dw BattleAnimFunction_RockSmash.one
 
 BattleAnimFunction_RockSmash:
-=======
-BattleAnimFunc_RockSmash:
->>>>>>> 024c8749a0e7aa7f72082b0fa17498bf42c5359f
 ; Object moves at an arc
 ; Obj Param: Bit 7 makes arc flip horizontally
 ;            Bit 6 defines offset from base frameset FRAMESET_19

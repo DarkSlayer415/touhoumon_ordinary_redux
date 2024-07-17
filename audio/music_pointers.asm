@@ -105,7 +105,6 @@ Music:
 	dba Music_CeruleanCityGBS
 	dba Music_CinnabarIslandGBS
 	dba Music_NuggetBridgeHGSS
-	dba Music_FriendlyShop
 	dba Music_Route47
 ; Custom Touhoumon Remixes
 	dba Music_EirinCenter

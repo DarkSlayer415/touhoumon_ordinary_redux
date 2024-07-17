@@ -49,7 +49,6 @@ AnimObjGFX:
 	anim_obj_gfx 24, AnimObjAeroblastGFX
 	anim_obj_gfx  1, NULL
 	anim_obj_gfx  1, NULL
-<<<<<<< HEAD
 	anim_obj_gfx 13, AnimObjBigGlowGFX
 	anim_obj_gfx 13, AnimObjBigGlowClearGFX
 	anim_obj_gfx  6, AnimObjLeafStormGFX
@@ -60,6 +59,3 @@ AnimObjGFX:
 	anim_obj_gfx 14, AnimObjSmokePuffBigGFX
 	anim_obj_gfx 10, AnimObjGlowGFX
 	assert_table_length NUM_ANIM_GFX + 1
-=======
-	assert_table_length NUM_BATTLE_ANIM_GFX + 1
->>>>>>> 024c8749a0e7aa7f72082b0fa17498bf42c5359f

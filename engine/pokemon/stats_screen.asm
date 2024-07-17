@@ -63,9 +63,6 @@ StatsScreenInit_gotaddress:
 StatsScreenMain:
 	xor a
 	ld [wJumptableIndex], a
-<<<<<<< HEAD
-	ld [wStatsScreenFlags], a ; PINK_PAGE
-=======
 	ld [wStatsScreenFlags], a
 
 	ld a, [wStatsScreenFlags]
@@ -73,7 +70,6 @@ StatsScreenMain:
 	or PINK_PAGE ; first_page
 	ld [wStatsScreenFlags], a
 
->>>>>>> 024c8749a0e7aa7f72082b0fa17498bf42c5359f
 .loop
 	ld a, [wJumptableIndex]
 	and ~(1 << 7)
@@ -88,9 +84,6 @@ StatsScreenMain:
 StatsScreenMobile:
 	xor a
 	ld [wJumptableIndex], a
-<<<<<<< HEAD
-	ld [wStatsScreenFlags], a ; PINK_PAGE
-=======
 	ld [wStatsScreenFlags], a
 
 	ld a, [wStatsScreenFlags]
@@ -98,7 +91,6 @@ StatsScreenMobile:
 	or PINK_PAGE ; first_page
 	ld [wStatsScreenFlags], a
 
->>>>>>> 024c8749a0e7aa7f72082b0fa17498bf42c5359f
 .loop
 	farcall Mobile_SetOverworldDelay
 	ld a, [wJumptableIndex]

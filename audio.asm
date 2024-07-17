@@ -148,7 +148,6 @@ SECTION "New Songs", ROMX
 INCLUDE "audio/music/ceruleancity.asm"
 INCLUDE "audio/music/cinnabarisland.asm"
 INCLUDE "audio/music/nuggetbridge.asm"
-INCLUDE "audio/music/pokemart.asm"
 INCLUDE "audio/music/route47.asm"
 INCLUDE "audio/music/eirincenter.asm"
 INCLUDE "audio/music/rocketyoumu.asm"

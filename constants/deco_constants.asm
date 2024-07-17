@@ -154,31 +154,6 @@ DEF NUM_DECOS EQU const_value
 	const DECO_BIG_LAPRAS_DOLL
 ; FindOwnedOrnaments.ornaments values (see engine/overworld/decorations.asm)
 	const DOLLS
-	const  MARILL_DOLL
-	const  SURF_PIKACHU_DOLL
-	const  NIDORAN_F_DOLL
-	const  JIGGLYPUFF_DOLL
-	const  BULBASAUR_DOLL
-	const  CHARMANDER_DOLL
-	const  SQUIRTLE_DOLL
-	const  POLIWAG_DOLL
-	const  DIGLETT_DOLL
-	const  STARMIE_DOLL
-	const  MAGIKARP_DOLL
-	const  ODDISH_DOLL
-	const  GENGAR_DOLL
-	const  SHELLDER_DOLL
-	const  GRIMER_DOLL
-	const  VOLTORB_DOLL
-	const  WEEDLE_DOLL
-	const  UNOWN_DOLL
-	const  GEODUDE_DOLL
-	const  MACHOP_DOLL
-	const  TENTACOOL_DOLL
-DEF NUM_NON_TROPHY_DECOS EQU __deco_value__
-	const  GOLD_TROPHY_DOLL
-	const  SILVER_TROPHY_DOLL
-DEF NUM_DECOS EQU __deco_value__
 	const DECO_PIKACHU_DOLL
 	const DECO_SURF_PIKACHU_DOLL
 	const DECO_CLEFAIRY_DOLL

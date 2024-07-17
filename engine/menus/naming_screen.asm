@@ -224,11 +224,7 @@ NamingScreen:
 	ld a, e
 	cp LOW(KrisSpriteGFX)
 	jr nz, .not_kris
-<<<<<<< HEAD
 	ld b, SPRITE_ANIM_INDEX_BROWN_WALK
-=======
-	ld b, SPRITE_ANIM_OBJ_BLUE_WALK
->>>>>>> 024c8749a0e7aa7f72082b0fa17498bf42c5359f
 .not_kris
 	ld a, b
 	depixel 4, 4, 4, 0

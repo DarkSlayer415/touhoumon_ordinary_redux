@@ -118,17 +118,10 @@ MahoganyTownName:    db "MAHOGANY<BSP>TOWN@"
 BlackthornCityName:  db "BLACKTHORN<BSP>CITY@"
 LakeOfRageName:      db "LAKE OF<BSP>RAGE@"
 SilverCaveName:      db "SILVER CAVE@"
-<<<<<<< HEAD
 SproutTowerName:     db "AUTUMN¯TOWER@"
 RuinsOfAlphName:     db "RUINS¯OF MEMORY@"
 UnionCaveName:       db "UNION CAVE@"
 SlowpokeWellName:    db "KAPPA'S¯WELL@"
-=======
-SproutTowerName:     db "SPROUT<BSP>TOWER@"
-RuinsOfAlphName:     db "RUINS<BSP>OF ALPH@"
-UnionCaveName:       db "UNION CAVE@"
-SlowpokeWellName:    db "SLOWPOKE<BSP>WELL@"
->>>>>>> 024c8749a0e7aa7f72082b0fa17498bf42c5359f
 RadioTowerName:      db "RADIO TOWER@"
 PowerPlantName:      db "POWER PLANT@"
 NationalParkName:    db "NATIONAL<BSP>PARK@"
@@ -209,13 +202,8 @@ DarkCaveName:        db "DARK CAVE@"
 IlexForestName:      db "ILEX<BSP>FOREST@"
 BurnedTowerName:     db "BURNED<BSP>TOWER@"
 FastShipName:        db "FAST SHIP@"
-<<<<<<< HEAD
 ViridianForestName:  db "VIRIDIAN¯FOREST@" ; unreferenced
 DiglettsCaveName:    db "YAMAME'S¯CAVE@"
-=======
-ViridianForestName:  db "VIRIDIAN<BSP>FOREST@" ; unreferenced
-DiglettsCaveName:    db "DIGLETT'S<BSP>CAVE@"
->>>>>>> 024c8749a0e7aa7f72082b0fa17498bf42c5359f
 TohjoFallsName:      db "TOHJO FALLS@"
 UndergroundName:     db "UNDERGROUND@"
 BattleTowerName:     db "BATTLE<BSP>TOWER@"
