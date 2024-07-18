@@ -143,7 +143,7 @@ endr
 	ld sp, hl
 	ret
 
-SetDefaultBGPAndOBP::
+SetDefaultBGPAndOBP:: ;SetPalettes
 ; Inits the Palettes
 ; depending on the system the monochromes palettes or color palettes
 	ldh a, [hCGB]

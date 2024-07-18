@@ -92,12 +92,7 @@ ReleaseTheBeasts:
 	appear BURNEDTOWERB1F_EUSINE
 	reanchormap
 	changeblock 6, 14, $1b ; ladder
-<<<<<<< HEAD
 	reloadmappart
-=======
-	refreshmap
-	closetext
->>>>>>> 024c8749a0e7aa7f72082b0fa17498bf42c5359f
 	setscene SCENE_BURNEDTOWERB1F_NOOP
 	end
 

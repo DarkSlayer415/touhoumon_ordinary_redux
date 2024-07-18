@@ -84,13 +84,8 @@ ShinyKanako:
 	pause 15
 	cry SEAKING
 	closetext
-<<<<<<< HEAD
 	loadwildmon SEAKING, 35
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SHINY
-=======
-	loadwildmon GYARADOS, 30
 	loadvar VAR_BATTLETYPE, BATTLETYPE_FORCESHINY
->>>>>>> 024c8749a0e7aa7f72082b0fa17498bf42c5359f
 	startbattle
 	ifequal LOSE, .NotBeaten
 	disappear LAKEOFRAGE_EKANAKO

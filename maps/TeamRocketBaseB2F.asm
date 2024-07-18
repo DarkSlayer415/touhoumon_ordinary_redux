@@ -115,13 +115,8 @@ RocketBaseBossFScript:
 	disappear TEAMROCKETBASEB2F_ROCKET3
 	disappear TEAMROCKETBASEB2F_ROCKET4
 	pause 15
-<<<<<<< HEAD
-	special FadeInQuickly
-	setscene SCENE_TEAMROCKETBASEB2F_HINAS
-=======
 	special FadeInFromBlack
-	setscene SCENE_TEAMROCKETBASEB2F_ELECTRODES
->>>>>>> 024c8749a0e7aa7f72082b0fa17498bf42c5359f
+	setscene SCENE_TEAMROCKETBASEB2F_HINAS
 	clearevent EVENT_TEAM_ROCKET_BASE_B2F_LANCE
 	turnobject TEAMROCKETBASEB2F_LANCE, DOWN
 	opentext

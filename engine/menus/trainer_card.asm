@@ -109,7 +109,7 @@ TrainerCard_Page1_LoadGFX:
 	call WaitBGMap
 	ld b, SCGB_TRAINER_CARD
 	call GetSGBLayout
-	call SetPalettes ; this function was called 'SetPalettes' in older versions of pokecrystal
+	call SetDefaultBGPAndOBP ; this function was called 'SetDefaultBGPAndOBP' in older versions of pokecrystal
 	call WaitBGMap
 	ld de, CardStatusGFX
 	ld hl, vTiles2 tile $29
@@ -140,7 +140,7 @@ TrainerCard_Page2_LoadGFX:
 	call WaitBGMap
 	ld b, SCGB_TRAINER_CARD
 	call GetSGBLayout
-	call SetPalettes ; this function was called 'SetPalettes' in older versions of pokecrystal
+	call SetDefaultBGPAndOBP ; this function was called 'SetDefaultBGPAndOBP' in older versions of pokecrystal
 	call WaitBGMap
 	ld de, LeaderGFX
 	ld hl, vTiles2 tile $29
@@ -198,7 +198,7 @@ TrainerCard_Page3_LoadGFX:
 	call WaitBGMap
 	ld b, SCGB_TRAINER_CARD_KANTO
 	call GetSGBLayout
-	call SetPalettes ; this function was called 'SetPalettes' in older versions of pokecrystal
+	call SetDefaultBGPAndOBP ; this function was called 'SetDefaultBGPAndOBP' in older versions of pokecrystal
 	call WaitBGMap
 	ld de, LeaderGFX2
 	ld hl, vTiles2 tile $29

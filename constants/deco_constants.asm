@@ -154,9 +154,9 @@ DEF NUM_DECOS EQU const_value
 	const DECO_BIG_LAPRAS_DOLL
 ; FindOwnedOrnaments.ornaments values (see engine/overworld/decorations.asm)
 	const DOLLS
-	const DECO_PIKACHU_DOLL
+	const DECO_MARILL_DOLL
 	const DECO_SURF_PIKACHU_DOLL
-	const DECO_CLEFAIRY_DOLL
+	const DECO_NIDORAN_F_DOLL
 	const DECO_JIGGLYPUFF_DOLL
 	const DECO_BULBASAUR_DOLL
 	const DECO_CHARMANDER_DOLL

@@ -14,91 +14,91 @@ DoBattleAnimFrame:
 .Jumptable:
 ; entries correspond to BATTLE_ANIM_FUNC_* constants
 	table_width 2, DoBattleAnimFrame.Jumptable
-	dw BattleAnimFunction_Null
-	dw BattleAnimFunction_MoveFromUserToTarget
-	dw BattleAnimFunction_MoveFromUserToTargetAndDisappear
-	dw BattleAnimFunction_MoveInCircle
-	dw BattleAnimFunction_MoveWaveToTarget
-	dw BattleAnimFunction_ThrowFromUserToTarget
-	dw BattleAnimFunction_ThrowFromUserToTargetAndDisappear
-	dw BattleAnimFunction_Drop
-	dw BattleAnimFunction_MoveFromUserToTargetSpinAround
-	dw BattleAnimFunction_Shake
-	dw BattleAnimFunction_FireBlast
-	dw BattleAnimFunction_RazorLeaf
-	dw BattleAnimFunction_Bubble
-	dw BattleAnimFunction_Surf
-	dw BattleAnimFunction_Sing
-	dw BattleAnimFunction_WaterGun
-	dw BattleAnimFunction_Ember
-	dw BattleAnimFunction_Powder
-	dw BattleAnimFunction_PokeBall
-	dw BattleAnimFunction_PokeBallBlocked
-	dw BattleAnimFunction_Recover
-	dw BattleAnimFunction_ThunderWave
-	dw BattleAnimFunction_Clamp_Encore
-	dw BattleAnimFunction_Bite
-	dw BattleAnimFunction_SolarBeam
-	dw BattleAnimFunction_Gust
-	dw BattleAnimFunction_RazorWind
-	dw BattleAnimFunction_Kick
-	dw BattleAnimFunction_Absorb
-	dw BattleAnimFunction_Egg
-	dw BattleAnimFunction_MoveUp
-	dw BattleAnimFunction_Wrap
-	dw BattleAnimFunction_LeechSeed
-	dw BattleAnimFunction_Sound
-	dw BattleAnimFunction_ConfuseRay
-	dw BattleAnimFunction_Dizzy
-	dw BattleAnimFunction_Amnesia
-	dw BattleAnimFunction_FloatUp
-	dw BattleAnimFunction_Dig
-	dw BattleAnimFunction_String
-	dw BattleAnimFunction_Paralyzed
-	dw BattleAnimFunction_SpiralDescent
-	dw BattleAnimFunction_PoisonGas
-	dw BattleAnimFunction_Horn
-	dw BattleAnimFunction_Needle
-	dw BattleAnimFunction_PetalDance
-	dw BattleAnimFunction_ThiefPayday
-	dw BattleAnimFunction_AbsorbCircle
-	dw BattleAnimFunction_Bonemerang
-	dw BattleAnimFunction_Shiny
-	dw BattleAnimFunction_SkyAttack
-	dw BattleAnimFunction_GrowthSwordsDance
-	dw BattleAnimFunction_SmokeFlameWheel
-	dw BattleAnimFunction_PresentSmokescreen
-	dw BattleAnimFunction_StrengthSeismicToss
-	dw BattleAnimFunction_SpeedLine
-	dw BattleAnimFunction_Sludge
-	dw BattleAnimFunction_MetronomeHand
-	dw BattleAnimFunction_MetronomeSparkleSketch
-	dw BattleAnimFunction_Agility
-	dw BattleAnimFunction_SacredFire
-	dw BattleAnimFunction_SafeguardProtect
-	dw BattleAnimFunction_LockOnMindReader
-	dw BattleAnimFunction_Spikes
-	dw BattleAnimFunction_HealBellNotes
-	dw BattleAnimFunction_BatonPass
-	dw BattleAnimFunction_Conversion
-	dw BattleAnimFunction_EncoreBellyDrum
-	dw BattleAnimFunction_SwaggerMorningSun
-	dw BattleAnimFunction_HiddenPower
-	dw BattleAnimFunction_Curse
-	dw BattleAnimFunction_PerishSong
-	dw BattleAnimFunction_RapidSpin
-	dw BattleAnimFunction_BetaPursuit
-	dw BattleAnimFunction_RainSandstorm
-	dw BattleAnimFunction_AnimObjB0
-	dw BattleAnimFunction_PsychUp
-	dw BattleAnimFunction_AncientPower
-	dw BattleAnimFunction_BubbleSplash
-	dw BattleAnimFunction_RockSmash
-	dw BattleAnimFunction_Cotton
-	dw BattleAnimFunction_NightDaze
-	dw BattleAnimFunction_HiddenPower_Fast
-	dw BattleAnimFunction_LeafStorm
-	dw BattleAnimFunction_RadialMoveOutSlow
+	dw BattleAnimFunc_Null
+	dw BattleAnimFunc_MoveFromUserToTarget
+	dw BattleAnimFunc_MoveFromUserToTargetAndDisappear
+	dw BattleAnimFunc_MoveInCircle
+	dw BattleAnimFunc_MoveWaveToTarget
+	dw BattleAnimFunc_ThrowFromUserToTarget
+	dw BattleAnimFunc_ThrowFromUserToTargetAndDisappear
+	dw BattleAnimFunc_Drop
+	dw BattleAnimFunc_MoveFromUserToTargetSpinAround
+	dw BattleAnimFunc_Shake
+	dw BattleAnimFunc_FireBlast
+	dw BattleAnimFunc_RazorLeaf
+	dw BattleAnimFunc_Bubble
+	dw BattleAnimFunc_Surf
+	dw BattleAnimFunc_Sing
+	dw BattleAnimFunc_WaterGun
+	dw BattleAnimFunc_Ember
+	dw BattleAnimFunc_Powder
+	dw BattleAnimFunc_PokeBall
+	dw BattleAnimFunc_PokeBallBlocked
+	dw BattleAnimFunc_Recover
+	dw BattleAnimFunc_ThunderWave
+	dw BattleAnimFunc_Clamp_Encore
+	dw BattleAnimFunc_Bite
+	dw BattleAnimFunc_SolarBeam
+	dw BattleAnimFunc_Gust
+	dw BattleAnimFunc_RazorWind
+	dw BattleAnimFunc_Kick
+	dw BattleAnimFunc_Absorb
+	dw BattleAnimFunc_Egg
+	dw BattleAnimFunc_MoveUp
+	dw BattleAnimFunc_Wrap
+	dw BattleAnimFunc_LeechSeed
+	dw BattleAnimFunc_Sound
+	dw BattleAnimFunc_ConfuseRay
+	dw BattleAnimFunc_Dizzy
+	dw BattleAnimFunc_Amnesia
+	dw BattleAnimFunc_FloatUp
+	dw BattleAnimFunc_Dig
+	dw BattleAnimFunc_String
+	dw BattleAnimFunc_Paralyzed
+	dw BattleAnimFunc_SpiralDescent
+	dw BattleAnimFunc_PoisonGas
+	dw BattleAnimFunc_Horn
+	dw BattleAnimFunc_Needle
+	dw BattleAnimFunc_PetalDance
+	dw BattleAnimFunc_ThiefPayday
+	dw BattleAnimFunc_AbsorbCircle
+	dw BattleAnimFunc_Bonemerang
+	dw BattleAnimFunc_Shiny
+	dw BattleAnimFunc_SkyAttack
+	dw BattleAnimFunc_GrowthSwordsDance
+	dw BattleAnimFunc_SmokeFlameWheel
+	dw BattleAnimFunc_PresentSmokescreen
+	dw BattleAnimFunc_StrengthSeismicToss
+	dw BattleAnimFunc_SpeedLine
+	dw BattleAnimFunc_Sludge
+	dw BattleAnimFunc_MetronomeHand
+	dw BattleAnimFunc_MetronomeSparkleSketch
+	dw BattleAnimFunc_Agility
+	dw BattleAnimFunc_SacredFire
+	dw BattleAnimFunc_SafeguardProtect
+	dw BattleAnimFunc_LockOnMindReader
+	dw BattleAnimFunc_Spikes
+	dw BattleAnimFunc_HealBellNotes
+	dw BattleAnimFunc_BatonPass
+	dw BattleAnimFunc_Conversion
+	dw BattleAnimFunc_EncoreBellyDrum
+	dw BattleAnimFunc_SwaggerMorningSun
+	dw BattleAnimFunc_HiddenPower
+	dw BattleAnimFunc_Curse
+	dw BattleAnimFunc_PerishSong
+	dw BattleAnimFunc_RapidSpin
+	dw BattleAnimFunc_BetaPursuit
+	dw BattleAnimFunc_RainSandstorm
+	dw BattleAnimFunc_AnimObjB0
+	dw BattleAnimFunc_PsychUp
+	dw BattleAnimFunc_AncientPower
+	dw BattleAnimFunc_BubbleSplash
+	dw BattleAnimFunc_RockSmash
+	dw BattleAnimFunc_Cotton
+	dw BattleAnimFunc_NightDaze
+	dw BattleAnimFunc_HiddenPower_Fast
+	dw BattleAnimFunc_LeafStorm
+	dw BattleAnimFunc_RadialMoveOutSlow
 	assert_table_length NUM_BATTLEANIMFUNCS
 
 BattleAnimFunc_Null:
@@ -308,14 +308,14 @@ BattleAnimFunc_PokeBall:
 	add hl, bc
 	add [hl]
 	ld [hl], a
-	ld a, BATTLE_ANIM_FRAMESET_POKE_BALL_3
+	ld a, BATTLE_ANIM_FRAMESET_0B
 	call ReinitBattleAnimFrameset
 	call BattleAnim_IncAnonJumptableIndex
 	ret
 
 .three
 	call BattleAnim_IncAnonJumptableIndex
-	ld a, BATTLE_ANIM_FRAMESET_POKE_BALL_1
+	ld a, BATTLE_ANIM_FRAMESET_09
 	call ReinitBattleAnimFrameset
 	ld hl, BATTLEANIMSTRUCT_VAR1
 	add hl, bc
@@ -345,13 +345,13 @@ BattleAnimFunc_PokeBall:
 	sub $4
 	ld [hl], a
 	ret nz
-	ld a, BATTLE_ANIM_FRAMESET_POKE_BALL_4
+	ld a, BATTLE_ANIM_FRAMESET_0C
 	call ReinitBattleAnimFrameset
 	call BattleAnim_IncAnonJumptableIndex
 	ret
 
 .six
-	ld a, BATTLE_ANIM_FRAMESET_POKE_BALL_5
+	ld a, BATTLE_ANIM_FRAMESET_0D
 	call ReinitBattleAnimFrameset
 	ld hl, BATTLEANIMSTRUCT_JUMPTABLE_INDEX
 	add hl, bc
@@ -363,7 +363,7 @@ BattleAnimFunc_PokeBall:
 
 .seven
 	call GetBallAnimPal
-	ld a, BATTLE_ANIM_FRAMESET_POKE_BALL_2
+	ld a, BATTLE_ANIM_FRAMESET_0A
 	call ReinitBattleAnimFrameset
 	call BattleAnim_IncAnonJumptableIndex
 	ld hl, BATTLEANIMSTRUCT_VAR2
@@ -500,7 +500,7 @@ BattleAnimFunc_Ember:
 
 .three
 	call BattleAnim_IncAnonJumptableIndex
-	ld a, BATTLE_ANIM_FRAMESET_FLAMETHROWER
+	ld a, BATTLE_ANIM_FRAMESET_0F
 	call ReinitBattleAnimFrameset
 .four
 	ret
@@ -738,7 +738,7 @@ BattleAnimFunc_FireBlast:
 	ld [hl], a
 	cp $7
 	jr z, .seven
-	ld a, BATTLE_ANIM_FRAMESET_BURNED
+	ld a, BATTLE_ANIM_FRAMESET_11
 	call ReinitBattleAnimFrameset
 	ret
 
@@ -757,7 +757,7 @@ BattleAnimFunc_FireBlast:
 
 .set_up_eight
 	call BattleAnim_IncAnonJumptableIndex
-	ld a, BATTLE_ANIM_FRAMESET_EMBER
+	ld a, BATTLE_ANIM_FRAMESET_10
 	call ReinitBattleAnimFrameset
 .eight
 	ld hl, BATTLEANIMSTRUCT_VAR1
@@ -846,7 +846,7 @@ BattleAnimFunc_RazorLeaf:
 	add hl, bc
 	ld [hli], a
 	ld [hl], a
-	ld a, BATTLE_ANIM_FRAMESET_RAZOR_LEAF_2
+	ld a, BATTLE_ANIM_FRAMESET_17
 	call ReinitBattleAnimFrameset
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc
@@ -942,7 +942,7 @@ BattleAnimFunc_RazorLeaf:
 	ret
 
 .three
-	ld a, BATTLE_ANIM_FRAMESET_RAZOR_LEAF_1
+	ld a, BATTLE_ANIM_FRAMESET_16
 	call ReinitBattleAnimFrameset
 	ld hl, BATTLEANIMSTRUCT_OAMFLAGS
 	add hl, bc
@@ -1003,13 +1003,13 @@ BattleAnim_ScatterHorizontal:
 	ld de, -$100
 	ret
 
-BattleAnimFunction_BubbleSplash:
+BattleAnimFunc_BubbleSplash:
 	call BattleAnim_AnonJumptable
 
-	dw BattleAnimFunction_RockSmash.after_frameset
-	dw BattleAnimFunction_RockSmash.one
+	dw BattleAnimFunc_RockSmash.after_frameset
+	dw BattleAnimFunc_RockSmash.one
 
-BattleAnimFunction_RockSmash:
+BattleAnimFunc_RockSmash:
 ; Object moves at an arc
 ; Obj Param: Bit 7 makes arc flip horizontally
 ;            Bit 6 defines offset from base frameset FRAMESET_19
@@ -1025,7 +1025,7 @@ BattleAnimFunction_RockSmash:
 	and $40
 	rlca
 	rlca
-	add BATTLE_ANIM_FRAMESET_BIG_ROCK
+	add BATTLE_ANIM_FRAMESET_19
 	ld hl, BATTLEANIMSTRUCT_FRAMESET_ID
 	add hl, bc
 	ld [hl], a
@@ -1109,7 +1109,7 @@ BattleAnimFunc_Bubble:
 	ld hl, BATTLEANIMSTRUCT_VAR1
 	add hl, bc
 	ld [hl], $0
-	ld a, BATTLE_ANIM_FRAMESET_PULSING_BUBBLE
+	ld a, BATTLE_ANIM_FRAMESET_22
 	call ReinitBattleAnimFrameset
 .two
 	ld hl, BATTLEANIMSTRUCT_XCOORD
@@ -1259,9 +1259,9 @@ BattleAnimFunc_Sing:
 	call BattleAnim_IncAnonJumptableIndex
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc
-	ld a, BATTLE_ANIM_FRAMESET_MUSIC_NOTE_1
-	assert BATTLE_ANIM_FRAMESET_MUSIC_NOTE_1 + 1 == BATTLE_ANIM_FRAMESET_MUSIC_NOTE_2 \
-		&& BATTLE_ANIM_FRAMESET_MUSIC_NOTE_2 + 1 == BATTLE_ANIM_FRAMESET_MUSIC_NOTE_3
+	ld a, BATTLE_ANIM_FRAMESET_24
+	assert BATTLE_ANIM_FRAMESET_24 + 1 == BATTLE_ANIM_FRAMESET_25 \
+		&& BATTLE_ANIM_FRAMESET_25 + 1 == BATTLE_ANIM_FRAMESET_26
 	add [hl]
 	call ReinitBattleAnimFrameset
 
@@ -1319,7 +1319,7 @@ BattleAnimFunc_WaterGun:
 
 .run_down
 	call BattleAnim_IncAnonJumptableIndex
-	ld a, BATTLE_ANIM_FRAMESET_WATER_GUN_2
+	ld a, BATTLE_ANIM_FRAMESET_28
 	call ReinitBattleAnimFrameset
 	ld hl, BATTLEANIMSTRUCT_YOFFSET
 	add hl, bc
@@ -1343,7 +1343,7 @@ BattleAnimFunc_WaterGun:
 
 .splash
 	call BattleAnim_IncAnonJumptableIndex
-	ld a, BATTLE_ANIM_FRAMESET_WATER_GUN_3
+	ld a, BATTLE_ANIM_FRAMESET_29
 	call ReinitBattleAnimFrameset
 .three
 	ret
@@ -1461,7 +1461,7 @@ BattleAnimFunc_ThunderWave:
 
 .one
 	call BattleAnim_IncAnonJumptableIndex
-	ld a, BATTLE_ANIM_FRAMESET_THUNDER_WAVE_EXTRA
+	ld a, BATTLE_ANIM_FRAMESET_35
 	call ReinitBattleAnimFrameset
 .zero
 .two
@@ -1528,8 +1528,8 @@ BattleAnimFunc_Clamp_Encore:
 	ld hl, BATTLEANIMSTRUCT_VAR2
 	add hl, bc
 	ld a, [hl]
-	assert BATTLE_ANIM_FRAMESET_CLAMP + 1 ==  BATTLE_ANIM_FRAMESET_CLAMP_FLIPPED
-	assert BATTLE_ANIM_FRAMESET_ENCORE_HAND + 1 == BATTLE_ANIM_FRAMESET_ENCORE_HAND_FLIPPED
+	assert BATTLE_ANIM_FRAMESET_3A + 1 ==  BATTLE_ANIM_FRAMESET_3B
+	assert BATTLE_ANIM_FRAMESET_A0 + 1 == BATTLE_ANIM_FRAMESET_A1
 	inc a
 	jr .reinit
 
@@ -1607,11 +1607,11 @@ BattleAnimFunc_Bite:
 	ld [hl], a
 	bit 7, a
 	jr nz, .flipped2
-	ld a, BATTLE_ANIM_FRAMESET_BITE_2
+	ld a, BATTLE_ANIM_FRAMESET_3D
 	jr .got_frameset
 
 .flipped2
-	ld a, BATTLE_ANIM_FRAMESET_BITE_1
+	ld a, BATTLE_ANIM_FRAMESET_3C
 .got_frameset
 	call ReinitBattleAnimFrameset
 	ld hl, BATTLEANIMSTRUCT_VAR1
@@ -1862,9 +1862,9 @@ BattleAnimFunc_Wrap:
 	ld hl, BATTLEANIMSTRUCT_FRAMESET_ID
 	add hl, bc
 	ld a, [hl]
-	assert BATTLE_ANIM_FRAMESET_BIND_1 + 1 == BATTLE_ANIM_FRAMESET_BIND_2 \ 
-		&& BATTLE_ANIM_FRAMESET_BIND_2 + 1 == BATTLE_ANIM_FRAMESET_BIND_3 \
-		&& BATTLE_ANIM_FRAMESET_BIND_3 + 1 == BATTLE_ANIM_FRAMESET_BIND_4
+	assert BATTLE_ANIM_FRAMESET_52 + 1 == BATTLE_ANIM_FRAMESET_53 \ 
+		&& BATTLE_ANIM_FRAMESET_53 + 1 == BATTLE_ANIM_FRAMESET_54 \
+		&& BATTLE_ANIM_FRAMESET_54 + 1 == BATTLE_ANIM_FRAMESET_55
 	inc a
 	call ReinitBattleAnimFrameset
 	call BattleAnim_IncAnonJumptableIndex
@@ -1900,7 +1900,7 @@ BattleAnimFunc_LeechSeed:
 
 .sprout
 	ld [hl], $40
-	ld a, BATTLE_ANIM_FRAMESET_LEECH_SEED_2
+	ld a, BATTLE_ANIM_FRAMESET_57
 	call ReinitBattleAnimFrameset
 	call BattleAnim_IncAnonJumptableIndex
 	ret
@@ -1916,7 +1916,7 @@ BattleAnimFunc_LeechSeed:
 
 .flutter
 	call BattleAnim_IncAnonJumptableIndex
-	ld a, BATTLE_ANIM_FRAMESET_LEECH_SEED_3
+	ld a, BATTLE_ANIM_FRAMESET_58
 	call ReinitBattleAnimFrameset
 .three
 	ret
@@ -2217,7 +2217,7 @@ BattleAnimFunc_Egg:
 
 .seven
 	; Switches Softboiled frameset to egg wobbling
-	ld a, BATTLE_ANIM_FRAMESET_EGG_WOBBLE ; Egg wobbling
+	ld a, BATTLE_ANIM_FRAMESET_4E ; Egg wobbling
 	call ReinitBattleAnimFrameset
 	call BattleAnim_IncAnonJumptableIndex
 	ret
@@ -2238,7 +2238,7 @@ BattleAnimFunc_Egg:
 
 .nine
 	; First Softboiled BATTLE_ANIM_OBJ_EGG turns into the bottom half frameset
-	ld a, BATTLE_ANIM_FRAMESET_EGG_CRACKED_BOTTOM ; Cracked egg bottom
+	ld a, BATTLE_ANIM_FRAMESET_50 ; Cracked egg bottom
 	call ReinitBattleAnimFrameset
 	ld hl, BATTLEANIMSTRUCT_YOFFSET
 	add hl, bc
@@ -2248,7 +2248,7 @@ BattleAnimFunc_Egg:
 
 .eleven
 	; Second Softboiled BATTLE_ANIM_OBJ_EGG
-	ld a, BATTLE_ANIM_FRAMESET_EGG_CRACKED_TOP ; Cracked egg top
+	ld a, BATTLE_ANIM_FRAMESET_4F ; Cracked egg top
 	call ReinitBattleAnimFrameset
 	call BattleAnim_IncAnonJumptableIndex
 	ld hl, BATTLEANIMSTRUCT_VAR1
@@ -2363,9 +2363,9 @@ BattleAnimFunc_Sound:
 	ld [hl], $8 ; duration
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc
-	ld a, BATTLE_ANIM_FRAMESET_SOUND_1
-	assert BATTLE_ANIM_FRAMESET_SOUND_1 + 1 == BATTLE_ANIM_FRAMESET_SOUND_2 \
-		&& BATTLE_ANIM_FRAMESET_SOUND_2 + 1 == BATTLE_ANIM_FRAMESET_SOUND_3
+	ld a, BATTLE_ANIM_FRAMESET_59
+	assert BATTLE_ANIM_FRAMESET_59 + 1 == BATTLE_ANIM_FRAMESET_5A \
+		&& BATTLE_ANIM_FRAMESET_5A + 1 == BATTLE_ANIM_FRAMESET_5B
 	add [hl]
 	call ReinitBattleAnimFrameset
 	ret
@@ -2442,8 +2442,8 @@ BattleAnimFunc_ConfuseRay:
 	and $80
 	rlca
 	ld [hl], a
-	assert BATTLE_ANIM_FRAMESET_CONFUSE_RAY_1 + 1 == BATTLE_ANIM_FRAMESET_CONFUSE_RAY_2
-	add BATTLE_ANIM_FRAMESET_CONFUSE_RAY_1
+	assert BATTLE_ANIM_FRAMESET_5D + 1 == BATTLE_ANIM_FRAMESET_5E
+	add BATTLE_ANIM_FRAMESET_5D
 	call ReinitBattleAnimFrameset
 	ret
 
@@ -2513,8 +2513,8 @@ BattleAnimFunc_Dizzy:
 	rlca
 	ld hl, BATTLEANIMSTRUCT_VAR1
 	add hl, bc
-	assert BATTLE_ANIM_FRAMESET_CHICK_1 + 1 ==  BATTLE_ANIM_FRAMESET_CHICK_2
-	assert BATTLE_ANIM_FRAMESET_IMP + 1 == BATTLE_ANIM_FRAMESET_IMP_FLIPPED
+	assert BATTLE_ANIM_FRAMESET_61 + 1 == BATTLE_ANIM_FRAMESET_62
+	assert BATTLE_ANIM_FRAMESET_9C + 1 == BATTLE_ANIM_FRAMESET_9D
 	add [hl]
 	call ReinitBattleAnimFrameset
 	ld hl, BATTLEANIMSTRUCT_PARAM
@@ -2552,8 +2552,8 @@ BattleAnimFunc_Dizzy:
 	ld hl, BATTLEANIMSTRUCT_VAR1
 	add hl, bc
 	ld a, [hl]
-	assert BATTLE_ANIM_FRAMESET_CHICK_1 + 1 ==  BATTLE_ANIM_FRAMESET_CHICK_2
-	assert BATTLE_ANIM_FRAMESET_IMP + 1 == BATTLE_ANIM_FRAMESET_IMP_FLIPPED
+	assert BATTLE_ANIM_FRAMESET_61 + 1 == BATTLE_ANIM_FRAMESET_62
+	assert BATTLE_ANIM_FRAMESET_9C + 1 == BATTLE_ANIM_FRAMESET_9D
 	inc a
 	jr .got_frameset
 
@@ -2580,9 +2580,9 @@ BattleAnimFunc_Amnesia:
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc
 	ld a, [hl]
-	assert BATTLE_ANIM_FRAMESET_AMNESIA_1 + 1 == BATTLE_ANIM_FRAMESET_AMNESIA_2 \
-		&& BATTLE_ANIM_FRAMESET_AMNESIA_2 + 1 == BATTLE_ANIM_FRAMESET_AMNESIA_3
-	add BATTLE_ANIM_FRAMESET_AMNESIA_1
+	assert BATTLE_ANIM_FRAMESET_63 + 1 == BATTLE_ANIM_FRAMESET_64 \
+		&& BATTLE_ANIM_FRAMESET_64 + 1 == BATTLE_ANIM_FRAMESET_65
+	add BATTLE_ANIM_FRAMESET_63
 	call ReinitBattleAnimFrameset
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc
@@ -2670,9 +2670,9 @@ BattleAnimFunc_String:
 	add hl, bc
 	set OAM_Y_FLIP, [hl]
 .not_param_zero
-	assert BATTLE_ANIM_FRAMESET_STRING_SHOT_1 + 1 == BATTLE_ANIM_FRAMESET_STRING_SHOT_2 \
-		&& BATTLE_ANIM_FRAMESET_STRING_SHOT_2 + 1 == BATTLE_ANIM_FRAMESET_STRING_SHOT_3
-	add BATTLE_ANIM_FRAMESET_STRING_SHOT_1
+	assert BATTLE_ANIM_FRAMESET_6A + 1 == BATTLE_ANIM_FRAMESET_6B \
+		&& BATTLE_ANIM_FRAMESET_6B + 1 == BATTLE_ANIM_FRAMESET_6C
+	add BATTLE_ANIM_FRAMESET_6A
 	call ReinitBattleAnimFrameset
 .one
 	ret
@@ -2713,7 +2713,7 @@ BattleAnimFunc_Paralyzed:
 	xor $ff
 	inc a
 	ld [hl], a
-	ld a, BATTLE_ANIM_FRAMESET_PARALYZED_FLIPPED
+	ld a, BATTLE_ANIM_FRAMESET_6E
 	call ReinitBattleAnimFrameset
 	ret
 
@@ -3569,9 +3569,9 @@ BattleAnimFunc_SpeedLine:
 	add hl, bc
 	ld a, [hl]
 	and $7f
-	assert BATTLE_ANIM_FRAMESET_SPEED_LINE_1 + 1 == BATTLE_ANIM_FRAMESET_SPEED_LINE_2 \
-		&& BATTLE_ANIM_FRAMESET_SPEED_LINE_2 + 1 == BATTLE_ANIM_FRAMESET_SPEED_LINE_3
-	add BATTLE_ANIM_FRAMESET_SPEED_LINE_1
+	assert BATTLE_ANIM_FRAMESET_81 + 1 == BATTLE_ANIM_FRAMESET_82 \
+		&& BATTLE_ANIM_FRAMESET_82 + 1 == BATTLE_ANIM_FRAMESET_83
+	add BATTLE_ANIM_FRAMESET_81
 	call ReinitBattleAnimFrameset
 .one
 	ld hl, BATTLEANIMSTRUCT_PARAM
@@ -3615,7 +3615,7 @@ BattleAnimFunc_Sludge:
 
 .done
 	call BattleAnim_IncAnonJumptableIndex
-	ld a, BATTLE_ANIM_FRAMESET_SLUDGE_BUBBLE_BURST
+	ld a, BATTLE_ANIM_FRAMESET_20
 	call ReinitBattleAnimFrameset
 .two
 	ld hl, BATTLEANIMSTRUCT_YOFFSET
@@ -3743,12 +3743,12 @@ BattleAnimFunc_LockOnMindReader:
 	and $f
 	ld hl, BATTLEANIMSTRUCT_FRAMESET_ID
 	add hl, bc
-	assert BATTLE_ANIM_FRAMESET_LOCK_ON_1 + 1 == BATTLE_ANIM_FRAMESET_LOCK_ON_2 \
-		&& BATTLE_ANIM_FRAMESET_LOCK_ON_2 + 1 == BATTLE_ANIM_FRAMESET_LOCK_ON_3 \
-		&& BATTLE_ANIM_FRAMESET_LOCK_ON_3 + 1 == BATTLE_ANIM_FRAMESET_LOCK_ON_4
-	assert BATTLE_ANIM_FRAMESET_MIND_READER_1 + 1 == BATTLE_ANIM_FRAMESET_MIND_READER_2 \
-		&& BATTLE_ANIM_FRAMESET_MIND_READER_2 + 1 == BATTLE_ANIM_FRAMESET_MIND_READER_3 \
-		&& BATTLE_ANIM_FRAMESET_MIND_READER_3 + 1 == BATTLE_ANIM_FRAMESET_MIND_READER_4
+	assert BATTLE_ANIM_FRAMESET_8F + 1 == BATTLE_ANIM_FRAMESET_90 \
+		&& BATTLE_ANIM_FRAMESET_90 + 1 == BATTLE_ANIM_FRAMESET_91 \
+		&& BATTLE_ANIM_FRAMESET_91 + 1 == BATTLE_ANIM_FRAMESET_92
+	assert BATTLE_ANIM_FRAMESET_93 + 1 == BATTLE_ANIM_FRAMESET_94 \
+		&& BATTLE_ANIM_FRAMESET_94 + 1 == BATTLE_ANIM_FRAMESET_95 \
+		&& BATTLE_ANIM_FRAMESET_95 + 1 == BATTLE_ANIM_FRAMESET_96
 	add [hl]
 	call ReinitBattleAnimFrameset
 	ld hl, BATTLEANIMSTRUCT_PARAM
@@ -3808,9 +3808,9 @@ BattleAnimFunc_HealBellNotes:
 	call BattleAnim_IncAnonJumptableIndex
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc
-	ld a, BATTLE_ANIM_FRAMESET_MUSIC_NOTE_1
-	assert BATTLE_ANIM_FRAMESET_MUSIC_NOTE_1 + 1 == BATTLE_ANIM_FRAMESET_MUSIC_NOTE_2 \
-		&& BATTLE_ANIM_FRAMESET_MUSIC_NOTE_2 + 1 == BATTLE_ANIM_FRAMESET_MUSIC_NOTE_3
+	ld a, BATTLE_ANIM_FRAMESET_24
+	assert BATTLE_ANIM_FRAMESET_24 + 1 == BATTLE_ANIM_FRAMESET_25 \
+		&& BATTLE_ANIM_FRAMESET_25 + 1 == BATTLE_ANIM_FRAMESET_26
 	add [hl]
 	call ReinitBattleAnimFrameset
 .one
@@ -4299,7 +4299,7 @@ BattleAnim_StepToTarget:
 	jr nz, .loop
 	ret
 
-BattleAnimFunction_NightDaze:
+BattleAnimFunc_NightDaze:
 ; Expands object out in a ring around position at 1 pixel at a time for 13 frames and then disappears
 ; Obj Param: Defines starting position in circle
 	ld hl, BATTLEANIMSTRUCT_VAR1
@@ -4315,7 +4315,7 @@ BattleAnimFunction_NightDaze:
 	ld a, [hl]
 	jr BattleAnim_StepCircle
 
-BattleAnimFunction_HiddenPower_Fast:
+BattleAnimFunc_HiddenPower_Fast:
 ; Moves object in a ring around position slightly faster. Uses anim_incobj to move to second phase,  where it expands the radius 8 pixels at a time for 13 frames and then disappears
 ; Obj Param: Defines starting position in circle
 	call BattleAnim_AnonJumptable
@@ -4352,7 +4352,7 @@ BattleAnimFunction_HiddenPower_Fast:
 	ld a, [hl]
 	jr BattleAnim_StepCircle
 
-BattleAnimFunction_LeafStorm:
+BattleAnimFunc_LeafStorm:
 	call BattleAnim_AnonJumptable
 
 	dw .zero
@@ -4398,7 +4398,7 @@ BattleAnimFunction_LeafStorm:
 	ld a, [hl]
 	jmp BattleAnim_StepToTarget
 
-BattleAnimFunction_RadialMoveOutSlow:
+BattleAnimFunc_RadialMoveOutSlow:
 	call BattleAnim_AnonJumptable
 
 	dw InitRadial

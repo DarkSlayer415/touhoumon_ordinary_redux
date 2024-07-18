@@ -47,7 +47,7 @@ DecorationAttributes:
 	decoration DECO_DOLL,    SQUIRTLE,        SET_UP_DOLL,       EVENT_DECO_SQUIRTLE_DOLL,           SPRITE_PIDGEY ;Aya
 	decoration DECO_DOLL,    POLIWAG,         SET_UP_DOLL,       EVENT_DECO_POLIWAG_DOLL,            SPRITE_BELLSPROUT ;Yuuka
 	decoration DECO_DOLL,    DIGLETT,         SET_UP_DOLL,       EVENT_DECO_DIGLETT_DOLL,            SPRITE_RHYDON ;Ran
-	decoration DECO_DOLL,    STARYU,          SET_UP_DOLL,       EVENT_DECO_STARMIE_DOLL,            SPRITE_CHIKORITA ;Kaguya
+	decoration DECO_DOLL,    STARYU,          SET_UP_DOLL,       EVENT_DECO_STARYU_DOLL,             SPRITE_CHIKORITA ;Kaguya
 	decoration DECO_DOLL,    MAGIKARP,        SET_UP_DOLL,       EVENT_DECO_MAGIKARP_DOLL,           SPRITE_GROWLITHE ;Rumia
 	decoration DECO_DOLL,    ODDISH,          SET_UP_DOLL,       EVENT_DECO_ODDISH_DOLL,             SPRITE_TOTODILE ;Eirin
 	decoration DECO_DOLL,    GENGAR,          SET_UP_DOLL,       EVENT_DECO_GENGAR_DOLL,             SPRITE_BUTTERFREE ;Patchouli

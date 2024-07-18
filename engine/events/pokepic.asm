@@ -36,7 +36,7 @@ ClosePokepic::
 	call GetMemSGBLayout
 	xor a
 	ldh [hBGMapMode], a
-	call OverworldTextModeSwitch
+	call LoadOverworldTilemapAndAttrmapPals
 	call CopyTilemapAtOnce
 	call UpdateSprites
 	call LoadStandardFont

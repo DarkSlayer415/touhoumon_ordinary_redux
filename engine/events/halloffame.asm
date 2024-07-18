@@ -384,7 +384,7 @@ _HallOfFamePC:
 	call WaitBGMap
 	ld b, SCGB_PLAYER_OR_MON_FRONTPIC_PALS
 	call GetSGBLayout
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	call HOF_PlayCry
 	and a
 	ret

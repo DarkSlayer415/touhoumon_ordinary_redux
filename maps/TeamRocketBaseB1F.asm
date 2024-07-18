@@ -445,51 +445,30 @@ ExplodingTrap22:
 	setevent EVENT_EXPLODING_TRAP_22
 	end
 
-<<<<<<< HEAD
 RikaExplodingTrap:
-	special FadeOutPalettes
-	cry EXEGGUTOR
-	special FadeInPalettes
-=======
-VoltorbExplodingTrap:
 	special FadeOutToWhite
-	cry VOLTORB
+	cry EXEGGUTOR
 	special FadeInFromWhite
->>>>>>> 024c8749a0e7aa7f72082b0fa17498bf42c5359f
 	setlasttalked -1
 	loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
 	loadwildmon EXEGGUTOR, 30
 	startbattle
 	end
 
-<<<<<<< HEAD
 NitoriExplodingTrap:
-	special FadeOutPalettes
-	cry PIKACHU
-	special FadeInPalettes
-=======
-GeodudeExplodingTrap:
 	special FadeOutToWhite
-	cry GEODUDE
+	cry PIKACHU
 	special FadeInFromWhite
->>>>>>> 024c8749a0e7aa7f72082b0fa17498bf42c5359f
 	setlasttalked -1
 	loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
 	loadwildmon PIKACHU, 30
 	startbattle
 	end
 
-<<<<<<< HEAD
 OkuuExplodingTrap:
-	special FadeOutPalettes
-	cry SKIPLOOM
-	special FadeInPalettes
-=======
-KoffingExplodingTrap:
 	special FadeOutToWhite
-	cry KOFFING
+	cry SKIPLOOM
 	special FadeInFromWhite
->>>>>>> 024c8749a0e7aa7f72082b0fa17498bf42c5359f
 	setlasttalked -1
 	loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
 	loadwildmon SKIPLOOM, 30

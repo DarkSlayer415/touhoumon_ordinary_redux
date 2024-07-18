@@ -16,7 +16,7 @@ DecorationNames:
 	li "SURF PIKACHU DOLL"
 	li " BED"
 	li " CARPET"
-	li " POSTER"
+	li " Poster"
 	li " Fumo"
 	li "Deka "
 	li "FEATHERY"

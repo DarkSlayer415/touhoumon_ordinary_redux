@@ -416,6 +416,10 @@ SECTION "Move Animations", ROMX
 
 INCLUDE "engine/battle_anims/anim_commands.asm"
 INCLUDE "engine/battle_anims/core.asm"
+
+
+SECTION "Move Animations2", ROMX
+
 INCLUDE "engine/battle_anims/functions.asm"
 INCLUDE "engine/battle_anims/helpers.asm"
 

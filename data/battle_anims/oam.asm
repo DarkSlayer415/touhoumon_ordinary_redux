@@ -239,7 +239,7 @@ BattleAnimOAMData:
 	battleanimoam $08, 16, .OAMData_e1  ; BATTLEANIMOAMSET_E2
 	battleanimoam $10, 16, .OAMData_e1  ; BATTLEANIMOAMSET_E3
 	battleanimoam $18, 16, .OAMData_e1  ; BATTLEANIMOAMSET_E4
-	assert_table_length NUM_BATTLEANIMOAMSETS
+	assert_table_length NUM_BATTLEANIMOAMSET 
 
 .OAMData_11:
 	dbsprite  -1,  -1, 4, 0, $00, $0

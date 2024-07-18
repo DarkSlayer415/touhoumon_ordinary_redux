@@ -215,7 +215,7 @@ NamingScreen:
 	ld a, e
 	cp LOW(ChrisSpriteGFX)
 	jr nz, .not_chris
-	ld b, SPRITE_ANIM_INDEX_PURPLE_WALK
+	ld b, SPRITE_ANIM_OBJ_PURPLE_WALK
 	jr .not_kris
 .not_chris
 	ld a, d
@@ -224,7 +224,7 @@ NamingScreen:
 	ld a, e
 	cp LOW(KrisSpriteGFX)
 	jr nz, .not_kris
-	ld b, SPRITE_ANIM_INDEX_BROWN_WALK
+	ld b, SPRITE_ANIM_OBJ_BROWN_WALK
 .not_kris
 	ld a, b
 	depixel 4, 4, 4, 0

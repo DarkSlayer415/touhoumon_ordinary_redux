@@ -655,11 +655,11 @@ PokegearMap_ContinueMap:
 PokegearMap_InitPlayerIcon:
 	push af
 	depixel 0, 0
-	ld b, SPRITE_ANIM_INDEX_PURPLE_WALK
+	ld b, SPRITE_ANIM_OBJ_PURPLE_WALK
 	ld a, [wPlayerGender]
 	bit PLAYERGENDER_FEMALE_F, a
 	jr z, .got_gender
-	ld b, SPRITE_ANIM_INDEX_BROWN_WALK
+	ld b, SPRITE_ANIM_OBJ_BROWN_WALK
 .got_gender
 	ld a, b
 	call InitSpriteAnimStruct
@@ -2748,11 +2748,11 @@ TownMapPlayerIcon:
 	call Request2bpp
 ; Animation/palette
 	depixel 0, 0
-	ld b, SPRITE_ANIM_INDEX_PURPLE_WALK ; Maribel
+	ld b, SPRITE_ANIM_OBJ_PURPLE_WALK ; Maribel
 	ld a, [wPlayerGender]
 	bit PLAYERGENDER_FEMALE_F, a
 	jr z, .got_gender
-	ld b, SPRITE_ANIM_INDEX_BROWN_WALK ; Renko
+	ld b, SPRITE_ANIM_OBJ_BROWN_WALK ; Renko
 .got_gender
 	ld a, b
 	call InitSpriteAnimStruct

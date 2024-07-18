@@ -167,7 +167,7 @@ Kurt1:
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	writetext KurtsHouseKurtGetStartedText
 	waitbutton
-	special FadeBlackQuickly
+	special FadeOutToBlack
 	special ReloadSpritesNoPalettes
 	playsound SFX_WARP_TO
 	waitsfx
