@@ -23,7 +23,7 @@ SquirtleEggMoves:
 	db HI_JUMP_KICK
 	db EXTREMESPEED
 	db PETAL_DANCE
-	db FALSE_SWIPE
+	db MYSTIC_BOMB
 	db -1 ; end
 	
 CaterpieEggMoves:
@@ -44,14 +44,14 @@ WeedleEggMoves:
 	
 PidgeyEggMoves:
 	db PURSUIT
-	db FAINT_ATTACK
-	db FORESIGHT
+	db HEADWIND
+	db HI_JUMP_KICK
 	db MEGA_KICK
 	db MACH_PUNCH
 	db -1 ; end
 
 SpearowEggMoves:
-	db CHARM
+	db LEECH_SEED
 	db SWEET_KISS
 	db MEGA_KICK
 	db COTTON_SPORE
@@ -67,9 +67,9 @@ EkansEggMoves:
 	db -1 ; end
 
 SandshrewEggMoves:
-	db BUBBLEBEAM
-	db AURORA_BEAM
-	db OCTAZOOKA
+	db TRI_ATTACK
+	db FUTURE_SIGHT
+	db BARRIER
 	db ENCORE
 	db AMNESIA
 	db -1 ; end
@@ -78,7 +78,7 @@ NidoranFEggMoves:
 	db FOCUS_ENERGY
 	db DISABLE
 	db LOCK_ON
-	db TRI_ATTACK
+	db MYSTIC_BOMB
 	db AEROBLAST
 	db -1 ; end
 
@@ -151,7 +151,7 @@ GrowlitheEggMoves:
 	db NIGHT_SHADE
 	db HYPER_FANG
 	db THRASH
-	db AEROBLAST
+	db PHANTOM_DAZE
 	db -1 ; end
 
 PoliwagEggMoves:
@@ -198,7 +198,7 @@ GeodudeEggMoves:
 	db HI_JUMP_KICK
 	db COUNTER
 	db MEGA_KICK
-	db NIGHTMARE
+	db MEAN_LOOK
 	db AGILITY
 	db -1 ; end
 
@@ -213,7 +213,7 @@ PonytaEggMoves:
 SlowpokeEggMoves:
 	db COUNTER
 	db MIRROR_COAT
-	db SELFDESTRUCT
+	db FUTURE_SIGHT
 	db HYDRO_PUMP
 	db AEROBLAST
 	db -1 ; end
@@ -238,13 +238,13 @@ SeelEggMoves:
 	db DESTINY_BOND
 	db PAIN_SPLIT
 	db RECOVER
+	db ATTRACT
 	db NIGHTMARE
-	db MOONLIGHT
 	db -1 ; end
 
 GrimerEggMoves:
+	db ENCORE
 	db ATTRACT
-	db NIGHTMARE
 	db DESTINY_BOND
 	db THUNDER_WAVE
 	db CHARM
@@ -252,7 +252,7 @@ GrimerEggMoves:
 
 ShellderEggMoves:
 	db ATTRACT
-	db NIGHTMARE
+	db EXTREMESPEED
 	db DESTINY_BOND
 	db KINESIS
 	db SCREECH
@@ -270,13 +270,13 @@ OnixEggMoves:
 	db ENCORE
 	db FLAIL
 	db MIRROR_COAT
-	db BUBBLEBEAM
+	db ICY_WIND
 	db HYDRO_PUMP
 	db -1 ; end
 
 KrabbyEggMoves:
 	db MIRROR_COAT
-	db HAZE
+	db PHANTOM_DAZE
 	db HYPNOSIS
 	db SNORE
 	db BARRIER
@@ -307,8 +307,8 @@ CuboneEggMoves:
 	db -1 ; end
 
 LickitungEggMoves:
-	db CHARM
-	db KINESIS
+	db ATTRACT
+	db AEROBLAST
 	db BARRIER
 	db DESTINY_BOND
 	db PAIN_SPLIT
@@ -327,7 +327,7 @@ StaryuEggMoves:
 	db MIRROR_COAT
 	db HYPNOSIS
 	db MEAN_LOOK
-	db FUTURE_SIGHT
+	db PHANTOM_DAZE
 	db -1 ; end
 
 EeveeEggMoves:
@@ -339,9 +339,9 @@ EeveeEggMoves:
 	db -1 ; end
 
 OmanyteEggMoves:
-	db OCTAZOOKA
-	db HYPER_BEAM
 	db TRI_ATTACK
+	db HYPER_BEAM
+	db PHANTOM_DAZE
 	db AGILITY
 	db MIMIC
 	db -1 ; end
@@ -350,8 +350,8 @@ KabutoEggMoves:
 	db COUNTER
 	db MIRROR_COAT
 	db RAPID_SPIN
-	db ROLLING_KICK
-	db TRI_ATTACK
+	db SACRED_FIRE
+	db ANCIENTPOWER
 	db -1 ; end
 
 DratiniEggMoves:
@@ -359,15 +359,15 @@ DratiniEggMoves:
 	db MIST
 	db HAZE
 	db CHARM
-	db NIGHTMARE
+	db TRI_ATTACK
 	db -1 ; end
 
 MewtwoEggMoves:
 	db ANCIENTPOWER
 	db EXTREMESPEED
 	db OUTRAGE
+	db BELLY_DRUM
 	db AGILITY
-	db PURSUIT
 	db -1 ; end
 
 ChikoritaEggMoves:
@@ -476,10 +476,10 @@ NatuEggMoves:
 
 MareepEggMoves:
 	db NIGHT_SHADE
-	db NIGHTMARE
+	db LEAF_STORM
 	db ATTRACT
 	db SAFEGUARD
-	db MEAN_LOOK
+	db DREAM_EATER
 	db -1 ; end
 
 MarillEggMoves:
@@ -526,16 +526,16 @@ MisdreavusEggMoves:
 	db ENCORE
 	db COUNTER
 	db MIRROR_COAT
-	db FLAMETHROWER
+	db MYSTIC_BOMB
 	db ANCIENTPOWER
 	db -1 ; end
 	
 WobbuffetEggMoves:
-	db OUTRAGE
+	db HAZE
 	db MEAN_LOOK
 	db AGILITY
 	db PERISH_SONG
-	db ICE_BEAM
+	db THUNDER_WAVE
 	db -1 ; end
 
 GirafarigEggMoves:
@@ -652,7 +652,7 @@ LarvitarEggMoves:
 	
 CYuutoEggMoves:
 	db HYPER_BEAM
-	db TRI_ATTACK
+	db FISSURE
 	db DREAM_EATER
 	db MIRROR_MOVE
 	db MIMIC
