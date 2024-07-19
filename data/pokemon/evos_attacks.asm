@@ -301,11 +301,11 @@ BeedrillEvosAttacks:
 PidgeyEvosAttacks:
 	db EVOLVE_LEVEL, 18, PIDGEOTTO
 	db 0 ; no more evolutions
-	db 1, TACKLE
+	db 1, PECK
 	db 1, LEER
-	db 5, PECK
+	db 5, QUICK_ATTACK
 	db 9, SAND_ATTACK
-	db 12, QUICK_ATTACK
+	db 12, RAZOR_WIND
 	db 16, WING_ATTACK
 	db 20, WHIRLWIND
 	db 23, AGILITY
@@ -320,11 +320,11 @@ PidgeyEvosAttacks:
 PidgeottoEvosAttacks:
 	db EVOLVE_LEVEL, 36, PIDGEOT
 	db 0 ; no more evolutions
-	db 1, TACKLE
+	db 1, PECK
 	db 1, LEER
-	db 5, PECK
+	db 5, QUICK_ATTACK
 	db 9, SAND_ATTACK
-	db 12, QUICK_ATTACK
+	db 12, RAZOR_WIND
 	db 16, WING_ATTACK
 	db 21, WHIRLWIND
 	db 24, AGILITY
@@ -338,11 +338,11 @@ PidgeottoEvosAttacks:
 
 PidgeotEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, TACKLE
+	db 1, PECK
 	db 1, LEER
-	db 5, PECK
+	db 5, QUICK_ATTACK
 	db 9, SAND_ATTACK
-	db 12, QUICK_ATTACK
+	db 12, RAZOR_WIND
 	db 16, WING_ATTACK
 	db 21, WHIRLWIND
 	db 24, AGILITY

@@ -419,7 +419,7 @@ LedybaEggMoves:
 	db -1 ; end
 
 SpinarakEggMoves:
-	db SCARY_FACE
+	db ICY_WIND
 	db SOFTBOILED
 	db DRAGON_RAGE
 	db OCTAZOOKA
@@ -589,8 +589,8 @@ DelibirdEggMoves:
 HoundourEggMoves:
 	db COUNTER
 	db MIRROR_COAT
-	db ICE_BEAM
-	db NIGHTMARE
+	db PAIN_SPLIT
+	db SUPER_FANG
 	db LEECH_SEED
 	db -1 ; end
 
