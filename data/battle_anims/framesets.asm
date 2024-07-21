@@ -186,27 +186,27 @@ BattleAnimFrameData:
 	dw .Frameset_PlayerHead1Row      ; BATTLE_ANIM_FRAMESET_PLAYERHEAD_1ROW
 	dw .Frameset_EnemyFeet2Row       ; BATTLE_ANIM_FRAMESET_ENEMYFEET_2ROW
 	dw .Frameset_PlayerHead2Row      ; BATTLE_ANIM_FRAMESET_PLAYERHEAD_2ROW
-	dw .Frameset_Hail ; BATTLEANIMFRAMESET_HAIL
-	dw .Frameset_GunkShot ; BATTLEANIMFRAMESET_GUNK_SHOT
-	dw .Frameset_LeafStormBigLeaf        ; BATTLEANIMFRAMESET_LEAF_STORM_BIG_LEAF
-	dw .Frameset_LeafStormSmallLeaf      ; BATTLEANIMFRAMESET_LEAF_STORM_SMALL_LEAF
-	dw .Frameset_Hurricane               ; BATTLEANIMFRAMESET_HURRICANE
-	dw .Frameset_PhantomDazeN              ; BATTLEANIMFRAMESET_PHANTOM_DAZE_N
-	dw .Frameset_PhantomDazeNE             ; BATTLEANIMFRAMESET_PHANTOM_DAZE_NE
-	dw .Frameset_PhantomDazeE              ; BATTLEANIMFRAMESET_PHANTOM_DAZE_E
-	dw .Frameset_PhantomDazeSE             ; BATTLEANIMFRAMESET_PHANTOM_DAZE_SE
-	dw .Frameset_PhantomDazeS              ; BATTLEANIMFRAMESET_PHANTOM_DAZE_S
-	dw .Frameset_PhantomDazeSW             ; BATTLEANIMFRAMESET_PHANTOM_DAZE_SW
-	dw .Frameset_PhantomDazeW              ; BATTLEANIMFRAMESET_PHANTOM_DAZE_W
-	dw .Frameset_PhantomDazeNW             ; BATTLEANIMFRAMESET_PHANTOM_DAZE_NW
-	dw .Frameset_BigGlow                 ; BATTLEANIMFRAMESET_BIG_GLOW
-	dw .Frameset_BigGlowClear            ; BATTLEANIMFRAMESET_BIG_GLOW_CLEAR
-	dw .Frameset_InkSplash               ; BATTLEANIMFRAMESET_INK_SPLASH
-	dw .Frameset_LavaPlumeSmoke          ; BATTLEANIMFRAMESET_LAVA_PLUME_SMOKE
-	dw .Frameset_MudShot                 ; BATTLEANIMFRAMESET_MUD_SHOT
-	dw .Frameset_SmallGlow               ; BATTLEANIMFRAMESET_SMALL_GLOW
-	dw .Frameset_Vortex					 ; BATTLEANIMFRAMESET_VORTEX
-	dw .Frameset_SwirlShort 			 ; BATTLEANIMFRAMESET_SWIRL_SHORT
+	dw .Frameset_Hail 				 ; BATTLEANIMFRAMESET_HAIL
+	dw .Frameset_GunkShot 			 ; BATTLEANIMFRAMESET_GUNK_SHOT
+	dw .Frameset_LeafStormBigLeaf    ; BATTLEANIMFRAMESET_LEAF_STORM_BIG_LEAF
+	dw .Frameset_LeafStormSmallLeaf  ; BATTLEANIMFRAMESET_LEAF_STORM_SMALL_LEAF
+	dw .Frameset_Hurricane           ; BATTLEANIMFRAMESET_HURRICANE
+	dw .Frameset_PhantomDazeN        ; BATTLEANIMFRAMESET_PHANTOM_DAZE_N
+	dw .Frameset_PhantomDazeNE       ; BATTLEANIMFRAMESET_PHANTOM_DAZE_NE
+	dw .Frameset_PhantomDazeE        ; BATTLEANIMFRAMESET_PHANTOM_DAZE_E
+	dw .Frameset_PhantomDazeSE       ; BATTLEANIMFRAMESET_PHANTOM_DAZE_SE
+	dw .Frameset_PhantomDazeS        ; BATTLEANIMFRAMESET_PHANTOM_DAZE_S
+	dw .Frameset_PhantomDazeSW       ; BATTLEANIMFRAMESET_PHANTOM_DAZE_SW
+	dw .Frameset_PhantomDazeW        ; BATTLEANIMFRAMESET_PHANTOM_DAZE_W
+	dw .Frameset_PhantomDazeNW       ; BATTLEANIMFRAMESET_PHANTOM_DAZE_NW
+	dw .Frameset_BigGlow             ; BATTLEANIMFRAMESET_BIG_GLOW
+	dw .Frameset_BigGlowClear        ; BATTLEANIMFRAMESET_BIG_GLOW_CLEAR
+	dw .Frameset_InkSplash           ; BATTLEANIMFRAMESET_INK_SPLASH
+	dw .Frameset_LavaPlumeSmoke      ; BATTLEANIMFRAMESET_LAVA_PLUME_SMOKE
+	dw .Frameset_MudShot             ; BATTLEANIMFRAMESET_MUD_SHOT
+	dw .Frameset_SmallGlow           ; BATTLEANIMFRAMESET_SMALL_GLOW
+	dw .Frameset_Vortex			     ; BATTLEANIMFRAMESET_VORTEX
+	dw .Frameset_SwirlShort 		 ; BATTLEANIMFRAMESET_SWIRL_SHORT
 	assert_table_length NUM_BATTLE_ANIM_FRAMESETS
 
 .Frameset_HitBig:
