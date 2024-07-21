@@ -20,12 +20,6 @@ QueueBattleAnimation:
 	call InitBattleAnimation
 	ret
 
-DeinitBattleAnimation:
-	ld hl, BATTLEANIMSTRUCT_INDEX
-	add hl, bc
-	ld [hl], $0
-	ret
-
 InitBattleAnimation:
 	ld a, [wBattleObjectTempID]
 	ld e, a
