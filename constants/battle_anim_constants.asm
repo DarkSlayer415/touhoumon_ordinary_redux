@@ -837,7 +837,7 @@ DEF NUM_BATTLE_BG_EFFECTS EQU const_value - 1
 ; wBattleAnimTileDict keys (see wram.asm)
 ; AnimObjGFX indexes (see data/battle_anims/object_gfx.asm)
 	const_def 1
-		const BATTLE_ANIM_GFX_HIT        ; 01
+	const BATTLE_ANIM_GFX_HIT        ; 01
 	const BATTLE_ANIM_GFX_CUT        ; 02
 	const BATTLE_ANIM_GFX_FIRE       ; 03
 	const BATTLE_ANIM_GFX_WATER      ; 04
@@ -877,7 +877,7 @@ DEF NUM_BATTLE_BG_EFFECTS EQU const_value - 1
 	const BATTLE_ANIM_GFX_WAVE       ; 26
 	const BATTLE_ANIM_GFX_AEROBLAST  ; 27
 	const BATTLE_ANIM_GFX_PLAYERHEAD ; 28
-	const BATTLE_ANIM_GFX_ENEMYFEET   ; 29
+	const BATTLE_ANIM_GFX_ENEMYFEET  ; 29
 	const BATTLE_ANIM_GFX_BIG_GLOW
 	const BATTLE_ANIM_GFX_BIG_GLOW_CLEAR
 	const BATTLE_ANIM_GFX_LEAF_STORM

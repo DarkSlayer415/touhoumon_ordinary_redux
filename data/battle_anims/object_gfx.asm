@@ -58,4 +58,4 @@ AnimObjGFX:
 	anim_obj_gfx 32, AnimObjVortexGFX
 	anim_obj_gfx 14, AnimObjSmokePuffBigGFX
 	anim_obj_gfx 10, AnimObjGlowGFX
-	assert_table_length NUM_ANIM_GFX
+	assert_table_length NUM_ANIM_GFX 

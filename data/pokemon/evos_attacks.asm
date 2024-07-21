@@ -146,6 +146,7 @@ SquirtleEvosAttacks:
 	db 28, HYPNOSIS
 	db 33, SLASH
 	db 40, PSYCHIC_M
+	db 43, MOONLIGHT
 	db 47, HORN_DRILL
 	db 0 ; no more level-up moves
 
@@ -162,8 +163,9 @@ WartortleEvosAttacks:
 	db 25, PSYBEAM
 	db 31, HYPNOSIS
 	db 36, SLASH
-	db 45, PSYCHIC_M
-	db 53, HORN_DRILL
+	db 39, PSYCHIC_M
+	db 43, MOONLIGHT
+	db 49, HORN_DRILL
 	db 0 ; no more level-up moves
 
 BlastoiseEvosAttacks:
@@ -178,10 +180,11 @@ BlastoiseEvosAttacks:
 	db 25, PSYBEAM
 	db 31, HYPNOSIS
 	db 36, SLASH
-	db 42, PSYCHIC_M
-	db 47, SPIKES
-	db 55, HORN_DRILL
-	db 60, BATON_PASS
+	db 41, PSYCHIC_M
+	db 45, MOONLIGHT
+	db 49, HORN_DRILL
+	db 55, SPIKES
+	db 55, BATON_PASS
 	db 0 ; no more level-up moves
 
 CaterpieEvosAttacks:
