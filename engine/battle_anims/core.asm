@@ -1,6 +1,6 @@
 QueueBattleAnimation:
 	ld hl, wActiveAnimObjects
-	ld e, NUM_BATTLE_ANIM_STRUCTS
+	ld e, NUM_ANIM_OBJS
 .loop
 	ld a, [hl]
 	and a
@@ -17,13 +17,13 @@ QueueBattleAnimation:
 	ld b, h
 	ld hl, wLastAnimObjectIndex
 	inc [hl]
-	call InitBattleAnimation
-	ret
+	; fallthrough
 
 InitBattleAnimation:
-	ld a, [wBattleObjectTempID]
+	ld hl, wBattleObjectTempID
+	ld a, [hli]
 	ld e, a
-	ld d, 0
+	ld d, [hl]
 	ld hl, BattleAnimObjects
 rept BATTLEANIMOBJ_LENGTH
 	add hl, de
@@ -43,6 +43,9 @@ endr
 	ld a, [de]
 	inc de
 	ld [hli], a ; BATTLEANIMSTRUCT_FRAMESET_ID
+	ld a, [de]
+	inc de
+	ld [hli], a ; BATTLEANIMSTRUCT_FRAMESET_ID + 1
 	ld a, [de]
 	inc de
 	ld [hli], a ; BATTLEANIMSTRUCT_FUNCTION
@@ -73,20 +76,20 @@ endr
 
 BattleAnimOAMUpdate:
 	call InitBattleAnimBuffer
-	call GetBattleAnimFrame
-	cp HIGH(battleoamwait_command)
-	jp z, .done
-	cp HIGH(battleoamdelete_command)
-	jp z, .delete
+	farcall GetBattleAnimFrame
+	ld a, h
+	cp oamwait_command
+	jmp z, .done
+	cp oamdelete_command
+	jmp z, .delete
 
-	ld d, h
-	ld e, l
-	
+	push af
 	ld hl, wBattleAnimTempOAMFlags
 	ld a, [wBattleAnimTempFrameOAMFlags]
 	xor [hl]
 	and PRIORITY | Y_FLIP | X_FLIP
 	ld [hl], a
+	pop af
 
 	push bc
 	call GetBattleAnimOAMPointer
@@ -245,38 +248,41 @@ InitBattleAnimBuffer:
 	ld d, a
 	ld a, [wBattleAnimTempFixY]
 	cp $ff
-	jr nz, .check_kinesis_softboiled_milkdrink
+	jr nz, .vertical_flip
 	ld a, 5 * TILE_WIDTH
-	add d
 	jr .done
 
-.check_kinesis_softboiled_milkdrink
+.vertical_flip
 	sub d
 	push af
-	ld a, [wFXAnimID + 1]
-	or a
-	jr nz, .no_sub
-	ld a, [wFXAnimID]
-	cp KINESIS
-	jr z, .do_sub
-	cp SOFTBOILED
-	jr z, .do_sub
-	cp MILK_DRINK
-	jr nz, .no_sub
-.do_sub
-	pop af
-	sub 1 * TILE_WIDTH
-	jr .done
-
-.no_sub
-	pop af
+	push hl
+	push bc
+	ld hl, wFXAnimID
+	ld a, [hli]
+	ld c, a
+	ld b, [hl]
+	ld de, 2
+	ld hl, .extra_offset_moves
+	call IsInWordArray
+	pop bc
+	pop hl
+	pop de
+	sbc a
+	and -(1 * 8)
 .done
+	add a, d
 	ld [wBattleAnimTempYCoord], a
 	ld a, [hli]
 	xor $ff
 	inc a
 	ld [wBattleAnimTempXOffset], a
 	ret
+
+.extra_offset_moves
+	dw KINESIS
+	dw SOFTBOILED
+	dw MILK_DRINK
+	dw -1
 
 GetBattleAnimTileOffset:
 	push hl
