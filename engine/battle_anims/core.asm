@@ -45,9 +45,6 @@ endr
 	ld [hli], a ; BATTLEANIMSTRUCT_FRAMESET_ID
 	ld a, [de]
 	inc de
-	ld [hli], a ; BATTLEANIMSTRUCT_FRAMESET_ID + 1
-	ld a, [de]
-	inc de
 	ld [hli], a ; BATTLEANIMSTRUCT_FUNCTION
 	ld a, [de]
 	inc de
@@ -241,48 +238,45 @@ InitBattleAnimBuffer:
 	add hl, bc
 	ld a, [hli]
 	ld d, a
-	ld a, (-10 * 8) + 4
+	ld a, (-10 * TILE_WIDTH) + 4
 	sub d
 	ld [wBattleAnimTempXCoord], a
 	ld a, [hli]
 	ld d, a
 	ld a, [wBattleAnimTempFixY]
 	cp $ff
-	jr nz, .vertical_flip
-	ld a, 5 * 8
+	jr nz, .check_kinesis_softboiled_milkdrink
+	ld a, 5 * TILE_WIDTH
+	add d
 	jr .done
 
-.vertical_flip
+.check_kinesis_softboiled_milkdrink
 	sub d
 	push af
-	push hl
-	push bc
-	ld hl, wFXAnimID
-	ld a, [hli]
-	ld c, a
-	ld b, [hl]
-	ld de, 2
-	ld hl, .extra_offset_moves
-	call IsInWordArray
-	pop bc
-	pop hl
-	pop de
-	sbc a
-	and -(1 * 8)
+	ld a, [wFXAnimID + 1]
+	or a
+	jr nz, .no_sub
+	ld a, [wFXAnimID]
+	cp KINESIS
+	jr z, .do_sub
+	cp SOFTBOILED
+	jr z, .do_sub
+	cp MILK_DRINK
+	jr nz, .no_sub
+.do_sub
+	pop af
+	sub 1 * TILE_WIDTH
+	jr .done
+
+.no_sub
+	pop af
 .done
-	add a, d
 	ld [wBattleAnimTempYCoord], a
 	ld a, [hli]
 	xor $ff
 	inc a
 	ld [wBattleAnimTempXOffset], a
 	ret
-
-.extra_offset_moves
-	dw KINESIS
-	dw SOFTBOILED
-	dw MILK_DRINK
-	dw -1
 
 GetBattleAnimTileOffset:
 	push hl
@@ -308,9 +302,11 @@ GetBattleAnimTileOffset:
 	ret
 
 _ExecuteBGEffects:
-	farjp ExecuteBGEffects
+	callfar ExecuteBGEffects
+	ret
 
 _QueueBGEffect:
-	farjp QueueBGEffect
+	callfar QueueBGEffect
+	ret
 
 INCLUDE "data/battle_anims/objects.asm"

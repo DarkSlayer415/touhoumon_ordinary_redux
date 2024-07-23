@@ -288,7 +288,7 @@ ListMovePP:
 	push af
 	ld [hl], b
 	push hl
-	farcall GetMaxPPOfMove
+	callfar GetMaxPPOfMove
 	pop hl
 	pop af
 	ld [hl], a

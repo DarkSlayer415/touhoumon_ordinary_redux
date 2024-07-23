@@ -3340,7 +3340,8 @@ PlayFXAnimID:
 
 	ld c, 3
 	call DelayFrames
-	farjp PlayBattleAnim
+	callfar PlayBattleAnim
+	ret
 
 DoEnemyDamage:
 	ld hl, wCurDamage
@@ -3649,7 +3650,8 @@ BattleCommand_PoisonTarget:
 	ld hl, WasPoisonedText
 	call StdBattleTextbox
 
-	farjp UseHeldStatusHealingItem
+	farcall UseHeldStatusHealingItem
+	ret
 
 BattleCommand_Poison:
 	ld hl, DoesntAffectText
@@ -3707,7 +3709,8 @@ BattleCommand_Poison:
 	call StdBattleTextbox
 
 .finished
-	farjp UseHeldStatusHealingItem
+	farcall UseHeldStatusHealingItem
+	ret
 
 .failed
 	push hl
@@ -3894,7 +3897,8 @@ BattleCommand_BurnTarget:
 	ld hl, WasBurnedText
 	call StdBattleTextbox
 
-	farjp UseHeldStatusHealingItem
+	farcall UseHeldStatusHealingItem
+	ret
 
 Defrost:
 	ld a, [hl]
@@ -3960,7 +3964,9 @@ BattleCommand_FreezeTarget:
 	ld hl, GotAFrostbiteText
 	call StdBattleTextbox
 
-	farjp UseHeldStatusHealingItem
+	farcall UseHeldStatusHealingItem
+	
+	ret
 
 BattleCommand_ParalyzeTarget:
 	xor a
@@ -4937,7 +4943,7 @@ BattleCommand_ForceSwitch:
 	ld a, d
 	inc a
 	ld [wEnemySwitchMonIndex], a
-	farcall ForceEnemySwitch
+	callfar ForceEnemySwitch
 
 	ld hl, DraggedOutText
 	call StdBattleTextbox
@@ -6347,7 +6353,7 @@ BattleCommand_TimeBasedHealContinue:
 	call AnimateCurrentMove
 	call BattleCommand_SwitchTurn
 
-	farcall RestoreHP
+	callfar RestoreHP
 
 	call BattleCommand_SwitchTurn
 	call UpdateUserInParty
@@ -6538,7 +6544,7 @@ PlayUserBattleAnim:
 	push hl
 	push de
 	push bc
-	farcall PlayBattleAnim
+	callfar PlayBattleAnim
 	pop bc
 	pop de
 	pop hl
@@ -6557,7 +6563,7 @@ PlayOpponentBattleAnim:
 	push bc
 	call BattleCommand_SwitchTurn
 
-	farcall PlayBattleAnim
+	callfar PlayBattleAnim
 
 	call BattleCommand_SwitchTurn
 	pop bc
@@ -6627,13 +6633,16 @@ GetMoveByte:
 	jp GetFarByte
 
 DisappearUser:
-	farjp _DisappearUser
+	farcall _DisappearUser
+	ret
 
 AppearUserLowerSub:
-	farjp _AppearUserLowerSub
+	farcall _AppearUserLowerSub
+	ret
 
 AppearUserRaiseSub:
-	farjp _AppearUserRaiseSub
+	farcall _AppearUserRaiseSub
+	ret
 
 _CheckBattleScene:
 ; Checks the options.  Returns carry if battle animations are disabled.

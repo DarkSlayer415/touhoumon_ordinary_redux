@@ -5061,7 +5061,8 @@ Function11a5f5:
 	hlcoord 15, 7
 	ld a, $ed
 	ld [hl], a
-	farjp HDMATransferTilemapAndAttrmap_Overworld
+	farcall HDMATransferTilemapAndAttrmap_Overworld
+	ret
 
 Function11a63c:
 	hlcoord 4, 1
@@ -5522,7 +5523,7 @@ Text_ThisBattleRoomPleaseWait: ; unreferenced
 Function11ac3e:
 	call SpeechTextbox
 	call FadeToMenu
-	farcall ClearSpriteAnims2
+	callfar ClearSpriteAnims2
 	call Function11ac51
 	call CloseSubmenu
 	ret
@@ -5658,7 +5659,8 @@ Function11ad1b:
 	ld [wcd30], a
 	ld a, DEXMODE_ABC
 	ld [wCurDexMode], a
-	farjp Pokedex_OrderMonsByMode
+	farcall Pokedex_OrderMonsByMode
+	ret
 
 Function11ad6e:
 	ld a, [wJumptableIndex]
@@ -5776,7 +5778,8 @@ Function11adc4:
 
 .asm_11ae2e
 	call ExitMenu
-	farjp HDMATransferTilemapAndAttrmap_Overworld
+	farcall HDMATransferTilemapAndAttrmap_Overworld
+	ret
 
 MenuHeader_11ae38:
 	db MENU_BACKUP_TILES ; flags
@@ -5877,7 +5880,8 @@ Function11ae98:
 .asm_11aef7
 	call ExitMenu
 	call ExitMenu
-	farjp HDMATransferTilemapAndAttrmap_Overworld
+	farcall HDMATransferTilemapAndAttrmap_Overworld
+	ret
 
 Function11af04:
 	ld hl, MenuHeader_11afe8
@@ -5966,7 +5970,8 @@ Function11af4e:
 .asm_11afaa
 	call ExitMenu
 	call ExitMenu
-	farjp HDMATransferTilemapAndAttrmap_Overworld
+	farcall HDMATransferTilemapAndAttrmap_Overworld
+	ret
 
 Function11afb7:
 	ld e, $ed
@@ -7504,7 +7509,8 @@ Function11b93b:
 	ld a, HIGH(wUnknownMonMail)
 	ld [wMobileMonMailPointer + 1], a
 	call AddMobileMonToParty
-	farjp SaveAfterLinkTrade
+	farcall SaveAfterLinkTrade
+	ret
 
 AddMobileMonToParty:
 	ld hl, wPartyCount
