@@ -389,8 +389,8 @@ CyndaquilEggMoves:
 TotodileEggMoves:
 	db NIGHT_SHADE
 	db PSYCH_UP
-	db CONFUSE_RAY
-	db TRI_ATTACK
+	db PHANTOM_DAZE
+	db MYSTIC_BOMB
 	db HEAL_BELL
 	db -1 ; end
 
