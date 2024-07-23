@@ -153,7 +153,7 @@ endr
 	push de
 	ld a, [wCurPartyLevel]
 	ld d, a
-	callfar CalcExpAtLevel
+	farcall CalcExpAtLevel
 	pop de
 	ldh a, [hProduct + 1]
 	ld [de], a
@@ -611,7 +611,7 @@ SendGetMonIntoFromBox:
 	add $2
 	ld [wMonType], a
 	predef CopyMonToTempMon
-	callfar CalcLevel
+	farcall CalcLevel
 	ld a, d
 	ld [wCurPartyLevel], a
 	pop hl
@@ -855,7 +855,7 @@ RetrieveBreedmon:
 	ld [wCurPartyMon], a
 	farcall HealPartyMon
 	ld d, MAX_LEVEL
-	callfar CalcExpAtLevel
+	farcall CalcExpAtLevel
 	pop bc
 	ld hl, MON_EXP + 2
 	add hl, bc
@@ -979,7 +979,7 @@ SendMonIntoBox:
 	push de
 	ld a, [wCurPartyLevel]
 	ld d, a
-	callfar CalcExpAtLevel
+	farcall CalcExpAtLevel
 	pop de
 	ldh a, [hProduct + 1]
 	ld [de], a
@@ -1098,8 +1098,8 @@ ShiftBoxMon:
 GiveEgg::
 	ld a, [wCurPartySpecies]
 	push af
-	callfar GetPreEvolution
-	callfar GetPreEvolution
+	farcall GetPreEvolution
+	farcall GetPreEvolution
 	ld a, [wCurPartySpecies]
 	dec a
 
@@ -1627,7 +1627,7 @@ GivePoke::
 .failed
 	ld a, [wCurPartySpecies]
 	ld [wTempEnemyMonSpecies], a
-	callfar LoadEnemyMon
+	farcall LoadEnemyMon
 	call SendMonIntoBox
 	jp nc, .FailedToGiveMon
 	ld a, BOXMON

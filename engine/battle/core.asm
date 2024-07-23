@@ -374,7 +374,7 @@ HandleBerserkGene:
 .go
 	push de
 	push bc
-	callfar GetUserItem
+	farcall GetUserItem
 	ld a, [hl]
 	ld [wNamedObjectIndex], a
 	sub BERSERK_GENE
@@ -410,7 +410,7 @@ HandleBerserkGene:
 	call GetItemName
 	ld hl, BattleText_UsersStringBuffer1Activated
 	call StdBattleTextbox
-	callfar BattleCommand_StatUpMessage
+	farcall BattleCommand_StatUpMessage
 	pop af
 	bit SUBSTATUS_CONFUSED, a
 	ret nz
@@ -469,7 +469,7 @@ DetermineMoveOrder:
 	jp .player_first
 
 .switch
-	callfar AI_Switch
+	farcall AI_Switch
 	call SetEnemyTurn
 	call SpikesDamage
 	jp .enemy_first
@@ -485,9 +485,9 @@ DetermineMoveOrder:
 
 .equal_priority
 	call SetPlayerTurn
-	callfar GetUserItem
+	farcall GetUserItem
 	push bc
-	callfar GetOpponentItem
+	farcall GetOpponentItem
 	pop de
 	ld a, d
 	cp HELD_QUICK_CLAW
@@ -644,7 +644,7 @@ ParsePlayerAction:
 
 .encored
 	call SetPlayerTurn
-	callfar UpdateMoveData
+	farcall UpdateMoveData
 	xor a
 	ld [wPlayerCharging], a
 	ld a, [wPlayerMoveStruct + MOVE_EFFECT]
@@ -873,7 +873,7 @@ Battle_EnemyFirst:
 	call SetEnemyTurn
 	ld a, $1
 	ld [wEnemyGoesFirst], a
-	callfar AI_SwitchOrTryItem
+	farcall AI_SwitchOrTryItem
 	jr c, .switch_item
 	call EnemyTurn_EndOpponentProtectEndureDestinyBond
 	call CheckMobileBattleError
@@ -913,7 +913,7 @@ Battle_PlayerFirst:
 	xor a
 	ld [wEnemyGoesFirst], a
 	call SetEnemyTurn
-	callfar AI_SwitchOrTryItem
+	farcall AI_SwitchOrTryItem
 	push af
 	call PlayerTurn_EndOpponentProtectEndureDestinyBond
 	pop bc
@@ -961,13 +961,13 @@ Battle_PlayerFirst:
 PlayerTurn_EndOpponentProtectEndureDestinyBond:
 	call SetPlayerTurn
 	call EndUserDestinyBond
-	callfar DoPlayerTurn
+	farcall DoPlayerTurn
 	jp EndOpponentProtectEndureDestinyBond
 
 EnemyTurn_EndOpponentProtectEndureDestinyBond:
 	call SetEnemyTurn
 	call EndUserDestinyBond
-	callfar DoEnemyTurn
+	farcall DoEnemyTurn
 	jp EndOpponentProtectEndureDestinyBond
 
 EndOpponentProtectEndureDestinyBond:
@@ -1296,7 +1296,7 @@ HandleLeftovers:
 	call SetPlayerTurn
 .do_it
 
-	callfar GetUserItem
+	farcall GetUserItem
 	ld a, [hl]
 	ld [wNamedObjectIndex], a
 	call GetItemName
@@ -1345,7 +1345,7 @@ HandleMysteryberry:
 	call SetPlayerTurn
 
 .do_it
-	callfar GetUserItem
+	farcall GetUserItem
 	ld a, b
 	cp HELD_RESTORE_PP
 	jr nz, .quit
@@ -1442,7 +1442,7 @@ HandleMysteryberry:
 	add b
 	ld [de], a
 .skip_checks
-	callfar GetUserItem
+	farcall GetUserItem
 	ld a, [hl]
 	ld [wNamedObjectIndex], a
 	xor a
@@ -1507,13 +1507,13 @@ HandleFutureSight:
 	ld a, FUTURE_SIGHT
 	ld [hl], a
 
-	callfar UpdateMoveData
+	farcall UpdateMoveData
 	xor a
 	ld [wAttackMissed], a
 	ld [wAlreadyDisobeyed], a
 	ld a, EFFECTIVE
 	ld [wTypeModifier], a
-	callfar DoMove
+	farcall DoMove
 	xor a
 	ld [wCurDamage], a
 	ld [wCurDamage + 1], a
@@ -2373,7 +2373,7 @@ WinTrainerBattle:
 	and a
 	ld a, b
 	call z, PlayVictoryMusic
-	callfar Battle_GetTrainerName
+	farcall Battle_GetTrainerName
 	ld hl, BattleText_EnemyWasDefeated
 	call StdBattleTextbox
 
@@ -2410,8 +2410,7 @@ WinTrainerBattle:
 	ld c, 40
 	call DelayFrames
 	ld c, $4 ; win
-	farcall Mobile_PrintOpponentBattleMessage
-	ret
+	farjp Mobile_PrintOpponentBattleMessage
 
 .battle_tower
 	call BattleWinSlideInEnemyTrainerFrontpic
@@ -2696,7 +2695,7 @@ UpdateFaintedPlayerMon:
 .got_param
 	ld a, [wCurBattleMon]
 	ld [wCurPartyMon], a
-	callfar ChangeHappiness
+	farcall ChangeHappiness
 	ld a, [wBattleResult]
 	and BATTLERESULT_BITMASK
 	add LOSE
@@ -2843,8 +2842,7 @@ SetUpBattlePartyMenu_Loop: ; switch to fullscreen menu?
 	farcall LoadPartyMenuGFX
 	farcall InitPartyMenuWithCancel
 	farcall InitPartyMenuBGPal7
-	farcall InitPartyMenuGFX
-	ret
+	farjp InitPartyMenuGFX
 
 JumpToPartyMenuAndPrintText:
 	farcall WritePartyMenuTilemap
@@ -2857,12 +2855,10 @@ JumpToPartyMenuAndPrintText:
 SelectBattleMon:
 	call IsMobileBattle
 	jr z, .mobile
-	farcall PartyMenuSelect
-	ret
+	farjp PartyMenuSelect
 
 .mobile
-	farcall Mobile_PartyMenuSelect
-	ret
+	farjp Mobile_PartyMenuSelect
 
 PickPartyMonInBattle:
 .loop
@@ -3312,7 +3308,7 @@ LookUpTheEffectivenessOfEveryMove:
 	ld a, BANK(Moves)
 	call FarCopyBytes
 	call SetEnemyTurn
-	callfar BattleCheckTypeMatchup
+	farcall BattleCheckTypeMatchup
 	pop bc
 	pop de
 	pop hl
@@ -3347,13 +3343,13 @@ IsThePlayerMonTypesEffectiveAgainstOTMon:
 	ld a, [wBattleMonType1]
 	ld [wPlayerMoveStruct + MOVE_TYPE], a
 	call SetPlayerTurn
-	callfar BattleCheckTypeMatchup
+	farcall BattleCheckTypeMatchup
 	ld a, [wTypeMatchup]
 	cp EFFECTIVE + 1
 	jr nc, .super_effective
 	ld a, [wBattleMonType2]
 	ld [wPlayerMoveStruct + MOVE_TYPE], a
-	callfar BattleCheckTypeMatchup
+	farcall BattleCheckTypeMatchup
 	ld a, [wTypeMatchup]
 	cp EFFECTIVE + 1
 	jr nc, .super_effective
@@ -3497,7 +3493,7 @@ CheckWhetherToAskSwitch:
 OfferSwitch:
 	ld a, [wCurPartyMon]
 	push af
-	callfar Battle_GetTrainerName
+	farcall Battle_GetTrainerName
 	ld hl, BattleText_EnemyIsAboutToUseWillPlayerChangeMon
 	call StdBattleTextbox
 	lb bc, 1, 7
@@ -3546,7 +3542,7 @@ ClearEnemyMonBox:
 	jp FinishBattleAnim
 
 ShowBattleTextEnemySentOut:
-	callfar Battle_GetTrainerName
+	farcall Battle_GetTrainerName
 	ld hl, BattleText_EnemySentOut
 	call StdBattleTextbox
 	jp WaitBGMap
@@ -3713,7 +3709,7 @@ TryToRunAwayFromBattle:
 	ld a, [wBattleMonItem]
 	ld [wNamedObjectIndex], a
 	ld b, a
-	callfar GetItemHeldEffect
+	farcall GetItemHeldEffect
 	ld a, b
 	cp HELD_ESCAPE
 	pop de
@@ -3914,8 +3910,7 @@ BattleCheckEnemyShininess:
 BattleCheckShininess:
 	ld b, h
 	ld c, l
-	callfar CheckShininess
-	ret
+	farjp CheckShininess
 
 GetPartyMonDVs:
 	ld hl, wBattleMonDVs
@@ -4266,7 +4261,7 @@ HandleHealingItems:
 	jp UseConfusionHealingItem
 
 HandleHPHealingItem:
-	callfar GetOpponentItem
+	farcall GetOpponentItem
 	ld a, b
 	cp HELD_BERRY
 	ret nz
@@ -4350,11 +4345,11 @@ HandleHPHealingItem:
 	predef AnimateHPBar
 UseOpponentItem:
 	call RefreshBattleHuds
-	callfar GetOpponentItem
+	farcall GetOpponentItem
 	ld a, [hl]
 	ld [wNamedObjectIndex], a
 	call GetItemName
-	callfar ConsumeHeldItem
+	farcall ConsumeHeldItem
 	ld hl, RecoveredUsingText
 	jp StdBattleTextbox
 
@@ -4377,7 +4372,7 @@ ItemRecoveryAnim:
 	ret
 
 UseHeldStatusHealingItem:
-	callfar GetOpponentItem
+	farcall GetOpponentItem
 	ld hl, HeldStatusHealingEffects
 .loop
 	ld a, [hli]
@@ -4437,7 +4432,7 @@ UseConfusionHealingItem:
 	call GetBattleVar
 	bit SUBSTATUS_CONFUSED, a
 	ret z
-	callfar GetOpponentItem
+	farcall GetOpponentItem
 	ld a, b
 	cp HELD_HEAL_CONFUSION
 	jr z, .heal_status
@@ -4501,7 +4496,7 @@ HandleStatBoostingHeldItems:
 	push bc
 	ld a, [bc]
 	ld b, a
-	callfar GetItemHeldEffect
+	farcall GetItemHeldEffect
 	ld hl, HeldStatUpItems
 .loop
 	ld a, [hli]
@@ -4533,8 +4528,7 @@ HandleStatBoostingHeldItems:
 	call GetItemName
 	ld hl, BattleText_UsersStringBuffer1Activated
 	call StdBattleTextbox
-	callfar BattleCommand_StatUpMessage
-	ret
+	farjp BattleCommand_StatUpMessage
 
 .finish
 	pop bc
@@ -4684,7 +4678,7 @@ PrintPlayerHUD:
 
 	ld a, TEMPMON
 	ld [wMonType], a
-	callfar GetGender
+	farcall GetGender
 	ld a, " "
 	jr c, .got_gender_char
 	ld a, "♂"
@@ -4760,7 +4754,7 @@ DrawEnemyHUD:
 
 	ld a, TEMPMON
 	ld [wMonType], a
-	callfar GetGender
+	farcall GetGender
 	ld a, " "
 	jr c, .got_gender
 	ld a, "♂"
@@ -5011,7 +5005,7 @@ BattleMenu_Pack:
 	ld a, [wWildMon]
 	and a
 	jr nz, .run
-	callfar CheckItemPocket
+	farcall CheckItemPocket
 	ld a, [wItemAttributeValue]
 	cp BALL
 	jr z, .ball
@@ -5103,12 +5097,10 @@ BattleMenuPKMN_Loop:
 .GetMenu:
 	call IsMobileBattle
 	jr z, .mobile
-	farcall BattleMonMenu
-	ret
+	farjp BattleMonMenu
 
 .mobile
-	farcall MobileBattleMonMenu
-	ret
+	farjp MobileBattleMonMenu
 
 Battle_StatsScreen:
 	call DisableLCD
@@ -5236,7 +5228,7 @@ PlayerSwitch:
 	ret
 
 EnemyMonEntrance:
-	callfar AI_Switch
+	farcall AI_Switch
 	call SetEnemyTurn
 	jp SpikesDamage
 
@@ -5315,7 +5307,7 @@ BattleMenu_Run:
 CheckAmuletCoin:
 	ld a, [wBattleMonItem]
 	ld b, a
-	callfar GetItemHeldEffect
+	farcall GetItemHeldEffect
 	ld a, b
 	cp HELD_AMULET_COIN
 	ret nz
@@ -5326,8 +5318,7 @@ CheckAmuletCoin:
 MoveSelectionScreen:
 	call IsMobileBattle
 	jr nz, .not_mobile
-	farcall Mobile_MoveSelectionScreen
-	ret
+	farjp Mobile_MoveSelectionScreen
 
 .not_mobile
 	ld hl, wEnemyMonMoves
@@ -5680,7 +5671,7 @@ MoveInfoBox:
 	ld [wCurPartyMon], a
 	ld a, WILDMON
 	ld [wMonType], a
-	callfar GetMaxPPOfMove
+	farcall GetMaxPPOfMove
 
 	ld hl, wMenuCursorY
 	ld c, [hl]
@@ -5700,7 +5691,7 @@ MoveInfoBox:
 	hlcoord 7, 11
 	ld [hl], "/"
 
-	callfar UpdateMoveData
+	farcall UpdateMoveData
 	ld a, [wPlayerMoveStruct + MOVE_ANIM]
 	ld b, a
 	hlcoord 2, 10
@@ -5895,7 +5886,7 @@ ParseEnemyAction:
 
 .skip_load
 	call SetEnemyTurn
-	callfar UpdateMoveData
+	farcall UpdateMoveData
 	call CheckEnemyLockedIn
 	jr nz, .raging
 	xor a
@@ -5955,8 +5946,7 @@ CheckEnemyLockedIn:
 	ret
 
 LinkBattleSendReceiveAction:
-	farcall _LinkBattleSendReceiveAction
-	ret
+	farjp _LinkBattleSendReceiveAction
 
 LoadEnemyMon:
 ; Initialize enemy monster parameters
@@ -6160,7 +6150,7 @@ LoadEnemyMon:
 ; BUG: Magikarp length limits have a unit conversion error (see docs/bugs_and_glitches.md)
 	ld de, wEnemyMonDVs
 	ld bc, wPlayerID
-	callfar CalcMagikarpLength
+	farcall CalcMagikarpLength
 
 ; No reason to keep going if length > 1536 mm (i.e. if HIGH(length) > 6 feet)
 	ld a, [wMagikarpLength]
@@ -6454,7 +6444,7 @@ BattleWinSlideInEnemyTrainerFrontpic:
 	ld a, [wOtherTrainerClass]
 	ld [wTrainerClass], a
 	ld de, vTiles2
-	callfar GetTrainerPic
+	farcall GetTrainerPic
 	hlcoord 19, 0
 	ld c, 0
 
@@ -6735,12 +6725,10 @@ INCLUDE "data/battle/stat_multipliers.asm"
 
 
 _LoadBattleFontsHPBar:
-	callfar LoadBattleFontsHPBar
-	ret
+	farjp LoadBattleFontsHPBar
 
 _LoadHPBar:
-	callfar LoadHPBar
-	ret
+	farjp LoadHPBar
 
 LoadHPExpBarGFX: ; unreferenced
 	ld de, EnemyHPBarBorderGFX
@@ -7046,7 +7034,7 @@ GiveExperiencePoints:
 	call GetBaseData
 	push bc
 	ld d, MAX_LEVEL
-	callfar CalcExpAtLevel
+	farcall CalcExpAtLevel
 	pop bc
 	ld hl, MON_EXP + 2
 	add hl, bc
@@ -7076,7 +7064,7 @@ GiveExperiencePoints:
 	xor a ; PARTYMON
 	ld [wMonType], a
 	predef CopyMonToTempMon
-	callfar CalcLevel
+	farcall CalcLevel
 	pop bc
 	ld hl, MON_LEVEL
 	add hl, bc
@@ -7163,8 +7151,8 @@ GiveExperiencePoints:
 	xor a ; FALSE
 	ld [wApplyStatLevelMultipliersToEnemy], a
 	call ApplyStatLevelMultiplierOnAllStats
-	callfar ApplyStatusEffectOnPlayerStats
-	callfar UpdatePlayerHUD
+	farcall ApplyStatusEffectOnPlayerStats
+	farcall UpdatePlayerHUD
 	call EmptyBattleTextbox
 	call LoadTilemapToTempTilemap
 	ld a, $1
@@ -7382,7 +7370,7 @@ AnimateExpBar:
 
 .NoOverflow:
 	ld d, MAX_LEVEL
-	callfar CalcExpAtLevel
+	farcall CalcExpAtLevel
 	ldh a, [hProduct + 1]
 	ld b, a
 	ldh a, [hProduct + 2]
@@ -7405,7 +7393,7 @@ AnimateExpBar:
 	ld [hld], a
 
 .AlreadyAtMaxExp:
-	callfar CalcLevel
+	farcall CalcLevel
 	ld a, d
 	pop bc
 	pop de
@@ -7731,7 +7719,7 @@ CalcExpBar:
 	push de
 	ld d, b
 	push de
-	callfar CalcExpAtLevel
+	farcall CalcExpAtLevel
 	pop de
 ; exp at current level gets pushed to the stack
 	ld hl, hMultiplicand
@@ -7743,7 +7731,7 @@ CalcExpBar:
 	push af
 ; next level
 	inc d
-	callfar CalcExpAtLevel
+	farcall CalcExpAtLevel
 ; back up the next level exp, and subtract the two levels
 	ld hl, hMultiplicand + 2
 	ld a, [hl]
@@ -8028,8 +8016,8 @@ InitEnemyTrainer:
 	farcall StubbedTrainerRankings_TrainerBattles
 	xor a
 	ld [wTempEnemyMonSpecies], a
-	callfar GetTrainerAttributes
-	callfar ReadTrainerParty
+	farcall GetTrainerAttributes
+	farcall ReadTrainerParty
 
 	; RIVAL1's first mon has no held item
 	ld a, [wTrainerClass]
@@ -8040,7 +8028,7 @@ InitEnemyTrainer:
 
 .ok
 	ld de, vTiles2
-	callfar GetTrainerPic
+	farcall GetTrainerPic
 	xor a
 	ldh [hGraphicStartTile], a
 	dec a
@@ -8067,7 +8055,7 @@ InitEnemyTrainer:
 	or [hl]
 	jr z, .skipfaintedmon
 	ld c, HAPPINESS_GYMBATTLE
-	callfar ChangeHappiness
+	farcall ChangeHappiness
 .skipfaintedmon
 	pop bc
 	dec b
@@ -8176,8 +8164,7 @@ ExitBattle:
 	xor a
 	ld [wForceEvolution], a
 	predef EvolveAfterBattle
-	farcall GivePokerusAndConvertBerries
-	ret
+	farjp GivePokerusAndConvertBerries
 
 CleanUpBattleRAM:
 	call BattleEnd_HandleRoamMons
@@ -8255,8 +8242,7 @@ ShowLinkBattleParticipantsAfterEnd:
 	ld a, [wEnemyMonStatus]
 	ld [hl], a
 	call ClearTilemap
-	farcall _ShowLinkBattleParticipants
-	ret
+	farjp _ShowLinkBattleParticipants
 
 DisplayLinkBattleResult:
 	farcall CheckMobileBattleError
@@ -8522,8 +8508,7 @@ BattleEnd_HandleRoamMons:
 	ret nz
 
 .update_roam_mons
-	callfar UpdateRoamMons
-	ret
+	farjp UpdateRoamMons
 
 GetRoamMonMapGroup:
 	ld a, [wTempEnemyMonSpecies]
@@ -8888,8 +8873,7 @@ GetTrainerBackpic:
 	jr z, .Chris
 
 ; It's a girl.
-	farcall GetKrisBackpic
-	ret
+	farjp GetKrisBackpic
 
 .Chris:
 ; It's a boy.
