@@ -6,10 +6,14 @@ DoBattleAnimFrame:
 	ld hl, .Jumptable
 	add hl, de
 	add hl, de
+	add hl, de
+	ld a, [hli]
+	ld e, a
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	jp hl
+	ld a, e
+	jp FarCall_hl
 
 .Jumptable:
 ; entries correspond to BATTLE_ANIM_FUNC_* constants

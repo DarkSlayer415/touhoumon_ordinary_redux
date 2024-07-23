@@ -78,12 +78,13 @@ BattleAnimOAMUpdate:
 	call InitBattleAnimBuffer
 	farcall GetBattleAnimFrame
 	ld a, h
-	cp oamwait_command
+	cp HIGH(battleoamwait_command)
 	jmp z, .done
-	cp oamdelete_command
+	cp HIGH(battleoamdelete_command)
 	jmp z, .delete
 
-	push af
+	ld d, h
+	ld e, l
 	ld hl, wBattleAnimTempOAMFlags
 	ld a, [wBattleAnimTempFrameOAMFlags]
 	xor [hl]
@@ -241,7 +242,7 @@ InitBattleAnimBuffer:
 	add hl, bc
 	ld a, [hli]
 	ld d, a
-	ld a, (-10 * TILE_WIDTH) + 4
+	ld a, (-10 * 8) + 4
 	sub d
 	ld [wBattleAnimTempXCoord], a
 	ld a, [hli]
@@ -249,7 +250,7 @@ InitBattleAnimBuffer:
 	ld a, [wBattleAnimTempFixY]
 	cp $ff
 	jr nz, .vertical_flip
-	ld a, 5 * TILE_WIDTH
+	ld a, 5 * 8
 	jr .done
 
 .vertical_flip
