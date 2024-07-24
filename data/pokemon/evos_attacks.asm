@@ -1868,7 +1868,7 @@ KrabbyEvosAttacks:
 	db 0 ; no more level-up moves
 
 KinglerEvosAttacks:
-	db EVOLVE_LEVEL, 38, TANGELA
+	db EVOLVE_LEVEL, 35, TANGELA
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, GROWL

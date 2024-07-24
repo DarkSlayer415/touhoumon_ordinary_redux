@@ -23,12 +23,12 @@ Load2DMenuData::
 	ret
 
 StaticMenuJoypad::
-	callfar _StaticMenuJoypad
+	farcall _StaticMenuJoypad
 	call GetMenuJoypad
 	ret
 
 ScrollingMenuJoypad::
-	callfar _ScrollingMenuJoypad
+	farcall _ScrollingMenuJoypad
 	call GetMenuJoypad
 	ret
 
@@ -64,18 +64,16 @@ HideCursor::
 	ret
 
 PushWindow::
-	callfar _PushWindow
-	ret
+	farjp _PushWindow
 
 ExitMenu::
 	push af
-	callfar _ExitMenu
+	farcall _ExitMenu
 	pop af
 	ret
 
 InitVerticalMenuCursor::
-	callfar _InitVerticalMenuCursor
-	ret
+	farjp _InitVerticalMenuCursor
 
 CloseWindow::
 	push af
