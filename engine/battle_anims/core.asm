@@ -82,15 +82,15 @@ BattleAnimOAMUpdate:
 	jmp z, .done
 	cp HIGH(battleoamdelete_command)
 	jmp z, .delete
-
+	
 	ld d, h
 	ld e, l
+	
 	ld hl, wBattleAnimTempOAMFlags
 	ld a, [wBattleAnimTempFrameOAMFlags]
 	xor [hl]
 	and PRIORITY | Y_FLIP | X_FLIP
 	ld [hl], a
-	pop af
 
 	push bc
 	call GetBattleAnimOAMPointer

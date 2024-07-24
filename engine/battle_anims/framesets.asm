@@ -41,6 +41,7 @@ GetBattleAnimFrame:
 	add hl, bc
 	ld [hl], a
 	pop hl
+
 .okay
 	ld a, [hl]
 	and Y_FLIP << 1 | X_FLIP << 1 ; The << 1 is compensated in the "oamframe" macro

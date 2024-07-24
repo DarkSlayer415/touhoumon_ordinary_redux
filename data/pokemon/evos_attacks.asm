@@ -98,7 +98,6 @@ CharmeleonEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, GROWL
-	db 1, THUNDERSHOCK
 	db 7, THUNDERSHOCK
 	db 10, EMBER
 	db 15, THIEF
@@ -116,8 +115,6 @@ CharizardEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, GROWL
-	db 1, THUNDERSHOCK
-	db 1, EMBER
 	db 7, THUNDERSHOCK
 	db 10, EMBER
 	db 16, THIEF
@@ -257,7 +254,7 @@ WeedleEvosAttacks:
 	db 27, AMNESIA
 	db 30, AGILITY
 	db 34, ICE_BEAM
-	db 41, MOONLIGHT
+	db 40, MOONLIGHT
 	db 47, HAIL
 	db 47, BLIZZARD
 	db 0 ; no more level-up moves
@@ -1638,7 +1635,9 @@ SeelEvosAttacks:
 	db 26, HEAL_BELL
 	db 29, REFLECT
 	db 29, LIGHT_SCREEN
-	db 34, DREAM_EATER
+	db 32, DREAM_EATER
+	db 35, BARRIER
+	db 35, AMNESIA
 	db 38, CURSE
 	db 42, MOONLIGHT
 	db 45, PERISH_SONG
@@ -1658,6 +1657,8 @@ DewgongEvosAttacks:
 	db 30, REFLECT
 	db 30, LIGHT_SCREEN
 	db 34, DREAM_EATER
+	db 37, BARRIER
+	db 37, AMNESIA
 	db 40, CURSE
 	db 44, MOONLIGHT
 	db 50, PERISH_SONG
@@ -1674,7 +1675,8 @@ GrimerEvosAttacks:
 	db 20, SUPERSONIC
 	db 24, AURORA_BEAM
 	db 29, KINESIS
-	db 34, SHADOW_BALL
+	db 32, SHADOW_BALL
+	db 35, OCTAZOOKA
 	db 38, MOONLIGHT
 	db 42, MEDITATE
 	db 45, NIGHTMARE
@@ -1693,6 +1695,7 @@ MukEvosAttacks:
 	db 24, AURORA_BEAM
 	db 30, KINESIS
 	db 34, SHADOW_BALL
+	db 37, OCTAZOOKA
 	db 40, MOONLIGHT
 	db 44, MEDITATE
 	db 47, NIGHTMARE
@@ -1710,7 +1713,8 @@ ShellderEvosAttacks:
 	db 20, SPITE
 	db 24, SUPERSONIC
 	db 29, ENCORE
-	db 34, SHADOW_BALL
+	db 32, SHADOW_BALL
+	db 35, SPIKES
 	db 38, MOONLIGHT
 	db 42, AGILITY
 	db 45, NIGHTMARE
@@ -1729,6 +1733,7 @@ CloysterEvosAttacks:
 	db 24, SUPERSONIC
 	db 30, ENCORE
 	db 34, SHADOW_BALL
+	db 37, SPIKES
 	db 40, MOONLIGHT
 	db 44, AGILITY
 	db 47, NIGHTMARE
