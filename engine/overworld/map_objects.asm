@@ -2252,14 +2252,14 @@ UpdateObjectFrozen:
 	call CheckObjectOnScreen
 	jr c, SetFacing_Standing
 	call UpdateObjectTile
-	farcall HandleFrozenObjectAction ; no need to farcall
+	call HandleFrozenObjectAction ; no need to farcall
 	xor a
 	ret
 
 UpdateRespawnedObjectFrozen:
 	call CheckObjectOnScreen
 	jr c, SetFacing_Standing
-	farcall HandleFrozenObjectAction ; no need to farcall
+	call HandleFrozenObjectAction ; no need to farcall
 	xor a
 	ret
 
@@ -2283,7 +2283,7 @@ UpdateObjectTile:
 	ld hl, OBJECT_TILE_COLLISION
 	add hl, bc
 	ld [hl], a
-	farcall UpdateTallGrassFlags ; no need to farcall
+	call UpdateTallGrassFlags ; no need to farcall
 	ret
 
 CheckObjectOnScreen:
@@ -2584,7 +2584,7 @@ ResetFollower:
 	cp -1
 	ret z
 	call GetObjectStruct
-	farcall ResetObject ; no need to farcall
+	call ResetObject ; no need to farcall
 	ld a, -1
 	ld [wObjectFollow_Follower], a
 	ret

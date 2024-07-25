@@ -39,8 +39,8 @@ NewGame_ClearTilemapEtc:
 	xor a
 	ldh [hMapAnims], a
 	call ClearTilemap
-	farcall LoadFontsExtra
-	farcall LoadStandardFont
+	call LoadFontsExtra
+	call LoadStandardFont
 	jp ClearWindowData
 
 MysteryGift:
