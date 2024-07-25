@@ -3,12 +3,12 @@ Predef::
 ; Preserves bc, de, hl and f.
 
 	ld [wPredefID], a
-	ldh a, [hROMBank]
+	ldh [hPredefID], a
 	push af
 
 	ld a, BANK(GetPredefPointer)
 	rst Bankswitch
-	call GetPredefPointer ; stores hl in wPredefHL
+	call GetPredefPointer ; stores hl in hPredefHL
 
 ; Switch to the new function's bank
 	rst Bankswitch
@@ -20,33 +20,33 @@ Predef::
 	push hl
 
 ; Call the Predef function
-	ld a, [wPredefAddress]
+	ld hl, hPredefAddress
+	ld a, [hli]
+	ld l, [hl]
 	ld h, a
-	ld a, [wPredefAddress + 1]
-	ld l, a
 	push hl
 
 ; Get hl back
-	ld a, [wPredefHL]
+	ld hl, hPredefHL
+	ld a, [hli]
+	ld l, [hl]
 	ld h, a
-	ld a, [wPredefHL + 1]
-	ld l, a
 	ret
 
 .Return:
 ; Clean up after the Predef call
 
 	ld a, h
-	ld [wPredefHL], a
+	ldh [hPredefHL], a
 	ld a, l
-	ld [wPredefHL + 1], a
+	ldh [hPredefHL + 1], a
 
 	pop hl
 	ld a, h
 	rst Bankswitch
 
-	ld a, [wPredefHL]
+	ld hl, hPredefHL
+	ld a, [hli]
+	ld l, [hl]
 	ld h, a
-	ld a, [wPredefHL + 1]
-	ld l, a
 	ret

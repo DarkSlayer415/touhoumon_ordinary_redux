@@ -180,6 +180,11 @@ hFarCallSavedHL::
 hFarCallSavedL:: db
 hFarCallSavedH:: db
 
-	ds 16
+hPredefID:: db
+hPredefHL:: dw
+hPredefAddress:: dw
+hFarCallBC:: dw
+
+	ds 9
 
 ENDSECTION
