@@ -2,8 +2,8 @@ Predef::
 ; Call predefined function a.
 ; Preserves bc, de, hl and f.
 
-	ld [wPredefID], a
 	ldh [hPredefID], a
+	ldh a, [hROMBank]
 	push af
 
 	ld a, BANK(GetPredefPointer)
