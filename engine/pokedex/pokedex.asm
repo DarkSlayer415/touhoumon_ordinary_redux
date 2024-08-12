@@ -318,7 +318,7 @@ Pokedex_InitDexEntryScreen:
 	call Pokedex_InitArrowCursor
 	call Pokedex_GetSelectedMon
 	ld [wPrevDexEntry], a
-	farcall DisplayDexEntry
+	call DisplayDexEntry
 	call Pokedex_DrawFootprint
 	call WaitBGMap
 	ld a, $a7
@@ -393,7 +393,7 @@ Pokedex_Page:
 	ld [wPokedexStatus], a
 	call Pokedex_GetSelectedMon
 	ld [wPrevDexEntry], a
-	farcall DisplayDexEntry
+	call DisplayDexEntry
 	call WaitBGMap
 	ret
 
@@ -409,7 +409,7 @@ Pokedex_ReinitDexEntryScreen:
 	call Pokedex_LoadCurrentFootprint
 	call Pokedex_GetSelectedMon
 	ld [wPrevDexEntry], a
-	farcall DisplayDexEntry
+	call DisplayDexEntry
 	call Pokedex_DrawFootprint
 	call Pokedex_LoadSelectedMonTiles
 	call WaitBGMap
@@ -503,7 +503,7 @@ DexEntryScreen_MenuActionJumptable:
 Pokedex_RedisplayDexEntry:
 	call Pokedex_DrawDexEntryScreenBG
 	call Pokedex_GetSelectedMon
-	farcall DisplayDexEntry
+	call DisplayDexEntry
 	call Pokedex_DrawFootprint
 	ret
 
@@ -608,7 +608,7 @@ Pokedex_InitSearchScreen:
 	call Pokedex_PlaceSearchScreenTypeStrings
 	xor a
 	ld [wDexSearchSlowpokeFrame], a
-	farcall DoDexSearchSlowpokeFrame
+	call DoDexSearchSlowpokeFrame
 	call WaitBGMap
 	ld a, SCGB_POKEDEX_SEARCH_OPTION
 	call Pokedex_GetSGBLayout
@@ -661,7 +661,7 @@ Pokedex_UpdateSearchScreen:
 
 .MenuAction_BeginSearch:
 	call Pokedex_SearchForMons
-	farcall AnimateDexSearchSlowpoke
+	call AnimateDexSearchSlowpoke
 	ld a, [wDexSearchResultCount]
 	and a
 	jr nz, .show_search_results
@@ -2286,7 +2286,7 @@ _NewPokedexEntry:
 	ld bc, 19
 	ld a, " "
 	call ByteFill
-	farcall DisplayDexEntry
+	call DisplayDexEntry
 	call EnableLCD
 	call WaitBGMap
 	call GetBaseData

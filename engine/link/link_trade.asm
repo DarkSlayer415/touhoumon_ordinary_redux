@@ -15,24 +15,6 @@ LoadMobileTradeBorderTilemap:
 	call CopyBytes
 	ret
 
-TestMobileTradeBorderTilemap: ; unreferenced
-; Loads the mobile trade border graphics and tilemap,
-; with a placeholder SCGB_DIPLOMA layout, and exits
-; after pressing A or B. Possibly used for testing.
-	call LoadStandardMenuHeader
-	call ClearBGPalettes
-	call ClearTilemap
-	call ClearSprites
-	farcall __LoadTradeScreenBorderGFX ; useless to farcall
-	farcall LoadMobileTradeBorderTilemap ; useless to farcall
-	ld b, SCGB_DIPLOMA
-	call GetSGBLayout
-	call SetDefaultBGPAndOBP
-	call WaitBGMap
-	call JoyWaitAorB
-	call Call_ExitMenu
-	ret
-
 MobileTradeBorderTilemap:
 INCBIN "gfx/trade/border_mobile.tilemap"
 
@@ -159,7 +141,7 @@ LinkTextbox:
 PlaceWaitingTextAndSyncAndExchangeNybble:
 	call LoadStandardMenuHeader
 	call .PlaceWaitingText
-	farcall WaitLinkTransfer
+	call WaitLinkTransfer
 	call Call_ExitMenu
 	call WaitBGMap2
 	ret
