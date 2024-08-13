@@ -175,16 +175,11 @@ hDebugRoomMenuPage::
 endc
 hClockResetTrigger:: db
 
-hFarCallSavedA:: db
-hFarCallSavedHL::
-hFarCallSavedL:: db
-hFarCallSavedH:: db
-
 hPredefID:: db
 hPredefHL:: dw
 hPredefAddress:: dw
-hFarCallBC:: dw
+hFarCallSavedA:: db
 
-	ds 9
+	ds 13
 
 ENDSECTION
