@@ -9,6 +9,9 @@ Intro_MainMenu:
 	farcall MainMenu
 	jp StartTitleScreen
 
+IntroMenu_DummyFunction: ; unreferenced
+	ret
+
 PrintDayOfWeek:
 	push de
 	ld hl, .Days
@@ -21,7 +24,8 @@ PrintDayOfWeek:
 	ld h, b
 	ld l, c
 	ld de, .Day
-	jp PlaceString
+	call PlaceString
+	ret
 
 .Days:
 	db "SUN@"
@@ -39,17 +43,20 @@ NewGame_ClearTilemapEtc:
 	xor a
 	ldh [hMapAnims], a
 	call ClearTilemap
-	farcall LoadFontsExtra
-	farcall LoadStandardFont
-	jp ClearWindowData
+	call LoadFontsExtra
+	call LoadStandardFont
+	call ClearWindowData
+	ret
 
 MysteryGift:
 	call UpdateTime
 	farcall DoMysteryGiftIfDayHasPassed
-	farjp DoMysteryGift
+	farcall DoMysteryGift
+	ret
 
 Option:
-	farjp _Option
+	farcall _Option
+	ret
 
 NewGame:
 	xor a
@@ -386,7 +393,7 @@ Continue:
 	jp FinishContinueFunction
 
 SpawnAfterRed:
-	ld a, SPAWN_NEW_BARK
+	ld a, SPAWN_MT_SILVER
 	ld [wDefaultSpawnpoint], a
 
 PostCreditsSpawn:
@@ -744,7 +751,8 @@ NamePlayer:
 	jr z, .NewName
 	call StorePlayerName
 	farcall ApplyMonOrTrainerPals
-	farjp MovePlayerPicLeft
+	farcall MovePlayerPicLeft
+	ret
 
 .NewName:
 	ld b, NAME_PLAYER
@@ -1024,7 +1032,8 @@ StartTitleScreen:
 	dw ResetClock
 
 .TitleScreen:
-	farjp _TitleScreen
+	farcall _TitleScreen
+	ret
 
 RunTitleScreen:
 	ld a, [wJumptableIndex]
@@ -1103,7 +1112,8 @@ TitleScreenEntrance:
 	dec b
 	jr nz, .loop
 
-	farjp AnimateTitleCrystal
+	farcall AnimateTitleCrystal
+	ret
 
 .done
 ; Next scene
@@ -1243,6 +1253,57 @@ ResetClock:
 	farcall _ResetClock
 	jp Init
 
+UpdateTitleTrailSprite: ; unreferenced
+	; If bit 0 or 1 of [wTitleScreenTimer] is set, we don't need to be here.
+	ld a, [wTitleScreenTimer]
+	and %00000011
+	ret nz
+	ld bc, wSpriteAnim10
+	ld hl, SPRITEANIMSTRUCT_FRAME
+	add hl, bc
+	ld l, [hl]
+	ld h, 0
+	add hl, hl
+	add hl, hl
+	ld de, .TitleTrailCoords
+	add hl, de
+	; If bit 2 of [wTitleScreenTimer] is set, get the second coords; else, get the first coords
+	ld a, [wTitleScreenTimer]
+	and %00000100
+	srl a
+	srl a
+	ld e, a
+	ld d, 0
+	add hl, de
+	add hl, de
+	ld a, [hli]
+	and a
+	ret z
+	ld e, a
+	ld d, [hl]
+	ld a, SPRITE_ANIM_OBJ_GS_TITLE_TRAIL
+	call InitSpriteAnimStruct
+	ret
+
+.TitleTrailCoords:
+MACRO trail_coords
+	rept _NARG / 2
+		DEF _dx = 4
+		if \1 == 0 && \2 == 0
+			DEF _dx = 0
+		endc
+		dbpixel \1, \2, _dx, 0
+		shift 2
+	endr
+ENDM
+	; frame 0 y, x; frame 1 y, x
+	trail_coords 11, 10,  0,  0
+	trail_coords 11, 13, 11, 11
+	trail_coords 11, 13, 11, 15
+	trail_coords 11, 17, 11, 15
+	trail_coords  0,  0, 11, 15
+	trail_coords  0,  0, 11, 11
+
 Copyright:
 	call ClearTilemap
 	call LoadFontsExtra
@@ -1254,7 +1315,7 @@ Copyright:
 	ld de, CopyrightString
 	jp PlaceString
 
-CopyrightString: ;Change this in the future.
+CopyrightString:
 	; ©1995-2001 Nintendo
 	db   $60, $61, $62, $63, $64, $65, $66
 	db   $67, $68, $69, $6a, $6b, $6c
