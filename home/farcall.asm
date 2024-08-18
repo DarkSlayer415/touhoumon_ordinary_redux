@@ -1,6 +1,7 @@
 FarCall_de::
 ; Call a:de.
 ; Preserves other registers.
+; TODO: Get rid of this, it's only used in two places
 	ldh [hTempBank], a
 	ldh a, [hROMBank]
 	push af
@@ -9,20 +10,57 @@ FarCall_de::
 	call _de_
 	jr ReturnFarCall
 
+AnonBankPush::
+	ldh [hFarCallSavedA], a
+	ld a, h
+	ldh [hFarCallSavedH], a
+	ld a, l
+	ldh [hFarCallSavedL], a
+	pop hl
+	ldh a, [hROMBank]
+	push af
+	ld a, [hli]
+	jr _DoFarCall_BankInA
+
 FarCall_hl::
 ; Call a:hl.
 ; Preserves other registers.
 	ldh [hTempBank], a
-	jr DoFarCall
+	ldh a, [hROMBank]
+	push af
+	jr _DoFarCall
 
-_FarCall::
+FarPointerCall::
+	ldh a, [hROMBank]
+	push af
+	ld a, [hli]
+	ldh [hTempBank], a
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	jr _DoFarCall
+
+StackCallInBankB:
+	ld a, b
+StackCallInBankA:
+	ldh [hTempBank], a
+	ld a, h
+	ldh [hFarCallSavedH], a
+	ld a, l
+	ldh [hFarCallSavedL], a
+	pop hl
+	ldh a, [hROMBank]
+	push af
+	jr _DoFarCall
+
+RstFarCall::
 ; Call the following dba pointer on the stack.
 ; Preserves a, bc, de, hl
 	ldh [hFarCallSavedA], a
 	ld a, h
-	ldh [hPredefHL + 1], a
+	ldh [hFarCallSavedH], a
 	ld a, l
-	ldh [hPredefHL], a
+	ldh [hFarCallSavedL], a
 	pop hl
 	ld a, [hli]
 	ldh [hTempBank], a
@@ -36,26 +74,24 @@ _FarCall::
 	ld h, [hl]
 	ld l, a
 	res 7, h
-	; fallthrough
-DoFarCall:
 	ldh a, [hROMBank]
 	push af
+_DoFarCall:
 	ldh a, [hTempBank]
+	and $7f
+_DoFarCall_BankInA:
 	rst Bankswitch
-	call RetrieveHLAndCallFunction
-	; fallthrough
-
-ReturnFarCall:
-; We want to retain the contents of f.
-; To do this, we can update its preserved value on the stack directly.
+	call RetrieveAHLAndCallFunction
+ReturnFarCall::
 	ldh [hFarCallSavedA], a
+	; We want to retain the contents of f.
+	; To accomplish this, mess with the stack a bit...
 	push af
 	push hl
-	ld hl, sp+2 ; read f
+	ld hl, sp+$2 ; a flags
 	ld a, [hli]
-	assert HIGH(wStackBottom) == HIGH(wStackTop)
-	inc l ; faster than inc hl (stack is always at $c0xx)
-	ld [hl], a ; write f
+	inc l ; faster than inc hl (stack is always c000-c100...)
+	ld [hl], a ; write to flags
 	pop hl
 	pop af
 	pop af
@@ -63,10 +99,39 @@ ReturnFarCall:
 	ldh a, [hFarCallSavedA]
 	ret
 
-RetrieveHLAndCallFunction:
-; Call the function at hl with restored values of a and hl.
+RunFunctionInWRA6::
+	ld a, BANK(wDecompressScratch)
+StackCallInWRAMBankA::
+	ldh [hTempBank], a
+	ld a, h
+	ldh [hFarCallSavedH], a
+	ld a, l
+	ldh [hFarCallSavedL], a
+	pop hl
+	ldh a, [rSVBK]
+	push af
+	ldh a, [hTempBank]
+	ldh [rSVBK], a
+	call RetrieveAHLAndCallFunction
+	ldh [hTempBank], a
+
+	; Preserve flags.
+	push af
 	push hl
-	ld hl, hPredefHL
+	ld hl, sp+$2 ; a flags
+	ld a, [hli]
+	inc l ; faster than inc hl (stack is always c000-c100...)
+	ld [hl], a ; write to flags
+	pop hl
+	pop af
+	pop af
+	ldh [rSVBK], a
+	ldh a, [hTempBank]
+	ret
+
+RetrieveAHLAndCallFunction:
+	push hl
+	ld hl, hFarCallSavedHL
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a

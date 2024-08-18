@@ -30,7 +30,7 @@ Multiply::
 	push hl
 	push bc
 
-	homecall _Multiply
+	farcall _Multiply
 
 	pop bc
 	pop hl
