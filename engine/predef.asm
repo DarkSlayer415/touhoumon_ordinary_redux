@@ -1,14 +1,14 @@
 GetPredefPointer::
-; Return the bank and address of hPredefID in a and hPredefAddress.
+; Return the bank and address of wPredefID in a and wPredefAddress.
 
 ; Save hl for later (back in Predef)
 	ld a, h
-	ldh [hPredefHL], a
+	ld [wPredefHL], a
 	ld a, l
-	ldh [hPredefHL + 1], a
+	ld [wPredefHL + 1], a
 
 	push de
-	ldh a, [hPredefID]
+	ld a, [wPredefID]
 	ld e, a
 	ld d, 0
 	ld hl, PredefPointers
@@ -18,9 +18,9 @@ GetPredefPointer::
 	pop de
 
 	ld a, [hli]
-	ldh [hPredefAddress + 1], a
+	ld [wPredefAddress + 1], a
 	ld a, [hli]
-	ldh [hPredefAddress], a
+	ld [wPredefAddress], a
 	ld a, [hl]
 
 	ret

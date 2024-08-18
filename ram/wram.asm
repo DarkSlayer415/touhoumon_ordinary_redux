@@ -1728,7 +1728,10 @@ wOverworldDelay:: db
 wTextDelayFrames:: db
 wVBlankOccurred:: db
 
-	ds 7
+wPredefID:: db
+wPredefHL:: dw
+wPredefAddress:: dw
+wFarCallBC:: dw
 
 wUnusedLinkCommunicationByte:: db
 
