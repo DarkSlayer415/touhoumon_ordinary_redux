@@ -656,32 +656,32 @@ JohtoGrassWildMons:
 	def_grass_wildmons MOUNT_MORTAR_1F_OUTSIDE
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 22, MAGBY
-	db 22, ELEKID
-	db 22, MACHOP
-	db 24, MACHOKE
-	db 21, SNEASEL
-	db 21, SNEASEL
-	db 21, SNEASEL
-	db 20, LARVITAR
+	db 23, MAGBY
+	db 23, ELEKID
+	db 23, MACHOP
+	db 25, MACHOKE
+	db 23, SNEASEL
+	db 23, SNEASEL
+	db 23, SNEASEL
+	db 22, LARVITAR
 	; day
-	db 22, MAGBY
-	db 22, ELEKID
-	db 22, MACHOP
-	db 24, MACHOKE
-	db 21, SNEASEL
-	db 21, SNEASEL
-	db 21, SNEASEL
-	db 20, LARVITAR
+	db 23, MAGBY
+	db 23, ELEKID
+	db 23, MACHOP
+	db 25, MACHOKE
+	db 23, SNEASEL
+	db 23, SNEASEL
+	db 23, SNEASEL
+	db 22, LARVITAR
 	; nite
-	db 22, MAGBY
-	db 22, ELEKID
-	db 22, MACHOP
-	db 24, MACHOKE
-	db 21, SNEASEL
-	db 21, SNEASEL
-	db 21, SNEASEL
-	db 20, LARVITAR
+	db 23, MAGBY
+	db 23, ELEKID
+	db 23, MACHOP
+	db 25, MACHOKE
+	db 23, SNEASEL
+	db 23, SNEASEL
+	db 23, SNEASEL
+	db 22, LARVITAR
 	end_grass_wildmons
 
 	def_grass_wildmons MOUNT_MORTAR_1F_INSIDE
@@ -780,27 +780,27 @@ JohtoGrassWildMons:
 	def_grass_wildmons ICE_PATH_1F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	db 32, KAKUNA
-	db 32, SWINUB
-	db 32, KINGLER
+	db 33, KAKUNA
+	db 33, SWINUB
+	db 33, KINGLER
 	db 32, GLIGAR
 	db 34, BEEDRILL
 	db 34, BEEDRILL
 	db 34, BEEDRILL
 	db 30, LARVITAR
 	; day
-	db 32, KAKUNA
-	db 32, SWINUB
-	db 32, KINGLER
+	db 33, KAKUNA
+	db 33, SWINUB
+	db 33, KINGLER
 	db 32, GLIGAR
 	db 34, BEEDRILL
 	db 34, BEEDRILL
 	db 34, BEEDRILL
 	db 30, LARVITAR
 	; nite
-	db 32, KAKUNA
-	db 32, SWINUB
-	db 32, KINGLER
+	db 33, KAKUNA
+	db 33, SWINUB
+	db 33, KINGLER
 	db 32, GLIGAR
 	db 34, BEEDRILL
 	db 34, BEEDRILL
@@ -811,27 +811,27 @@ JohtoGrassWildMons:
 	def_grass_wildmons ICE_PATH_B1F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	db 32, KAKUNA
-	db 32, SWINUB
-	db 32, KINGLER
+	db 33, KAKUNA
+	db 33, SWINUB
+	db 33, KINGLER
 	db 32, GLIGAR
 	db 34, BEEDRILL
 	db 34, BEEDRILL
 	db 34, BEEDRILL
 	db 30, LARVITAR
 	; day
-	db 32, KAKUNA
-	db 32, SWINUB
-	db 32, KINGLER
+	db 33, KAKUNA
+	db 33, SWINUB
+	db 33, KINGLER
 	db 32, GLIGAR
 	db 34, BEEDRILL
 	db 34, BEEDRILL
 	db 34, BEEDRILL
 	db 30, LARVITAR
 	; nite
-	db 32, KAKUNA
-	db 32, SWINUB
-	db 32, KINGLER
+	db 33, KAKUNA
+	db 33, SWINUB
+	db 33, KINGLER
 	db 32, GLIGAR
 	db 34, BEEDRILL
 	db 34, BEEDRILL
@@ -842,341 +842,341 @@ JohtoGrassWildMons:
 	def_grass_wildmons ICE_PATH_B2F_MAHOGANY_SIDE
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	db 32, KAKUNA
-	db 32, SWINUB
-	db 32, KINGLER
-	db 32, GLIGAR
-	db 34, BEEDRILL
-	db 34, BEEDRILL
-	db 34, BEEDRILL
+	db 34, KAKUNA
+	db 34, SWINUB
+	db 34, KINGLER
+	db 33, GLIGAR
+	db 35, TANGELA
+	db 35, TANGELA
+	db 35, TANGELA
 	db 30, LARVITAR
 	; day
-	db 32, KAKUNA
-	db 32, SWINUB
-	db 32, KINGLER
-	db 32, GLIGAR
-	db 34, BEEDRILL
-	db 34, BEEDRILL
-	db 34, BEEDRILL
+	db 34, KAKUNA
+	db 34, SWINUB
+	db 34, KINGLER
+	db 33, GLIGAR
+	db 35, TANGELA
+	db 35, TANGELA
+	db 35, TANGELA
 	db 30, LARVITAR
 	; nite
-	db 32, KAKUNA
-	db 32, SWINUB
-	db 32, KINGLER
-	db 32, GLIGAR
-	db 34, BEEDRILL
-	db 34, BEEDRILL
-	db 34, BEEDRILL
+	db 34, KAKUNA
+	db 34, SWINUB
+	db 34, KINGLER
+	db 33, GLIGAR
+	db 35, TANGELA
+	db 35, TANGELA
+	db 35, TANGELA
 	db 30, LARVITAR
 	end_grass_wildmons
 
 	def_grass_wildmons ICE_PATH_B2F_BLACKTHORN_SIDE
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	db 32, KAKUNA
-	db 32, SWINUB
-	db 32, KINGLER
-	db 32, GLIGAR
-	db 34, BEEDRILL
-	db 34, BEEDRILL
-	db 34, BEEDRILL
+	db 34, KAKUNA
+	db 34, SWINUB
+	db 34, KINGLER
+	db 33, GLIGAR
+	db 35, TANGELA
+	db 35, TANGELA
+	db 35, TANGELA
 	db 30, LARVITAR
 	; day
-	db 32, KAKUNA
-	db 32, SWINUB
-	db 32, KINGLER
-	db 32, GLIGAR
-	db 34, BEEDRILL
-	db 34, BEEDRILL
-	db 34, BEEDRILL
+	db 34, KAKUNA
+	db 34, SWINUB
+	db 34, KINGLER
+	db 33, GLIGAR
+	db 35, TANGELA
+	db 35, TANGELA
+	db 35, TANGELA
 	db 30, LARVITAR
 	; nite
-	db 32, KAKUNA
-	db 32, SWINUB
-	db 32, KINGLER
-	db 32, GLIGAR
-	db 34, BEEDRILL
-	db 34, BEEDRILL
-	db 34, BEEDRILL
+	db 34, KAKUNA
+	db 34, SWINUB
+	db 34, KINGLER
+	db 33, GLIGAR
+	db 35, TANGELA
+	db 35, TANGELA
+	db 35, TANGELA
 	db 30, LARVITAR
 	end_grass_wildmons
 
 	def_grass_wildmons ICE_PATH_B3F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	db 32, KAKUNA
-	db 32, SWINUB
-	db 32, KINGLER
-	db 32, GLIGAR
-	db 34, BEEDRILL
-	db 34, BEEDRILL
-	db 34, BEEDRILL
+db 34, BEEDRILL
+	db 34, SWINUB
+	db 34, KINGLER
+	db 33, GLIGAR
+	db 36, PILOSWINE
+	db 36, PILOSWINE
+	db 36, PILOSWINE
 	db 30, LARVITAR
 	; day
-	db 32, KAKUNA
-	db 32, SWINUB
-	db 32, KINGLER
-	db 32, GLIGAR
-	db 34, BEEDRILL
-	db 34, BEEDRILL
-	db 34, BEEDRILL
+db 34, BEEDRILL
+	db 34, SWINUB
+	db 34, KINGLER
+	db 33, GLIGAR
+	db 36, PILOSWINE
+	db 36, PILOSWINE
+	db 36, PILOSWINE
 	db 30, LARVITAR
 	; nite
-	db 32, KAKUNA
-	db 32, SWINUB
-	db 32, KINGLER
-	db 32, GLIGAR
-	db 34, BEEDRILL
-	db 34, BEEDRILL
-	db 34, BEEDRILL
+db 34, BEEDRILL
+	db 34, SWINUB
+	db 34, KINGLER
+	db 33, GLIGAR
+	db 36, PILOSWINE
+	db 36, PILOSWINE
+	db 36, PILOSWINE
 	db 30, LARVITAR
 	end_grass_wildmons
 
 	def_grass_wildmons WHIRL_ISLAND_NW
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 32, DEWGONG
-	db 32, MUK
-	db 32, CLOYSTER
-	db 32, CLOYSTER
-	db 34, ARTICUNO
-	db 34, ZAPDOS
-	db 34, MOLTRES
+	db 33, DEWGONG
+	db 33, MUK
+	db 33, CLOYSTER
+	db 33, CLOYSTER
+	db 36, ARTICUNO
+	db 36, ZAPDOS
+	db 36, MOLTRES
 	db 30, LARVITAR
 	; day
-	db 32, DEWGONG
-	db 32, MUK
-	db 32, CLOYSTER
-	db 32, CLOYSTER
-	db 34, ARTICUNO
-	db 34, ZAPDOS
-	db 34, MOLTRES
+	db 33, DEWGONG
+	db 33, MUK
+	db 33, CLOYSTER
+	db 33, CLOYSTER
+	db 36, ARTICUNO
+	db 36, ZAPDOS
+	db 36, MOLTRES
 	db 30, LARVITAR
 	; nite
-	db 32, DEWGONG
-	db 32, MUK
-	db 32, CLOYSTER
-	db 32, CLOYSTER
-	db 34, ARTICUNO
-	db 34, ZAPDOS
-	db 34, MOLTRES
+	db 33, DEWGONG
+	db 33, MUK
+	db 33, CLOYSTER
+	db 33, CLOYSTER
+	db 36, ARTICUNO
+	db 36, ZAPDOS
+	db 36, MOLTRES
 	db 30, LARVITAR
 	end_grass_wildmons
 
 	def_grass_wildmons WHIRL_ISLAND_NE
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 32, DEWGONG
-	db 32, MUK
-	db 32, CLOYSTER
-	db 32, CLOYSTER
-	db 34, ARTICUNO
-	db 34, ZAPDOS
-	db 34, MOLTRES
+	db 33, DEWGONG
+	db 33, MUK
+	db 33, CLOYSTER
+	db 33, CLOYSTER
+	db 36, ARTICUNO
+	db 36, ZAPDOS
+	db 36, MOLTRES
 	db 30, LARVITAR
 	; day
-	db 32, DEWGONG
-	db 32, MUK
-	db 32, CLOYSTER
-	db 32, CLOYSTER
-	db 34, ARTICUNO
-	db 34, ZAPDOS
-	db 34, MOLTRES
+	db 33, DEWGONG
+	db 33, MUK
+	db 33, CLOYSTER
+	db 33, CLOYSTER
+	db 36, ARTICUNO
+	db 36, ZAPDOS
+	db 36, MOLTRES
 	db 30, LARVITAR
 	; nite
-	db 32, DEWGONG
-	db 32, MUK
-	db 32, CLOYSTER
-	db 32, CLOYSTER
-	db 34, ARTICUNO
-	db 34, ZAPDOS
-	db 34, MOLTRES
+	db 33, DEWGONG
+	db 33, MUK
+	db 33, CLOYSTER
+	db 33, CLOYSTER
+	db 36, ARTICUNO
+	db 36, ZAPDOS
+	db 36, MOLTRES
 	db 30, LARVITAR
 	end_grass_wildmons
 
 	def_grass_wildmons WHIRL_ISLAND_SW
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 32, DEWGONG
-	db 32, MUK
-	db 32, CLOYSTER
-	db 32, CLOYSTER
-	db 34, ARTICUNO
-	db 34, ZAPDOS
-	db 34, MOLTRES
+	db 33, DEWGONG
+	db 33, MUK
+	db 33, CLOYSTER
+	db 33, CLOYSTER
+	db 36, ARTICUNO
+	db 36, ZAPDOS
+	db 36, MOLTRES
 	db 30, LARVITAR
 	; day
-	db 32, DEWGONG
-	db 32, MUK
-	db 32, CLOYSTER
-	db 32, CLOYSTER
-	db 34, ARTICUNO
-	db 34, ZAPDOS
-	db 34, MOLTRES
+	db 33, DEWGONG
+	db 33, MUK
+	db 33, CLOYSTER
+	db 33, CLOYSTER
+	db 36, ARTICUNO
+	db 36, ZAPDOS
+	db 36, MOLTRES
 	db 30, LARVITAR
 	; nite
-	db 32, DEWGONG
-	db 32, MUK
-	db 32, CLOYSTER
-	db 32, CLOYSTER
-	db 34, ARTICUNO
-	db 34, ZAPDOS
-	db 34, MOLTRES
+	db 33, DEWGONG
+	db 33, MUK
+	db 33, CLOYSTER
+	db 33, CLOYSTER
+	db 36, ARTICUNO
+	db 36, ZAPDOS
+	db 36, MOLTRES
 	db 30, LARVITAR
 	end_grass_wildmons
 
 	def_grass_wildmons WHIRL_ISLAND_CAVE
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 32, DEWGONG
-	db 32, MUK
-	db 32, CLOYSTER
-	db 32, CLOYSTER
-	db 34, ARTICUNO
-	db 34, ZAPDOS
-	db 34, MOLTRES
+	db 33, DEWGONG
+	db 33, MUK
+	db 33, CLOYSTER
+	db 33, CLOYSTER
+	db 36, ARTICUNO
+	db 36, ZAPDOS
+	db 36, MOLTRES
 	db 30, LARVITAR
 	; day
-	db 32, DEWGONG
-	db 32, MUK
-	db 32, CLOYSTER
-	db 32, CLOYSTER
-	db 34, ARTICUNO
-	db 34, ZAPDOS
-	db 34, MOLTRES
+	db 33, DEWGONG
+	db 33, MUK
+	db 33, CLOYSTER
+	db 33, CLOYSTER
+	db 36, ARTICUNO
+	db 36, ZAPDOS
+	db 36, MOLTRES
 	db 30, LARVITAR
 	; nite
-	db 32, DEWGONG
-	db 32, MUK
-	db 32, CLOYSTER
-	db 32, CLOYSTER
-	db 34, ARTICUNO
-	db 34, ZAPDOS
-	db 34, MOLTRES
+	db 33, DEWGONG
+	db 33, MUK
+	db 33, CLOYSTER
+	db 33, CLOYSTER
+	db 36, ARTICUNO
+	db 36, ZAPDOS
+	db 36, MOLTRES
 	db 30, LARVITAR
 	end_grass_wildmons
 
 	def_grass_wildmons WHIRL_ISLAND_SE
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 32, DEWGONG
-	db 32, MUK
-	db 32, CLOYSTER
-	db 32, CLOYSTER
-	db 34, ARTICUNO
-	db 34, ZAPDOS
-	db 34, MOLTRES
+	db 33, DEWGONG
+	db 33, MUK
+	db 33, CLOYSTER
+	db 33, CLOYSTER
+	db 36, ARTICUNO
+	db 36, ZAPDOS
+	db 36, MOLTRES
 	db 30, LARVITAR
 	; day
-	db 32, DEWGONG
-	db 32, MUK
-	db 32, CLOYSTER
-	db 32, CLOYSTER
-	db 34, ARTICUNO
-	db 34, ZAPDOS
-	db 34, MOLTRES
+	db 33, DEWGONG
+	db 33, MUK
+	db 33, CLOYSTER
+	db 33, CLOYSTER
+	db 36, ARTICUNO
+	db 36, ZAPDOS
+	db 36, MOLTRES
 	db 30, LARVITAR
 	; nite
-	db 32, DEWGONG
-	db 32, MUK
-	db 32, CLOYSTER
-	db 32, CLOYSTER
-	db 34, ARTICUNO
-	db 34, ZAPDOS
-	db 34, MOLTRES
+	db 33, DEWGONG
+	db 33, MUK
+	db 33, CLOYSTER
+	db 33, CLOYSTER
+	db 36, ARTICUNO
+	db 36, ZAPDOS
+	db 36, MOLTRES
 	db 30, LARVITAR
 	end_grass_wildmons
 
 	def_grass_wildmons WHIRL_ISLAND_B1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 32, DEWGONG
-	db 32, MUK
-	db 32, CLOYSTER
-	db 32, CLOYSTER
-	db 34, ARTICUNO
-	db 34, ZAPDOS
-	db 34, MOLTRES
+	db 33, DEWGONG
+	db 33, MUK
+	db 33, CLOYSTER
+	db 33, CLOYSTER
+	db 36, ARTICUNO
+	db 36, ZAPDOS
+	db 36, MOLTRES
 	db 30, LARVITAR
 	; day
-	db 32, DEWGONG
-	db 32, MUK
-	db 32, CLOYSTER
-	db 32, CLOYSTER
-	db 34, ARTICUNO
-	db 34, ZAPDOS
-	db 34, MOLTRES
+	db 33, DEWGONG
+	db 33, MUK
+	db 33, CLOYSTER
+	db 33, CLOYSTER
+	db 36, ARTICUNO
+	db 36, ZAPDOS
+	db 36, MOLTRES
 	db 30, LARVITAR
 	; nite
-	db 32, DEWGONG
-	db 32, MUK
-	db 32, CLOYSTER
-	db 32, CLOYSTER
-	db 34, ARTICUNO
-	db 34, ZAPDOS
-	db 34, MOLTRES
+	db 33, DEWGONG
+	db 33, MUK
+	db 33, CLOYSTER
+	db 33, CLOYSTER
+	db 36, ARTICUNO
+	db 36, ZAPDOS
+	db 36, MOLTRES
 	db 30, LARVITAR
 	end_grass_wildmons
 
 	def_grass_wildmons WHIRL_ISLAND_B2F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 32, DEWGONG
-	db 32, MUK
-	db 32, CLOYSTER
-	db 32, CLOYSTER
-	db 34, ARTICUNO
-	db 34, ZAPDOS
-	db 34, MOLTRES
+	db 33, DEWGONG
+	db 33, MUK
+	db 33, CLOYSTER
+	db 33, CLOYSTER
+	db 36, ARTICUNO
+	db 36, ZAPDOS
+	db 36, MOLTRES
 	db 30, LARVITAR
 	; day
-	db 32, DEWGONG
-	db 32, MUK
-	db 32, CLOYSTER
-	db 32, CLOYSTER
-	db 34, ARTICUNO
-	db 34, ZAPDOS
-	db 34, MOLTRES
+	db 33, DEWGONG
+	db 33, MUK
+	db 33, CLOYSTER
+	db 33, CLOYSTER
+	db 36, ARTICUNO
+	db 36, ZAPDOS
+	db 36, MOLTRES
 	db 30, LARVITAR
 	; nite
-	db 32, DEWGONG
-	db 32, MUK
-	db 32, CLOYSTER
-	db 32, CLOYSTER
-	db 34, ARTICUNO
-	db 34, ZAPDOS
-	db 34, MOLTRES
+	db 33, DEWGONG
+	db 33, MUK
+	db 33, CLOYSTER
+	db 33, CLOYSTER
+	db 36, ARTICUNO
+	db 36, ZAPDOS
+	db 36, MOLTRES
 	db 30, LARVITAR
 	end_grass_wildmons
 
 	def_grass_wildmons WHIRL_ISLAND_LUGIA_CHAMBER
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 32, DEWGONG
-	db 32, MUK
-	db 32, CLOYSTER
-	db 32, CLOYSTER
-	db 34, ARTICUNO
-	db 34, ZAPDOS
-	db 34, MOLTRES
+	db 33, DEWGONG
+	db 33, MUK
+	db 33, CLOYSTER
+	db 33, CLOYSTER
+	db 36, ARTICUNO
+	db 36, ZAPDOS
+	db 36, MOLTRES
 	db 30, LARVITAR
 	; day
-	db 32, DEWGONG
-	db 32, MUK
-	db 32, CLOYSTER
-	db 32, CLOYSTER
-	db 34, ARTICUNO
-	db 34, ZAPDOS
-	db 34, MOLTRES
+	db 33, DEWGONG
+	db 33, MUK
+	db 33, CLOYSTER
+	db 33, CLOYSTER
+	db 36, ARTICUNO
+	db 36, ZAPDOS
+	db 36, MOLTRES
 	db 30, LARVITAR
 	; nite
-	db 32, DEWGONG
-	db 32, MUK
-	db 32, CLOYSTER
-	db 32, CLOYSTER
-	db 34, ARTICUNO
-	db 34, ZAPDOS
-	db 34, MOLTRES
+	db 33, DEWGONG
+	db 33, MUK
+	db 33, CLOYSTER
+	db 33, CLOYSTER
+	db 36, ARTICUNO
+	db 36, ZAPDOS
+	db 36, MOLTRES
 	db 30, LARVITAR
 	end_grass_wildmons
 
@@ -1649,31 +1649,31 @@ JohtoGrassWildMons:
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 23, FARFETCH_D
-	db 24, METAPOD
-	db 24, WEEPINBELL
-	db 23, MISDREAVUS
-	db 23, ABRA
-	db 23, ABRA
-	db 23, ABRA
-	db 20, DRATINI
+	db 25, METAPOD
+	db 25, WEEPINBELL
+	db 24, MISDREAVUS
+	db 24, ABRA
+	db 24, ABRA
+	db 24, ABRA
+	db 22, DRATINI
 	; day
 	db 23, FARFETCH_D
-	db 24, METAPOD
-	db 24, WEEPINBELL
-	db 23, MISDREAVUS
-	db 23, ABRA
-	db 23, ABRA
-	db 23, ABRA
-	db 20, DRATINI
+	db 25, METAPOD
+	db 25, WEEPINBELL
+	db 24, MISDREAVUS
+	db 24, ABRA
+	db 24, ABRA
+	db 24, ABRA
+	db 22, DRATINI
 	; nite
 	db 23, FARFETCH_D
-	db 24, METAPOD
-	db 24, PARASECT
-	db 23, STANTLER
-	db 22, TYROGUE
-	db 22, TYROGUE
-	db 22, TYROGUE
-	db 20, DRATINI
+	db 25, METAPOD
+	db 25, PARASECT
+	db 24, STANTLER
+	db 24, TYROGUE
+	db 24, TYROGUE
+	db 24, TYROGUE
+	db 22, DRATINI
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_39
@@ -1710,93 +1710,93 @@ JohtoGrassWildMons:
 	def_grass_wildmons ROUTE_42
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 23, PIDGEOTTO
-	db 23, GLOOM
-	db 22, NIDORAN_M
-	db 22, SMOOCHUM
-	db 21, KRABBY
-	db 21, KRABBY
-	db 21, KRABBY
-	db 20, DRATINI
+	db 24, PIDGEOTTO
+	db 24, GLOOM
+	db 23, NIDORAN_M
+	db 23, SMOOCHUM
+	db 23, KRABBY
+	db 23, KRABBY
+	db 23, KRABBY
+	db 22, DRATINI
 	; day
-	db 23, PIDGEOTTO
-	db 23, GLOOM
-	db 22, NIDORAN_M
-	db 22, SMOOCHUM
-	db 21, KRABBY
-	db 21, KRABBY
-	db 21, KRABBY
-	db 20, DRATINI
+	db 24, PIDGEOTTO
+	db 24, GLOOM
+	db 23, NIDORAN_M
+	db 23, SMOOCHUM
+	db 23, KRABBY
+	db 23, KRABBY
+	db 23, KRABBY
+	db 22, DRATINI
 	; nite
-	db 22, SMOOCHUM
-	db 22, NIDORAN_M
+	db 23, SMOOCHUM
+	db 23, NIDORAN_M
 	db 24, RATTATA
 	db 24, NIDORINO
-	db 21, KRABBY
-	db 21, KRABBY
-	db 21, KRABBY
-	db 20, DRATINI
+	db 23, KRABBY
+	db 23, KRABBY
+	db 23, KRABBY
+	db 22, DRATINI
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_43
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 30, FEAROW
-	db 30, ARBOK
+	db 31, FEAROW
+	db 31, ARBOK
 	db 32, WEEPINBELL
-	db 28, DUNSPARCE
-	db 30, FLAAFFY
-	db 30, FLAAFFY
-	db 30, FLAAFFY
-	db 25, DRATINI
+	db 29, DUNSPARCE
+	db 31, FLAAFFY
+	db 31, FLAAFFY
+	db 31, FLAAFFY
+	db 26, DRATINI
 	; day
-	db 30, FEAROW
-	db 30, ARBOK
+	db 31, FEAROW
+	db 31, ARBOK
 	db 32, WEEPINBELL
-	db 28, DUNSPARCE
-	db 30, FLAAFFY
-	db 30, FLAAFFY
-	db 30, FLAAFFY
-	db 25, DRATINI
+	db 29, DUNSPARCE
+	db 31, FLAAFFY
+	db 31, FLAAFFY
+	db 31, FLAAFFY
+	db 26, DRATINI
 	; nite
-	db 30, PARASECT
-	db 30, MAROWAK
+	db 32, PARASECT
+	db 32, MAROWAK
 	db 31, HITMONTOP
 	db 31, SMEARGLE
-	db 30, FLAAFFY
-	db 30, FLAAFFY
-	db 30, FLAAFFY
-	db 25, DRATINI
+	db 31, FLAAFFY
+	db 31, FLAAFFY
+	db 31, FLAAFFY
+	db 26, DRATINI
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_44
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 33, GLOOM
-	db 33, SANDSLASH
-	db 32, PIDGEOTTO
-	db 32, JIGGLYPUFF
-	db 31, KINGLER
-	db 31, KINGLER
-	db 31, KINGLER
+	db 35, GLOOM
+	db 35, SANDSLASH
+	db 34, PIDGEOTTO
+	db 34, JIGGLYPUFF
+	db 33, KINGLER
+	db 33, KINGLER
+	db 33, KINGLER
 	db 30, DRATINI
 	; day
-	db 33, GLOOM
-	db 33, SANDSLASH
-	db 32, PIDGEOTTO
-	db 32, JIGGLYPUFF
-	db 31, KINGLER
-	db 31, KINGLER
-	db 31, KINGLER
+	db 35, GLOOM
+	db 35, SANDSLASH
+	db 34, PIDGEOTTO
+	db 34, JIGGLYPUFF
+	db 33, KINGLER
+	db 33, KINGLER
+	db 33, KINGLER
 	db 30, DRATINI
 	; nite
-	db 33, PARASECT
-	db 33, MAROWAK
-	db 32, HITMONTOP
-	db 32, SMEARGLE
-	db 31, KINGLER
-	db 31, KINGLER
-	db 31, KINGLER
+	db 35, PARASECT
+	db 35, MAROWAK
+	db 34, HITMONTOP
+	db 34, SMEARGLE
+	db 33, KINGLER
+	db 33, KINGLER
+	db 33, KINGLER
 	db 30, DRATINI
 	end_grass_wildmons
 
