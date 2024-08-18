@@ -355,7 +355,7 @@ Menu_WasButtonPressed:
 	ld a, [w2DMenuFlags1]
 	bit 6, a
 	jr z, .skip_to_joypad
-	farcall PlaySpriteAnimationsAndDelayFrame
+	callfar PlaySpriteAnimationsAndDelayFrame
 
 .skip_to_joypad
 	call JoyTextDelay

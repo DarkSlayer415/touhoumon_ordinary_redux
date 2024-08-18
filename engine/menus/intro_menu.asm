@@ -970,7 +970,7 @@ Intro_PlacePlayerSprite:
 DEF NUM_TITLESCREENOPTIONS EQU const_value
 
 IntroSequence:
-	farcall SplashScreen
+	callfar SplashScreen
 	jr c, StartTitleScreen
 	farcall CrystalIntro
 

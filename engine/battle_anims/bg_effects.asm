@@ -538,7 +538,8 @@ BattleBGEffect_BattlerObj_2Row:
 	ret
 
 _QueueBattleAnimation:
-	farjp QueueBattleAnimation
+	callfar QueueBattleAnimation
+	ret
 
 BattleBGEffect_RemoveMon:
 ; Slides mon out of screen
@@ -2925,12 +2926,12 @@ BattleBGEffects_CheckSGB:
 
 BattleBGEffects_Sine:
 	ld e, a
-	farcall BattleAnim_Sine_e
+	callfar BattleAnim_Sine_e
 	ld a, e
 	ret
 
 BattleBGEffects_Cosine:
 	ld e, a
-	farcall BattleAnim_Cosine_e
+	callfar BattleAnim_Cosine_e
 	ld a, e
 	ret
