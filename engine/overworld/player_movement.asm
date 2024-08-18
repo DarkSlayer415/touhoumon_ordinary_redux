@@ -812,7 +812,7 @@ ENDM
 	push bc
 	ld a, PLAYER_NORMAL
 	ld [wPlayerState], a
-	farcall UpdatePlayerSprite ; UpdateSprites
+	call UpdatePlayerSprite ; UpdateSprites
 	pop bc
 	ret
 

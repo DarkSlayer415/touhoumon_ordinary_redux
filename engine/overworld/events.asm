@@ -244,6 +244,8 @@ PlayerEvents:
 	and a
 	ret nz
 
+	call Dummy_CheckEnabledMapEventsBit5 ; This is a waste of time
+
 	call CheckTrainerEvent
 	jr c, .ok
 
@@ -288,6 +290,7 @@ PlayerEvents:
 	ld a, PLAYER_NORMAL
 	ld [wPlayerState], a
 	farcall UpdatePlayerSprite
+
 .ok2
 	scf
 	ret

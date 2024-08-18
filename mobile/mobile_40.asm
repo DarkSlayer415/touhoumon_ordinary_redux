@@ -36,7 +36,7 @@ Function100022:
 	ld [wcd23], a
 	ld a, b
 	ld [wcd24], a
-	call Function10127e
+	farcall Function10127e
 	farcall Stubbed_Function106462
 	farcall Function106464 ; load broken gfx
 	farcall Function11615a ; init RAM
@@ -420,7 +420,7 @@ Function100301:
 	bit 1, [hl]
 	ret z
 	farcall Function106464
-	call Function10202c
+	farcall Function10202c
 	farcall Function115dd3
 	call Function100320
 	call JoyWaitAorB
@@ -1627,7 +1627,7 @@ endc
 .asm_100a92
 	call DelayFrame
 	call GetJoypad
-	call Function100382
+	farcall Function100382
 	ld c, $01
 	ld b, $03
 	push bc
@@ -1756,7 +1756,7 @@ Function100b7a:
 	ld a, [wMenuData_2DMenuItemStringsBank]
 	rst FarCall
 	farcall Draw2DMenu
-	call MobileTextBorder
+	farcall MobileTextBorder
 	call UpdateSprites
 	call ApplyTilemap
 	farcall Init2DMenuCursorPosition
@@ -2072,13 +2072,13 @@ Mobile_SetOverworldDelay:
 Function100dd8:
 	ld c, $01
 	ld b, $03
-	call AdvanceMobileInactivityTimerAndCheckExpired
+	farcall AdvanceMobileInactivityTimerAndCheckExpired
 	jr c, .asm_100dfb
 	ld c, $3c
 	ld b, $01
 	call Function10079c
 	jr c, .asm_100dfb
-	call Function10032e
+	farcall Function10032e
 	ld a, [wcd2b]
 	and a
 	jr nz, .asm_100dfb
@@ -2097,7 +2097,7 @@ MobileComms_CheckInactivityTimer:
 	ld c, a
 	ld b, 3
 	push bc
-	call AdvanceMobileInactivityTimerAndCheckExpired
+	farcall AdvanceMobileInactivityTimerAndCheckExpired ; useless to farcall
 	pop bc
 	jr c, .quit
 	ld b, 1
@@ -2105,7 +2105,7 @@ MobileComms_CheckInactivityTimer:
 	jr c, .quit
 	call Function1009f3
 	jr c, .quit
-	call Function10032e
+	farcall Function10032e ; useless to farcall
 	ld a, [wcd2b]
 	and a
 	jr nz, .quit
@@ -2124,7 +2124,7 @@ Function100e2d:
 	ld c, a
 	ld b, 3
 	push bc
-	call AdvanceMobileInactivityTimerAndCheckExpired
+	farcall AdvanceMobileInactivityTimerAndCheckExpired
 	pop bc
 	jr c, .asm_100e61
 	ld b, 1
@@ -2132,7 +2132,7 @@ Function100e2d:
 	jr c, .asm_100e61
 	call Function1009f3
 	jr c, .asm_100e61
-	call Function10032e
+	farcall Function10032e
 	ld a, [wcd2b]
 	and a
 	jr nz, .asm_100e61
@@ -3124,8 +3124,8 @@ Function1014b7:
 	ret
 
 Function1014ce:
-	call Function100720
-	call StartMobileInactivityTimer
+	farcall Function100720
+	farcall StartMobileInactivityTimer
 	ld a, [wMobileCommsJumptableIndex]
 	inc a
 	ld [wMobileCommsJumptableIndex], a
@@ -3142,7 +3142,7 @@ Function1014e2:
 	ret
 
 Function1014f4:
-	call EnableMobile
+	farcall EnableMobile
 	ld hl, wcd29
 	set 6, [hl]
 	ld a, [wMobileCommsJumptableIndex]
@@ -3186,7 +3186,7 @@ Function101537:
 	ret
 
 Function101544:
-	call StartMobileInactivityTimer
+	farcall StartMobileInactivityTimer
 	ld a, MOBILEAPI_09
 	call MobileAPI
 	ld a, [wMobileCommsJumptableIndex]
@@ -3195,7 +3195,7 @@ Function101544:
 	ret
 
 Function101557:
-	call StartMobileInactivityTimer
+	farcall StartMobileInactivityTimer
 	ld hl, wcd53
 	ld a, MOBILEAPI_04
 	call MobileAPI
@@ -3209,7 +3209,7 @@ Function10156d:
 	ret c
 
 Function101571:
-	call Function10032e
+	farcall Function10032e
 	ret c
 	ret z
 	ld a, e
@@ -3225,7 +3225,7 @@ Function101571:
 	ret
 
 Function10158a:
-	call IncrementMobileInactivityTimerBy1Frame
+	farcall IncrementMobileInactivityTimerBy1Frame
 	ld a, [wMobileInactivityTimerMinutes]
 	cp $0a
 	jr c, Function10156d
@@ -3235,7 +3235,7 @@ Function10158a:
 
 Function10159d:
 	ld de, wc608
-	call Function100edf
+	farcall Function100edf
 	ld de, wc608
 	ld a, $05
 	ld hl, w5_d800
@@ -3249,7 +3249,7 @@ Function10159d:
 
 Function1015be:
 	ld de, wc608
-	call Function100eed
+	farcall Function100eed
 	ld de, wc608
 	ld a, $05
 	ld hl, w5_d800
@@ -3263,7 +3263,7 @@ Function1015be:
 
 Function1015df:
 	ld de, wc608
-	call Function100ef4
+	farcall Function100ef4
 	ld de, wc608
 	ld a, $05
 	ld hl, w5_d800
@@ -3282,7 +3282,7 @@ Function101600:
 	ld a, $05
 	call FarCopyWRAM
 	ld de, wc608
-	call Function100ee6
+	farcall Function100ee6
 	ld a, [wMobileCommsJumptableIndex]
 	inc a
 	ld [wMobileCommsJumptableIndex], a
@@ -3359,11 +3359,11 @@ Function10168a:
 Function10168e:
 	ld b, 0
 	ld c, $01
-	call Function10079c
+	farcall Function10079c
 	ret c
 	ld c, $01
 	ld b, $03
-	call AdvanceMobileInactivityTimerAndCheckExpired
+	farcall AdvanceMobileInactivityTimerAndCheckExpired
 	ret c
 	ld a, [wcd26]
 	ld hl, Jumptable_1016c3
@@ -3422,7 +3422,7 @@ Function1016f8:
 	ret
 
 Function101705:
-	call Function100382
+	farcall Function100382
 	ld a, [wcd27]
 	bit 7, a
 	ret z
@@ -3577,13 +3577,13 @@ Function1017f1:
 Function1017f5:
 	ld b, 0
 	ld c, $01
-	call Function10079c
+	farcall Function10079c
 	ret c
 	ld c, $01
 	ld b, $03
-	call AdvanceMobileInactivityTimerAndCheckExpired
+	farcall AdvanceMobileInactivityTimerAndCheckExpired
 	ret c
-	call Function100382
+	farcall Function100382
 	ld a, [wcd27]
 	bit 7, a
 	jr nz, .next
@@ -3615,7 +3615,7 @@ Function101826:
 	ret
 
 .asm_101844
-	call Function103654
+	farcall Function103654
 	ld a, c
 	ld hl, Unknown_101882
 	cp $01
@@ -3764,7 +3764,7 @@ Function101913:
 Function10194b:
 	call DisableSpriteUpdates
 	call ClearSprites
-	call Function1021f9
+	farcall Function1021f9
 	ld hl, wcd29
 	bit 3, [hl]
 	jr nz, .asm_101967
@@ -3780,7 +3780,7 @@ Function10194b:
 
 _SelectMonsForMobileBattle:
 	farcall BlankScreen
-	call Mobile_CommunicationStandby
+	farcall Mobile_CommunicationStandby
 	ld hl, wcd29
 	set 5, [hl]
 	ld hl, wcd2a
@@ -3805,16 +3805,16 @@ _SelectMonsForMobileBattle:
 
 _StartMobileBattle:
 	call CopyOtherPlayersBattleMonSelection
-	call Function100754
+	farcall Function100754
 	xor a
 	ld [wdc5f], a
 	ld [wdc60], a
 	farcall BlankScreen
 	call SpeechTextbox
-	call Function100846
+	farcall Function100846
 	ld c, 120
 	call DelayFrames
-	call ClearTilemap
+	farcall ClearTilemap
 	call .CopyOTDetails
 	call StartMobileBattle
 	ld a, [wcd2b]
@@ -3897,11 +3897,11 @@ CopyOtherPlayersBattleMonSelection:
 	ld bc, 3
 	call CopyBytes
 	ld de, wcc64
-	call Function100772
-	call Function101050
-	call LoadSelectedPartiesForColosseum
+	farcall Function100772
+	farcall Function101050
+	farcall LoadSelectedPartiesForColosseum
 	ret
-	
+
 Function101a97:
 	farcall Function115d99
 	ld hl, wcd29
@@ -3972,7 +3972,7 @@ Function101b0f:
 	ret
 
 Function101b2b:
-	call Function100579
+	farcall Function100579
 	ld hl, wcd29
 	set 2, [hl]
 	ld a, [wcd26]
@@ -4022,7 +4022,7 @@ Function101b70:
 	ret
 
 Function101b8f:
-	call Function1005c3
+	farcall Function1005c3
 	ld hl, wcd29
 	set 2, [hl]
 	ld a, [wcd26]
@@ -4064,7 +4064,7 @@ Function101bc8:
 	ret
 
 Function101be5:
-	call Function100579
+	farcall Function100579
 	ld hl, wcd29
 	set 2, [hl]
 	ld a, [wcd26]
@@ -4150,7 +4150,7 @@ Function101c62:
 	ret
 
 Function101c92:
-	call Function100675
+	farcall Function100675
 	ld a, [wMobileCommsJumptableIndex]
 	inc a
 	ld [wMobileCommsJumptableIndex], a
@@ -4284,7 +4284,7 @@ Function101d6b:
 	ret
 
 Function101d7b:
-	call Function10138b
+	farcall Function10138b
 	ld b, 0
 	ld hl, Unknown_101d8d
 	add hl, bc
@@ -4311,7 +4311,7 @@ Function101d95:
 	ret
 
 Function101db2:
-	call Function103302
+	farcall Function103302
 	call ExitMenu
 	ld hl, wcd29
 	set 5, [hl]
@@ -4505,7 +4505,7 @@ Function101ee4:
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
-	call Function100504
+	farcall Function100504
 	ret
 
 Unknown_101ef5:
@@ -4983,7 +4983,7 @@ Function1022ca:
 	ret
 
 Function1022d0:
-	call Function10032e
+	farcall Function10032e
 	ld a, [wcd2b]
 	and a
 	jr nz, .asm_1022f3
@@ -4994,7 +4994,7 @@ Function1022d0:
 	sub c
 	ld c, a
 	ld b, 03
-	call AdvanceMobileInactivityTimerAndCheckExpired
+	farcall AdvanceMobileInactivityTimerAndCheckExpired
 	jr c, .asm_1022f3
 	xor a
 	ret
@@ -5224,7 +5224,7 @@ Function102496: ; unreferenced
 	ret
 
 Function1024a8:
-	call Function1009f3
+	farcall Function1009f3
 	ret c
 
 Function1024af:
@@ -5416,7 +5416,7 @@ Function1025e9:
 Function1025ff:
 	ld hl, wcd4b
 	set 2, [hl]
-	call Function1009f3
+	farcall Function1009f3
 	ret c
 	farcall MobileMenuJoypad
 	ld a, [wMenuJoypadFilter]
@@ -5476,7 +5476,7 @@ Function102652:
 Function10266b:
 	ld hl, wcd4b
 	set 2, [hl]
-	call Function1009f3
+	farcall Function1009f3
 	ret c
 	farcall MobileMenuJoypad
 	ld a, [wMenuJoypadFilter]
@@ -5527,7 +5527,7 @@ Function1026b7:
 
 Function1026c8:
 	call GetJoypad
-	call Function1009f3
+	farcall Function1009f3
 	ret c
 	ld a, [wcd4a]
 	ld hl, Jumptable_1026da
@@ -5603,7 +5603,7 @@ Function102738:
 
 Function102754:
 	call GetJoypad
-	call Function1009f3
+	farcall Function1009f3
 	ret c
 	ld a, [wcd4a]
 	ld hl, Jumptable_102766
@@ -5824,14 +5824,14 @@ Function1028e8:
 	ld hl, wcd4b
 	res 6, [hl]
 	ld [wcd50], a
-	call StartMobileInactivityTimer
+	farcall StartMobileInactivityTimer
 	ld a, 0
 	ld [wcd4a], a
 	ret
 
 Function1028fc:
 	call GetJoypad
-	call Function1009f3
+	farcall Function1009f3
 	jr nc, .asm_102909
 	and a
 	ret
@@ -5900,7 +5900,7 @@ Function10295d:
 	ret
 
 Function10296e:
-	call Function100382
+	farcall Function100382
 	and a
 	ld a, [wcd27]
 	bit 7, a
@@ -5912,7 +5912,7 @@ Function10296e:
 	ret
 
 Function102984:
-	call Function100382
+	farcall Function100382
 	and a
 	ld a, [wcd27]
 	bit 7, a
@@ -5981,7 +5981,7 @@ Function1029cf:
 	ret
 
 Function1029fe:
-	call Function1009f3
+	farcall Function1009f3
 	ret c
 	farcall MobileMenuJoypad
 	ld a, c
@@ -6281,7 +6281,7 @@ Function102c3b:
 	ret
 
 Function102c48:
-	call Function10165a
+	farcall Function10165a
 	ld a, 0
 	call OpenSRAM
 	ld hl, $a600
@@ -7245,7 +7245,7 @@ String_1035bd: db "しない@"
 String_1035c1: db "けってい@"
 
 Function1035c6:
-	call Function10138b
+	farcall Function10138b
 	ld b, 0
 	ld hl, Unknown_1035d7
 	add hl, bc
@@ -7429,7 +7429,7 @@ Function103700:
 	ld hl, wSwarmFlags
 	bit SWARMFLAGS_MOBILE_4_F, [hl]
 	jr z, .asm_10370f
-	call MobileBattleGetRemainingTime
+	farcall MobileBattleGetRemainingTime
 .asm_10370f
 	ld a, c
 	ld [wStringBuffer2], a
@@ -7535,7 +7535,7 @@ Function10378c:
 	ld a, c
 	and a
 	ret z
-	call MobileBattleResetTimer
+	farcall MobileBattleResetTimer
 	ret
 
 .failed_to_save
@@ -7610,7 +7610,7 @@ MobileCheckRemainingBattleTime:
 	farcall CheckMobileAdapterStatus
 	bit 7, c
 	jr nz, .ok
-	call MobileBattleGetRemainingTime
+	farcall MobileBattleGetRemainingTime
 	ld a, c
 	cp 1
 	jr c, .fail
@@ -7658,7 +7658,7 @@ Function10387b:
 	farcall CheckMobileAdapterStatus
 	bit 7, c
 	ret nz
-	call MobileBattleGetRemainingTime
+	farcall MobileBattleGetRemainingTime
 	ld a, c
 	ld [wStringBuffer2], a
 	ld hl, MobileBattleRemainingTimeText

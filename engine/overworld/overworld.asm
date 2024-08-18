@@ -148,14 +148,15 @@ LoadMiscTiles:
 	ret nz
 
 	ld c, EMOTE_SHADOW
-	call LoadEmote
+	farcall LoadEmote
 	call GetMapEnvironment
 	call CheckOutdoorMap
 	ld c, EMOTE_GRASS_RUSTLE
 	jr z, .outdoor
 	ld c, EMOTE_BOULDER_DUST
 .outdoor
-	jp LoadEmote
+	farcall LoadEmote
+	ret
 
 SafeGetSprite:
 	push hl

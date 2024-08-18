@@ -1600,7 +1600,7 @@ Function48c8e: ; unreferenced
 	ld hl, wd019 + $11
 	ld d, h
 	ld e, l
-	call Function48c63
+	farcall Function48c63
 	hlcoord 10, 7
 	call PlaceString
 	call WaitBGMap

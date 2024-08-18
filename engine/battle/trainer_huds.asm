@@ -249,7 +249,7 @@ _ShowLinkBattleParticipants:
 	ld a, "<BOLD_V>"
 	ld [hli], a
 	ld [hl], "<BOLD_S>"
-	call LinkBattle_TrainerHuds ; no need to farcall
+	farcall LinkBattle_TrainerHuds ; no need to farcall
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout
 	call SetDefaultBGPAndOBP

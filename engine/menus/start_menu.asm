@@ -480,7 +480,7 @@ StartMenu_Pokegear:
 
 StartMenu_Pack:
 	call FadeToMenu
-	call Pack
+	farcall Pack
 	ld a, [wPackUsedItem]
 	and a
 	jr nz, .used_item

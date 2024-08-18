@@ -241,10 +241,10 @@ GiveTakePartyMonItem:
 	ret
 
 .GiveItem:
-	call DepositSellInitPackBuffers
+	farcall DepositSellInitPackBuffers
 
 .loop
-	call DepositSellPack
+	farcall DepositSellPack
 
 	ld a, [wPackUsedItem]
 	and a

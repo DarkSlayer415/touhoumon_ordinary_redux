@@ -100,8 +100,9 @@ endc
 	cp RESERVED_GAME_VERSION
 	jr z, .skip_append_save
 	call .SaveMysteryGiftTrainerName
-	call RestoreGSBallFlag
-	call BackupGSBallFlag
+	farcall RestoreGSBallFlag
+	farcall StubbedTrainerRankings_MysteryGift
+	farcall BackupGSBallFlag
 .skip_append_save
 	ld a, [wMysteryGiftPartnerSentDeco]
 	and a
@@ -513,7 +514,7 @@ EndOrContinueMysteryGiftIRCommunication:
 	jr nc, .quit
 
 	; Prepare the second message for wMysteryGiftTrainer
-	call StagePartyDataForMysteryGift
+	farcall StagePartyDataForMysteryGift
 	call ClearMysteryGiftTrainer
 	ld a, wMysteryGiftTrainerEnd - wMysteryGiftTrainer
 	ld [wMysteryGiftStagedDataLength], a

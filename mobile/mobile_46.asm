@@ -1613,7 +1613,7 @@ Function118ded:
 	push af
 	ld a, $1
 	ldh [rSVBK], a
-	call Function11b93b
+	farcall Function11b93b
 	pop af
 	ldh [rSVBK], a
 
@@ -5392,7 +5392,7 @@ Function11a9ce:
 	farcall Stubbed_Function106462
 	farcall Function106464
 	call GSReloadPalettes
-	call FinishExitMenu
+	farcall FinishExitMenu
 	call UpdateSprites
 	ret
 

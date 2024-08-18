@@ -1171,7 +1171,7 @@ _GetDecorationSprite:
 	ld c, a
 	push de
 	push hl
-	call GetDecorationSprite
+	farcall GetDecorationSprite
 	pop hl
 	pop de
 	ld a, c

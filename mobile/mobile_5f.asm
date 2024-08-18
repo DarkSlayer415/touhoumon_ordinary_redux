@@ -292,7 +292,7 @@ Function17d0f3:
 	call SpeechTextbox
 	call FadeToMenu
 	farcall Function10804d
-	call Function17d1f1
+	farcall Function17d1f1
 	ld a, $1
 	ld [wForceEvolution], a
 	ld a, LINK_TRADECENTER
@@ -2904,7 +2904,7 @@ Function17e309:
 	call ClearScreen
 	call Function17e349
 	call Function17d5f6
-	call DisplayMobileError
+	farcall DisplayMobileError
 	call Function17e349
 	call Function17dcaf
 	xor a
@@ -4494,7 +4494,7 @@ DisplayMobileError:
 
 Function17f5c3:
 	call Function17f5e4
-	call FinishExitMenu
+	farcall FinishExitMenu
 	ld a, $1
 	ld [wc303], a
 	ret

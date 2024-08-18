@@ -347,12 +347,12 @@ AI_Items:
 	ld a, [bc]
 	bit CONTEXT_USE_F, a
 	jr nz, .CheckHalfOrQuarterHP
-	call AICheckEnemyHalfHP
+	farcall AICheckEnemyHalfHP
 	jp c, .DontUse
 	ld a, [bc]
 	bit UNKNOWN_USE_F, a
 	jp nz, .CheckQuarterHP
-	call AICheckEnemyQuarterHP
+	farcall AICheckEnemyQuarterHP
 	jp nc, .UseHealItem
 	call Random
 	cp 50 percent + 1
@@ -360,7 +360,7 @@ AI_Items:
 	jp .DontUse
 
 .CheckQuarterHP:
-	call AICheckEnemyQuarterHP
+	farcall AICheckEnemyQuarterHP
 	jp c, .DontUse
 	call Random
 	cp 20 percent - 1
@@ -368,9 +368,9 @@ AI_Items:
 	jr .UseHealItem
 
 .CheckHalfOrQuarterHP:
-	call AICheckEnemyHalfHP
+	farcall AICheckEnemyHalfHP
 	jp c, .DontUse
-	call AICheckEnemyQuarterHP
+	farcall AICheckEnemyQuarterHP
 	jp nc, .UseHealItem
 	call Random
 	cp 20 percent - 1
@@ -404,7 +404,7 @@ AI_Items:
 
 .UnusedHealItem: ; unreferenced
 ; This has similar conditions to .HealItem
-	call AICheckEnemyMaxHP
+	farcall AICheckEnemyMaxHP
 	jr c, .dont_use
 	push bc
 	ld de, wEnemyMonMaxHP + 1
@@ -421,7 +421,7 @@ AI_Items:
 	ld a, c
 	cp b
 	jp c, .check_50_percent
-	call AICheckEnemyQuarterHP
+	farcall AICheckEnemyQuarterHP
 	jr c, .check_40_percent
 
 .check_50_percent

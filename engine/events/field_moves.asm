@@ -6,21 +6,23 @@ PlayWhirlpoolSound:
 	call WaitSFX
 	ld de, SFX_SURF
 	call PlaySFX
-	jp WaitSFX
+	call WaitSFX
+	ret
 
 BlindingFlash:
-	call FadeOutToWhite
+	farcall FadeOutToWhite
 	ld hl, wStatusFlags
 	set STATUSFLAGS_FLASH_F, [hl]
-	call ReplaceTimeOfDayPals
-	call UpdateTimeOfDayPal
+	farcall ReplaceTimeOfDayPals
+	farcall UpdateTimeOfDayPal
 	ld b, SCGB_MAPPALS
 	call GetSGBLayout
 	farcall LoadOW_BGPal7
-	jp FadeInFromWhite
+	farcall FadeInFromWhite
+	ret
 
 ShakeHeadbuttTree:
-	call ClearSpriteAnims
+	farcall ClearSpriteAnims
 	ld de, CutGrassGFX
 	ld hl, vTiles0 tile FIELDMOVE_GRASS
 	lb bc, BANK(CutGrassGFX), 4
@@ -37,7 +39,7 @@ ShakeHeadbuttTree:
 	ld [hl], FIELDMOVE_TREE
 	ld a, 36 * SPRITEOAMSTRUCT_LENGTH
 	ld [wCurSpriteOAMAddr], a
-	call DoNextFrameForAllSprites
+	farcall DoNextFrameForAllSprites
 	call HideHeadbuttTree
 	ld a, 32
 	ld [wFrameCounter], a
@@ -52,7 +54,7 @@ ShakeHeadbuttTree:
 	dec [hl]
 	ld a, 36 * SPRITEOAMSTRUCT_LENGTH
 	ld [wCurSpriteOAMAddr], a
-	call DoNextFrameForAllSprites
+	farcall DoNextFrameForAllSprites
 	call DelayFrame
 	jr .loop
 
@@ -61,7 +63,7 @@ ShakeHeadbuttTree:
 	call WaitBGMap
 	xor a
 	ldh [hBGMapMode], a
-	call ClearSpriteAnims
+	farcall ClearSpriteAnims
 	ld hl, wShadowOAMSprite36
 	ld bc, wShadowOAMEnd - wShadowOAMSprite36
 	xor a
@@ -125,7 +127,7 @@ OWCutAnimation:
 	jr nz, .finish
 	ld a, 36 * SPRITEOAMSTRUCT_LENGTH
 	ld [wCurSpriteOAMAddr], a
-	call DoNextFrameForAllSprites
+	farcall DoNextFrameForAllSprites
 	call OWCutJumptable
 	call DelayFrame
 	jr .loop
@@ -134,7 +136,7 @@ OWCutAnimation:
 	ret
 
 .LoadCutGFX:
-	call ClearSpriteAnims ; pointless to farcall
+	farcall ClearSpriteAnims ; pointless to farcall
 	ld de, CutGrassGFX
 	ld hl, vTiles0 tile FIELDMOVE_GRASS
 	lb bc, BANK(CutGrassGFX), 4
@@ -318,7 +320,7 @@ FlyFromAnim:
 	jr nz, .exit
 	ld a, 0 * SPRITEOAMSTRUCT_LENGTH
 	ld [wCurSpriteOAMAddr], a
-	call DoNextFrameForAllSprites
+	farcall DoNextFrameForAllSprites
 	call FlyFunction_FrameTimer
 	call DelayFrame
 	jr .loop
@@ -355,7 +357,7 @@ FlyToAnim:
 	jr nz, .exit
 	ld a, 0 * SPRITEOAMSTRUCT_LENGTH
 	ld [wCurSpriteOAMAddr], a
-	call DoNextFrameForAllSprites
+	farcall DoNextFrameForAllSprites
 	call FlyFunction_FrameTimer
 	call DelayFrame
 	jr .loop
@@ -385,7 +387,7 @@ endr
 	ret
 
 FlyFunction_InitGFX:
-	call ClearSpriteAnims
+	farcall ClearSpriteAnims
 	ld de, CutGrassGFX
 	ld hl, vTiles0 tile FIELDMOVE_GRASS
 	lb bc, BANK(CutGrassGFX), 4
@@ -398,7 +400,7 @@ FlyFunction_InitGFX:
 	ld a, [hl]
 	ld [wTempIconSpecies], a
 	ld e, FIELDMOVE_FLY
-	call FlyFunction_GetMonIcon
+	farcall FlyFunction_GetMonIcon
 	xor a
 	ld [wJumptableIndex], a
 	ret

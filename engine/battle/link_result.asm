@@ -1,5 +1,5 @@
 DetermineLinkBattleResult:
-	call UpdateEnemyMonInParty
+	farcall UpdateEnemyMonInParty
 	ld hl, wPartyMon1HP
 	call .CountMonsRemaining
 	push bc
