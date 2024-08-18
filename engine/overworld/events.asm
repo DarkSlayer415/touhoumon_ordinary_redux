@@ -287,7 +287,7 @@ PlayerEvents:
 	jr nz, .ok2
 	ld a, PLAYER_NORMAL
 	ld [wPlayerState], a
-	call UpdatePlayerSprite
+	farcall UpdatePlayerSprite
 .ok2
 	scf
 	ret

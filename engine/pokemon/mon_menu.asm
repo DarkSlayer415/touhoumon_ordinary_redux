@@ -447,7 +447,7 @@ StartMenuYesNo:
 
 ComposeMailMessage:
 	ld de, wTempMailMessage
-	call _ComposeMailMessage
+	farcall _ComposeMailMessage
 	ld hl, wPlayerName
 	ld de, wTempMailAuthor
 	ld bc, NAME_LENGTH - 1
