@@ -1197,7 +1197,7 @@ Script_reloadmapafterbattle:
 	jr z, .done
 	ld b, BANK(Script_SpecialBillCall)
 	ld de, Script_SpecialBillCall
-	call LoadMemScript
+	farcall LoadMemScript
 .done
 	jp Script_reloadmap
 
@@ -2121,7 +2121,7 @@ Script_writecmdqueue:
 	ld d, a
 	ld a, [wScriptBank]
 	ld b, a
-	call WriteCmdQueue ; no need to farcall
+	farcall WriteCmdQueue ; no need to farcall
 	ret
 
 Script_delcmdqueue:
@@ -2129,7 +2129,7 @@ Script_delcmdqueue:
 	ld [wScriptVar], a
 	call GetScriptByte
 	ld b, a
-	call DelCmdQueue ; no need to farcall
+	farcall DelCmdQueue ; no need to farcall
 	ret c
 	ld a, TRUE
 	ld [wScriptVar], a
@@ -2171,7 +2171,12 @@ Script_refreshmap::
 Script_warpcheck:
 	call WarpCheck
 	ret nc
-	jp EnableEvents
+	farcall EnableEvents
+	ret
+
+Script_enableevents: ; unreferenced
+	farcall EnableEvents
+	ret
 
 Script_newloadmap:
 	call GetScriptByte

@@ -49,7 +49,8 @@ HealPartyMon:
 	ld a, [hl]
 	ld [bc], a
 
-	jp RestoreAllPP
+	farcall RestoreAllPP
+	ret
 
 ComputeHPBarPixels:
 ; e = bc * HP_BAR_LENGTH_PX / de

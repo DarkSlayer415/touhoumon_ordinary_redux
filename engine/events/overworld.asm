@@ -279,7 +279,7 @@ FlashFunction:
 
 .CheckUseFlash:
 	ld de, ENGINE_ZEPHYRBADGE
-	call CheckBadge
+	farcall CheckBadge
 	jr c, .nozephyrbadge
 	push hl
 	farcall SpecialAerodactylChamber
@@ -637,7 +637,7 @@ WaterfallFunction:
 
 .TryWaterfall:
 	ld de, ENGINE_RISINGBADGE
-	call CheckBadge
+	farcall CheckBadge
 	ld a, $80
 	ret c
 	call CheckMapCanWaterfall

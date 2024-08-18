@@ -140,7 +140,7 @@ UnusedWait30Frames: ; unreferenced
 HandleMap:
 	call ResetOverworldDelay
 	call HandleMapTimeAndJoypad
-	call HandleCmdQueue ; no need to farcall
+	farcall HandleCmdQueue ; no need to farcall
 	call MapEvents
 
 ; Not immediately entering a connected map will cause problems.
@@ -168,7 +168,8 @@ MapEvents:
 .events:
 	call PlayerEvents
 	call DisableEvents
-	jp ScriptEvents
+	farcall ScriptEvents
+	ret
 
 .no_events:
 	ret
@@ -269,7 +270,7 @@ PlayerEvents:
 
 .ok
 	push af
-	call EnableScriptMode
+	farcall EnableScriptMode
 	pop af
 
 	ld [wScriptRunning], a
@@ -433,8 +434,8 @@ endr
 	ld hl, wScriptFlags
 	res 3, [hl]
 
-	call EnableScriptMode
-	call ScriptEvents
+	farcall EnableScriptMode
+	farcall ScriptEvents
 
 	ld hl, wScriptFlags
 	bit 3, [hl]
@@ -920,7 +921,7 @@ CountStep:
 	jr c, .doscript
 
 .skip_poison
-	call DoBikeStep
+	farcall DoBikeStep
 
 .done
 	xor a

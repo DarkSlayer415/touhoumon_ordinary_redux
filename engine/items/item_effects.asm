@@ -683,7 +683,7 @@ PokeBallEffect:
 	jr .return_from_capture
 
 .catch_bug_contest_mon
-	call BugContest_SetCaughtContestMon
+	farcall BugContest_SetCaughtContestMon
 	jr .return_from_capture
 
 .FinishTutorial:
@@ -1115,13 +1115,16 @@ AskGiveNicknameText:
 	text_end
 
 ReturnToBattle_UseBall:
-	farjp _ReturnToBattle_UseBall
+	farcall _ReturnToBattle_UseBall
+	ret
 
 TownMapEffect:
-	farjp PokegearMap
+	farcall PokegearMap
+	ret
 
 BicycleEffect:
-	jp BikeFunction
+	farcall BikeFunction
+	ret
 
 EvoStoneEffect:
 	ld b, PARTYMENUACTION_EVO_STONE
@@ -2051,7 +2054,7 @@ Softboiled_MilkDrinkFunction:
 EscapeRopeEffect:
 	xor a
 	ld [wItemEffectSucceeded], a
-	call EscapeRopeFunction
+	farcall EscapeRopeFunction
 
 	ld a, [wItemEffectSucceeded]
 	cp 1
@@ -2265,18 +2268,23 @@ CoinCaseEffect:
 
 OldRodEffect:
 	ld e, $0
-	jp FishFunction
+	jr UseRod
 
 GoodRodEffect:
 	ld e, $1
-	jp FishFunction
+	jr UseRod
 
 SuperRodEffect:
 	ld e, $2
-	jp FishFunction
+	jr UseRod
+
+UseRod:
+	farcall FishFunction
+	ret
 
 ItemfinderEffect:
-	farjp ItemFinder
+	farcall ItemFinder
+	ret
 
 RestorePPEffect:
 	ld a, [wCurItem]
