@@ -19,6 +19,12 @@ QueueBattleAnimation:
 	inc [hl]
 	; fallthrough
 
+DeinitBattleAnimation:
+	ld hl, BATTLEANIMSTRUCT_INDEX
+	add hl, bc
+	ld [hl], $0
+	ret
+
 InitBattleAnimation:
 	ld hl, wBattleObjectTempID
 	ld a, [hli]
