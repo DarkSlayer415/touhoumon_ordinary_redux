@@ -80,9 +80,10 @@ CharmanderEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, GROWL
-	db 7, THUNDERSHOCK
-	db 10, EMBER
-	db 14, THIEF
+	db 5, THUNDERSHOCK
+	db 8, EMBER
+	db 11, SWIFT
+	db 15, THIEF
 	db 18, THUNDER_WAVE
 	db 22, SPARK
 	db 22, FLAME_WHEEL
@@ -98,8 +99,9 @@ CharmeleonEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, GROWL
-	db 7, THUNDERSHOCK
-	db 10, EMBER
+	db 5, THUNDERSHOCK
+	db 8, EMBER
+	db 11, SWIFT
 	db 15, THIEF
 	db 18, THUNDER_WAVE
 	db 23, SPARK
@@ -115,8 +117,9 @@ CharizardEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, GROWL
-	db 7, THUNDERSHOCK
-	db 10, EMBER
+	db 5, THUNDERSHOCK
+	db 8, EMBER
+	db 11, SWIFT
 	db 16, THIEF
 	db 20, THUNDER_WAVE
 	db 24, SPARK
@@ -133,11 +136,11 @@ SquirtleEvosAttacks:
 	db EVOLVE_LEVEL, 18, WARTORTLE
 	db 0 ; no more evolutions
 	db 1, SCRATCH
-	db 4, LEER
-	db 6, HORN_ATTACK
+	db 1, LEER
+	db 5, HORN_ATTACK
 	db 8, FALSE_SWIPE
-	db 10, CONFUSION
-	db 13, SHARPEN
+	db 11, CONFUSION
+	db 14, SHARPEN
 	db 18, SPIKE_CANNON
 	db 23, PSYBEAM
 	db 28, HYPNOSIS
@@ -151,12 +154,12 @@ WartortleEvosAttacks:
 	db EVOLVE_LEVEL, 36, BLASTOISE
 	db 0 ; no more evolutions
 	db 1, SCRATCH
-	db 4, LEER
-	db 6, HORN_ATTACK
+	db 1, LEER
+	db 5, HORN_ATTACK
 	db 8, FALSE_SWIPE
-	db 10, CONFUSION
-	db 13, SHARPEN
-	db 19, SPIKE_CANNON
+	db 11, CONFUSION
+	db 14, SHARPEN
+	db 18, SPIKE_CANNON
 	db 25, PSYBEAM
 	db 31, HYPNOSIS
 	db 36, SLASH
@@ -168,12 +171,12 @@ WartortleEvosAttacks:
 BlastoiseEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, SCRATCH
-	db 4, LEER
-	db 6, HORN_ATTACK
+	db 1, LEER
+	db 5, HORN_ATTACK
 	db 8, FALSE_SWIPE
-	db 10, CONFUSION
-	db 13, SHARPEN
-	db 19, SPIKE_CANNON
+	db 11, CONFUSION
+	db 14, SHARPEN
+	db 18, SPIKE_CANNON
 	db 25, PSYBEAM
 	db 31, HYPNOSIS
 	db 36, SLASH

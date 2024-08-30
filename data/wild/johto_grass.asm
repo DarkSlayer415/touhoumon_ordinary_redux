@@ -1524,62 +1524,62 @@ db 34, BEEDRILL
 	def_grass_wildmons ROUTE_34
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 13, CATERPIE
-	db 13, SANDSHREW
+	db 14, CATERPIE
+	db 14, SANDSHREW
 	db 14, TENTACOOL
 	db 14, PIDGEY
-	db 13, ODDISH
 	db 14, ODDISH
 	db 15, ODDISH
+	db 16, ODDISH
 	db 15, SQUIRTLE
 	; day
-	db 13, CATERPIE
-	db 13, SANDSHREW
+	db 14, CATERPIE
+	db 14, SANDSHREW
 	db 14, TENTACOOL
 	db 14, PIDGEY
-	db 13, ODDISH
 	db 14, ODDISH
 	db 15, ODDISH
+	db 16, ODDISH
 	db 15, SQUIRTLE
 	; nite
-	db 13, CATERPIE
-	db 13, SANDSHREW
+	db 14, CATERPIE
+	db 14, SANDSHREW
 	db 14, TENTACOOL
 	db 14, PIDGEY
-	db 13, NIDORAN_F
 	db 14, NIDORAN_F
 	db 15, NIDORAN_F
+	db 16, NIDORAN_F
 	db 15, SQUIRTLE
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_35
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 14, PIDGEY
-	db 14, TENTACOOL
-	db 15, WEEDLE
-	db 15, CATERPIE
-	db 16, TENTACRUEL
-	db 16, TENTACRUEL
-	db 16, TENTACRUEL
+	db 15, PIDGEY
+	db 15, TENTACOOL
+	db 16, KAKUNA
+	db 16, CATERPIE
+	db 17, TENTACRUEL
+	db 17, TENTACRUEL
+	db 17, TENTACRUEL
 	db 15, CHIKORITA
 	; day
-	db 14, PIDGEY
-	db 14, TENTACOOL
-	db 15, WEEDLE
-	db 15, CATERPIE
-	db 16, TENTACRUEL
-	db 16, TENTACRUEL
-	db 16, TENTACRUEL
+	db 15, PIDGEY
+	db 15, TENTACOOL
+	db 16, KAKUNA
+	db 16, CATERPIE
+	db 17, TENTACRUEL
+	db 17, TENTACRUEL
+	db 17, TENTACRUEL
 	db 15, CHIKORITA
 	; nite
-	db 14, GROWLITHE
-	db 14, SENTRET
-	db 15, SPINARAK
-	db 15, SUNKERN
-	db 16, ARCANINE
-	db 16, ARCANINE
-	db 16, ARCANINE
+	db 15, GROWLITHE
+	db 15, SENTRET
+	db 16, SPINARAK
+	db 16, SUNKERN
+	db 17, ARCANINE
+	db 17, ARCANINE
+	db 17, ARCANINE
 	db 15, CHIKORITA
 	end_grass_wildmons
 
@@ -1617,32 +1617,32 @@ db 34, BEEDRILL
 	def_grass_wildmons ROUTE_37
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 19, SEEL
-	db 19, GRIMER
-	db 19, SHELLDER
-	db 19, SHELLDER
-	db 18, GEODUDE
-	db 18, GEODUDE
-	db 18, GEODUDE
-	db 20, CLOYSTER
+	db 20, SEEL
+	db 20, GRIMER
+	db 20, SHELLDER
+	db 20, SHELLDER
+	db 19, GEODUDE
+	db 19, GEODUDE
+	db 19, GEODUDE
+	db 22, CLOYSTER
 	; day
-	db 19, SEEL
-	db 19, GRIMER
-	db 19, SHELLDER
-	db 19, SHELLDER
-	db 18, GEODUDE
-	db 18, GEODUDE
-	db 18, GEODUDE
-	db 20, MUK
+	db 20, SEEL
+	db 20, GRIMER
+	db 20, SHELLDER
+	db 20, SHELLDER
+	db 19, GEODUDE
+	db 19, GEODUDE
+	db 19, GEODUDE
+	db 22, MUK
 	; nite
-	db 19, SEEL
-	db 19, GRIMER
-	db 19, SHELLDER
-	db 19, SHELLDER
-	db 18, GEODUDE
-	db 18, GEODUDE
-	db 18, GEODUDE
-	db 20, DEWGONG
+	db 20, SEEL
+	db 20, GRIMER
+	db 20, SHELLDER
+	db 20, SHELLDER
+	db 19, GEODUDE
+	db 19, GEODUDE
+	db 19, GEODUDE
+	db 22, DEWGONG
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_38
