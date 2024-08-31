@@ -3281,18 +3281,18 @@ SageGroup:
 
 	; SAGE (5)
 	db "JEFFREY@", TRAINERTYPE_NORMAL
-	db 19, SHELLDER
-	db 19, GRIMER
-	db 19, SEEL
+	db 22, SHELLDER
+	db 22, GRIMER
+	db 22, SEEL
 	db 24, FURRET
 	db -1 ; end
 
 	; SAGE (6)
 	db "PING@", TRAINERTYPE_NORMAL
-	db 20, DEWGONG
-	db 20, MUK
-	db 20, CLOYSTER
-	db 18, GEODUDE
+	db 21, DEWGONG
+	db 21, MUK
+	db 21, CLOYSTER
+	db 21, GRAVELER
 	db -1 ; end
 
 	; SAGE (7)
@@ -3339,16 +3339,16 @@ SageGroup:
 MediumGroup:
 	; MEDIUM (1)
 	db "MARTHA@", TRAINERTYPE_NORMAL
-	db 18, STARYU
-	db 20, STARMIE
-	db 20, POLIWHIRL
+	db 20, STARYU
+	db 22, STARMIE
+	db 23, POLIWHIRL
 	db -1 ; end
 
 	; MEDIUM (2)
 	db "GRACE@", TRAINERTYPE_NORMAL
-	db 20, HOUNDOUR
-	db 20, GRAVELER
-	db 20, MAGNETON
+	db 23, HOUNDOUR
+	db 24, GRAVELER
+	db 24, MAGNETON
 	db -1 ; end
 
 	; MEDIUM (3) ;Unused

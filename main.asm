@@ -404,15 +404,14 @@ INCLUDE "engine/phone/scripts/erin.asm"
 INCLUDE "engine/phone/scripts/generic_callee.asm"
 INCLUDE "engine/events/trainer_scripts.asm"
 
-SECTION "Move Animation Data", ROMX
-
-INCLUDE "data/moves/animations.asm"
-
 SECTION "bank32", ROMX
 
 INCLUDE "engine/battle_anims/bg_effects.asm"
 INCLUDE "engine/events/poisonstep_pals.asm"
 
+SECTION "Battle Animation Data", ROMX
+
+INCLUDE "data/moves/animation_pointers.asm"
 
 SECTION "Move Animations", ROMX
 

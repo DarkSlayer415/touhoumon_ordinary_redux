@@ -74,6 +74,7 @@ WateredWeirdTreeScript:: ; export (for when you use Squirtbottle from pack)
 	writetext SuwakoAttackedText
 	waitbutton
 	closetext
+	loadvar VAR_BATTLETYPE, BATTLETYPE_FORCEITEM
 	loadwildmon MARILL, 20
 	startbattle
 	setevent EVENT_FOUGHT_SUWAKO

@@ -217,17 +217,17 @@ StdBattleTextbox::
 	ret
 
 GetBattleAnimPointer::
+	ld hl, BattleAnimations
 	ld a, BANK(BattleAnimations)
-	rst Bankswitch
-
-	ld a, [hli]
+	call LoadDoubleIndirectPointer
+	jr nz, .found
+	ld hl, BattleAnim_Dummy
+.found
+	ld [wBattleAnimBank], a
+	ld a, l
 	ld [wBattleAnimAddress], a
-	ld a, [hl]
+	ld a, h
 	ld [wBattleAnimAddress + 1], a
-
-	; ClearBattleAnims is the only function that calls this...
-	ld a, BANK(ClearBattleAnims)
-	rst Bankswitch
 
 	ret
 
@@ -240,7 +240,7 @@ GetBattleAnimByte::
 	inc hl
 	ld d, [hl]
 
-	ld a, BANK(BattleAnimations)
+	ld a, [wBattleAnimBank]
 	rst Bankswitch
 
 	ld a, [de]

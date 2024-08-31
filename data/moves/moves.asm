@@ -11,8 +11,16 @@ MACRO move
 	assert \6 <= 40, "PP must be 40 or less"
 ENDM
 
-Moves:
-; entries correspond to move ids (see constants/move_constants.asm)
+Moves::
+; entries correspond to constants/move_constants.asm
+	indirect_table MOVE_LENGTH - 1, 1
+	indirect_entries GEN1_MOVES, MovesGen1
+	indirect_entries GEN2_MOVES, MovesGen2
+	indirect_table_end
+
+PUSHS
+
+SECTION "Moves Gen 1", ROMX
 	table_width MOVE_LENGTH, Moves
 	move POUND,        EFFECT_NORMAL_HIT,         40, NORMAL,       100, 35,   0
 	move KARATE_CHOP,  EFFECT_NORMAL_HIT,         50, FIGHTING,     100, 25,   0
@@ -164,7 +172,7 @@ Moves:
 	move FLASH,        EFFECT_ACCURACY_DOWN_HIT,  70, FAIRY,         90, 20,  20
 	move PSYWAVE,      EFFECT_LEVEL_DAMAGE,        1, PSYCHIC_TYPE, 100, 20,   0
 	move HAIL,         EFFECT_HAIL,                0, ICE,          100, 10,   0
-	move ACID_ARMOR,   EFFECT_DEFENSE_UP_2,        0, POISON,       100, 20,   0
+	move ACID_ARMOR,   EFFECT_DEFENSE_UP_2,        0, ROCK,       	100, 20,   0
 	move CRABHAMMER,   EFFECT_ATTACK_DOWN_HIT,    80, BUG,          100, 15,  20
 	move EXPLOSION,    EFFECT_SELFDESTRUCT,      250, NORMAL,       100,  5,   0
 	move FURY_SWIPES,  EFFECT_MULTI_HIT,          25, NORMAL,        85, 15,   0
@@ -179,6 +187,11 @@ Moves:
 	move SLASH,        EFFECT_NORMAL_HIT,         70, STEEL,        100, 20,   0
 	move SUBSTITUTE,   EFFECT_SUBSTITUTE,          0, NORMAL,       100, 10,   0
 	move STRUGGLE,     EFFECT_RECOIL_HIT,         50, NORMAL,       100,  1,   0
+.IndirectEnd::
+
+SECTION "Moves Gen 2", ROMX
+
+MovesGen2:
 	move SKETCH,       EFFECT_SKETCH,              0, NORMAL,       100,  1,   0
 	move TRIPLE_KICK,  EFFECT_TRIPLE_KICK,        10, FIGHTING,      90, 15,   0
 	move THIEF,        EFFECT_THIEF,              60, DARK,         100, 25, 100
@@ -265,4 +278,6 @@ Moves:
 	move ROCK_SMASH,   EFFECT_DEFENSE_DOWN_HIT,   50, FIGHTING,     100, 20,  50
 	move WHIRLPOOL,    EFFECT_TRAP_TARGET,        35, WATER,         85, 15,   0
 	move BEAT_UP,      EFFECT_BEAT_UP,            40, DARK,         100, 10,   0
-	assert_table_length NUM_ATTACKS
+.IndirectEnd::
+
+POPS
