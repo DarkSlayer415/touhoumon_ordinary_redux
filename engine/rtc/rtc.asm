@@ -1,15 +1,3 @@
-StopRTC: ; unreferenced
-	ld a, SRAM_ENABLE
-	ld [MBC3SRamEnable], a
-	call LatchClock
-	ld a, RTC_DH
-	ld [MBC3SRamBank], a
-	ld a, [MBC3RTC]
-	set 6, a ; halt
-	ld [MBC3RTC], a
-	call CloseSRAM
-	ret
-
 StartRTC:
 	ld a, SRAM_ENABLE
 	ld [MBC3SRamEnable], a
@@ -53,13 +41,7 @@ TimesOfDay:
 	db NITE_HOUR, DAY_F
 	db MAX_HOUR,  NITE_F
 	db -1, MORN_F
-
-BetaTimesOfDay: ; unreferenced
-	db 20, NITE_F
-	db 40, MORN_F
-	db 60, DAY_F
-	db -1, MORN_F
-
+	
 StageRTCTimeForSave:
 	call UpdateTime
 	ld hl, wRTC
@@ -135,16 +117,6 @@ ClockContinue:
 
 .time_overflow
 	farcall ClearDailyTimers
-	farcall Function170923
-	ld a, BANK(s5_aa8c) ; aka BANK(s5_b2fa)
-	call OpenSRAM
-	ld a, [s5_aa8c]
-	inc a
-	ld [s5_aa8c], a
-	ld a, [s5_b2fa]
-	inc a
-	ld [s5_b2fa], a
-	call CloseSRAM
 	ret
 
 .dont_update

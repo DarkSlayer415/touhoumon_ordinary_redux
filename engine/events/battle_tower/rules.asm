@@ -1,29 +1,3 @@
-CheckForMobileBattleRules:
-	ld de, .PointerTables
-	call BattleTower_ExecuteJumptable
-	ret z
-	call BattleTower_PleaseReturnWhenReady
-	scf
-	ret
-
-.PointerTables:
-	db 2
-	dw .Functions
-	dw .TextPointers
-
-.Functions:
-	dw BattleTower_CheckPartyLengthIs3
-	dw BattleTower_CheckPartyHasThreeMonsThatAreNotEggs
-
-.TextPointers:
-	dw .BTExcuseMeText
-	dw NeedAtLeastThreeMonText
-	dw EggDoesNotQualifyText
-
-.BTExcuseMeText:
-	text_far _BTExcuseMeText
-	text_end
-
 _CheckForBattleTowerRules:
 	ld hl, wStringBuffer2
 	ld [hl], "3"

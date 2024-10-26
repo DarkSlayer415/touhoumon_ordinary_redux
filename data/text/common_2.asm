@@ -262,36 +262,6 @@ _MysteryGiftSentHomeText::
 	text "'s home."
 	prompt
 
-_NameCardReceivedCardText::
-	text "Received"
-	line "@"
-	text_ram wMysteryGiftCardHolderName
-	text "'s CARD."
-	prompt
-
-_NameCardListedCardText::
-	text_ram wMysteryGiftCardHolderName
-	text "'s CARD was"
-	line "listed as no.@"
-	text_decimal wTextDecimalByte, 1, 2
-	text "."
-	prompt
-
-_NameCardNotRegisteredCardText::
-	text "The CARD was not"
-	line "registered."
-	prompt
-
-_NameCardLinkCancelledText::
-	text "The link has been"
-	line "cancelled."
-	prompt
-
-_NameCardLinkCommErrorText::
-	text "Communication"
-	line "error."
-	prompt
-
 _BadgeRequiredText::
 	text "Sorry! A new BADGE"
 	line "is required."
@@ -305,47 +275,45 @@ _CantUseItemText::
 _UseCutText::
 	text_ram wStringBuffer2
 	text " used"
-	line "CUT!"
+	line "Cut!"
 	prompt
 
 _CutNothingText::
 	text "There's nothing to"
-	line "CUT here."
+	line "Cut here."
 	prompt
 
 _BlindingFlashText::
-	text "A blinding FLASH"
+	text "A blinding Flash"
 	line "lights the area!@"
 	text_promptbutton
 	text_end
 
-	text_end ; unreferenced
-
 _UsedSurfText::
 	text_ram wStringBuffer2
 	text " used"
-	line "SURF!"
+	line "Surf!"
 	done
 
 _CantSurfText::
-	text "You can't SURF"
+	text "You can't Surf"
 	line "here."
 	prompt
 
 _AlreadySurfingText::
 	text "You're already"
-	line "SURFING."
+	line "surfing."
 	prompt
 
 _AskSurfText::
 	text "The water is calm."
-	line "Want to SURF?"
+	line "Want to Surf?"
 	done
 
 _UseWaterfallText::
 	text_ram wStringBuffer2
 	text " used"
-	line "WATERFALL!"
+	line "Waterfall!"
 	done
 
 _HugeWaterfallText::
@@ -355,13 +323,13 @@ _HugeWaterfallText::
 
 _AskWaterfallText::
 	text "Do you want to use"
-	line "WATERFALL?"
+	line "Waterfall?"
 	done
 
 _UseDigText::
 	text_ram wStringBuffer2
 	text " used"
-	line "DIG!"
+	line "Dig!"
 	done
 
 _UseEscapeRopeText::
@@ -388,13 +356,13 @@ _CantUseTeleportText::
 
 _AlreadyUsingStrengthText::
 	text "A #MON is using"
-	line "STRENGTH already."
+	line "Strength already."
 	prompt
 
 _UseStrengthText::
 	text_ram wStringBuffer2
 	text " used"
-	line "STRENGTH!"
+	line "Strength!"
 	done
 
 _MoveBoulderText::
@@ -408,7 +376,7 @@ _AskStrengthText::
 	line "able to move this."
 
 	para "Want to use"
-	line "STRENGTH?"
+	line "Strength?"
 	done
 
 _BouldersMoveText::
@@ -424,7 +392,7 @@ _BouldersMayMoveText::
 _UseWhirlpoolText::
 	text_ram wStringBuffer2
 	text " used"
-	line "WHIRLPOOL!"
+	line "Whirlpool!"
 	prompt
 
 _MayPassWhirlpoolText::
@@ -440,13 +408,13 @@ _AskWhirlpoolText::
 	line "the way."
 
 	para "Want to use"
-	line "WHIRLPOOL?"
+	line "Whirlpool?"
 	done
 
 _UseHeadbuttText::
 	text_ram wStringBuffer2
 	text " did a"
-	line "HEADBUTT!"
+	line "Headbutt!"
 	prompt
 
 _HeadbuttNothingText::
@@ -457,14 +425,14 @@ _AskHeadbuttText::
 	text "A #MON could be"
 	line "in this tree."
 
-	para "Want to HEADBUTT"
+	para "Want to Headbutt"
 	line "it?"
 	done
 
 _UseRockSmashText::
 	text_ram wStringBuffer2
 	text " used"
-	line "ROCK SMASH!"
+	line "Rock Smash!"
 	prompt
 
 _MaySmashText::
@@ -476,8 +444,8 @@ _AskRockSmashText::
 	text "This rock looks"
 	line "breakable."
 
-	para "Want to use ROCK"
-	line "SMASH?"
+	para "Want to use Rock"
+	line "Smash?"
 	done
 
 _RodBiteText::
@@ -487,11 +455,6 @@ _RodBiteText::
 
 _RodNothingText::
 	text "Not even a nibble!"
-	prompt
-
-_UnusedNothingHereText::
-	text "Looks like there's"
-	line "nothing here."
 	prompt
 
 _CantGetOffBikeText::
@@ -634,10 +597,6 @@ _AnEggCantHoldAnItemText::
 	line "an item."
 	prompt
 
-_PackNoItemText::
-	text "No items."
-	done
-
 _AskThrowAwayText::
 	text "Throw away how"
 	line "many?"
@@ -691,11 +650,6 @@ _PackEmptyText::
 	text_start
 	done
 
-_YouCantUseItInABattleText::
-	text "You can't use it"
-	line "in a battle."
-	prompt
-
 _AreYouABoyOrAreYouAGirlText::
 	text "Are you girlish?"
 	line "Or tomboyish?"
@@ -706,8 +660,6 @@ Text_BattleEffectActivate::
 	line "@"
 	text_ram wStringBuffer2
 	text_end
-
-	text_end ; unreferenced
 
 _BattleStatWentWayUpText::
 	text_pause
@@ -723,8 +675,6 @@ Text_BattleFoeEffectActivate::
 	line "@"
 	text_ram wStringBuffer2
 	text_end
-
-	text_end ; unreferenced
 
 _BattleStatSharplyFellText::
 	text_pause
@@ -805,8 +755,6 @@ _BreedEggHatchText::
 	sound_caught_mon
 	text_promptbutton
 	text_end
-
-	text_end ; unreferenced
 
 _BreedAskNicknameText::
 	text "Give a nickname to"
@@ -897,29 +845,6 @@ _MailMovedFromBoxText::
 	text "The MAIL was moved"
 	line "from the MAILBOX."
 	prompt
-
-_YesPromptText:: ; unreferenced
-	text "Yes"
-	prompt
-
-_NoPromptText:: ; unreferenced
-	text "No"
-	prompt
-
-_AnimationTypeText:: ; unreferenced
-	text_decimal wcf64, 1, 3
-	text " @"
-	text_ram wStringBuffer1
-	text_start
-	line "Animation type @"
-	text_ram wStringBuffer2
-	text_end
-
-	text_end ; unreferenced
-
-_MonNumberText:: ; unreferenced
-	text "#MON number?"
-	done
 
 _WasSentToBillsPCText::
 	text_ram wStringBuffer1
@@ -1062,8 +987,6 @@ _KarpGuruRecordText::
 	text_ram wMagikarpRecordHoldersName
 	text_promptbutton
 	text_end
-
-	text_end ; unreferenced
 
 _LuckyNumberMatchPartyText::
 	text "Congratulations!"
@@ -1357,27 +1280,6 @@ _OakPCText4::
 	line "OAK's PC closed."
 	done
 
-_TrainerRankingExplanationText:: ; unreferenced
-	text "Triple-theme"
-	line "trainer ranking!"
-
-	para "The SAVE file you"
-	line "just sent might"
-	cont "make the rankings!"
-
-	para ""
-	done
-
-_TrainerRankingNoDataText:: ; unreferenced
-	text "There is no"
-	line "ranking data."
-
-	para "Link to obtain"
-	line "ranking data."
-
-	para ""
-	done
-
 _MemoryGameYeahText::
 	text " , yeah!"
 	done
@@ -1556,8 +1458,6 @@ _OakText2::
 _OakText3::
 	text_promptbutton
 	text_end
-
-	text_end ; unreferenced
 
 _OakText4::
 	text "People and #MON"

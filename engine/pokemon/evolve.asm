@@ -317,9 +317,7 @@ EvolveAfterBattle_MasterLoop:
 .dont_evolve_3
 	inc hl
 	jp .loop
-
-.UnusedReturnToMap: ; unreferenced
-	pop hl
+	
 .ReturnToMap:
 	pop de
 	pop bc

@@ -57,12 +57,6 @@ GameFreakGraphicArtistScript:
 	closetext
 	end
 
-.CancelPrinting: ; unreferenced
-	writetext GameFreakGraphicArtistErrorText
-	waitbutton
-	closetext
-	end
-
 GameFreakProgrammerScript:
 	jumptextfaceplayer GameFreakProgrammerText
 
@@ -142,12 +136,6 @@ GameFreakGraphicArtistRefusedText:
 	text "Give me a shout if"
 	line "you want your"
 	cont "Diploma printed."
-	done
-
-GameFreakGraphicArtistErrorText:
-	text "Something's wrong."
-	line "I'll have to can-"
-	cont "cel printing."
 	done
 
 GameFreakProgrammerText:

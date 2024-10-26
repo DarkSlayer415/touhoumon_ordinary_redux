@@ -2,15 +2,15 @@ TrainerClassDVs:
 ; entries correspond to trainer classes (see constants/trainer_constants.asm)
 	table_width 2, TrainerClassDVs
 	;  atk,def,spd,spc
-	dn  9, 10,  7,  7 ; FALKNER
-	dn  8,  8,  8,  8 ; WHITNEY
-	dn  9,  8,  8,  8 ; BUGSY
-	dn  9,  8,  8,  8 ; MORTY
-	dn  9,  8,  8,  8 ; PRYCE
-	dn  9,  8,  8,  8 ; JASMINE
-	dn  9,  8,  8,  8 ; CHUCK
-	dn  7, 12, 13, 13 ; CLAIR
-	dn 13, 13, 13, 13 ; RIVAL1
+	dn 15, 15, 15, 15 ; FALKNER
+	dn 15, 15, 15, 15 ; WHITNEY
+	dn 15, 15, 15, 15 ; BUGSY
+	dn 15, 15, 15, 15 ; MORTY
+	dn 15, 15, 15, 15 ; PRYCE
+	dn 15, 15, 15, 15 ; JASMINE
+	dn 15, 15, 15, 15 ; CHUCK
+	dn 15, 15, 15, 15 ; CLAIR
+	dn 15, 15, 15, 15 ; RIVAL1
 	dn  9,  8,  8,  8 ; POKEMON_PROF
 	dn 15, 15, 15, 15 ; WILL
 	dn 15, 15, 15, 15 ; CAL
@@ -52,11 +52,11 @@ TrainerClassDVs:
 	dn  9,  8,  8,  8 ; FIREBREATHER
 	dn  9,  8,  8,  8 ; JUGGLER
 	dn  9,  8,  8,  8 ; BLACKBELT_T
-	dn 13,  8, 10,  8 ; EXECUTIVEM
+	dn 15, 15, 15, 15 ; EXECUTIVEM
 	dn  9,  8,  8,  8 ; PSYCHIC_T
 	dn  6, 10, 10,  8 ; PICNICKER
 	dn  9,  8,  8,  8 ; CAMPER
-	dn  7, 14, 10,  8 ; EXECUTIVEF
+	dn 15, 15, 15, 15 ; EXECUTIVEF
 	dn  9,  8,  8,  8 ; SAGE
 	dn  7,  8,  8,  8 ; MEDIUM
 	dn  9,  8,  8,  8 ; BOARDER
@@ -68,5 +68,5 @@ TrainerClassDVs:
 	dn 15, 15, 15, 15 ; BLUE
 	dn  9,  8,  8,  8 ; OFFICER
 	dn  7, 14, 10,  8 ; GRUNTF
-	dn  9,  8,  8,  8 ; MYSTICALMAN
+	dn 15, 15, 15, 15 ; MYSTICALMAN
 	assert_table_length NUM_TRAINER_CLASSES

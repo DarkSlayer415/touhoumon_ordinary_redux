@@ -371,8 +371,8 @@ MewtwoEggMoves:
 	db -1 ; end
 
 ChikoritaEggMoves:
-	db CHARM
-	db COTTON_SPORE
+	db MYSTIC_BOMB
+	db SACRED_FIRE
 	db COUNTER
 	db MIRROR_COAT
 	db HEAL_BELL
@@ -382,7 +382,7 @@ CyndaquilEggMoves:
 	db PURSUIT
 	db THRASH
 	db REVERSAL
-	db HI_JUMP_KICK
+	db ANCIENTPOWER
 	db OUTRAGE
 	db -1 ; end
 
@@ -446,7 +446,7 @@ CleffaEggMoves:
 	db BEAT_UP
 	db PERISH_SONG
 	db SELFDESTRUCT
-	db SOFTBOILED
+	db RECOVER
 	db MIMIC
 	db -1 ; end
 

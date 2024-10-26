@@ -159,7 +159,6 @@ WildFled_EnemyFled_LinkBattleCanceled:
 
 BattleTurn:
 .loop
-	call Stubbed_Increments5_a89a
 	call CheckContestBattleOver
 	jp c, .quit
 
@@ -228,24 +227,6 @@ BattleTurn:
 	jp .loop
 
 .quit
-	ret
-
-Stubbed_Increments5_a89a:
-	ret
-	ld a, BANK(s5_a89a) ; MBC30 bank used by JP Crystal; inaccessible by MBC3
-	call OpenSRAM
-	ld hl, s5_a89a + 1 ; address of MBC30 bank
-	inc [hl]
-	jr nz, .finish
-	dec hl
-	inc [hl]
-	jr nz, .finish
-	dec [hl]
-	inc hl
-	dec [hl]
-
-.finish
-	call CloseSRAM
 	ret
 
 HandleBetweenTurnEffects:
@@ -2377,8 +2358,6 @@ WinTrainerBattle:
 	ld hl, BattleText_EnemyWasDefeated
 	call StdBattleTextbox
 
-	call IsMobileBattle
-	jr z, .mobile
 	ld a, [wLinkMode]
 	and a
 	ret nz
@@ -2404,14 +2383,6 @@ WinTrainerBattle:
 .skip_win_loss_text
 
 	jp .give_money
-
-.mobile
-	call BattleWinSlideInEnemyTrainerFrontpic
-	ld c, 40
-	call DelayFrames
-	ld c, $4 ; win
-	farcall Mobile_PrintOpponentBattleMessage
-	ret
 
 .battle_tower
 	call BattleWinSlideInEnemyTrainerFrontpic
@@ -2997,28 +2968,11 @@ LostBattle:
 
 .not_tied
 	ld hl, LostAgainstText
-	call IsMobileBattle
-	jr z, .mobile
 
 .text
 	call StdBattleTextbox
 
 .end
-	scf
-	ret
-
-.mobile
-; Remove the enemy from the screen.
-	hlcoord 0, 0
-	lb bc, 8, 21
-	call ClearBox
-	call BattleWinSlideInEnemyTrainerFrontpic
-
-	ld c, 40
-	call DelayFrames
-
-	ld c, $3 ; lost
-	farcall Mobile_PrintOpponentBattleMessage
 	scf
 	ret
 
@@ -9021,13 +8975,6 @@ BattleStartMessage:
 	farcall BattleStart_TrainerHuds
 	pop hl
 	call StdBattleTextbox
-
-	call IsMobileBattle2
-	ret nz
-
-	ld c, $2 ; start
-	farcall Mobile_PrintOpponentBattleMessage
-
 	ret
 	
 GetWeatherImage:

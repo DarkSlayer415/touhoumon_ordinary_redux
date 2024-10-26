@@ -365,87 +365,6 @@ Strings_4a23d:
 
 	db   "@"
 
-Function4a28a:
-	hlcoord 2, 3
-	lb bc, 6, 1
-	ld a, " "
-	call Function4a6d8
-	call PlaceHollowCursor
-	call WaitBGMap
-	call LoadStandardMenuHeader
-	ld a, $5
-	call OpenSRAM
-	ld a, [$aa4b]
-	call CloseSRAM
-	and a
-	jr z, .asm_4a2df
-	hlcoord 12, 0
-	ld b, $5
-	ld c, $6
-	call Function48cdc
-	hlcoord 14, 1
-	ld de, String_4a34b
-	call PlaceString
-	farcall Mobile_HDMATransferTilemapAndAttrmap_Menu
-	call Function4a118
-	call ScrollingMenuJoypad
-	push af
-	call PlayClickSFX
-	pop af
-	bit B_BUTTON_F, a
-	jr nz, .quit
-	ld a, [wMenuCursorY]
-	cp $2
-	jr z, .DeleteLoginPassword
-	cp $3
-	jr z, .quit
-.asm_4a2df
-	farcall Function11765d
-	call ClearBGPalettes
-	call Call_ExitMenu
-	call LoadFontsExtra
-	scf
-	ret
-
-.DeleteLoginPassword:
-	call PlaceHollowCursor
-	ld hl, DeleteSavedLoginPasswordText
-	call PrintText
-	hlcoord 14, 7
-	ld b, 3
-	ld c, 4
-	call Textbox
-	farcall Mobile_HDMATransferTilemapAndAttrmap_Menu
-	ld hl, DeletePassword_YesNo_MenuHeader
-	call LoadMenuHeader
-	call VerticalMenu
-	bit B_BUTTON_F, a
-	jr nz, .dont_delete_password
-	ld a, [wMenuCursorY]
-	cp $2
-	jr z, .dont_delete_password
-	ld a, BANK(sMobileLoginPassword)
-	call OpenSRAM
-	ld hl, sMobileLoginPassword
-	xor a
-	ld bc, MOBILE_LOGIN_PASSWORD_LENGTH
-	call ByteFill
-	call CloseSRAM
-	ld hl, DeletedTheLoginPasswordText
-	call PrintText
-	call JoyWaitAorB
-.dont_delete_password
-	call ExitMenu
-.quit
-	call Call_ExitMenu
-	farcall Mobile_HDMATransferTilemapAndAttrmap_Menu
-	xor a
-	ret
-
-MenuHeader_0x4a346: ; unreferenced
-	db MENU_BACKUP_TILES ; flags
-	menu_coords 12, 0, SCREEN_WIDTH - 1, 6
-
 String_4a34b:
 	db   "いれなおす"
 	next "けす"
@@ -496,13 +415,6 @@ Function4a373:
 	ld a, $1
 	ld [hli], a
 	ld [hli], a
-	ret
-
-Function4a39a: ; unreferenced
-	call Function4a485
-	call Function4a492
-	call Function4a3aa
-	call SetDefaultBGPAndOBP
 	ret
 
 Function4a3a7:
@@ -840,9 +752,3 @@ Function4a6d8:
 	dec b
 	jr nz, Function4a6d8
 	ret
-
-if DEF(_DEBUG)
-MainMenu_DebugRoom:
-	farcall _DebugRoom
-	ret
-endc

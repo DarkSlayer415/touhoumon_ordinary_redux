@@ -78,14 +78,6 @@ NewGame:
 	jp FinishContinueFunction
 
 PlayerProfileSetup:
-	farcall CheckMobileAdapterStatus
-	jr c, .ok
-	farcall InitGender
-	ret
-.ok
-	ld c, 0
-	farcall InitMobileProfile
-	ret
 
 if DEF(_DEBUG)
 DebugRoom: ; unreferenced
@@ -368,7 +360,6 @@ Continue:
 	ld a, HIGH(MUSIC_NONE)
 	ld [wMusicFadeID + 1], a
 	call ClearBGPalettes
-	call Continue_MobileAdapterMenu
 	call CloseWindow
 	call ClearTilemap
 	ld c, 20
@@ -401,33 +392,6 @@ PostCreditsSpawn:
 	ld [wSpawnAfterChampion], a
 	ld a, MAPSETUP_WARP
 	ldh [hMapEntryMethod], a
-	ret
-
-Continue_MobileAdapterMenu: ; unused
-	farcall CheckMobileAdapterStatus
-	ret nc
-	ld hl, wd479
-	bit 1, [hl]
-	ret nz
-	ld a, 5
-	ld [wMusicFade], a
-	ld a, LOW(MUSIC_MOBILE_ADAPTER_MENU)
-	ld [wMusicFadeID], a
-	ld a, HIGH(MUSIC_MOBILE_ADAPTER_MENU)
-	ld [wMusicFadeID + 1], a
-	ld c, 20
-	call DelayFrames
-	ld c, $1
-	farcall InitMobileProfile ; mobile
-	farcall _SaveData
-	ld a, 8
-	ld [wMusicFade], a
-	ld a, LOW(MUSIC_NONE)
-	ld [wMusicFadeID], a
-	ld a, HIGH(MUSIC_NONE)
-	ld [wMusicFadeID + 1], a
-	ld c, 35
-	call DelayFrames
 	ret
 
 ConfirmContinue:
@@ -671,7 +635,7 @@ OakSpeech:
 
 	ld b, SCGB_TRAINER_OR_MON_FRONTPIC_PALS
 	call GetSGBLayout
-	call Intro_WipeInFrontpic
+	call Intro_RotatePalettesLeftFrontpic
 
 	ld hl, OakText2
 	call PrintText
@@ -879,21 +843,6 @@ IntroFadePalettes:
 	dc 3, 3, 1, 0
 	dc 3, 2, 1, 0
 .End
-
-Intro_WipeInFrontpic:
-	ld a, $77
-	ldh [hWX], a
-	call DelayFrame
-	ld a, %11100100
-	call DmgToCgbBGPals
-.loop
-	call DelayFrame
-	ldh a, [hWX]
-	sub $8
-	cp -1
-	ret z
-	ldh [hWX], a
-	jr .loop
 
 Intro_PrepTrainerPic:
 	ld de, vTiles2

@@ -97,16 +97,13 @@ OlivineLighthouseJasmine:
 	closetext
 	end
 
-.Unused: ; unreferenced
-	end
-
 OlivineLighthouseAmphy:
 	faceplayer
 	opentext
 	checkevent EVENT_JASMINE_RETURNED_TO_GYM
 	iftrue .HealthyNow
 	writetext AmphyPalPalooText
-	setval AMPHAROS
+	setval JOLTEON
 	special PlaySlowCry
 	promptbutton
 	writetext AmphyBreathingLaboredText
@@ -116,7 +113,7 @@ OlivineLighthouseAmphy:
 
 .HealthyNow:
 	writetext AmphyPaluPaluluText
-	cry AMPHAROS
+	cry JOLTEON
 	waitbutton
 	closetext
 	special FadeOutToWhite
@@ -125,8 +122,8 @@ OlivineLighthouseAmphy:
 	special FadeInFromWhite
 	end
 
-OlivineLighthouse6FSuperPotion:
-	itemball SUPER_POTION
+OlivineLighthouse6FThunderStone:
+	itemball THUNDERSTONE
 
 OlivineLighthouseJasmineLeavesUpMovement:
 	slow_step UP
@@ -270,4 +267,4 @@ OlivineLighthouse6F_MapEvents:
 	def_object_events
 	object_event  8,  8, SPRITE_JASMINE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, OlivineLighthouseJasmine, EVENT_OLIVINE_LIGHTHOUSE_JASMINE
 	object_event  9,  8, SPRITE_WEEDLE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, OlivineLighthouseAmphy, -1
-	object_event  3,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, OlivineLighthouse6FSuperPotion, EVENT_OLIVINE_LIGHTHOUSE_6F_SUPER_POTION
+	object_event  3,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, OlivineLighthouse6FSuperPotion, EVENT_OLIVINE_LIGHTHOUSE_6F_THUNDERSTONE

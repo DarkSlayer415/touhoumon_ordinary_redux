@@ -285,9 +285,8 @@ MenuBoxCoord2Attr::
 	ld c, a
 	ld a, [wMenuBorderTopCoord]
 	ld b, a
-	; fallthrough
 
-Coord2Attr:: ; unreferenced
+;Coord2Attr
 ; Return the address of wAttrmap(c, b) in hl.
 	xor a
 	ld h, a
@@ -319,10 +318,6 @@ CopyMenuHeader::
 	call CopyBytes
 	ldh a, [hROMBank]
 	ld [wMenuDataBank], a
-	ret
-
-StoreMenuCursorPosition::
-	ld [wMenuCursorPosition], a
 	ret
 
 MenuTextbox::
@@ -449,8 +444,9 @@ _YesNoBox::
 	add 4
 	ld [wMenuBorderBottomCoord], a
 	call PushWindow
+	;fallthrough
 
-InterpretTwoOptionMenu::
+;InterpretTwoOptionMenu
 	call VerticalMenu
 	push af
 	ld c, $f

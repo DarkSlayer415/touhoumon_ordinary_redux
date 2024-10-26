@@ -7,11 +7,9 @@ BattleAnimations::
 	indirect_entries $ffff, BattleAnimationsNegatives
 	indirect_table_end
 
-
 SECTION "Battle Animations Gen 1", ROMX
 
 INCLUDE "data/moves/animations_gen1.asm"
-
 
 SECTION "Battle Animations Gen 2", ROMX
 

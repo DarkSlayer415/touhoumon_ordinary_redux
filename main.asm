@@ -61,7 +61,6 @@ INCLUDE "engine/events/repel.asm"
 INCLUDE "engine/events/hidden_item.asm"
 INCLUDE "engine/events/std_collision.asm"
 INCLUDE "engine/events/pokerus/apply_pokerus_tick.asm"
-INCLUDE "engine/pokemon/correct_party_errors.asm"
 
 
 
@@ -185,9 +184,7 @@ INCLUDE "engine/events/move_tutor.asm"
 INCLUDE "engine/gfx/crystal_layouts.asm"
 INCLUDE "engine/events/celebi.asm"
 INCLUDE "engine/menus/main_menu.asm"
-INCLUDE "mobile/mobile_menu.asm"
 INCLUDE "engine/pokemon/search_owned.asm"
-INCLUDE "mobile/mobile_12_2.asm"
 INCLUDE "engine/events/buena_menu.asm"
 
 
@@ -222,7 +219,6 @@ INCLUDE "engine/movie/evolution_animation.asm"
 INCLUDE "engine/movie/init_hof_credits.asm"
 INCLUDE "engine/events/battle_tower/get_trainer_class.asm"
 INCLUDE "engine/battle/sliding_intro.asm"
-INCLUDE "mobile/print_opp_message.asm"
 INCLUDE "engine/battle/check_battle_scene.asm"
 INCLUDE "engine/movie/gbc_only.asm"
 INCLUDE "engine/events/poke_seer.asm"
@@ -290,12 +286,10 @@ SECTION "Crystal Features 2", ROMX
 
 INCLUDE "engine/events/kurt.asm"
 INCLUDE "engine/gfx/player_gfx.asm"
-INCLUDE "mobile/mobile_22.asm"
 INCLUDE "engine/events/unown_walls.asm"
 INCLUDE "engine/events/buena.asm"
 INCLUDE "engine/events/dratini.asm"
 INCLUDE "engine/events/battle_tower/rules.asm"
-INCLUDE "mobile/mobile_22_2.asm"
 
 
 SECTION "bank23", ROMX
@@ -476,12 +470,6 @@ SECTION "Move Animation Framesets", ROMX
 
 INCLUDE "engine/battle_anims/framesets.asm"
 
-
-SECTION "mobile42", ROMX
-
-INCLUDE "mobile/mobile_42.asm"
-
-
 SECTION "Title", ROMX
 
 INCLUDE "engine/movie/unused_title.asm"
@@ -491,7 +479,6 @@ INCLUDE "engine/movie/title.asm"
 SECTION "mobile45", ROMX
 
 INCLUDE "mobile/mobile_45_sprite_engine.asm"
-INCLUDE "mobile/mobile_45_2.asm"
 INCLUDE "mobile/mobile_45_stadium.asm"
 
 
@@ -507,7 +494,6 @@ INCLUDE "engine/events/battle_tower/trainer_text.asm"
 
 SECTION "bank5B", ROMX
 
-INCLUDE "mobile/mobile_5b.asm"
 INCLUDE "engine/link/link_trade.asm"
 
 
@@ -538,12 +524,6 @@ INCLUDE "data/phone/text/gina_caller.asm"
 SECTION "UpdateBattleHUDs", ROMX
 
 INCLUDE "engine/battle/update_battle_huds.asm"
-
-
-SECTION "mobile5E", ROMX
-
-INCLUDE "mobile/mobile_5e.asm"
-
 
 SECTION "mobile5F", ROMX
 
@@ -645,12 +625,6 @@ INCLUDE "data/battle_tower/trainer_text.asm"
 SECTION "Battle Tower Trainer Data", ROMX
 
 INCLUDE "data/battle_tower/unknown.asm"
-
-
-SECTION "Mobile News Data", ROMX
-
-INCLUDE "mobile/news/news.asm"
-
 
 SECTION "Crystal Events", ROMX
 

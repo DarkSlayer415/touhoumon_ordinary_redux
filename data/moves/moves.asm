@@ -21,7 +21,8 @@ Moves::
 PUSHS
 
 SECTION "Moves Gen 1", ROMX
-	table_width MOVE_LENGTH, Moves
+
+MovesGen1:
 	move POUND,        EFFECT_NORMAL_HIT,         40, NORMAL,       100, 35,   0
 	move KARATE_CHOP,  EFFECT_NORMAL_HIT,         50, FIGHTING,     100, 25,   0
 	move DOUBLESLAP,   EFFECT_MULTI_HIT,          15, NORMAL,        90, 20,   0

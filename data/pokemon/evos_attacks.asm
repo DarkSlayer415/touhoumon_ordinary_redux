@@ -1193,7 +1193,7 @@ PoliwrathEvosAttacks:
 	db 48, DESTINY_BOND
 	db 52, HYDRO_PUMP
 	db 55, PHANTOM_DAZE
-	db 58, GUILLOTINE
+	db 60, GUILLOTINE
 	db 0 ; no more level-up moves
 
 AbraEvosAttacks:
@@ -1465,6 +1465,7 @@ PonytaEvosAttacks:
 	db 1, TACKLE
 	db 1, SHARPEN
 	db 5, QUICK_ATTACK
+	db 8, FOCUS_ENERGY
 	db 11, BITE
 	db 15, METAL_CLAW
 	db 18, HEADBUTT
@@ -1484,6 +1485,7 @@ RapidashEvosAttacks:
 	db 1, TACKLE
 	db 1, SHARPEN
 	db 5, QUICK_ATTACK
+	db 8, FOCUS_ENERGY
 	db 11, BITE
 	db 15, METAL_CLAW
 	db 18, HEADBUTT
@@ -2245,12 +2247,12 @@ GoldeenEvosAttacks:
 	db 7, THUNDERSHOCK
 	db 11, VINE_WHIP
 	db 13, TWISTER
-	db 16, THUNDER_WAVE
-	db 20, CONSTRICT
-	db 24, SPARK
+	db 16, CONSTRICT
+	db 20, SPARK
+	db 24, THUNDER_WAVE
 	db 28, SONICBOOM
 	db 32, MORNING_SUN
-	db 36, THUNDERBOLT
+	db 35, THUNDERBOLT
 	db 42, SAFEGUARD
 	db 46, DRAGON_RAGE
 	db 50, RECOVER
@@ -2266,12 +2268,12 @@ SeakingEvosAttacks:
 	db 7, THUNDERSHOCK
 	db 11, VINE_WHIP
 	db 13, TWISTER
-	db 16, THUNDER_WAVE
-	db 20, CONSTRICT
-	db 24, SPARK
+	db 16, CONSTRICT
+	db 20, SPARK
+	db 24, THUNDER_WAVE
 	db 28, SONICBOOM
-	db 34, MORNING_SUN
-	db 40, THUNDERBOLT
+	db 32, MORNING_SUN
+	db 35, THUNDERBOLT
 	db 44, SAFEGUARD
 	db 48, DRAGON_RAGE
 	db 52, RECOVER
@@ -2378,6 +2380,7 @@ ElectabuzzEvosAttacks:
 	db 1, TACKLE
 	db 1, SHARPEN
 	db 5, QUICK_ATTACK
+	db 8, FOCUS_ENERGY
 	db 11, BITE
 	db 15, METAL_CLAW
 	db 18, HEADBUTT
@@ -2806,8 +2809,8 @@ DragonairEvosAttacks:
 	db 37, SNORE
 	db 45, FUTURE_SIGHT
 	db 50, DREAM_EATER
-	db 53, MYSTIC_BOMB
-	db 53, PHANTOM_DAZE
+	db 54, MYSTIC_BOMB
+	db 54, PHANTOM_DAZE
 	db 0 ; no more level-up moves
 
 DragoniteEvosAttacks:
@@ -3806,8 +3809,8 @@ MurkrowEvosAttacks:
 	db 7, THUNDERSHOCK
 	db 11, VINE_WHIP
 	db 13, TWISTER
-	db 16, THUNDER_WAVE
-	db 20, CONSTRICT
+	db 16, CONSTRICT
+	db 20, THUNDER_WAVE
 	db 24, SPARK
 	db 28, SONICBOOM
 	db 30, MORNING_SUN

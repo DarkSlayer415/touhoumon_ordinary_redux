@@ -2066,7 +2066,7 @@ SuperRepelEffect:
 	jr UseRepel
 
 MaxRepelEffect:
-	ld b, 250
+	ld b, 300
 	jr UseRepel
 
 RepelEffect:
@@ -2645,18 +2645,6 @@ IsntTheTimeMessage:
 WontHaveAnyEffectMessage:
 	ld hl, ItemWontHaveEffectText
 	jr CantUseItemMessage
-
-BelongsToSomeoneElseMessage: ; unreferenced
-	ld hl, ItemBelongsToSomeoneElseText
-	jr CantUseItemMessage
-
-CyclingIsntAllowedMessage: ; unreferenced
-	ld hl, NoCyclingText
-	jr CantUseItemMessage
-
-CantGetOnYourBikeMessage: ; unreferenced
-	ld hl, ItemCantGetOnText
-	; fallthrough
 
 CantUseItemMessage:
 ; Item couldn't be used.
