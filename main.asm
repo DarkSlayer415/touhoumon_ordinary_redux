@@ -450,12 +450,6 @@ INCLUDE "engine/tilesets/tileset_anims.asm"
 INCLUDE "engine/events/npc_trade.asm"
 INCLUDE "engine/events/mom_phone.asm"
 
-
-SECTION "mobile40", ROMX
-
-INCLUDE "mobile/mobile_40.asm"
-
-
 SECTION "bank41", ROMX
 
 INCLUDE "engine/gfx/dma_transfer.asm"
