@@ -4,12 +4,6 @@ BattleTowerRoomMenu:
 	farcall _BattleTowerRoomMenu
 	ret
 
-Function1700ba:
-; special
-	call InitBattleTowerChallengeRAM
-	farcall Function11811a
-	ret
-
 BattleTowerBattle:
 	xor a ; FALSE
 	ld [wBattleTowerBattleEnded], a
@@ -59,6 +53,7 @@ RunBattleTowerTrainer:
 	farcall StubbedTrainerRankings_Healings
 	farcall HealParty
 	call ReadBTTrainerParty
+	call Clears5_a89a
 
 	predef StartBattle
 

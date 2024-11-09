@@ -1034,6 +1034,11 @@ _BallDontBeAThiefText::
 	text "Don't be a thief!"
 	prompt
 
+_NoCyclingText::
+	text "Cycling isn't"
+	line "allowed here."
+	prompt
+
 _BallBoxFullText::
 	text "The #MON BOX"
 	line "is full. That"

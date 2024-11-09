@@ -709,7 +709,7 @@ INCLUDE "gfx/overworld/trainer_battle_dark.pal"
 	ret
 
 PokeBallTransition:
-; 16x16 overlay of a Poke Ball
+; 16x16 overlay of a Yin-Yang (TODO)
 pusho
 opt b.X ; . = 0, X = 1
 	bigdw %......XXXX......

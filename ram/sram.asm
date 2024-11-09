@@ -246,4 +246,11 @@ sTrainerRankingsEnd::
 
 sTrainerRankingsBackup:: ds sTrainerRankingsEnd - sTrainerRankings
 
+SECTION "SRAM Bank 5", SRAM
+
+s5_a89c:: ds 22
+s5_a8b2:: ds 150
+s5_aa8d:: db
+s5_a89a:: dw
+
 ENDSECTION

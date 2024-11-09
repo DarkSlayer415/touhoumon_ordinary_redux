@@ -10,9 +10,7 @@ Pokecenter2F_MapScripts:
 	scene_script Pokecenter2FLeaveTradeCenterScene,      SCENE_POKECENTER2F_LEAVE_TRADE_CENTER
 	scene_script Pokecenter2FLeaveColosseumScene,        SCENE_POKECENTER2F_LEAVE_COLOSSEUM
 	scene_script Pokecenter2FLeaveTimeCapsuleScene,      SCENE_POKECENTER2F_LEAVE_TIME_CAPSULE
-	scene_script Pokecenter2FLeaveMobileTradeRoomScene,  SCENE_POKECENTER2F_LEAVE_MOBILE_TRADE_ROOM
-	scene_script Pokecenter2FLeaveMobileBattleRoomScene, SCENE_POKECENTER2F_LEAVE_MOBILE_BATTLE_ROOM
-
+	
 	def_callbacks
 
 Pokecenter2FCheckMysteryGiftScene:
@@ -35,14 +33,6 @@ Pokecenter2FLeaveColosseumScene:
 
 Pokecenter2FLeaveTimeCapsuleScene:
 	sdefer Script_LeftTimeCapsule
-	end
-
-Pokecenter2FLeaveMobileTradeRoomScene:
-	sdefer Script_LeftMobileTradeRoom
-	end
-
-Pokecenter2FLeaveMobileBattleRoomScene:
-	sdefer Script_LeftMobileBattleRoom
 	end
 
 Pokecenter2F_AppearMysteryGiftDeliveryGuy:
@@ -278,37 +268,11 @@ Script_LeftCableTradeCenter:
 	setmapscene TRADE_CENTER, SCENE_TRADECENTER_INITIALIZE
 	end
 
-Script_LeftMobileTradeRoom:
-	special Function101220
-	scall Script_WalkOutOfMobileTradeRoom
-	setscene SCENE_POKECENTER2F_CHECK_MYSTERY_GIFT
-	setmapscene MOBILE_TRADE_ROOM, SCENE_MOBILETRADEROOM_INITIALIZE
-	end
-
-Script_WalkOutOfMobileTradeRoom:
-	applymovement POKECENTER2F_TRADE_RECEPTIONIST, Pokecenter2FMobileMovementData_ReceptionistWalksUpAndLeft
-	applymovement PLAYER, Pokecenter2FMovementData_PlayerWalksOutOfMobileRoom
-	applymovement POKECENTER2F_TRADE_RECEPTIONIST, Pokecenter2FMobileMovementData_ReceptionistWalksRightAndDown
-	end
-
 Script_LeftCableColosseum:
 	special WaitForOtherPlayerToExit
 	scall Script_WalkOutOfLinkBattleRoom
 	setscene SCENE_POKECENTER2F_CHECK_MYSTERY_GIFT
 	setmapscene COLOSSEUM, SCENE_COLOSSEUM_INITIALIZE
-	end
-
-Script_LeftMobileBattleRoom:
-	special Function101220
-	scall Script_WalkOutOfMobileBattleRoom
-	setscene SCENE_POKECENTER2F_CHECK_MYSTERY_GIFT
-	setmapscene MOBILE_BATTLE_ROOM, SCENE_MOBILEBATTLEROOM_INITIALIZE
-	end
-
-Script_WalkOutOfMobileBattleRoom:
-	applymovement POKECENTER2F_BATTLE_RECEPTIONIST, Pokecenter2FMobileMovementData_ReceptionistWalksUpAndLeft
-	applymovement PLAYER, Pokecenter2FMovementData_PlayerWalksOutOfMobileRoom
-	applymovement POKECENTER2F_BATTLE_RECEPTIONIST, Pokecenter2FMobileMovementData_ReceptionistWalksRightAndDown
 	end
 
 Pokecenter2F_CheckGender:
@@ -526,9 +490,53 @@ Pokecenter2FMovementData_ReceptionistWalksUpAndLeft_LookRight:
 	turn_head RIGHT
 	step_end
 
+Pokecenter2FMovementData_ReceptionistStepsLeftLooksDown:
+	slow_step LEFT
+	turn_head DOWN
+	step_end
+
+Pokecenter2FMovementData_ReceptionistStepsRightLooksDown:
+	slow_step RIGHT
+	turn_head DOWN
+	step_end
+
+Pokecenter2FMovementData_ReceptionistWalksUpAndLeft_LookRight_2:
+	slow_step UP
+	slow_step LEFT
+	turn_head RIGHT
+	step_end
+
+Pokecenter2FMovementData_ReceptionistLooksRight:
+	turn_head RIGHT
+	step_end
+
 Pokecenter2FMovementData_PlayerTakesThreeStepsUp:
 	step UP
 	step UP
+	step UP
+	step_end
+
+Pokecenter2FMovementData_PlayerTakesTwoStepsUp:
+	step UP
+	step UP
+	step_end
+
+Pokecenter2FMovementData_PlayerTakesOneStepUp:
+	step UP
+	step_end
+
+Pokecenter2FMovementData_PlayerTakesTwoStepsUp_2:
+	step UP
+	step UP
+	step_end
+
+Pokecenter2FMovementData_PlayerWalksLeftAndUp:
+	step LEFT
+	step UP
+	step_end
+
+Pokecenter2FMovementData_PlayerWalksRightAndUp:
+	step RIGHT
 	step UP
 	step_end
 
@@ -538,27 +546,34 @@ Pokecenter2FMovementData_PlayerTakesThreeStepsDown:
 	step DOWN
 	step_end
 
+Pokecenter2FMovementData_PlayerTakesTwoStepsDown:
+	step DOWN
+	step DOWN
+	step_end
+
+Pokecenter2FMovementData_PlayerTakesOneStepDown:
+	step DOWN
+	step_end
+
 Pokecenter2FMovementData_ReceptionistStepsRightAndDown:
 	slow_step RIGHT
 	slow_step DOWN
 	step_end
 
-Pokecenter2FMobileMovementData_ReceptionistWalksUpAndLeft:
+Pokecenter2FMovementData_ReceptionistStepsRightLooksDown_2:
+	slow_step RIGHT
+	turn_head DOWN
+	step_end
+
+Pokecenter2FMovementData_ReceptionistStepsRightLooksDown_3:
 	slow_step UP
 	slow_step LEFT
 	turn_head RIGHT
 	step_end
 
-Pokecenter2FMovementData_PlayerWalksOutOfMobileRoom:
-	step DOWN
-	step LEFT
-	step DOWN
-	step DOWN
-	step_end
-
-Pokecenter2FMobileMovementData_ReceptionistWalksRightAndDown:
-	slow_step RIGHT
-	slow_step DOWN
+Pokecenter2FMovementData_ReceptionistStepsLeftLooksRight:
+	slow_step LEFT
+	turn_head RIGHT
 	step_end
 
 Pokecenter2FMovementData_PlayerSpinsClockwiseEndsFacingRight:
@@ -573,6 +588,45 @@ Pokecenter2FMovementData_PlayerSpinsClockwiseEndsFacingLeft:
 	turn_head LEFT
 	turn_head UP
 	turn_head RIGHT
+	turn_head LEFT
+	step_end
+
+Pokecenter2FMovementData_PlayerSpinsClockwiseEndsFacingDown:
+	turn_head DOWN
+	turn_head LEFT
+	turn_head UP
+	turn_head RIGHT
+	turn_head DOWN
+	step_end
+
+Pokecenter2FMovementData_PlayerTakesOneStepDown_2:
+	step DOWN
+	step_end
+
+Pokecenter2FMovementData_PlayerTakesTwoStepsDown_2:
+	step DOWN
+	step DOWN
+	step_end
+
+Pokecenter2FMovementData_PlayerTakesOneStepUp_2:
+	step UP
+	step_end
+	
+Pokecenter2FMovementData_PlayerTakesOneStepRight:
+	step RIGHT
+	step_end
+
+Pokecenter2FMovementData_PlayerTakesOneStepLeft:
+	step LEFT
+	step_end
+
+Pokecenter2FMovementData_ReceptionistStepsLeftLooksRight_2:
+	slow_step LEFT
+	turn_head RIGHT
+	step_end
+
+Pokecenter2FMovementData_ReceptionistStepsRightLooksLeft_2:
+	slow_step RIGHT
 	turn_head LEFT
 	step_end
 
@@ -752,8 +806,6 @@ Pokecenter2F_MapEvents:
 	warp_event  5,  0, TRADE_CENTER, 1
 	warp_event  9,  0, COLOSSEUM, 1
 	warp_event 13,  2, TIME_CAPSULE, 1
-	warp_event  6,  0, MOBILE_TRADE_ROOM, 1
-	warp_event 10,  0, MOBILE_BATTLE_ROOM, 1
 
 	def_coord_events
 

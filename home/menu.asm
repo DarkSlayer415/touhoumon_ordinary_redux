@@ -320,14 +320,15 @@ CopyMenuHeader::
 	ld [wMenuDataBank], a
 	ret
 
+StoreMenuCursorPosition::
+	ld [wMenuCursorPosition], a
+	ret
+
 MenuTextbox::
 	push hl
 	call LoadMenuTextbox
 	pop hl
 	jp PrintText
-
-Menu_DummyFunction:: ; unreferenced
-	ret
 
 LoadMenuTextbox::
 	ld hl, .MenuHeader
@@ -415,10 +416,6 @@ YesNoBox::
 
 PlaceYesNoBox::
 	jr _YesNoBox
-
-PlaceGenericTwoOptionBox:: ; unreferenced
-	call LoadMenuHeader
-	jr InterpretTwoOptionMenu
 
 _YesNoBox::
 ; Return nc (yes) or c (no).
@@ -719,15 +716,6 @@ PlaceNthMenuStrings::
 	call PlaceString
 	ret
 
-GetNthMenuStrings:: ; unreferenced
-	call GetMenuDataPointerTableEntry
-	inc hl
-	inc hl
-	ld a, [hli]
-	ld d, [hl]
-	ld e, a
-	ret
-
 MenuJumptable::
 	ld a, [wMenuSelection]
 	call GetMenuDataPointerTableEntry
@@ -835,12 +823,5 @@ InterpretBattleMenu::
 	ldh a, [hROMBank]
 	ld [wMenuData_2DMenuItemStringsBank], a
 	farcall _InterpretBattleMenu
-	ld a, [wMenuCursorPosition]
-	ret
-
-InterpretMobileMenu:: ; unreferenced
-	ldh a, [hROMBank]
-	ld [wMenuData_2DMenuItemStringsBank], a
-	farcall _InterpretMobileMenu
 	ld a, [wMenuCursorPosition]
 	ret

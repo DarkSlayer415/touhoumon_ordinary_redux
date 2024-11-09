@@ -8,6 +8,9 @@ SECTION "rst8", ROM0[$0008]
 FarCall::
 	jp FarCall_hl
 
+DoNothing::
+	ret ; no-optimize Stub Function (global do nothing)
+
 SECTION "rst10", ROM0[$0010]
 Bankswitch::
 	ldh [hROMBank], a
@@ -54,7 +57,7 @@ SECTION "lcd", ROM0[$0048]
 	jp LCD
 
 SECTION "timer", ROM0[$0050]
-	jp MobileTimer
+	reti
 
 SECTION "serial", ROM0[$0058]
 	jp Serial

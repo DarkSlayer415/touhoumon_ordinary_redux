@@ -709,6 +709,3 @@ PhoneJustTalkToThemText:
 	text_far _PhoneJustTalkToThemText
 	text_end
 
-PhoneThankYouText:
-	text_far _PhoneThankYouText
-	text_end

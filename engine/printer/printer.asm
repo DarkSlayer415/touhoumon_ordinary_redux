@@ -204,6 +204,11 @@ PrintPCBox:
 	ld [wPrinterQueueLength], a
 	ret
 
+Printer_ResetRegistersAndStartDataSend:
+	call Printer_ResetJoypadRegisters
+	call SendScreenToPrinter
+	ret
+
 PrintMailAndExit:
 	call PrintMail
 	call Printer_ExitPrinter

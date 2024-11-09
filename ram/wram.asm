@@ -643,7 +643,19 @@ wOddEggName:: ds MON_NAME_LENGTH
 wOddEggOT:: ds NAME_LENGTH
 
 NEXTU
+; debug mon color picker
+wDebugMiddleColors::
+wDebugLightColor:: ds 2
+wDebugDarkColor::  ds 2
+	ds 6
+wDebugRedChannel::   db
+wDebugGreenChannel:: db
+wDebugBlueChannel::  db
+
+NEXTU
 ; debug tileset color picker
+wDebugPalette::
+wDebugWhiteTileColor:: ds 2
 wDebugLightTileColor:: ds 2
 wDebugDarkTileColor::  ds 2
 wDebugBlackTileColor:: ds 2
@@ -874,6 +886,11 @@ SECTION UNION "Overworld Map", WRAM0
 
 ; Hall of Fame data
 wHallOfFamePokemonList:: hall_of_fame wHallOfFamePokemonList
+
+SECTION UNION "Overworld Map", WRAM0
+
+; debug color picker
+wDebugOriginalColors:: ds 256 * 4
 
 SECTION UNION "Overworld Map", WRAM0
 
