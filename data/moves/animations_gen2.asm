@@ -31,7 +31,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_PerishSong
 	dw BattleAnim_IcyWind
 	dw BattleAnim_Detect
-	dw BattleAnim_BoneRush
+	dw BattleAnim_CannonBlast
 	dw BattleAnim_LockOn
 	dw BattleAnim_Outrage
 	dw BattleAnim_Sandstorm
@@ -655,7 +655,7 @@ BattleAnim_Detect:
 	anim_wait 24
 	anim_ret
 
-BattleAnim_BoneRush:
+BattleAnim_CannonBlast:
 	anim_2gfx BATTLE_ANIM_GFX_EGG, BATTLE_ANIM_GFX_EXPLOSION
 	anim_sound 6, 2, SFX_THROW_BALL
 	anim_obj BATTLE_ANIM_OBJ_SLUDGE_BOMB, 64, 92, $10

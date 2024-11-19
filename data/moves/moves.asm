@@ -142,7 +142,7 @@ SECTION "Moves Gen 1", ROMX
 	move METRONOME,    EFFECT_METRONOME,           0, NORMAL,       100, 10,   0
 	move MIRROR_MOVE,  EFFECT_MIRROR_MOVE,         0, FLYING,       100, 20,   0
 	move SELFDESTRUCT, EFFECT_SELFDESTRUCT,      200, NORMAL,       100,  5,   0
-	move EGG_BOMB,     EFFECT_TRI_ATTACK,        100, STEEL,        100, 10,  20
+	move SIGMA_CANNON, EFFECT_TRI_ATTACK,        100, STEEL,        100, 10,  20
 	move LICK,         EFFECT_PARALYZE_HIT,       40, GHOST,        100, 25,  20
 	move SMOG,         EFFECT_POISON_HIT,         65, POISON,       100, 20,  20
 	move SLUDGE,       EFFECT_SP_DEF_DOWN_HIT,    65, POISON,       100, 20,  20
@@ -161,7 +161,7 @@ SECTION "Moves Gen 1", ROMX
 	move GLARE,        EFFECT_PARALYZE,            0, NORMAL,       100, 20,   0
 	move DREAM_EATER,  EFFECT_LEECH_HIT,       	  80, GHOST,  		100, 10,   0
 	move POISON_GAS,   EFFECT_POISON,              0, POISON,        80, 20,   0
-	move BARRAGE,      EFFECT_MULTI_HIT,          25, ROCK,          85, 15,   0
+	move ROCK_BLAST,   EFFECT_MULTI_HIT,          25, ROCK,          85, 15,   0
 	move LEECH_LIFE,   EFFECT_LEECH_HIT,          80, DARK,         100, 10,   0
 	move LOVELY_KISS,  EFFECT_SLEEP,               0, DARK,         100, 10,   0
 	move SKY_ATTACK,   EFFECT_RECOIL_HIT,        120, FLYING,       100, 10,   0
@@ -224,7 +224,7 @@ MovesGen2:
 	move PERISH_SONG,  EFFECT_PERISH_SONG,         0, NORMAL,       100,  5,   0
 	move ICY_WIND,     EFFECT_SPEED_DOWN_HIT,     60, ICE,           95, 20, 100
 	move DETECT,       EFFECT_PROTECT,             0, FIGHTING,     100, 10,   0
-	move BONE_RUSH,    EFFECT_MULTI_HIT,          25, STEEL,         85, 15,   0
+	move CANNON_BLAST, EFFECT_MULTI_HIT,          25, STEEL,         85, 15,   0
 	move LOCK_ON,      EFFECT_ACCURACY_UP_2,       0, NORMAL,       100, 20,   0
 	move OUTRAGE,      EFFECT_RECOIL_HIT,        120, DARK,         100, 10,   0
 	move SANDSTORM,    EFFECT_SANDSTORM,           0, ROCK,         100, 10,   0
@@ -257,7 +257,7 @@ MovesGen2:
 	move PURSUIT,      EFFECT_PURSUIT,            40, DARK,         100, 20,   0
 	move RAPID_SPIN,   EFFECT_RAPID_SPIN,         50, NORMAL,       100, 30,   0
 	move SWEET_SCENT,  EFFECT_EVASION_DOWN_2,      0, GRASS,        100, 20,   0
-	move IRON_TAIL,    EFFECT_DEFENSE_DOWN_HIT,  100, STEEL,         85, 15,  30
+	move IRON_TAIL,    EFFECT_DEFENSE_DOWN_HIT,   85, STEEL,        100, 15,  30
 	move METAL_CLAW,   EFFECT_ATTACK_UP_HIT,      50, STEEL,        100, 25,  20
 	move VITAL_THROW,  EFFECT_ALWAYS_HIT,         70, FIGHTING,     100, 15,   0
 	move MORNING_SUN,  EFFECT_SP_DEF_DOWN_HIT,    90, GRASS,        100, 15,  20

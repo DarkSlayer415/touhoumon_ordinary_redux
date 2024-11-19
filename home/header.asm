@@ -15,7 +15,9 @@ Bankswitch::
 	ret
 
 SECTION "rst18", ROM0[$0018]
-	rst $38
+
+AddNTimes::
+	jp _AddNTimes
 	
 SwapHLDE::
 	push de

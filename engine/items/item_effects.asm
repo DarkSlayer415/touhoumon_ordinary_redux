@@ -2062,7 +2062,7 @@ EscapeRopeEffect:
 	ret
 
 SuperRepelEffect:
-	ld b, 200
+	ld b, 175
 	jr UseRepel
 
 MaxRepelEffect:

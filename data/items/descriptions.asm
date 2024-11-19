@@ -423,11 +423,11 @@ GuardSpecDesc:
 
 SuperRepelDesc:
 	db   "Repels weak #-"
-	next "MON for 200 steps.@"
+	next "MON for 175 steps.@"
 
 MaxRepelDesc:
 	db   "Repels weak #-"
-	next "MON for 300 steps.@"
+	next "MON for 250 steps.@"
 
 DireHitDesc:
 	db   "Ups critical hit"

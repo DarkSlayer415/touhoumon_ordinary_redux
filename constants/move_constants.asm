@@ -126,7 +126,7 @@
 	const METRONOME    ; 76
 	const MIRROR_MOVE  ; 77
 	const SELFDESTRUCT ; 78
-	const EGG_BOMB     ; 79
+	const SIGMA_CANNON ; 79
 	const LICK         ; 7a
 	const SMOG         ; 7b
 	const SLUDGE       ; 7c
@@ -145,7 +145,7 @@
 	const GLARE        ; 89
 	const DREAM_EATER  ; 8a
 	const POISON_GAS   ; 8b
-	const BARRAGE      ; 8c
+	const ROCK_BLAST   ; 8c
 	const LEECH_LIFE   ; 8d
 	const LOVELY_KISS  ; 8e
 	const SKY_ATTACK   ; 8f
@@ -204,7 +204,7 @@ DEF GEN1_MOVES EQU const_value - 1
 	const PERISH_SONG  ; c3
 	const ICY_WIND     ; c4
 	const DETECT       ; c5
-	const BONE_RUSH    ; c6
+	const CANNON_BLAST ; c6
 	const LOCK_ON      ; c7
 	const OUTRAGE      ; c8
 	const SANDSTORM    ; c9
@@ -263,7 +263,6 @@ DEF GEN2_MOVES EQU const_value - 1
 DEF NUM_ATTACKS EQU const_value - 1
 
 ; Battle animations use the same constants as the moves up to this point
-	const_next $ff
 	const ANIM_SWEET_SCENT_2     ; ff
 	const ANIM_THROW_POKE_BALL   ; 100
 	const ANIM_SEND_OUT_MON      ; 101
@@ -277,18 +276,18 @@ DEF NUM_ATTACKS EQU const_value - 1
 	const ANIM_PAR               ; 109
 	const ANIM_IN_LOVE           ; 10a
 	const ANIM_IN_SANDSTORM      ; 10b
-	const ANIM_IN_NIGHTMARE      ; 10c
-	const ANIM_IN_WHIRLPOOL      ; 10d
+	const ANIM_IN_HAIL 			 ; 10c
+	const ANIM_IN_NIGHTMARE      ; 10d
+	const ANIM_IN_WHIRLPOOL      ; 10e
 ; battle anims
-	const ANIM_MISS              ; 10e
-	const ANIM_ENEMY_DAMAGE      ; 10f
-	const ANIM_ENEMY_STAT_DOWN   ; 110
-	const ANIM_PLAYER_STAT_DOWN  ; 111
-	const ANIM_PLAYER_DAMAGE     ; 112
-	const ANIM_WOBBLE            ; 113
-	const ANIM_SHAKE             ; 114
-	const ANIM_HIT_CONFUSION     ; 115
-	const ANIM_IN_HAIL           ; 116
+	const ANIM_MISS              ; 10f
+	const ANIM_ENEMY_DAMAGE      ; 110
+	const ANIM_ENEMY_STAT_DOWN   ; 111
+	const ANIM_PLAYER_STAT_DOWN  ; 112
+	const ANIM_PLAYER_DAMAGE     ; 113
+	const ANIM_WOBBLE            ; 114
+	const ANIM_SHAKE             ; 115
+	const ANIM_HIT_CONFUSION     ; 116
 DEF NUM_BATTLE_ANIMS EQU const_value - 1
 
 ; wNumHits uses offsets from ANIM_MISS
