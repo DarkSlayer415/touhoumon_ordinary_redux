@@ -1,6 +1,6 @@
 	db DODUO ; 084
 
-	db 100,  40,  80,  40,  60,  80
+	db 150,  40,  60,  40,  60,  60
 	;   hp  atk  def  spd  sat  sdf
 
 	db PSYCHIC_TYPE, PSYCHIC_TYPE ; type

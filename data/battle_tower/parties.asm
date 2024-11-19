@@ -2922,13 +2922,13 @@ BattleTowerMons:
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 60 ; Level
 	db 0, 0 ; Status
-	bigdw 281 ; HP
-	bigdw 281 ; Max HP
+	bigdw 389 ; HP
+	bigdw 389 ; Max HP
 	bigdw 120 ; Atk
-	bigdw 186 ; Def
+	bigdw 144 ; Def
 	bigdw 120 ; Spd
-	bigdw 156 ; SAtk
-	bigdw 186 ; SDef
+	bigdw 144 ; SAtk
+	bigdw 144 ; SDef
 	db "SO-NANSU@@@"
 
 	db AERODACTYL ;EEllen

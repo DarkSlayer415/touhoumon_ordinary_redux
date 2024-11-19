@@ -87,7 +87,7 @@ NidoranMEggMoves:
 	db MACH_PUNCH
 	db DIZZY_PUNCH
 	db OUTRAGE
-	db CROSS_CHOP
+	db MEGAHORN
 	db -1 ; end
 
 OddishEggMoves:
@@ -172,7 +172,7 @@ AbraEggMoves:
 
 MachopEggMoves:
 	db SUBMISSION
-	db VITAL_THROW
+	db SACRED_FIRE
 	db BELLY_DRUM
 	db OUTRAGE
 	db MIND_READER
@@ -372,25 +372,25 @@ MewtwoEggMoves:
 
 ChikoritaEggMoves:
 	db MYSTIC_BOMB
-	db SACRED_FIRE
+	db FUTURE_SIGHT
 	db COUNTER
 	db MIRROR_COAT
 	db HEAL_BELL
 	db -1 ; end
 
 CyndaquilEggMoves:
-	db PURSUIT
-	db THRASH
+	db EXPLOSION
+	db AGILITY
 	db REVERSAL
 	db ANCIENTPOWER
 	db OUTRAGE
 	db -1 ; end
 
 TotodileEggMoves:
-	db NIGHT_SHADE
+	db PERISH_SONG
 	db PSYCH_UP
 	db PHANTOM_DAZE
-	db MYSTIC_BOMB
+	db TRI_ATTACK
 	db HEAL_BELL
 	db -1 ; end
 
@@ -419,10 +419,10 @@ LedybaEggMoves:
 	db -1 ; end
 
 SpinarakEggMoves:
-	db ICY_WIND
+	db PETAL_DANCE
 	db SOFTBOILED
-	db DRAGON_RAGE
-	db OCTAZOOKA
+	db HEADWIND
+	db EXPLOSION
 	db EXTREMESPEED
 	db -1 ; end
 
@@ -475,7 +475,7 @@ NatuEggMoves:
 	db -1 ; end
 
 MareepEggMoves:
-	db NIGHT_SHADE
+	db PETAL_DANCE
 	db LEAF_STORM
 	db ATTRACT
 	db SAFEGUARD
@@ -493,7 +493,7 @@ MarillEggMoves:
 HoppipEggMoves:
 	db WHIRLWIND
 	db HYPER_BEAM
-	db PURSUIT
+	db AEROBLAST
 	db AGILITY
 	db TRI_ATTACK
 	db -1 ; end
@@ -502,16 +502,16 @@ SunkernEggMoves:
 	db WHIRLWIND
 	db PSYCH_UP
 	db CONFUSE_RAY
-	db KINESIS
-	db SCARY_FACE
+	db AEROBLAST
+	db PETAL_DANCE
 	db -1 ; end
 
 WooperEggMoves:
 	db MIRROR_COAT
 	db COUNTER
-	db FUTURE_SIGHT
+	db OUTRAGE
 	db FORESIGHT
-	db PURSUIT
+	db THRASH
 	db -1 ; end
 
 MurkrowEggMoves:
@@ -651,8 +651,8 @@ LarvitarEggMoves:
 	db -1 ; end
 	
 CYuutoEggMoves:
-	db HYPER_BEAM
-	db FISSURE
+	db SPIKES
+	db AGILITY
 	db DREAM_EATER
 	db MIRROR_MOVE
 	db MIMIC

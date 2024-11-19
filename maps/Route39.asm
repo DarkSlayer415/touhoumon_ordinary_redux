@@ -34,7 +34,7 @@ TrainerPokefanmDerek:
 	iftrue .HasNugget
 	checkcellnum PHONE_POKEFANM_DEREK
 	iftrue .NumberAccepted
-	checkpoke IVYSAUR
+	checkpoke CHARMELEON
 	iffalse .WantsPikachu
 	checkevent EVENT_DEREK_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
@@ -251,7 +251,7 @@ PokefanfRuthAfterBattleText:
 	done
 
 PokefanMDerekPikachuIsItText:
-	text "Reimu is it!"
+	text "Marisa is it!"
 	line "Don't you agree?"
 	done
 

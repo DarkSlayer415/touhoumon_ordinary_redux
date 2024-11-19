@@ -127,8 +127,8 @@ CharizardEvosAttacks:
 	db 27, AGILITY
 	db 34, THUNDERBOLT
 	db 36, FLAMETHROWER
-	db 40, SPORE
-	db 47, MEDITATE
+	db 42, MEDITATE
+	db 47, SPORE
 	db 55, HYPER_BEAM
 	db 0 ; no more level-up moves
 
@@ -365,7 +365,7 @@ RattataEvosAttacks:
 	db 5, ROCK_THROW
 	db 9, MINIMIZE
 	db 13, BONEMERANG
-	db 16, BARRAGE
+	db 16, ROCK_BLAST
 	db 21, ACID_ARMOR
 	db 24, ROCK_SLIDE
 	db 27, MEGA_PUNCH
@@ -385,7 +385,7 @@ RaticateEvosAttacks:
 	db 5, ROCK_THROW
 	db 9, MINIMIZE
 	db 13, BONEMERANG
-	db 16, BARRAGE
+	db 16, ROCK_BLAST
 	db 21, ACID_ARMOR
 	db 24, ROCK_SLIDE
 	db 27, MEGA_PUNCH
@@ -616,11 +616,12 @@ NidoranMEvosAttacks:
 	db 10, COMET_PUNCH
 	db 13, FOCUS_ENERGY
 	db 17, BONEMERANG
-	db 20, MEGA_PUNCH
+	db 20, VITAL_THROW
 	db 24, MAGNITUDE
-	db 28, VITAL_THROW
-	db 36, SUBMISSION
-	db 39, MILK_DRINK
+	db 28, MEGA_PUNCH
+	db 33, SUBMISSION
+	db 36, MILK_DRINK
+	db 39, CROSS_CHOP
 	db 42, BELLY_DRUM
 	db 45, EARTHQUAKE
 	db 48, THRASH
@@ -636,11 +637,12 @@ NidorinoEvosAttacks:
 	db 10, COMET_PUNCH
 	db 13, FOCUS_ENERGY
 	db 17, BONEMERANG
-	db 20, MEGA_PUNCH
+	db 20, VITAL_THROW
 	db 24, MAGNITUDE
-	db 30, VITAL_THROW
-	db 38, SUBMISSION
-	db 40, MILK_DRINK
+	db 28, MEGA_PUNCH
+	db 34, SUBMISSION
+	db 38, MILK_DRINK
+	db 40, CROSS_CHOP
 	db 44, BELLY_DRUM
 	db 48, EARTHQUAKE
 	db 52, THRASH
@@ -655,11 +657,12 @@ NidokingEvosAttacks:
 	db 10, COMET_PUNCH
 	db 13, FOCUS_ENERGY
 	db 17, BONEMERANG
-	db 20, MEGA_PUNCH
+	db 20, VITAL_THROW
 	db 24, MAGNITUDE
-	db 30, THRASH
-	db 38, SUBMISSION
-	db 42, MILK_DRINK
+	db 28, MEGA_PUNCH
+	db 34, SUBMISSION
+	db 38, MILK_DRINK
+	db 42, CROSS_CHOP
 	db 47, BELLY_DRUM
 	db 52, EARTHQUAKE
 	db 56, THRASH
@@ -1590,8 +1593,9 @@ FarfetchDEvosAttacks:
 	db 28, COTTON_SPORE
 	db 32, SAFEGUARD
 	db 36, MEAN_LOOK
-	db 40, ENCORE
-	db 44, DESTINY_BOND
+	db 40, PSYCH_UP
+	db 43, ENCORE
+	db 46, DESTINY_BOND
 	db 0 ; no more level-up moves
 
 DoduoEvosAttacks:
@@ -1607,8 +1611,9 @@ DoduoEvosAttacks:
 	db 28, COTTON_SPORE
 	db 34, SAFEGUARD
 	db 38, MEAN_LOOK
-	db 42, ENCORE
-	db 46, DESTINY_BOND
+	db 41, PSYCH_UP
+	db 45, ENCORE
+	db 48, DESTINY_BOND
 	db 0 ; no more level-up moves
 
 DodrioEvosAttacks:
@@ -1623,7 +1628,8 @@ DodrioEvosAttacks:
 	db 28, COTTON_SPORE
 	db 34, SAFEGUARD
 	db 38, MEAN_LOOK
-	db 44, ENCORE
+	db 43, PSYCH_UP
+	db 47, ENCORE
 	db 50, DESTINY_BOND
 	db 0 ; no more level-up moves
 
@@ -1938,7 +1944,7 @@ ExeggcuteEvosAttacks:
 	db 1, HARDEN
 	db 5, CLAMP
 	db 9, POISON_GAS
-	db 13, BONE_RUSH
+	db 13, CANNON_BLAST
 	db 16, SLUDGE
 	db 19, BUBBLEBEAM
 	db 23, AURORA_BEAM
@@ -1949,7 +1955,7 @@ ExeggcuteEvosAttacks:
 	db 40, EXPLOSION
 	db 44, ZAP_CANNON
 	db 48, AEROBLAST
-	db 48, EGG_BOMB
+	db 48, SIGMA_CANNON
 	db 0 ; no more level-up moves
 
 ExeggutorEvosAttacks:
@@ -1959,7 +1965,7 @@ ExeggutorEvosAttacks:
 	db 1, HARDEN
 	db 7, CLAMP
 	db 9, POISON_GAS
-	db 13, BONE_RUSH
+	db 13, CANNON_BLAST
 	db 16, SLUDGE
 	db 19, BUBBLEBEAM
 	db 23, AURORA_BEAM
@@ -1970,7 +1976,7 @@ ExeggutorEvosAttacks:
 	db 44, EXPLOSION
 	db 48, ZAP_CANNON
 	db 52, AEROBLAST
-	db 52, EGG_BOMB
+	db 52, SIGMA_CANNON
 	db 0 ; no more level-up moves
 
 CuboneEvosAttacks:
@@ -2492,7 +2498,7 @@ LaprasEvosAttacks:
 	db 1, HARDEN
 	db 7, CLAMP
 	db 9, POISON_GAS
-	db 13, BONE_RUSH
+	db 13, CANNON_BLAST
 	db 16, SLUDGE
 	db 19, BUBBLEBEAM
 	db 23, AURORA_BEAM
@@ -2504,7 +2510,7 @@ LaprasEvosAttacks:
 	db 44, EXPLOSION
 	db 48, ZAP_CANNON
 	db 52, AEROBLAST
-	db 52, EGG_BOMB
+	db 52, SIGMA_CANNON
 	db 0 ; no more level-up moves
 
 DittoEvosAttacks:
@@ -2705,7 +2711,7 @@ SnorlaxEvosAttacks:
 	db 15, ROCK_THROW
 	db 22, BODY_SLAM
 	db 25, TAKE_DOWN
-	db 29, BARRAGE
+	db 29, ROCK_BLAST
 	db 36, SLEEP_TALK
 	db 36, REST
 	db 39, DOUBLE_EDGE
@@ -3902,7 +3908,7 @@ GirafarigEvosAttacks:
 	db 1, HARDEN
 	db 5, BONE_CLUB
 	db 8, FALSE_SWIPE
-	db 13, BARRAGE
+	db 13, ROCK_BLAST
 	db 16, MAGNITUDE
 	db 19, SWAGGER
 	db 24, ROLLOUT
@@ -3923,7 +3929,7 @@ PinecoEvosAttacks:
 	db 1, HARDEN
 	db 5, BONE_CLUB
 	db 8, FALSE_SWIPE
-	db 13, BARRAGE
+	db 13, ROCK_BLAST
 	db 16, MAGNITUDE
 	db 19, SWAGGER
 	db 24, ROLLOUT
@@ -3943,7 +3949,7 @@ ForretressEvosAttacks:
 	db 1, HARDEN
 	db 5, BONE_CLUB
 	db 8, FALSE_SWIPE
-	db 13, BARRAGE
+	db 13, ROCK_BLAST
 	db 16, MAGNITUDE
 	db 19, SWAGGER
 	db 24, ROLLOUT
@@ -4615,7 +4621,7 @@ SmoochumEvosAttacks:
 	db 5, ROCK_THROW
 	db 9, MINIMIZE
 	db 13, BONEMERANG
-	db 16, BARRAGE
+	db 16, ROCK_BLAST
 	db 21, ACID_ARMOR
 	db 24, ROCK_SLIDE
 	db 27, MEGA_PUNCH
@@ -4884,7 +4890,7 @@ CYuutoEvosAttacks:
 	db 7, SUPERSONIC
 	db 11, PSYBEAM
 	db 15, AURORA_BEAM
-	db 23, BARRAGE
+	db 23, ROCK_BLAST
 	db 27, ROCK_SLIDE
 	db 33, MOONLIGHT
 	db 36, PSYCHIC_M
@@ -4903,7 +4909,7 @@ YuutoEvosAttacks:
 	db 7, SUPERSONIC
 	db 11, PSYBEAM
 	db 15, AURORA_BEAM
-	db 23, BARRAGE
+	db 23, ROCK_BLAST
 	db 27, ROCK_SLIDE
 	db 33, MOONLIGHT
 	db 38, PSYCHIC_M

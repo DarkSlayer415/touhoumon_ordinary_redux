@@ -1,45 +1,45 @@
-; Every Touhou character ordered in game appearance order starting with SoEW (TODO).
+; Every Touhou character ordered in game appearance order starting with SoEW.
 
 AlphabeticalPokedexOrder:
 	table_width 1, AlphabeticalPokedexOrder
-	db BULBASAUR
-	db IVYSAUR
-	db VENUSAUR
-	db CHARMANDER
-	db CHARMELEON
-	db CHARIZARD
-	db KABUTO
-	db KABUTOPS
-	db OMANYTE
-	db OMASTAR
-	db SNORLAX
-	db EXEGGCUTE
-	db EXEGGUTOR
-	db LAPRAS
-	db CUBONE
-	db MAROWAK
-	db DITTO
-	db LARVITAR
-	db PUPITAR
-	db TYRANITAR
-	db SENTRET
-	db FURRET
-	db BELLOSSOM
-	db HOOTHOOT		
-	db NOCTOWL		
-	db SLOWKING
+	db BULBASAUR	;CReimu
+	db IVYSAUR		;Reimu
+	db VENUSAUR		;EReimu
+	db CHARMANDER	;CMarisa
+	db CHARMELEON	;Marisa
+	db CHARIZARD	;EMarisa
+	db KABUTO		;CHakurei
+	db KABUTOPS		;Hakurei
+	db OMANYTE		;CKirisame
+	db OMASTAR		;Kirisame
+	db SNORLAX		;Genji
+	db EXEGGCUTE	;CRika
+	db EXEGGUTOR	;Rika
+	db LAPRAS		;ERika
+	db CUBONE		;CMeira
+	db MAROWAK		;Meira
+	db DITTO		;EMeira
+	db LARVITAR		;CMima
+	db PUPITAR		;Mima
+	db TYRANITAR	;EMima
+	db SENTRET		;CKana
+	db FURRET		;Kana
+	db BELLOSSOM	;EKana
+	db HOOTHOOT		;CKotohime
+	db NOCTOWL		;Kotohime
+	db SLOWKING		;EKotohime
 	db SANDSHREW	;CEllen
 	db SANDSLASH	;Ellen
 	db AERODACTYL	;EEllen
-	db LEDYBA		
-	db LEDIAN		
-	db AIPOM		
-	db CHINCHOU		
-	db LANTURN		
-	db SUDOWOODO	
-	db DUNSPARCE	
-	db GLIGAR		
-	db STEELIX			    
+	db LEDYBA		;CRikako
+	db LEDIAN		;Rikako
+	db AIPOM		;ERikako
+	db CHINCHOU		;CChiyuri
+	db LANTURN		;Chiyuri
+	db SUDOWOODO	;EChiyuri
+	db DUNSPARCE	;CYumemi
+	db GLIGAR		;Yumemi
+	db STEELIX		;EYumemi			    
 	db DELIBIRD		;COrange
 	db MANTINE		;Orange
 	db SKARMORY		;EOrange

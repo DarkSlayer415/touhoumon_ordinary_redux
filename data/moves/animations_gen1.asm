@@ -120,7 +120,7 @@ BattleAnimationsGen1::
 	dw BattleAnim_Metronome
 	dw BattleAnim_MirrorMove
 	dw BattleAnim_Selfdestruct
-	dw BattleAnim_EggBomb
+	dw BattleAnim_SigmaCannon
 	dw BattleAnim_Lick
 	dw BattleAnim_Smog
 	dw BattleAnim_Sludge
@@ -150,7 +150,6 @@ BattleAnimationsGen1::
 	dw BattleAnim_Flash
 	dw BattleAnim_Psywave
 	dw BattleAnim_Hail
-	dw BattleAnim_InHail
 	dw BattleAnim_AcidArmor
 	dw BattleAnim_Crabhammer
 	dw BattleAnim_Explosion
@@ -898,7 +897,7 @@ BattleAnim_Selfdestruct:
 	anim_wait 16
 	anim_ret
 	
-BattleAnim_EggBomb:
+BattleAnim_SigmaCannon:
 	anim_2gfx BATTLE_ANIM_GFX_BEAM, BATTLE_ANIM_GFX_AEROBLAST
 	anim_bgp $1b
 	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $50, $4, $10
@@ -2267,7 +2266,6 @@ BattleAnim_Psywave:
 	anim_ret
 
 BattleAnim_Hail:
-BattleAnim_InHail:
 	anim_1gfx BATTLE_ANIM_GFX_ICE
 	anim_bgeffect BATTLE_BG_EFFECT_WHITE_HUES, $0, $8, $0
 	anim_obj BATTLE_ANIM_OBJ_HAIL, 88, 0, $0

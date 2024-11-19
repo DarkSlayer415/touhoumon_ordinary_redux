@@ -1,6 +1,6 @@
 	db FARFETCH_D ; 083
 
-	db  80,  30,  55,  30,  50,  55
+	db 100,  30,  45,  30,  50,  45
 	;   hp  atk  def  spd  sat  sdf
 
 	db PSYCHIC_TYPE, PSYCHIC_TYPE ; type

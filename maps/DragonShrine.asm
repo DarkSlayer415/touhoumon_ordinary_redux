@@ -272,7 +272,7 @@ DragonShrineQuestion1_MenuHeader:
 .MenuData:
 	db STATICMENU_CURSOR | STATICMENU_DISABLE_B ; flags
 	db 3 ; items
-	db "Pal@"
+	db "Ally@"
 	db "Underling@"
 	db "Friend@"
 
@@ -286,7 +286,7 @@ DragonShrineQuestion2_MenuHeader:
 	db STATICMENU_CURSOR | STATICMENU_DISABLE_B ; flags
 	db 3 ; items
 	db "Strategy@"
-	db "Raising@"
+	db "Training@"
 	db "Cheating@"
 
 DragonShrineQuestion3_MenuHeader:
@@ -298,9 +298,9 @@ DragonShrineQuestion3_MenuHeader:
 .MenuData:
 	db STATICMENU_CURSOR | STATICMENU_DISABLE_B ; flags
 	db 3 ; items
-	db "Weak person@"
-	db "Tough person@"
-	db "Anybody@"
+	db "Weak@"
+	db "Strong@"
+	db "Anyone@"
 
 DragonShrineQuestion4_MenuHeader:
 	db MENU_BACKUP_TILES ; flags
@@ -324,7 +324,7 @@ DragonShrineQuestion5_MenuHeader:
 .MenuData:
 	db STATICMENU_CURSOR | STATICMENU_DISABLE_B ; flags
 	db 3 ; items
-	db "Tough@"
+	db "Strong@"
 	db "Both@"
 	db "Weak@"
 

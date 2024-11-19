@@ -4902,7 +4902,7 @@ BattleMenuPKMN_Loop:
 	call PlaceHollowCursor
 	ld a, [wMenuCursorY]
 	cp $1 ; SWITCH
-	jr z, TryPlayerSwitch
+	jp z, TryPlayerSwitch
 	cp $2 ; STATS
 	jr z, .Stats
 	cp $3 ; CANCEL
