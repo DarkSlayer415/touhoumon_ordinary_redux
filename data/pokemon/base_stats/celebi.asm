@@ -1,6 +1,6 @@
 	db CELEBI ; 251
 
-	db  75,  80,  70, 110, 115,  70
+	db  75,  85,  70, 110, 120,  70
 	;   hp  atk  def  spd  sat  sdf
 
 	db PSYCHIC_TYPE, FLYING ; type

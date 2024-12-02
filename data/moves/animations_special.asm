@@ -1,4 +1,4 @@
-BattleAnimationsNegatives::
+BattleAnimationsSpecial::
 	dw BattleAnim_ThrowPokeBall
 	dw BattleAnim_SendOutMon
 	dw BattleAnim_ReturnMon
@@ -9,10 +9,8 @@ BattleAnimationsNegatives::
 	dw BattleAnim_Sap
 	dw BattleAnim_Frz
 	dw BattleAnim_Par
-	dw BattleAnim_InLove
 	dw BattleAnim_InSandstorm
 	dw BattleAnim_InHail
-	dw BattleAnim_InNightmare
 	dw BattleAnim_InWhirlpool
 	dw BattleAnim_Miss
 	dw BattleAnim_EnemyDamage
@@ -280,16 +278,6 @@ BattleAnim_Par:
 	anim_wait 128
 	anim_ret
 
-BattleAnim_InLove:
-	anim_1gfx BATTLE_ANIM_GFX_OBJECTS
-	anim_sound 0, 0, SFX_LICK
-	anim_obj BATTLE_ANIM_OBJ_HEART, 64, 76, $0
-	anim_wait 32
-	anim_sound 0, 0, SFX_LICK
-	anim_obj BATTLE_ANIM_OBJ_HEART, 36, 72, $0
-	anim_wait 32
-	anim_ret
-
 BattleAnim_InSandstorm:
 	anim_1gfx BATTLE_ANIM_GFX_POWDER
 	anim_obj BATTLE_ANIM_OBJ_SANDSTORM, 88, 0, $0
@@ -319,13 +307,6 @@ BattleAnim_InHail:
 	anim_wait 8
 	anim_ret
 
-BattleAnim_InNightmare:
-	anim_1gfx BATTLE_ANIM_GFX_ANGELS
-	anim_sound 0, 0, SFX_BUBBLEBEAM
-	anim_obj BATTLE_ANIM_OBJ_IN_NIGHTMARE, 68, 80, $0
-	anim_wait 40
-	anim_ret
-
 BattleAnim_InWhirlpool:
 	anim_1gfx BATTLE_ANIM_GFX_WIND
 	anim_bgeffect BATTLE_BG_EFFECT_WHIRLPOOL, $0, $0, $0
@@ -344,7 +325,6 @@ BattleAnim_HitConfusion:
 	anim_obj BATTLE_ANIM_OBJ_HIT, 44, 96, $0
 	anim_wait 16
 	anim_ret
-
 
 BattleAnim_Miss:
 	anim_ret

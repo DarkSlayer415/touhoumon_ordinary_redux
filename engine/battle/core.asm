@@ -1050,7 +1050,7 @@ ResidualDamage:
 	jr z, .not_nightmare
 	xor a
 	ld [wNumHits], a
-	ld de, ANIM_IN_NIGHTMARE
+	ld de, ANIM_MISS ;Nightmare goes unused, but kept in engine to preserve functionality.
 	call Call_PlayBattleAnim_OnlyIfVisible
 	call GetQuarterMaxHP
 	call SubtractHPFromUser
@@ -1068,7 +1068,7 @@ ResidualDamage:
 
 	xor a
 	ld [wNumHits], a
-	ld de, ANIM_IN_NIGHTMARE
+	ld de, ANIM_MISS ;Nightmare goes unused, but kept in engine to preserve functionality.
 	call Call_PlayBattleAnim_OnlyIfVisible
 	call GetQuarterMaxHP
 	call SubtractHPFromUser

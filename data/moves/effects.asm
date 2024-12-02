@@ -158,26 +158,6 @@ Selfdestruct:
 	kingsrock
 	endmove
 
-DreamEater:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	damagestats
-	damagecalc
-	stab
-	damagevariation
-	checkhit
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	eatdream
-	checkfaint
-	buildopponentrage
-	endmove
-
 MirrorMove:
 	checkobedience
 	usedmovetext
@@ -916,21 +896,6 @@ FlinchHit:
 	flinchtarget
 	endmove
 
-OHKOHit:
-	checkobedience
-	usedmovetext
-	doturn
-	stab
-	ohko
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	buildopponentrage
-	endmove
-
 RecoilHit:
 	checkobedience
 	usedmovetext
@@ -1150,13 +1115,6 @@ LeechSeed:
 	leechseed
 	endmove
 
-Splash:
-	checkobedience
-	usedmovetext
-	doturn
-	splash
-	endmove
-
 Disable:
 	checkobedience
 	usedmovetext
@@ -1232,7 +1190,6 @@ TrapTarget:
 	endmove
 
 SuperFang:
-Psywave:
 StaticDamage:
 	checkobedience
 	usedmovetext
@@ -1360,14 +1317,6 @@ DestinyBond:
 	destinybond
 	endmove
 
-Spite:
-	checkobedience
-	usedmovetext
-	doturn
-	checkhit
-	spite
-	endmove
-
 FalseSwipe:
 	checkobedience
 	usedmovetext
@@ -1451,13 +1400,6 @@ MeanLook:
 	usedmovetext
 	doturn
 	arenatrap
-	endmove
-
-Nightmare:
-	checkobedience
-	usedmovetext
-	doturn
-	nightmare
 	endmove
 
 FlameWheel:
@@ -1593,14 +1535,6 @@ FuryCutter:
 	kingsrock
 	endmove
 
-Attract:
-	checkobedience
-	usedmovetext
-	doturn
-	checkhit
-	attract
-	endmove
-
 Return:
 	checkobedience
 	usedmovetext
@@ -1670,28 +1604,6 @@ SacredFire:
 	checkfaint
 	buildopponentrage
 	burntarget
-	endmove
-
-Magnitude:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	damagestats
-	getmagnitude
-	damagecalc
-	stab
-	damagevariation
-	checkhit
-	doubleundergrounddamage
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	buildopponentrage
-	kingsrock
 	endmove
 
 BatonPass:
@@ -1896,26 +1808,6 @@ FutureSight:
 	moveanimnosub
 	failuretext
 	applydamage
-	checkfaint
-	buildopponentrage
-	endmove
-
-Gust:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	damagestats
-	damagecalc
-	stab
-	damagevariation
-	doubleflyingdamage
-	checkhit
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
 	checkfaint
 	buildopponentrage
 	endmove

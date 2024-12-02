@@ -9,7 +9,6 @@ MoveEffectsPointers:
 	dw FreezeHit
 	dw ParalyzeHit
 	dw Selfdestruct
-	dw DreamEater
 	dw AttackDown
 	dw DefenseDown
 	dw SpeedDown
@@ -26,7 +25,6 @@ MoveEffectsPointers:
 	dw PayDay
 	dw TriAttack
 	dw NormalHit
-	dw OHKOHit
 	dw RazorWind
 	dw SuperFang
 	dw StaticDamage
@@ -62,7 +60,6 @@ MoveEffectsPointers:
 	dw LeechSeed
 	dw Disable
 	dw StaticDamage
-	dw Psywave
 	dw Counter
 	dw Encore
 	dw PainSplit
@@ -70,7 +67,6 @@ MoveEffectsPointers:
 	dw LockOn
 	dw DefrostOpponent
 	dw Reversal
-	dw Spite
 	dw FalseSwipe
 	dw NormalHit
 	dw TripleKick
@@ -81,11 +77,9 @@ MoveEffectsPointers:
 	dw Rollout
 	dw Swagger
 	dw FuryCutter
-	dw Attract
 	dw Return
 	dw Frustration
 	dw SacredFire
-	dw Magnitude
 	dw Pursuit
 	dw RapidSpin
 	dw NormalHit
@@ -99,7 +93,6 @@ MoveEffectsPointers:
 	dw Twister
 	dw Earthquake
 	dw FutureSight
-	dw Gust
 	dw Stomp
 	dw Solarbeam
 	dw Thunder
@@ -130,14 +123,12 @@ MoveEffectsPointers:
 	dw Reflect
 	dw Substitute
 	dw Metronome
-	dw Splash
 	dw Conversion2
 	dw Sketch
 	dw SleepTalk
 	dw DestinyBond
 	dw HealBell
 	dw MeanLook
-	dw Nightmare
 	dw Curse
 	dw Protect
 	dw Spikes

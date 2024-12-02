@@ -70,28 +70,28 @@ HurtByFrostbiteText:
 	prompt
 
 LeechSeedSapsText:
-	text "LEECH SEED saps"
+	text "Leech Seed saps"
 	line "<USER>!"
 	prompt
 
-HasANightmareText:
+HasANightmareText: ;Unused, but kept to preserve battle engine functionality.
 	text "<USER>"
 	line "has a NIGHTMARE!"
 	prompt
 
 HurtByCurseText:
 	text "<USER>'s"
-	line "hurt by the CURSE!"
+	line "hurt by the Curse!"
 	prompt
 
 SandstormHitsText:
-	text "The SANDSTORM hits"
+	text "The Sandstorm hits"
 	line "<USER>!"
 	prompt
 
 PerishCountText:
 	text "<USER>'s"
-	line "PERISH count is @"
+	line "perish count is @"
 	text_decimal wTextDecimalByte, 1, 1
 	text "!"
 	prompt
@@ -114,25 +114,25 @@ BattleText_UserRecoveredPPUsing:
 
 BattleText_TargetWasHitByFutureSight:
 	text "<TARGET>"
-	line "was hit by FUTURE"
-	cont "SIGHT!"
+	line "was hit by Future"
+	cont "Sight!"
 	prompt
 
 BattleText_SafeguardFaded:
 	text "<USER>'s"
-	line "SAFEGUARD faded!"
+	line "Safeguard faded!"
 	prompt
 
 BattleText_MonsLightScreenFell:
 	text_ram wStringBuffer1
 	text " #MON's"
-	line "LIGHT SCREEN fell!"
+	line "Light Screen fell!"
 	prompt
 
 BattleText_MonsReflectFaded:
 	text_ram wStringBuffer1
 	text " #MON's"
-	line "REFLECT faded!"
+	line "Reflect faded!"
 	prompt
 
 BattleText_RainContinuesToFall:
@@ -213,12 +213,6 @@ SentAllToMomText:
 	text "Sent all to MOM!"
 	prompt
 
-UnusedRivalLossText: ; unreferenced
-	text "<RIVAL>: Huh? I"
-	line "should've chosen"
-	cont "your #MON!"
-	prompt
-
 BattleText_MonFainted:
 	text_ram wBattleMonNickname
 	text_start
@@ -228,12 +222,6 @@ BattleText_MonFainted:
 BattleText_UseNextMon:
 	text "Use next #MON?"
 	done
-
-UnusedRivalWinText: ; unreferenced
-	text "<RIVAL>: Yes!"
-	line "I guess I chose a"
-	cont "good #MON!"
-	prompt
 
 LostAgainstText:
 	text "Lost against"
@@ -488,13 +476,13 @@ EnduredText:
 	line "endured the hit!"
 	prompt
 
-InLoveWithText:
+InLoveWithText: ;Unused, but kept to preserve battle engine functionality.
 	text "<USER>"
 	line "is in love with"
 	cont "<TARGET>!"
 	prompt
 
-InfatuationText:
+InfatuationText: ;Unused, but kept to preserve battle engine functionality.
 	text "<USER>'s"
 	line "infatuation kept"
 	cont "it from attacking!"
@@ -603,10 +591,6 @@ CriticalHitText:
 	text "A critical hit!"
 	prompt
 
-OneHitKOText:
-	text "It's a one-hit KO!"
-	prompt
-
 SuperEffectiveText:
 	text "It's super-"
 	line "effective!"
@@ -655,16 +639,6 @@ DestinyBondEffectText:
 	text "<USER>'s"
 	line "trying to take its"
 	cont "opponent with it!"
-	prompt
-
-SpiteEffectText:
-	text "<TARGET>'s"
-	line "@"
-	text_ram wStringBuffer1
-	text " was"
-	cont "reduced by @"
-	text_decimal wTextDecimalByte, 1, 1
-	text "!"
 	prompt
 
 BellChimedText:
@@ -856,14 +830,6 @@ EliminatedStatsText:
 	line "were eliminated!"
 	prompt
 
-TransformedText:
-	text "<USER>"
-	line "transformed into"
-	cont "@"
-	text_ram wStringBuffer1
-	text "!"
-	prompt
-
 LightScreenEffectText:
 	text "<USER>'s"
 	line "SPCL.DEF rose!"
@@ -932,7 +898,7 @@ ProtectedByText:
 	prompt
 
 MirrorMoveFailedText:
-	text "The MIRROR MOVE"
+	text "The Mirror Move"
 	next "failed!"
 	prompt
 
@@ -949,7 +915,7 @@ CantEscapeNowText:
 	line "can't escape now!"
 	prompt
 
-StartedNightmareText:
+StartedNightmareText: ;Unused, but kept to preserve battle engine functionality.
 	text "<TARGET>"
 	line "started to have a"
 	cont "NIGHTMARE!"
@@ -1019,12 +985,6 @@ SafeguardProtectText:
 	text "<TARGET>"
 	line "is protected by"
 	cont "Safeguard!"
-	prompt
-
-MagnitudeText:
-	text "Magnitude @"
-	text_decimal wTextDecimalByte, 1, 1
-	text "!"
 	prompt
 
 ReleasedByText:

@@ -67,11 +67,15 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const RIVAL1_5_CHIKORITA
 	const RIVAL1_5_CYNDAQUIL
 	const RIVAL1_5_TOTODILE
+	
+	trainerclass POKEMON_PROF ; a
 
 	trainerclass WILL ; b
 	const WILL1
 
 	trainerclass CAL ; c
+	const CAL1 ;Unused
+	const CAL2 ;Unused
 	const CAL3
 
 	trainerclass BRUNO ; d

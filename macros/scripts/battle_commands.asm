@@ -26,7 +26,6 @@ ENDM
 	command poisontarget            ; 13
 	command sleeptarget             ; 14
 	command draintarget             ; 15
-	command eatdream                ; 16
 	command burntarget              ; 17
 	command freezetarget            ; 18
 	command paralyzetarget          ; 19
@@ -42,7 +41,6 @@ ENDM
 	command forceswitch             ; 23
 	command endloop                 ; 24
 	command flinchtarget            ; 25
-	command ohko                    ; 26
 	command recoil                  ; 27
 	command mist                    ; 28
 	command focusenergy             ; 29
@@ -57,7 +55,6 @@ ENDM
 	command mimic                   ; 33
 	command metronome               ; 34
 	command leechseed               ; 35
-	command splash                  ; 36
 	command disable                 ; 37
 	command cleartext               ; 38
 	command charge                  ; 39
@@ -85,7 +82,6 @@ ENDM
 	command kickcounter             ; 4f
 	command thief                   ; 50
 	command arenatrap               ; 51
-	command nightmare               ; 52
 	command defrost                 ; 53
 	command curse                   ; 54
 	command protect                 ; 55
@@ -98,13 +94,11 @@ ENDM
 	command rolloutpower            ; 5c
 	command effect0x5d              ; 5d
 	command furycutter              ; 5e
-	command attract                 ; 5f
 	command happinesspower          ; 60
 	command damagecalc              ; 62
 	command frustrationpower        ; 63
 	command safeguard               ; 64
 	command checksafeguard          ; 65
-	command getmagnitude            ; 66
 	command batonpass               ; 67
 	command pursuit                 ; 68
 	command clearhazards            ; 69

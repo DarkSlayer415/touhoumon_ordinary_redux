@@ -310,7 +310,6 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_SLEEP,            AI_Smart_Sleep
 	dbw EFFECT_LEECH_HIT,        AI_Smart_LeechHit
 	dbw EFFECT_SELFDESTRUCT,     AI_Smart_Selfdestruct
-	dbw EFFECT_DREAM_EATER,      AI_Smart_DreamEater
 	dbw EFFECT_MIRROR_MOVE,      AI_Smart_MirrorMove
 	dbw EFFECT_EVASION_UP,       AI_Smart_EvasionUp
 	dbw EFFECT_ALWAYS_HIT,       AI_Smart_AlwaysHit
@@ -321,7 +320,6 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_HEAL,             AI_Smart_Heal
 	dbw EFFECT_TOXIC,            AI_Smart_Toxic
 	dbw EFFECT_LIGHT_SCREEN,     AI_Smart_LightScreen
-	dbw EFFECT_OHKO,             AI_Smart_Ohko
 	dbw EFFECT_RAZOR_WIND,       AI_Smart_RazorWind
 	dbw EFFECT_SUPER_FANG,       AI_Smart_SuperFang
 	dbw EFFECT_TRAP_TARGET,      AI_Smart_TrapTarget
@@ -347,12 +345,10 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_SLEEP_TALK,       AI_Smart_SleepTalk
 	dbw EFFECT_DESTINY_BOND,     AI_Smart_DestinyBond
 	dbw EFFECT_REVERSAL,         AI_Smart_Reversal
-	dbw EFFECT_SPITE,            AI_Smart_Spite
 	dbw EFFECT_HEAL_BELL,        AI_Smart_HealBell
 	dbw EFFECT_PRIORITY_HIT,     AI_Smart_PriorityHit
 	dbw EFFECT_THIEF,            AI_Smart_Thief
 	dbw EFFECT_MEAN_LOOK,        AI_Smart_MeanLook
-	dbw EFFECT_NIGHTMARE,        AI_Smart_Nightmare
 	dbw EFFECT_FLAME_WHEEL,      AI_Smart_FlameWheel
 	dbw EFFECT_CURSE,            AI_Smart_Curse
 	dbw EFFECT_PROTECT,          AI_Smart_Protect
@@ -363,9 +359,7 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_ROLLOUT,          AI_Smart_Rollout
 	dbw EFFECT_SWAGGER,          AI_Smart_Swagger
 	dbw EFFECT_FURY_CUTTER,      AI_Smart_FuryCutter
-	dbw EFFECT_ATTRACT,          AI_Smart_Attract
 	dbw EFFECT_SAFEGUARD,        AI_Smart_Safeguard
-	dbw EFFECT_MAGNITUDE,        AI_Smart_Magnitude
 	dbw EFFECT_BATON_PASS,       AI_Smart_BatonPass
 	dbw EFFECT_PURSUIT,          AI_Smart_Pursuit
 	dbw EFFECT_RAPID_SPIN,       AI_Smart_RapidSpin
@@ -381,32 +375,12 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_TWISTER,          AI_Smart_Twister
 	dbw EFFECT_EARTHQUAKE,       AI_Smart_Earthquake
 	dbw EFFECT_FUTURE_SIGHT,     AI_Smart_FutureSight
-	dbw EFFECT_GUST,             AI_Smart_Gust
 	dbw EFFECT_STOMP,            AI_Smart_Stomp
 	dbw EFFECT_SOLARBEAM,        AI_Smart_Solarbeam
 	dbw EFFECT_THUNDER,          AI_Smart_Thunder
 	dbw EFFECT_FLY,              AI_Smart_Fly
 	dbw EFFECT_HAIL,             AI_Smart_Hail
 	db -1 ; end
-
-AI_Smart_Sleep:
-; Greatly encourage sleep inducing moves if the enemy has either Dream Eater or Nightmare.
-; 50% chance to greatly encourage sleep inducing moves otherwise.
-
-	ld b, EFFECT_DREAM_EATER
-	call AIHasMoveEffect
-	jr c, .encourage
-
-	ld b, EFFECT_NIGHTMARE
-	call AIHasMoveEffect
-	ret nc
-
-.encourage
-	call AI_50_50
-	ret c
-	dec [hl]
-	dec [hl]
-	ret
 
 AI_Smart_LeechHit:
 	push hl
@@ -580,18 +554,6 @@ AI_Smart_Selfdestruct:
 	inc [hl]
 	inc [hl]
 	inc [hl]
-	ret
-
-AI_Smart_DreamEater:
-; 90% chance to greatly encourage this move.
-; The AI_Basic layer will make sure that
-; Dream Eater is only used against sleeping targets.
-	call Random
-	cp 10 percent
-	ret c
-	dec [hl]
-	dec [hl]
-	dec [hl]
 	ret
 
 AI_Smart_EvasionUp:
@@ -961,6 +923,7 @@ AI_Smart_Moonlight:
 	dec [hl]
 	ret
 
+AI_Smart_Sleep:
 AI_Smart_Toxic:
 AI_Smart_LeechSeed:
 ; Discourage this move if player's HP is below 50%.
@@ -978,20 +941,6 @@ AI_Smart_Reflect:
 	ret c
 	call Random
 	cp 8 percent
-	ret c
-	inc [hl]
-	ret
-
-AI_Smart_Ohko:
-; Dismiss this move if player's level is higher than enemy's level.
-; Else, discourage this move is player's HP is below 50%.
-
-	ld a, [wBattleMonLevel]
-	ld b, a
-	ld a, [wEnemyMonLevel]
-	cp b
-	jp c, AIDiscourageMove
-	call AICheckPlayerHalfHP
 	ret c
 	inc [hl]
 	ret
@@ -1498,66 +1447,7 @@ AI_Smart_DefrostOpponent:
 	dec [hl]
 	dec [hl]
 	ret
-
-AI_Smart_Spite:
-	ld a, [wLastPlayerCounterMove]
-	and a
-	jr nz, .usedmove
-
-	call AICompareSpeed
-	jp c, AIDiscourageMove
-
-	call AI_50_50
-	ret c
-	inc [hl]
-	ret
-
-.usedmove
-	push hl
-	ld b, a
-	ld c, NUM_MOVES
-	ld hl, wBattleMonMoves
-	ld de, wBattleMonPP
-
-.moveloop
-	ld a, [hli]
-	cp b
-	jr z, .foundmove
-
-	inc de
-	dec c
-	jr nz, .moveloop
-
-	pop hl
-	ret
-
-.foundmove
-	pop hl
-	ld a, [de]
-	cp 6
-	jr c, .encourage
-	cp 15
-	jr nc, .discourage
-
-	call Random
-	cp 39 percent + 1
-	ret nc
-
-.discourage
-	inc [hl]
-	ret
-
-.encourage
-	call Random
-	cp 39 percent + 1
-	ret c
-	dec [hl]
-	dec [hl]
-	ret
-
-.dismiss ; unreferenced
-	jp AIDiscourageMove
-
+	
 AI_Smart_DestinyBond:
 AI_Smart_Reversal:
 AI_Smart_SkullBash:
@@ -1799,16 +1689,6 @@ AICheckLastPlayerMon:
 	dec b
 	jr nz, .loop
 
-	ret
-
-AI_Smart_Nightmare:
-; 50% chance to encourage this move.
-; The AI_Basic layer will make sure that
-; Dream Eater is only used against sleeping targets.
-
-	call AI_50_50
-	ret c
-	dec [hl]
 	ret
 
 AI_Smart_FlameWheel:
@@ -2275,7 +2155,6 @@ AI_Smart_Safeguard:
 	inc [hl]
 	ret
 
-AI_Smart_Magnitude:
 AI_Smart_Earthquake:
 ; Greatly encourage this move if the player is underground and the enemy is faster.
 	ld a, [wLastPlayerCounterMove]
@@ -2594,7 +2473,6 @@ AI_Smart_MirrorCoat:
 	ret
 
 AI_Smart_Twister:
-AI_Smart_Gust:
 ; Greatly encourage this move if the player is flying and the enemy is faster.
 	ld a, [wLastPlayerCounterMove]
 	cp FLY

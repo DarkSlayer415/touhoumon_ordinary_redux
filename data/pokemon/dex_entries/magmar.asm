@@ -1,4 +1,4 @@
-	db "Cursed@" ; species name
+	db "Curse God@" ; species name
 	dw 503, 1444 ; height, weight
 
 	db   "Misfortune is her"
