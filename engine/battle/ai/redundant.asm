@@ -14,7 +14,6 @@ AI_Redundant:
 	jp hl
 
 .Moves:
-	dbw EFFECT_DREAM_EATER,  .DreamEater
 	dbw EFFECT_HEAL,         .Heal
 	dbw EFFECT_LIGHT_SCREEN, .LightScreen
 	dbw EFFECT_MIST,         .Mist
@@ -28,12 +27,10 @@ AI_Redundant:
 	dbw EFFECT_SNORE,        .Snore
 	dbw EFFECT_SLEEP_TALK,   .SleepTalk
 	dbw EFFECT_MEAN_LOOK,    .MeanLook
-	dbw EFFECT_NIGHTMARE,    .Nightmare
 	dbw EFFECT_SPIKES,       .Spikes
 	dbw EFFECT_FORESIGHT,    .Foresight
 	dbw EFFECT_PERISH_SONG,  .PerishSong
 	dbw EFFECT_SANDSTORM,    .Sandstorm
-	dbw EFFECT_ATTRACT,      .Attract
 	dbw EFFECT_SAFEGUARD,    .Safeguard
 	dbw EFFECT_RAIN_DANCE,   .RainDance
 	dbw EFFECT_SUNNY_DAY,    .SunnyDay
@@ -111,14 +108,6 @@ AI_Redundant:
 	bit SUBSTATUS_CANT_RUN, a
 	ret
 
-.Nightmare:
-	ld a, [wBattleMonStatus]
-	and a
-	jr z, .Redundant
-	ld a, [wPlayerSubStatus1]
-	bit SUBSTATUS_NIGHTMARE, a
-	ret
-
 .Spikes:
 	ld a, [wPlayerScreens]
 	bit SCREENS_SPIKES, a
@@ -140,13 +129,6 @@ AI_Redundant:
 	jr z, .Redundant
 	jr .NotRedundant
 
-.Attract:
-	farcall CheckOppositeGender
-	jr c, .Redundant
-	ld a, [wPlayerSubStatus1]
-	bit SUBSTATUS_IN_LOVE, a
-	ret
-
 .Safeguard:
 	ld a, [wEnemyScreens]
 	bit SCREENS_SAFEGUARD, a
@@ -161,12 +143,6 @@ AI_Redundant:
 .SunnyDay:
 	ld a, [wBattleWeather]
 	cp WEATHER_SUN
-	jr z, .Redundant
-	jr .NotRedundant
-
-.DreamEater:
-	ld a, [wBattleMonStatus]
-	and SLP_MASK
 	jr z, .Redundant
 	jr .NotRedundant
 

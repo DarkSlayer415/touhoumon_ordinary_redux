@@ -129,28 +129,28 @@ KantoGrassWildMons:
 	def_grass_wildmons VICTORY_ROAD
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 44, ARIADOS
-	db 44, RHYHORN
-	db 43, SKIPLOOM
-	db 43, RATTATA
+	db 45, ARIADOS
+	db 45, RHYHORN
+	db 45, SKIPLOOM
+	db 45, RATTATA
 	db 47, JUMPLUFF
 	db 47, RATICATE
 	db 47, RHYDON
 	db 40, PUPITAR
 	; day
-	db 44, ARIADOS
-	db 44, RHYHORN
-	db 43, SKIPLOOM
-	db 43, RATTATA
+	db 45, ARIADOS
+	db 45, RHYHORN
+	db 45, SKIPLOOM
+	db 45, RATTATA
 	db 47, JUMPLUFF
 	db 47, RATICATE
 	db 47, RHYDON
 	db 40, PUPITAR
 	; nite
-	db 44, ARIADOS
-	db 44, RHYHORN
-	db 43, SKIPLOOM
-	db 43, RATTATA
+	db 45, ARIADOS
+	db 45, RHYHORN
+	db 45, SKIPLOOM
+	db 45, RATTATA
 	db 47, JUMPLUFF
 	db 47, RATICATE
 	db 47, RHYDON

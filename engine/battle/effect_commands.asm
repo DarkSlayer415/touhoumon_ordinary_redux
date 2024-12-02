@@ -254,7 +254,7 @@ BattleCommand_CheckTurn:
 	call CantMove
 	jp EndTurn
 
-.not_confused
+.not_confused ;Attract is unused, but code is kept to retain engine stability.
 
 	ld a, [wPlayerSubStatus1]
 	add a ; bit SUBSTATUS_ATTRACT
@@ -264,7 +264,7 @@ BattleCommand_CheckTurn:
 	call StdBattleTextbox
 	xor a
 	ld [wNumHits], a
-	ld de, ANIM_IN_LOVE
+	ld de, ANIM_MISS ;Placeholder since Attract is removed.
 	call FarPlayBattleAnimation
 
 	; 50% chance of infatuation
@@ -385,7 +385,7 @@ CheckEnemyTurn:
 	jr .not_asleep
 
 .fast_asleep
-	; Snore and Sleep Talk bypass sleep.
+	; Sleep Talk bypasses sleep.
 	ld a, [wCurEnemyMove]
 	cp SNORE
 	jr z, .not_asleep
@@ -494,7 +494,7 @@ CheckEnemyTurn:
 	call StdBattleTextbox
 	xor a
 	ld [wNumHits], a
-	ld de, ANIM_IN_LOVE
+	ld de, ANIM_MISS
 	call FarPlayBattleAnimation
 
 	; 50% chance of infatuation
@@ -952,10 +952,6 @@ BattleCommand_DoTurn:
 	; SubStatus5
 	inc de
 	inc de
-
-	ld a, [de]
-	bit SUBSTATUS_TRANSFORMED, a
-	ret nz
 
 	ldh a, [hBattleTurn]
 	and a
@@ -1499,9 +1495,6 @@ BattleCommand_DamageVariation:
 	ret
 
 BattleCommand_CheckHit:
-	call .DreamEater
-	jp z, .Miss
-
 	call .Protect
 	jp nz, .Miss
 
@@ -1578,19 +1571,6 @@ BattleCommand_CheckHit:
 .Missed:
 	ld a, 1
 	ld [wAttackMissed], a
-	ret
-
-.DreamEater:
-; Return z if we're trying to eat the dream of
-; a monster that isn't sleeping.
-	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
-	cp EFFECT_DREAM_EATER
-	ret nz
-
-	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVar
-	and SLP_MASK
 	ret
 
 .Protect:
@@ -1676,11 +1656,11 @@ BattleCommand_CheckHit:
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
 
-	cp GUST
-	ret z
 	cp WHIRLWIND
 	ret z
 	cp THUNDER
+	ret z
+	cp HEADWIND
 	ret z
 	cp TWISTER
 	ret
@@ -2242,7 +2222,7 @@ BattleCommand_BideFailText:
 	jp PrintButItFailed
 
 BattleCommand_CriticalText:
-; Prints the message for critical hits or one-hit KOs.
+; Prints the message for critical hits.
 
 ; If there is no message to be printed, wait 20 frames.
 	ld a, [wCriticalHit]
@@ -2269,7 +2249,6 @@ BattleCommand_CriticalText:
 
 .texts
 	dw CriticalHitText
-	dw OneHitKOText
 
 BattleCommand_StartLoop:
 	ld hl, wPlayerRolloutCount
@@ -3130,11 +3109,6 @@ BattleCommand_ConstantDamage:
 	ld a, 0
 	jr z, .got_power
 
-	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
-	cp EFFECT_PSYWAVE
-	jr z, .psywave
-
 	cp EFFECT_SUPER_FANG
 	jr z, .super_fang
 
@@ -3145,21 +3119,6 @@ BattleCommand_ConstantDamage:
 	call GetBattleVar
 	ld b, a
 	ld a, $0
-	jr .got_power
-
-.psywave
-	ld a, b
-	srl a
-	add b
-	ld b, a
-.psywave_loop
-	call BattleRandom
-	and a
-	jr z, .psywave_loop
-	cp b
-	jr nc, .psywave_loop
-	ld b, a
-	ld a, 0
 	jr .got_power
 
 .super_fang
@@ -3315,8 +3274,6 @@ BattleCommand_DefrostOpponent:
 INCLUDE "engine/battle/move_effects/sleep_talk.asm"
 
 INCLUDE "engine/battle/move_effects/destiny_bond.asm"
-
-INCLUDE "engine/battle/move_effects/spite.asm"
 
 INCLUDE "engine/battle/move_effects/false_swipe.asm"
 
@@ -5317,50 +5274,6 @@ BattleCommand_HeldFlinch:
 	set SUBSTATUS_FLINCHED, [hl]
 	ret
 
-BattleCommand_OHKO:
-	call ResetDamage
-	ld a, [wTypeModifier]
-	and $7f
-	jr z, .no_effect
-	ld hl, wEnemyMonLevel
-	ld de, wBattleMonLevel
-	ld bc, wPlayerMoveStruct + MOVE_ACC
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .got_move_accuracy
-	push hl
-	ld h, d
-	ld l, e
-	pop de
-	ld bc, wEnemyMoveStruct + MOVE_ACC
-.got_move_accuracy
-	ld a, [de]
-	sub [hl]
-	jr c, .no_effect
-	add a
-	ld e, a
-	ld a, [bc]
-	add e
-	jr nc, .finish_ohko
-	ld a, $ff
-.finish_ohko
-	ld [bc], a
-	call BattleCommand_CheckHit
-	ld hl, wCurDamage
-	ld a, $ff
-	ld [hli], a
-	ld [hl], a
-	ld a, $2
-	ld [wCriticalHit], a
-	ret
-
-.no_effect
-	ld a, $ff
-	ld [wCriticalHit], a
-	ld a, $1
-	ld [wAttackMissed], a
-	ret
-
 BattleCommand_CheckCharge:
 	ld a, BATTLE_VARS_SUBSTATUS3
 	call GetBattleVarAddr
@@ -5870,8 +5783,6 @@ INCLUDE "engine/battle/move_effects/mimic.asm"
 
 INCLUDE "engine/battle/move_effects/leech_seed.asm"
 
-INCLUDE "engine/battle/move_effects/splash.asm"
-
 INCLUDE "engine/battle/move_effects/disable.asm"
 
 INCLUDE "engine/battle/move_effects/pay_day.asm"
@@ -6272,8 +6183,6 @@ BattleCommand_CheckSafeguard:
 	ld hl, SafeguardProtectText
 	call StdBattleTextbox
 	jp EndMoveEffect
-
-INCLUDE "engine/battle/move_effects/magnitude.asm"
 
 INCLUDE "engine/battle/move_effects/baton_pass.asm"
 

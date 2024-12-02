@@ -1,3 +1,4 @@
+; Attract is unused in Ordinary Redux, but its effects are kept to not break the battle engine.
 BattleCommand_Attract:
 	ld a, [wAttackMissed]
 	and a

@@ -1,4 +1,4 @@
-	db "Cursed@" ; species name
+	db "Curse God@" ; species name
 	dw 211, 490 ; height, weight
 
 	db   "A curse goddess"

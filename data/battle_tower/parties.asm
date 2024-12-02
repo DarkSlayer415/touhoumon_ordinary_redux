@@ -2670,7 +2670,7 @@ BattleTowerMons:
 
 	db CELEBI ;EHatate
 	db SCOPE_LENS
-	db SKY_ATTACK, EXTREMESPEED, PSYCHIC_M, MEDITATE
+	db HEADWIND, EXTREMESPEED, MYSTIC_BOMB, MEDITATE
 	dw 0 ; OT ID
 	dt 125000 ; Exp
 	; Stat exp
@@ -2687,10 +2687,10 @@ BattleTowerMons:
 	db 0, 0 ; Status
 	bigdw 181 ; HP
 	bigdw 181 ; Max HP
-	bigdw 131 ; Atk
+	bigdw 136 ; Atk
 	bigdw 121 ; Def
 	bigdw 161 ; Spd
-	bigdw 166 ; SAtk
+	bigdw 171 ; SAtk
 	bigdw 121 ; SDef
 	db "KIRINRIKI@@"
 
@@ -3953,7 +3953,7 @@ BattleTowerMons:
 
 	db LAPRAS ;ERika
 	db MINT_BERRY
-	db AEROBLAST, EGG_BOMB, EXPLOSION, FIRE_BLAST
+	db AEROBLAST, SIGMA_CANNON, EXPLOSION, FIRE_BLAST
 	dw 0 ; OT ID
 	dt 512000 ; Exp
 	; Stat exp
@@ -4606,7 +4606,7 @@ BattleTowerMons:
 
 	db LAPRAS ;ERika
 	db MINT_BERRY
-	db REST, MOONLIGHT, EGG_BOMB, AEROBLAST
+	db REST, MOONLIGHT, SIGMA_CANNON, AEROBLAST
 	dw 0 ; OT ID
 	dt 729000 ; Exp
 	; Stat exp
@@ -5207,7 +5207,7 @@ BattleTowerMons:
 
 	db PIDGEOT ;EAya
 	db KINGS_ROCK
-	db DOUBLE_EDGE, SKY_ATTACK, JUMP_KICK, FORESIGHT
+	db DOUBLE_EDGE, SKY_ATTACK, HI_JUMP_KICK, SOFTBOILED
 	dw 0 ; OT ID
 	dt 1000000 ; Exp
 	; Stat exp
@@ -5226,8 +5226,8 @@ BattleTowerMons:
 	bigdw 343 ; Max HP
 	bigdw 308 ; Atk
 	bigdw 238 ; Def
-	bigdw 368 ; Spd
-	bigdw 258 ; SAtk
+	bigdw 378 ; Spd
+	bigdw 248 ; SAtk
 	bigdw 238 ; SDef
 	db "ONIDORIRU@@"
 

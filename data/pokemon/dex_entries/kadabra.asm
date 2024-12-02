@@ -6,6 +6,6 @@
 	next "long-winded, but"
 
 	page "they are intended"
-	next "to help oneself"
+	next "to help others"
 	next "improve.@"
 	

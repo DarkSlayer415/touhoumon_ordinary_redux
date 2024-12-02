@@ -5,7 +5,7 @@
 	next "interested in"
 	next "what Gensokyo is"
 
-	page "like, she but got"
+	page "like, but she got"
 	next "caught up in"
 	next "fights on her way.@"
 	

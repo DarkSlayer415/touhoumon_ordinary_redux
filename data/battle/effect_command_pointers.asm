@@ -26,7 +26,6 @@ BattleCommandPointers:
 	dw BattleCommand_PoisonTarget
 	dw BattleCommand_SleepTarget
 	dw BattleCommand_DrainTarget
-	dw BattleCommand_EatDream
 	dw BattleCommand_BurnTarget
 	dw BattleCommand_FreezeTarget
 	dw BattleCommand_ParalyzeTarget
@@ -42,7 +41,6 @@ BattleCommandPointers:
 	dw BattleCommand_ForceSwitch
 	dw BattleCommand_EndLoop
 	dw BattleCommand_FlinchTarget
-	dw BattleCommand_OHKO
 	dw BattleCommand_Recoil
 	dw BattleCommand_Mist
 	dw BattleCommand_FocusEnergy
@@ -57,7 +55,6 @@ BattleCommandPointers:
 	dw BattleCommand_Mimic
 	dw BattleCommand_Metronome
 	dw BattleCommand_LeechSeed
-	dw BattleCommand_Splash
 	dw BattleCommand_Disable
 	dw BattleCommand_ClearText
 	dw BattleCommand_Charge
@@ -77,7 +74,6 @@ BattleCommandPointers:
 	dw BattleCommand_DefrostOpponent
 	dw BattleCommand_SleepTalk
 	dw BattleCommand_DestinyBond
-	dw BattleCommand_Spite
 	dw BattleCommand_FalseSwipe
 	dw BattleCommand_HealBell
 	dw BattleCommand_HeldFlinch
@@ -98,13 +94,11 @@ BattleCommandPointers:
 	dw BattleCommand_RolloutPower
 	dw BattleCommand_Unused5D
 	dw BattleCommand_FuryCutter
-	dw BattleCommand_Attract
 	dw BattleCommand_HappinessPower
 	dw BattleCommand_DamageCalc
 	dw BattleCommand_FrustrationPower
 	dw BattleCommand_Safeguard
 	dw BattleCommand_CheckSafeguard
-	dw BattleCommand_GetMagnitude
 	dw BattleCommand_BatonPass
 	dw BattleCommand_Pursuit
 	dw BattleCommand_ClearHazards

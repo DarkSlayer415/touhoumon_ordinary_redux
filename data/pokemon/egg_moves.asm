@@ -43,11 +43,11 @@ WeedleEggMoves:
 	db -1 ; end
 	
 PidgeyEggMoves:
-	db PURSUIT
-	db HEADWIND
+	db BATON_PASS
+	db SPIKES
 	db HI_JUMP_KICK
 	db MEGA_KICK
-	db MACH_PUNCH
+	db HEADWIND
 	db -1 ; end
 
 SpearowEggMoves:
@@ -196,8 +196,8 @@ TentacoolEggMoves:
 
 GeodudeEggMoves:
 	db HI_JUMP_KICK
-	db COUNTER
-	db MEGA_KICK
+	db MIND_READER
+	db GUILLOTINE
 	db MEAN_LOOK
 	db AGILITY
 	db -1 ; end
@@ -470,8 +470,8 @@ NatuEggMoves:
 	db MIMIC
 	db HEAL_BELL
 	db THUNDER_WAVE
-	db CHARM
-	db AGILITY
+	db BATON_PASS
+	db DREAM_EATER
 	db -1 ; end
 
 MareepEggMoves:
@@ -581,8 +581,8 @@ SneaselEggMoves:
 DelibirdEggMoves:
 	db REVERSAL
 	db RAPID_SPIN
-	db SEISMIC_TOSS
-	db NIGHT_SHADE
+	db AMNESIA
+	db BARRIER
 	db PURSUIT
 	db -1 ; end
 

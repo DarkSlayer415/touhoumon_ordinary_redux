@@ -1,3 +1,4 @@
+; Nightmare is unused in Ordinary Redux, but its effects are kept to not break the battle engine.
 BattleCommand_Nightmare:
 ; Can't hit an absent opponent.
 
