@@ -7,10 +7,7 @@ Intro_MainMenu:
 	ld [wMapMusic], a
 	call PlayMusic
 	farcall MainMenu
-	jp StartTitleScreen
-
-IntroMenu_DummyFunction: ; unreferenced
-	ret
+	jmp StartTitleScreen
 
 PrintDayOfWeek:
 	push de
@@ -75,22 +72,15 @@ NewGame:
 
 	ld a, MAPSETUP_WARP
 	ldh [hMapEntryMethod], a
-	jp FinishContinueFunction
+	jmp FinishContinueFunction
 
 PlayerProfileSetup:
-
-if DEF(_DEBUG)
-DebugRoom: ; unreferenced
-	farcall _DebugRoom
-	ret
-endc
 
 ResetWRAM:
 	xor a
 	ldh [hBGMapMode], a
 	call _ResetWRAM
 	ret
-
 _ResetWRAM:
 	ld hl, wShadowOAM
 	ld bc, wOptions - wShadowOAM
@@ -178,7 +168,6 @@ _ResetWRAM:
 	call CloseSRAM
 
 	call LoadOrRegenerateLuckyIDNumber
-	call InitializeMagikarpHouse
 
 	xor a
 	ld [wMonType], a
@@ -258,19 +247,6 @@ SetDefaultBoxNames:
 
 .Box:
 	db "BOX@"
-
-InitializeMagikarpHouse:
-	ld hl, wBestMagikarpLengthFeet
-	ld a, $3
-	ld [hli], a
-	ld a, $6
-	ld [hli], a
-	ld de, .Ralph
-	call CopyName2
-	ret
-
-.Ralph:
-	db "RALPH@"
 
 InitializeNPCNames:
 	ld hl, .Rival
@@ -384,7 +360,7 @@ Continue:
 	jp FinishContinueFunction
 
 SpawnAfterRed:
-	ld a, SPAWN_MT_SILVER
+	ld a, SPAWN_NEW_BARK
 	ld [wDefaultSpawnpoint], a
 
 PostCreditsSpawn:

@@ -13,7 +13,6 @@ InitCrystalData:
 	ld a, [wd479]
 	res 0, a ; ???
 	ld [wd479], a
-	ld a, [wd479]
 	res 1, a ; ???
 	ld [wd479], a
 	ret
@@ -35,8 +34,7 @@ InitGender:
 	dec a
 	ld [wPlayerGender], a
 	ld c, 10
-	call DelayFrames
-	ret
+	jmp DelayFrames
 
 .MenuHeader:
 	db MENU_BACKUP_TILES ; flags
@@ -68,13 +66,12 @@ InitGenderScreen:
 	call LoadFontsExtra
 	hlcoord 0, 0
 	ld bc, SCREEN_HEIGHT * SCREEN_WIDTH
-	ld a, $0
+	xor a
 	call ByteFill
 	hlcoord 0, 0, wAttrmap
 	ld bc, SCREEN_HEIGHT * SCREEN_WIDTH
 	xor a
-	call ByteFill
-	ret
+	jmp ByteFill
 
 LoadGenderScreenPal:
 	ld hl, .Palette
