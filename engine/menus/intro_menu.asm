@@ -72,7 +72,7 @@ NewGame:
 
 	ld a, MAPSETUP_WARP
 	ldh [hMapEntryMethod], a
-	jmp FinishContinueFunction
+	jp FinishContinueFunction
 
 PlayerProfileSetup:
 
@@ -168,6 +168,7 @@ _ResetWRAM:
 	call CloseSRAM
 
 	call LoadOrRegenerateLuckyIDNumber
+	call InitializeMagikarpHouse
 
 	xor a
 	ld [wMonType], a
@@ -247,6 +248,20 @@ SetDefaultBoxNames:
 
 .Box:
 	db "BOX@"
+	
+InitializeMagikarpHouse: ;Unused?
+	ld hl, wBestMagikarpLengthFeet
+	ld a, $3
+	ld [hli], a
+	ld a, $6
+	ld [hli], a
+	ld de, .Ralph
+	call CopyName2
+	ret
+
+.Ralph:
+	db "RALPH@"
+
 
 InitializeNPCNames:
 	ld hl, .Rival
@@ -1002,11 +1017,6 @@ TitleScreenScene:
 	dw TitleScreenTimer
 	dw TitleScreenMain
 	dw TitleScreenEnd
-
-TitleScreenNextScene: ; unreferenced
-	ld hl, wJumptableIndex
-	inc [hl]
-	ret
 
 TitleScreenEntrance:
 ; Animate the logo:
