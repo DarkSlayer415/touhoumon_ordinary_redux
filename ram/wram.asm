@@ -2738,7 +2738,6 @@ wTimeOfDay:: db
 
 	ds 1
 
-
 SECTION "Enemy Party", WRAMX
 
 UNION
@@ -2808,6 +2807,7 @@ wScriptFlags::
 ; bit 3: run deferred script
 	db
 	ds 1
+
 wEnabledPlayerEvents::
 ; bit 0: count steps
 ; bit 1: coord events
@@ -2823,7 +2823,9 @@ wScriptPos:: dw
 
 wScriptStackSize:: db
 wScriptStack:: ds 3 * 5
+
 	ds 1
+
 wScriptDelay:: db
 
 wDeferredScriptBank::
@@ -2840,6 +2842,7 @@ wXYComparePointer:: dw
 
 wBattleScriptFlags:: db
 	ds 1
+
 wPlayerSpriteSetupFlags::
 ; bit 7: if set, cancel wPlayerAction
 ; bit 6: RefreshMapSprites doesn't reload player sprite
@@ -3215,6 +3218,7 @@ wDailyFlags1:: db
 wDailyFlags2:: db
 wSwarmFlags:: db
 	ds 2
+
 wTimerEventStartDay:: db
 	ds 3
 
@@ -3226,11 +3230,13 @@ wLuckyNumberDayTimer:: dw
 	ds 2
 wSpecialPhoneCallID:: db
 	ds 3
+
 wBugContestStartTime:: ds 4 ; day, hour, min, sec
 wUnusedTwoDayTimerOn:: db
 wUnusedTwoDayTimer:: db
 wUnusedTwoDayTimerStartDate:: db
 	ds 4
+
 wMobileOrCable_LastSelection:: db
 wdc41:: ds 1
 wdc42:: ds 8

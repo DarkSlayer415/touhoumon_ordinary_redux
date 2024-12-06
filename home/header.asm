@@ -50,19 +50,19 @@ SECTION "rst38", ROM0[$0038]
 ; Game Boy hardware interrupts
 
 SECTION "vblank", ROM0[$0040]
-	jp VBlank
+	jmp VBlank
 
 SECTION "lcd", ROM0[$0048]
-	jp LCD
+	jmp LCD
 
 SECTION "timer", ROM0[$0050]
 	jp MobileTimer
 
 SECTION "serial", ROM0[$0058]
-	jp Serial
+	jmp Serial
 
 SECTION "joypad", ROM0[$0060]
-	jp Joypad
+	jmp Joypad
 
 
 SECTION "Header", ROM0[$0100]
