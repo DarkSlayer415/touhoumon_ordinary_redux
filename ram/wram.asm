@@ -2515,6 +2515,8 @@ wMonTriedToEvolve:: db
 
 wTimeOfDay:: db
 
+	ds 1
+
 SECTION "Enemy Party", WRAMX
 
 UNION
@@ -2569,6 +2571,8 @@ wDudeNumBalls:: db
 wDudeBalls:: ds 2 * 4 + 1
 ENDU
 
+	ds 4
+
 wd430:: ; mobile
 wBattleAction:: db
 
@@ -2579,6 +2583,7 @@ wMapEventStatus:: db
 wScriptFlags::
 ; bit 3: run deferred script
 	db
+	ds 1
 
 wEnabledPlayerEvents::
 ; bit 0: count steps
@@ -2596,6 +2601,8 @@ wScriptPos:: dw
 wScriptStackSize:: db
 wScriptStack:: ds 3 * 5
 
+	ds 1
+
 wScriptDelay:: db
 
 wDeferredScriptBank::
@@ -2608,8 +2615,10 @@ wWildBattlePanic:: db
 wWildEncounterCooldown:: db
 
 wXYComparePointer:: dw
+	ds 4
 
 wBattleScriptFlags:: db
+	ds 1
 
 wPlayerSpriteSetupFlags::
 ; bit 7: if set, cancel wPlayerAction
@@ -2623,14 +2632,22 @@ wMapReentryScriptQueueFlag:: db
 wMapReentryScriptBank:: db
 wMapReentryScriptAddress:: dw
 
+	ds 4
+
 wTimeCyclesSinceLastCall:: db
 wReceiveCallDelay_MinsRemaining:: db
 wReceiveCallDelay_StartTime:: ds 3
 
+	ds 3
+
 wBugContestMinsRemaining:: db
 wBugContestSecsRemaining:: db
 
+	ds 2
+
 wMapStatusEnd::
+
+	ds 2
 
 wCrystalData::
 wPlayerGender::
@@ -2685,6 +2702,8 @@ wGameTimeFrames::  db
 	ds 2
 
 wCurDay:: db
+
+	ds 1
 
 wObjectFollow_Leader:: db
 wObjectFollow_Follower:: db
@@ -2954,6 +2973,8 @@ wCurMapSceneScriptsPointer:: dw
 wCurMapCallbackCount:: db
 wCurMapCallbacksPointer:: dw
 
+	ds 2
+
 ; Sprite id of each decoration
 wDecoBed::           db
 wDecoCarpet::        db
@@ -2973,21 +2994,26 @@ wDailyResetTimer:: dw
 wDailyFlags1:: db
 wDailyFlags2:: db
 wSwarmFlags:: db
+	ds 2
 	
 wTimerEventStartDay:: db
+	ds 3
 
 wFruitTreeFlags:: flag_array NUM_FRUIT_TREES
 
+	ds 2
+	
 wLuckyNumberDayTimer:: dw
+	ds 2
 
 wSpecialPhoneCallID:: db
-
+	ds 3
 
 wBugContestStartTime:: ds 4 ; day, hour, min, sec
 wUnusedTwoDayTimerOn:: db
 wUnusedTwoDayTimer:: db
 wUnusedTwoDayTimerStartDate:: db
-
+	ds 4
 
 wMobileOrCable_LastSelection:: db
 wBuenasPassword:: db
@@ -3034,6 +3060,8 @@ wBackupWarpNumber:: db
 wBackupMapGroup::   db
 wBackupMapNumber::  db
 
+	ds 3
+
 wLastSpawnMapGroup:: db
 wLastSpawnMapNumber:: db
 
@@ -3073,6 +3101,8 @@ for n, 1, PARTY_LENGTH + 1
 wPartyMon{d:n}Nickname:: ds MON_NAME_LENGTH
 endr
 wPartyMonNicknamesEnd::
+
+	ds 22
 
 wPokedexCaught:: flag_array NUM_POKEMON
 wEndPokedexCaught::
