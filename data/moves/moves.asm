@@ -22,7 +22,7 @@ PUSHS
 
 SECTION "Moves Gen 1", ROMX
 
-MovesGen1:
+MovesGen1::
 	move POUND,        EFFECT_NORMAL_HIT,         40, NORMAL,       100, 35,   0
 	move KARATE_CHOP,  EFFECT_NORMAL_HIT,         50, FIGHTING,     100, 25,   0
 	move DOUBLESLAP,   EFFECT_MULTI_HIT,          15, NORMAL,        90, 20,   0
@@ -192,7 +192,7 @@ MovesGen1:
 
 SECTION "Moves Gen 2", ROMX
 
-MovesGen2:
+MovesGen2::
 	move SKETCH,       EFFECT_SKETCH,              0, NORMAL,       100,  1,   0
 	move TRIPLE_KICK,  EFFECT_TRIPLE_KICK,        10, FIGHTING,      90, 15,   0
 	move THIEF,        EFFECT_THIEF,              60, DARK,         100, 25, 100
