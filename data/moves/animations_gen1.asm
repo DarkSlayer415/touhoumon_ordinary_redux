@@ -167,7 +167,7 @@ BattleAnimationsGen1::
 	dw BattleAnim_Struggle
 .IndirectEnd:: 
 
-BattleAnim_Dummy:
+BattleAnim_Dummy::
 BattleAnim_MirrorMove:
 	anim_ret
 
