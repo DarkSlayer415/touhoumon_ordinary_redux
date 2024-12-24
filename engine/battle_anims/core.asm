@@ -17,9 +17,7 @@ QueueBattleAnimation:
 	ld b, h
 	ld hl, wLastAnimObjectIndex
 	inc [hl]
-	; fallthrough
-
-InitBattleAnimation:
+; InitBattleAnimation:
 	ld hl, wBattleObjectTempID
 	ld a, [hli]
 	ld e, a
@@ -82,10 +80,8 @@ BattleAnimOAMUpdate:
 	jmp z, .done
 	cp HIGH(battleoamdelete_command)
 	jmp z, .delete
-	
 	ld d, h
 	ld e, l
-	
 	ld hl, wBattleAnimTempOAMFlags
 	ld a, [wBattleAnimTempFrameOAMFlags]
 	xor [hl]

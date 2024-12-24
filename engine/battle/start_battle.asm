@@ -60,7 +60,7 @@ PlayBattleMusic:
 
 	ld a, [wBattleType]
 	cp BATTLETYPE_SUICUNE
-	ld de, MUSIC_LEGENDARY_SUIKA__BATTLE
+	ld de, MUSIC_LEGENDARY_SUIKA_BATTLE
 	jp z, .done
 	cp BATTLETYPE_ROAMING
 	jp z, .done
@@ -105,7 +105,7 @@ PlayBattleMusic:
 	cp SCIENTIST
 	jr z, .done
 
-	ld de, const MUSIC_KANTO_GYM_FLANDRE
+	ld de, MUSIC_KANTO_GYM_FLANDRE
 	farcall IsKantoGymLeader
 	jr c, .done
 

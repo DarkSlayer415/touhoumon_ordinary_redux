@@ -1111,3 +1111,6 @@ _CGB_MysteryGift:
 	call FillBoxCGB
 	call ApplyAttrmap
 	ret
+
+.MysteryGiftPalettes:
+INCLUDE "gfx/mystery_gift/mystery_gift.pal"
