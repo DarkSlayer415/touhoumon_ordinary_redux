@@ -231,8 +231,6 @@ sMobileAdapterStatus:: db
 
 SECTION "SRAM Mobile 2", SRAM
 
-sGSBallFlagJP:: db ; unused
-
 sTrainerRankings::
 sTrainerRankingGameTimeHOF:: ds 4
 sTrainerRankingStepCountHOF:: ds 4
@@ -244,7 +242,6 @@ sTrainerRankingTMsHMsTaught:: ds 3
 sTrainerRankingBattles:: ds 3
 sTrainerRankingWildBattles:: ds 3
 sTrainerRankingTrainerBattles:: ds 3
-sTrainerRankingUnused1:: ds 3
 sTrainerRankingHOFEntries:: ds 3
 sTrainerRankingWildMonsCaught:: ds 3
 sTrainerRankingHookedEncounters:: ds 3
@@ -260,11 +257,9 @@ sTrainerRankingWaterfall:: ds 3
 sTrainerRankingWhiteOuts:: ds 3
 sTrainerRankingLuckyNumberShow:: ds 3
 sTrainerRankingPhoneCalls:: ds 3
-sTrainerRankingUnused2:: ds 3
 sTrainerRankingLinkBattles:: ds 3
 sTrainerRankingSplash:: ds 3
 sTrainerRankingTreeEncounters:: ds 3
-sTrainerRankingUnused3:: ds 3
 sTrainerRankingColosseumWins:: ds 3
 sTrainerRankingColosseumLosses:: ds 3
 sTrainerRankingColosseumDraws:: ds 3
@@ -278,8 +273,6 @@ sTrainerRankingShortestMagikarp:: ds 2
 sTrainerRankingBugContestScore:: ds 2
 sTrainerRankingsChecksum:: ds 2
 sTrainerRankingsEnd::
-
-sGSBallFlagBackupJP:: db ; unused
 
 sTrainerRankingsBackup:: ds sTrainerRankingsEnd - sTrainerRankings
 

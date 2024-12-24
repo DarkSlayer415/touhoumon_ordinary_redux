@@ -118,9 +118,6 @@ CianwoodCityPokefanM:
 CianwoodCityLass:
 	jumptextfaceplayer CianwoodCityLassText
 
-CianwoodCityUnusedScript: ; unreferenced
-	jumptextfaceplayer CianwoodCityUnusedText
-
 CianwoodCitySign:
 	jumptext CianwoodCitySignText
 
@@ -264,16 +261,6 @@ CianwoodCityLassText:
 	line "MON."
 	done
 
-CianwoodCityUnusedText:
-	text "There are several"
-	line "islands between"
-	cont "here and OLIVINE."
-
-	para "A mythical"
-	line "youkai supposed-"
-	cont "ly lives there."
-	done
-
 EusineSuicuneText:
 	text "EUSINE: Yo,"
 	line "<PLAYER>."
@@ -396,7 +383,7 @@ CianwoodCity_MapEvents:
 	bg_event 20, 34, BGEVENT_READ, CianwoodCitySign
 	bg_event  7, 45, BGEVENT_READ, CianwoodGymSign
 	bg_event 24, 43, BGEVENT_READ, CianwoodPokecenterSign
-	bg_event 19, 47, BGEVENT_READ, CianwoodPharmacySign
+	bg_event 16, 47, BGEVENT_READ, CianwoodPharmacySign
 	bg_event  8, 32, BGEVENT_READ, CianwoodPhotoStudioSign
 	bg_event  8, 24, BGEVENT_READ, CianwoodPokeSeerSign
 	bg_event  4, 19, BGEVENT_ITEM, CianwoodCityHiddenRevive

@@ -351,22 +351,6 @@ BattleText_StringBuffer1GrewToLevel:
 	sound_dex_fanfare_50_79
 	text_end
 
-	text_end ; unreferenced
-
-BattleText_WildMonIsEating:
-	text "Wild @"
-	text_ram wEnemyMonNickname
-	text_start
-	line "is eating!"
-	prompt
-
-BattleText_WildMonIsAngry:
-	text "Wild @"
-	text_ram wEnemyMonNickname
-	text_start
-	line "is angry!"
-	prompt
-
 FastAsleepText:
 	text "<USER>"
 	line "is fast asleep!"
@@ -1070,11 +1054,6 @@ BattleText_LinkErrorBattleCanceled:
 	para "The battle has"
 	line "been canceled…"
 	prompt
-
-BattleText_NoTimeLeftToday: ; unreferenced
-	text "There is no time"
-	line "left today!"
-	done
 
 ItStartedToHailText:
 	text "It started"

@@ -495,8 +495,6 @@ wCurEnemyMoveNum:: db
 wEnemyHPAtTimeOfPlayerSwitch:: dw
 wPayDayMoney:: ds 3
 
-wSafariMonAngerCount:: db ; unreferenced
-wSafariMonEating:: db
 	ds 1
 wEnemyBackupDVs:: dw ; used when enemy is transformed
 wAlreadyDisobeyed:: db
@@ -861,15 +859,6 @@ wc7d1:: ds 1
 wc7d2:: ds 1
 wc7d3:: ds 2
 ENDU
-
-
-SECTION "Unused Map Buffer", WRAM0
-
-; This was a buffer for map-related pointers in the 1997 G/S prototype.
-; See wMapBuffer in pokegold-spaceworld's wram.asm.
-wUnusedMapBuffer:: ds 24
-wUnusedMapBufferEnd::
-
 
 SECTION UNION "Overworld Map", WRAM0
 

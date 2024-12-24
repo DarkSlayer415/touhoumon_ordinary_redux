@@ -1150,9 +1150,9 @@ PoliwagEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, BUBBLE
 	db 1, LICK
-	db 5, PAY_DAY
+	db 5, FALSE_SWIPE
 	db 8, CONFUSE_RAY
-	db 11, FALSE_SWIPE
+	db 11, PAY_DAY
 	db 15, BUBBLEBEAM
 	db 19, SPITE
 	db 24, SLASH
@@ -1169,9 +1169,9 @@ PoliwhirlEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, BUBBLE
 	db 1, LICK
-	db 5, PAY_DAY
+	db 5, FALSE_SWIPE
 	db 8, CONFUSE_RAY
-	db 11, FALSE_SWIPE
+	db 11, PAY_DAY
 	db 15, BUBBLEBEAM
 	db 19, SPITE
 	db 24, SLASH
@@ -1187,7 +1187,7 @@ PoliwrathEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, BUBBLE
 	db 1, LICK
-	db 5, PAY_DAY
+	db 5, FALSE_SWIPE
 	db 8, CONFUSE_RAY
 	db 11, FALSE_SWIPE
 	db 15, BUBBLEBEAM
@@ -1199,7 +1199,7 @@ PoliwrathEvosAttacks:
 	db 48, DESTINY_BOND
 	db 52, HYDRO_PUMP
 	db 55, PHANTOM_DAZE
-	db 58, GUILLOTINE
+	db 60, GUILLOTINE
 	db 0 ; no more level-up moves
 
 AbraEvosAttacks:
@@ -1471,7 +1471,8 @@ PonytaEvosAttacks:
 	db 1, TACKLE
 	db 1, SHARPEN
 	db 5, QUICK_ATTACK
-	db 11, BITE
+	db 8, FOCUS_ENERGY
+	db 12, BITE
 	db 15, METAL_CLAW
 	db 18, HEADBUTT
 	db 22, FALSE_SWIPE
@@ -1490,7 +1491,8 @@ RapidashEvosAttacks:
 	db 1, TACKLE
 	db 1, SHARPEN
 	db 5, QUICK_ATTACK
-	db 11, BITE
+	db 8, FOCUS_ENERGY
+	db 12, BITE
 	db 15, METAL_CLAW
 	db 18, HEADBUTT
 	db 23, FALSE_SWIPE
@@ -1991,7 +1993,7 @@ CuboneEvosAttacks:
 	db 15, FALSE_SWIPE
 	db 20, FAINT_ATTACK
 	db 25, SLASH
-	db 29, DETECT
+	db 29, PROTECT
 	db 32, AGILITY
 	db 35, MIND_READER
 	db 38, JUMP_KICK
@@ -2011,7 +2013,7 @@ MarowakEvosAttacks:
 	db 15, FALSE_SWIPE
 	db 20, FAINT_ATTACK
 	db 26, SLASH
-	db 30, DETECT
+	db 30, PROTECT
 	db 32, AGILITY
 	db 35, MIND_READER
 	db 39, JUMP_KICK
@@ -2256,12 +2258,12 @@ GoldeenEvosAttacks:
 	db 7, THUNDERSHOCK
 	db 11, VINE_WHIP
 	db 13, TWISTER
-	db 16, THUNDER_WAVE
+	db 16, SPARK
 	db 20, CONSTRICT
-	db 24, SPARK
-	db 28, SONICBOOM
+	db 24, THUNDER_WAVE
+	db 28, DRAGONBREATH
 	db 32, MORNING_SUN
-	db 36, THUNDERBOLT
+	db 35, THUNDERBOLT
 	db 42, SAFEGUARD
 	db 46, DRAGON_RAGE
 	db 50, RECOVER
@@ -2277,12 +2279,12 @@ SeakingEvosAttacks:
 	db 7, THUNDERSHOCK
 	db 11, VINE_WHIP
 	db 13, TWISTER
-	db 16, THUNDER_WAVE
+	db 16, SPARK
 	db 20, CONSTRICT
-	db 24, SPARK
-	db 28, SONICBOOM
-	db 34, MORNING_SUN
-	db 40, THUNDERBOLT
+	db 24, THUNDER_WAVE
+	db 28, DRAGONBREATH
+	db 32, MORNING_SUN
+	db 35, THUNDERBOLT
 	db 44, SAFEGUARD
 	db 48, DRAGON_RAGE
 	db 52, RECOVER
@@ -2389,7 +2391,8 @@ ElectabuzzEvosAttacks:
 	db 1, TACKLE
 	db 1, SHARPEN
 	db 5, QUICK_ATTACK
-	db 11, BITE
+	db 8, FOCUS_ENERGY
+	db 12, BITE
 	db 15, METAL_CLAW
 	db 18, HEADBUTT
 	db 23, FALSE_SWIPE
@@ -2525,7 +2528,7 @@ DittoEvosAttacks:
 	db 15, FALSE_SWIPE
 	db 20, FAINT_ATTACK
 	db 26, SLASH
-	db 30, DETECT
+	db 30, PROTECT
 	db 32, AGILITY
 	db 36, MIND_READER
 	db 40, JUMP_KICK
@@ -2818,8 +2821,8 @@ DragonairEvosAttacks:
 	db 37, SNORE
 	db 45, FUTURE_SIGHT
 	db 50, DREAM_EATER
-	db 53, MYSTIC_BOMB
-	db 53, PHANTOM_DAZE
+	db 55, MYSTIC_BOMB
+	db 55, PHANTOM_DAZE
 	db 0 ; no more level-up moves
 
 DragoniteEvosAttacks:
@@ -2903,7 +2906,7 @@ ChikoritaEvosAttacks:
 	db 38, MORNING_SUN
 	db 42, RECOVER
 	db 45, MOONLIGHT
-	db 50, TRI_ATTACK
+	db 50, MYSTIC_BOMB
 	db 55, LEAF_STORM
 	db 0 ; no more level-up moves
 
@@ -2925,7 +2928,7 @@ BayleefEvosAttacks:
 	db 39, MORNING_SUN
 	db 43, RECOVER
 	db 46, MOONLIGHT
-	db 51, TRI_ATTACK
+	db 51, MYSTIC_BOMB
 	db 56, LEAF_STORM
 	db 0 ; no more level-up moves
 
@@ -2946,7 +2949,7 @@ MeganiumEvosAttacks:
 	db 40, MORNING_SUN
 	db 45, RECOVER
 	db 50, MOONLIGHT
-	db 55, TRI_ATTACK
+	db 55, MYSTIC_BOMB
 	db 60, LEAF_STORM
 	db 0 ; no more level-up moves
 
@@ -3211,7 +3214,7 @@ SpinarakEvosAttacks:
 	db 32, GLARE
 	db 36, AGILITY
 	db 39, LEECH_LIFE
-	db 43, DETECT
+	db 43, PROTECT
 	db 47, SKY_ATTACK
 	db 50, OUTRAGE
 	db 0 ; no more level-up moves
@@ -3233,7 +3236,7 @@ AriadosEvosAttacks:
 	db 33, GLARE
 	db 37, AGILITY
 	db 40, LEECH_LIFE
-	db 44, DETECT
+	db 44, PROTECT
 	db 48, SKY_ATTACK
 	db 52, OUTRAGE
 	db 0 ; no more level-up moves
@@ -3254,7 +3257,7 @@ CrobatEvosAttacks:
 	db 34, GLARE
 	db 38, AGILITY
 	db 42, LEECH_LIFE
-	db 45, DETECT
+	db 45, PROTECT
 	db 50, SKY_ATTACK
 	db 55, OUTRAGE
 	db 0 ; no more level-up moves
@@ -3820,10 +3823,10 @@ MurkrowEvosAttacks:
 	db 7, THUNDERSHOCK
 	db 11, VINE_WHIP
 	db 13, TWISTER
-	db 16, THUNDER_WAVE
+	db 16, SPARK
 	db 20, CONSTRICT
-	db 24, SPARK
-	db 28, SONICBOOM
+	db 24, THUNDER_WAVE
+	db 28, DRAGONBREATH
 	db 30, MORNING_SUN
 	db 34, THUNDERBOLT
 	db 40, SAFEGUARD
@@ -4488,7 +4491,7 @@ PhanpyEvosAttacks:
 	db 36, SWORDS_DANCE
 	db 40, STOMP
 	db 44, CROSS_CHOP
-	db 47, DETECT
+	db 47, PROTECT
 	db 51, GUILLOTINE
 	db 0 ; no more level-up moves
 
@@ -4508,7 +4511,7 @@ DonphanEvosAttacks:
 	db 36, SWORDS_DANCE
 	db 40, STOMP
 	db 46, CROSS_CHOP
-	db 50, DETECT
+	db 50, PROTECT
 	db 53, GUILLOTINE
 	db 0 ; no more level-up moves
 
@@ -4527,7 +4530,7 @@ Porygon2EvosAttacks:
 	db 36, SWORDS_DANCE
 	db 41, STOMP
 	db 47, CROSS_CHOP
-	db 51, DETECT
+	db 51, PROTECT
 	db 54, GUILLOTINE
 	db 0 ; no more level-up moves
 

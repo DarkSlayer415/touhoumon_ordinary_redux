@@ -124,26 +124,26 @@ DiglettEggMoves:
 
 MeowthEggMoves:
 	db ATTRACT
+	db MYSTIC_BOMB
+	db BATON_PASS
 	db ENCORE
-	db HYPNOSIS
-	db AMNESIA
-	db BARRIER
+	db HEAL_BELL
 	db -1 ; end
 
 PsyduckEggMoves:
+	db ATTRACT
+	db MYSTIC_BOMB
 	db MIST
 	db HAZE
-	db EXTREMESPEED
-	db ATTRACT
 	db BATON_PASS
 	db -1 ; end
 
 MankeyEggMoves:
-	db AURORA_BEAM
 	db ATTRACT
+	db MYSTIC_BOMB
 	db CHARM
 	db BATON_PASS
-	db BEAT_UP
+	db AURORA_BEAM
 	db -1 ; end
 
 GrowlitheEggMoves:
@@ -371,18 +371,18 @@ MewtwoEggMoves:
 	db -1 ; end
 
 ChikoritaEggMoves:
-	db MYSTIC_BOMB
+	db SACRED_FIRE
+	db ATTRACT
 	db FUTURE_SIGHT
-	db COUNTER
 	db MIRROR_COAT
-	db HEAL_BELL
+	db COUNTER
 	db -1 ; end
 
 CyndaquilEggMoves:
 	db EXPLOSION
 	db AGILITY
 	db REVERSAL
-	db HI_JUMP_KICK
+	db ANCIENTPOWER
 	db OUTRAGE
 	db -1 ; end
 
@@ -446,7 +446,7 @@ CleffaEggMoves:
 	db BEAT_UP
 	db PERISH_SONG
 	db SELFDESTRUCT
-	db SOFTBOILED
+	db RECOVER
 	db MIMIC
 	db -1 ; end
 
@@ -543,7 +543,7 @@ GirafarigEggMoves:
 	db COUNTER
 	db BARRIER
 	db DESTINY_BOND
-	db FLAIL
+	db REVERSAL
 	db -1 ; end
 
 DunsparceEggMoves:

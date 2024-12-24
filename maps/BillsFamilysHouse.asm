@@ -11,7 +11,7 @@ BillsFamilysHouse_MapScripts:
 BillScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_KEINE
+	checkevent EVENT_GOT_CYUUTO
 	iftrue .GotEevee
 	writetext BillTakeThisEeveeText
 	yesorno
@@ -25,7 +25,7 @@ BillScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	givepoke CYUUTO, 20
-	setevent EVENT_GOT_KEINE
+	setevent EVENT_GOT_CYUUTO
 	writetext BillEeveeMayEvolveText
 	waitbutton
 	closetext
