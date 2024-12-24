@@ -7,7 +7,6 @@
 	const MUSIC_ROUTE_3                      ; 03
 	const MUSIC_ROUTE_12                     ; 04
 	const MUSIC_MAGNET_TRAIN                 ; 05
-	const MUSIC_KANTO_GYM_LEADER_BATTLE      ; 06
 	const MUSIC_KANTO_WILD_BATTLE            ; 08
 	const MUSIC_HIKER_ENCOUNTER              ; 0a
 	const MUSIC_LASS_ENCOUNTER               ; 0b
@@ -96,14 +95,12 @@
 	const MUSIC_MYSTICALMAN_ENCOUNTER        ; 61
 	const MUSIC_CRYSTAL_OPENING              ; 62
 	const MUSIC_BATTLE_TOWER_THEME           ; 63
-	const MUSIC_SUICUNE_BATTLE               ; 64
 	const MUSIC_BATTLE_TOWER_LOBBY           ; 65
 	const MUSIC_MOBILE_CENTER                ; 66
 ;Remixes from HGSS
 	const MUSIC_CERULEAN_CITY 				 ; 67
 	const MUSIC_CINNABAR_ISLAND              ; 68
 	const MUSIC_NUGGET_BRIDGE                ; 69
-	const MUSIC_ROUTE_47					 ; 6e
 ;Touhoumon Remixes
 	const MUSIC_EIRIN_CENTER
 	const MUSIC_ROCKET_YOUMU_BATTLE
@@ -111,6 +108,8 @@
 	const MUSIC_CHAMPION_YUKARI_BATTLE
 	const MUSIC_JOHTO_SANAE_BATTLE
 	const MUSIC_KANTO_MARISA_BATTLE
+	const MUSIC_KANTO_GYM_FLANDRE
+	const MUSIC_LEGENDARY_SUIKA_BATTLE
 DEF NUM_MUSIC_SONGS EQU const_value
 
 ; GetMapMusic picks music for these values (see home/map.asm)

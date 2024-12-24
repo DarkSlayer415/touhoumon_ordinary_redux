@@ -1,3 +1,11 @@
+;Coverted using MIDI2ASM
+;Code by TriteHexagon
+;Version 5.2.0 (16-Nov-2022)
+;Visit github.com/TriteHexagon/Midi2ASM-Converter for up-to-date versions.
+;Original arrangement from Touhoumon HeartGold, by PaterDM.
+;Arranged for pokecrystal by AichiyaSanae.
+;Original Composition: Love Colored Magic by ZUN.
+
 Music_KantoMarisaBattle:
 	channel_count 3
 	channel 1, Music_KantoMarisaBattle_Ch1
@@ -7,7 +15,6 @@ Music_KantoMarisaBattle:
 ;========================================================
 Music_KantoMarisaBattle_Ch1:
 	tempo 114
-	volume 7, 7
 	vibrato 18, 2, 4
 	duty_cycle 3
 	note_type 12, 11, 3

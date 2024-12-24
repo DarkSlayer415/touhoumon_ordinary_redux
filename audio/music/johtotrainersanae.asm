@@ -1,3 +1,10 @@
+;Coverted using MIDI2ASM
+;Code by TriteHexagon
+;Version 5.2.0 (16-Nov-2022)
+;Visit github.com/TriteHexagon/Midi2ASM-Converter for up-to-date versions.
+;Original arrangement from Touhoumon HeartGold, by PaterDM ぱたー.
+;Original Composition: Faith Is For The Transient People by ZUN.
+
 Music_JohtoSanaeBattle:
 	channel_count 3
 	channel 1, Music_JohtoSanaeBattle_Ch1

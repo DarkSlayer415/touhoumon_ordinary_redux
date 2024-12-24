@@ -5,31 +5,31 @@ KantoGrassWildMons:
 	def_grass_wildmons DIGLETTS_CAVE
 	db 4 percent, 2 percent, 8 percent ; encounter rates: morn/day/nite
 	; morn
-	db 48, DUGTRIO
-	db 48, DUGTRIO
+	db 50, MR__MIME
+	db 50, KANGASKHAN
 	db 50, PORYGON
 	db 50, PORYGON
-	db 48, KANGASKHAN
-	db 48, KANGASKHAN
-	db 48, KANGASKHAN
+	db 48, DUGTRIO
+	db 48, DUGTRIO
+	db 48, DUGTRIO
 	db 40, DIGLETT
 	; day
-	db 48, DUGTRIO
-	db 48, DUGTRIO
+	db 50, MR__MIME
+	db 50, KANGASKHAN
 	db 50, PORYGON
 	db 50, PORYGON
-	db 48, KANGASKHAN
-	db 48, KANGASKHAN
-	db 48, KANGASKHAN
+	db 48, DUGTRIO
+	db 48, DUGTRIO
+	db 48, DUGTRIO
 	db 40, DIGLETT
 	; nite
-	db 48, DUGTRIO
-	db 48, DUGTRIO
+	db 50, MR__MIME
+	db 50, KANGASKHAN
 	db 50, PORYGON
 	db 50, PORYGON
-	db 48, KANGASKHAN
-	db 48, KANGASKHAN
-	db 48, KANGASKHAN
+	db 48, DUGTRIO
+	db 48, DUGTRIO
+	db 48, DUGTRIO
 	db 40, DIGLETT
 	end_grass_wildmons
 
@@ -37,7 +37,7 @@ KantoGrassWildMons:
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	db 50, NIDOQUEEN
-	db 50, CLEFABLE
+	db 50, FORRETRESS
 	db 49, BLISSEY
 	db 49, MILTANK
 	db 48, CROBAT
@@ -46,7 +46,7 @@ KantoGrassWildMons:
 	db 45, PUPITAR
 	; day
 	db 50, NIDOQUEEN
-	db 50, CLEFABLE
+	db 50, FORRETRESS
 	db 49, BLISSEY
 	db 49, MILTANK
 	db 48, CROBAT
@@ -55,7 +55,7 @@ KantoGrassWildMons:
 	db 45, PUPITAR
 	; nite
 	db 50, NIDOQUEEN
-	db 50, CLEFABLE
+	db 50, FORRETRESS
 	db 49, BLISSEY
 	db 49, MILTANK
 	db 48, CROBAT
@@ -67,90 +67,90 @@ KantoGrassWildMons:
 	def_grass_wildmons ROCK_TUNNEL_1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 50, PINECO
-	db 50, KINGLER
-	db 52, FORRETRESS
-	db 52, TANGELA
+	db 51, NIDOKING
 	db 51, RATICATE
-	db 51, RATICATE
-	db 51, RATICATE
+	db 51, FORRETRESS
+	db 51, FORRETRESS
+	db 51, JUMPLUFF
+	db 51, JUMPLUFF
+	db 51, JUMPLUFF
 	db 45, PUPITAR
 	; day
-	db 50, PINECO
-	db 50, KINGLER
-	db 52, FORRETRESS
-	db 52, TANGELA
+	db 51, NIDOKING
 	db 51, RATICATE
-	db 51, RATICATE
-	db 51, RATICATE
+	db 51, FORRETRESS
+	db 51, FORRETRESS
+	db 51, JUMPLUFF
+	db 51, JUMPLUFF
+	db 51, JUMPLUFF
 	db 45, PUPITAR
 	; nite
-	db 50, PINECO
-	db 50, KINGLER
-	db 52, FORRETRESS
-	db 52, TANGELA
+	db 51, NIDOKING
 	db 51, RATICATE
-	db 51, RATICATE
-	db 51, RATICATE
+	db 51, FORRETRESS
+	db 51, FORRETRESS
+	db 51, JUMPLUFF
+	db 51, JUMPLUFF
+	db 51, JUMPLUFF
 	db 45, PUPITAR
 	end_grass_wildmons
 
 	def_grass_wildmons ROCK_TUNNEL_B1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 50, PINECO
-	db 50, KINGLER
-	db 52, FORRETRESS
+	db 50, BEEDRILL
+	db 50, PILOSWINE
 	db 52, TANGELA
-	db 51, NIDOKING
-	db 51, NIDOKING
-	db 51, NIDOKING
+	db 52, TANGELA
+	db 51, STEELIX
+	db 51, STEELIX
+	db 51, STEELIX
 	db 45, PUPITAR
 	; day
-	db 50, PINECO
-	db 50, KINGLER
-	db 52, FORRETRESS
+	db 50, BEEDRILL
+	db 50, PILOSWINE
 	db 52, TANGELA
-	db 51, NIDOKING
-	db 51, NIDOKING
-	db 51, NIDOKING
+	db 52, TANGELA
+	db 51, STEELIX
+	db 51, STEELIX
+	db 51, STEELIX
 	db 45, PUPITAR
 	; nite
-	db 50, PINECO
-	db 50, KINGLER
-	db 52, FORRETRESS
+	db 50, BEEDRILL
+	db 50, PILOSWINE
 	db 52, TANGELA
-	db 51, NIDOKING
-	db 51, NIDOKING
-	db 51, NIDOKING
+	db 52, TANGELA
+	db 51, STEELIX
+	db 51, STEELIX
+	db 51, STEELIX
 	db 45, PUPITAR
 	end_grass_wildmons
 
 	def_grass_wildmons VICTORY_ROAD
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 45, ARIADOS
-	db 45, RHYHORN
-	db 45, SKIPLOOM
-	db 45, RATTATA
+	db 45, URSARING
+	db 45, NIDOKING
+	db 45, FORRETRESS
+	db 45, CROBAT
 	db 47, JUMPLUFF
 	db 47, RATICATE
 	db 47, RHYDON
 	db 40, PUPITAR
 	; day
-	db 45, ARIADOS
-	db 45, RHYHORN
-	db 45, SKIPLOOM
-	db 45, RATTATA
+	db 45, URSARING
+	db 45, NIDOKING
+	db 45, FORRETRESS
+	db 45, CROBAT
 	db 47, JUMPLUFF
 	db 47, RATICATE
 	db 47, RHYDON
 	db 40, PUPITAR
 	; nite
-	db 45, ARIADOS
-	db 45, RHYHORN
-	db 45, SKIPLOOM
-	db 45, RATTATA
+	db 45, URSARING
+	db 45, NIDOKING
+	db 45, FORRETRESS
+	db 45, CROBAT
 	db 47, JUMPLUFF
 	db 47, RATICATE
 	db 47, RHYDON
@@ -210,8 +210,8 @@ KantoGrassWildMons:
 	db 45, DRAGONAIR
 	; nite
 	db 50, GENGAR
-	db 49, CHANSEY
-	db 49, MILTANK
+	db 50, CHANSEY
+	db 50, DITTO
 	db 50, JYNX
 	db 50, BLISSEY
 	db 50, BLISSEY
@@ -842,62 +842,62 @@ KantoGrassWildMons:
 	def_grass_wildmons ROUTE_26
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 41, MANTINE
-	db 41, MANTINE
-	db 42, XATU
+	db 44, PIDGEOT
+	db 44, CELEBI
+	db 45, ALAKAZAM
 	db 45, SKARMORY
-	db 44, CELEBI
-	db 44, CELEBI
-	db 44, CELEBI
+	db 42, XATU
+	db 42, XATU
+	db 42, XATU
 	db 35, DRAGONAIR
 	; day
-	db 41, MANTINE
-	db 41, MANTINE
-	db 42, XATU
+	db 44, PIDGEOT
+	db 44, CELEBI
+	db 45, ALAKAZAM
 	db 45, SKARMORY
-	db 44, CELEBI
-	db 44, CELEBI
-	db 44, CELEBI
+	db 42, XATU
+	db 42, XATU
+	db 42, XATU
 	db 35, DRAGONAIR
 	; nite
-	db 41, MANTINE
-	db 41, MANTINE
-	db 44, SUNFLORA
+	db 44, JYNX
+	db 44, PINSIR
+	db 45, YANMA
 	db 45, SKARMORY
-	db 44, SUNFLORA
-	db 44, SUNFLORA
-	db 44, SUNFLORA
+	db 42, SUNFLORA
+	db 42, SUNFLORA
+	db 42, SUNFLORA
 	db 35, DRAGONAIR
 	end_grass_wildmons
 	
 	def_grass_wildmons ROUTE_27
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 41, WEEPINBELL
-	db 41, RHYHORN
-	db 40, ELECTABUZZ
-	db 40, SCIZOR
-	db 38, DONPHAN
-	db 38, DONPHAN
-	db 38, DONPHAN
+	db 43, ELECTABUZZ
+	db 43, SCIZOR
+	db 42, WEEPINBELL
+	db 42, GLIGAR
+	db 41, PORYGON2
+	db 41, PORYGON2
+	db 41, PORYGON2
 	db 35, DRAGONAIR
 	; day
-	db 41, WEEPINBELL
-	db 41, RHYHORN
-	db 40, ELECTABUZZ
-	db 40, SCIZOR
-	db 38, DONPHAN
-	db 38, DONPHAN
-	db 38, DONPHAN
+	db 43, ELECTABUZZ
+	db 43, SCIZOR
+	db 42, WEEPINBELL
+	db 42, GLIGAR
+	db 41, PORYGON2
+	db 41, PORYGON2
+	db 41, PORYGON2
 	db 35, DRAGONAIR
 	; nite
-	db 41, SMEARGLE
-	db 41, HITMONTOP
-	db 40, CHANSEY
-	db 40, GENGAR
-	db 38, MAROWAK
-	db 38, MAROWAK
-	db 38, MAROWAK
+	db 43, CHANSEY
+	db 43, GENGAR
+	db 42, SMEARGLE
+	db 42, HITMONTOP
+	db 41, DITTO
+	db 41, DITTO
+	db 41, DITTO
 	db 35, DRAGONAIR
 	end_grass_wildmons
 

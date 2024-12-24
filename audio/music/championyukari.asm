@@ -2,8 +2,8 @@
 ;Code by TriteHexagon
 ;Version 5.2.0 (16-Nov-2022)
 ;Visit github.com/TriteHexagon/Midi2ASM-Converter for up-to-date versions.
-;Original: Yorimashi Between Dreams and Reality ~ Necro-Fantasia from 東方憑依華 Antinomy of Common Flowers
-;Arranged by KecleonTencho, a-TTTempo, ShinkoNetCavy & ぱたー for Touhoumon HeartGold
+;Original: Yorimashi Between Dreams and Reality ~ Necro-Fantasia from 東方憑依華 Antinomy of Common Flowers, by ZUN
+;Arranged by PaterDM ぱたー for Touhoumon HeartGold
 
 ; ============================================================================================================
 
@@ -18,9 +18,9 @@ Music_ChampionYukariBattle_Ch1:
 	duty_cycle 3
 	pitch_offset 2
 	vibrato 18, 1, 5
-	note_type 12, 11, 2
 	tempo 104
 .mainloop:
+	note_type 12, 11, 2
 ;Bar 1
 	octave 3
 	note C#, 6 ; WARNING: Rounded.
@@ -557,12 +557,14 @@ Music_ChampionYukariBattle_Ch1:
 	note F#, 6
 	note A_, 4
 ;Bar 59
+	note_type 12, 11, 0
 	octave 4
 	note D#, 4
 	note B_, 4
 	note A#, 4
 	note C#, 2
-	note D#, 16
+	note D#, 14
+	rest 2
 ;Bar 60
 	note D#, 6
 ;Bar 61
@@ -592,13 +594,14 @@ Music_ChampionYukariBattle_Ch1:
 	note D#, 4
 	note F#, 2
 	note D#, 16
-	note D#, 2
+	rest 2
 ;Bar 67
 	note D#, 4
 	note B_, 4
 	note A#, 4
 	note C#, 2
-	note D#, 16
+	note D#, 14
+	rest 2
 ;Bar 68
 	note D#, 6
 ;Bar 69
@@ -623,7 +626,8 @@ Music_ChampionYukariBattle_Ch1:
 	note D#, 4
 	note F#, 2
 	note G#, 16
-	note G#, 16
+	note G#, 14
+	rest 2
 ;Bar 75
 	;note D#, 0 | WARNING: Rounded down to 0
 	octave 4
@@ -633,7 +637,8 @@ Music_ChampionYukariBattle_Ch1:
 	note C#, 4
 	octave 4
 	note A#, 2
-	note B_, 16
+	note B_, 14
+	rest 2
 ;Bar 76
 	octave 4
 	note B_, 6
@@ -705,9 +710,9 @@ Music_ChampionYukariBattle_Ch1:
 	note A#, 2
 	octave 5
 	note C#, 16
-	rest 2
 ;Bar 90
 	note C_, 16 ; WARNING: Rounded.
+	rest 2
 	sound_loop 0, .mainloop
 
 ; ============================================================================================================
@@ -716,8 +721,8 @@ Music_ChampionYukariBattle_Ch2:
 	duty_cycle 3
 	vibrato 8, 3, 6
 	pitch_offset 1
-	note_type 12, 12, 2
 .mainloop:
+	note_type 12, 12, 2
 ;Bar 1
 	octave 2
 	note G#, 6 ; WARNING: Rounded.
@@ -1603,13 +1608,15 @@ Music_ChampionYukariBattle_Ch2:
 	note G#, 2
 ;Bar 75
 	;note D#, 0 | WARNING: Rounded down to 0
+	note_type 12, 10, 0
 	octave 3
 	note D#, 6
 	note B_, 4
 	note A#, 4
 	octave 3
 	note F#, 2
-	note G#, 16
+	note G#, 14
+	rest 2
 ;Bar 76
 	octave 3
 	note G#, 6
@@ -1705,10 +1712,10 @@ Music_ChampionYukariBattle_Ch2:
 	note F#, 2
 	octave 3
 	note A#, 16
-	rest 2
 ;Bar 90
 	octave 3
 	note G#, 16 ; WARNING: Rounded.
+	rest 2
 	sound_loop 0, .mainloop
 
 ; ============================================================================================================

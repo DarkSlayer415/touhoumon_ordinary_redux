@@ -29,14 +29,14 @@ FishGroups:
 	db  75 percent + 1, SLOWPOKE,   10
 	db 100 percent,     CHINCHOU,   10
 .Shore_Good:
-	db  50 percent,     SLOWBRO,    20
+	db  50 percent,     POLIWAG,    20
 	db  60 percent,     CHINCHOU,   20
 	db  80 percent + 1, CHINCHOU,   20
 	db 100 percent,     time_group 0
 .Shore_Super:
 	db  40 percent,     MAGMAR,     40
 	db  70 percent,     time_group 1
-	db  90 percent + 1, MAGMAR,     40
+	db  90 percent + 1, POLIWRATH,  40
 	db 100 percent,     SUDOWOODO,  40
 
 .Ocean_Old:

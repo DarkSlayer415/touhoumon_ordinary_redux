@@ -9,7 +9,6 @@ Music:
 	dba Music_Route3
 	dba Music_Route12
 	dba Music_MagnetTrain
-	dba Music_KantoGymBattle
 	dba Music_KantoWildBattle
 	dba Music_LookHiker
 	dba Music_LookLass
@@ -98,14 +97,12 @@ Music:
 	dba Music_LookMysticalMan
 	dba Music_CrystalOpening
 	dba Music_BattleTowerTheme
-	dba Music_SuicuneBattle
 	dba Music_BattleTowerLobby
 	dba Music_MobileCenter
 ; Custom Pokemon Ports
 	dba Music_CeruleanCityGBS
 	dba Music_CinnabarIslandGBS
 	dba Music_NuggetBridgeHGSS
-	dba Music_Route47
 ; Custom Touhoumon Remixes
 	dba Music_EirinCenter
 	dba Music_RocketYoumuBattle
@@ -113,4 +110,6 @@ Music:
 	dba Music_ChampionYukariBattle
 	dba Music_JohtoSanaeBattle
 	dba Music_KantoMarisaBattle
+	dba Music_KantoGymFlandre
+	dba Music_LegendarySuikaBattle
 	assert_table_length NUM_MUSIC_SONGS

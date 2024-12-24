@@ -2,6 +2,8 @@
 ;Code by TriteHexagon
 ;Version 5.2.0 (16-Nov-2022)
 ;Visit github.com/TriteHexagon/Midi2ASM-Converter for up-to-date versions.
+;Original arrangement from Touhou Ningyougeki.
+;Original composition: Gensokyo Millennium ~ History of the Moon by ZUN
 
 ; ============================================================================================================
 
@@ -13,26 +15,24 @@ Music_EirinCenter:
 	channel 4, Music_EirinCenter_Ch4
 
 Music_EirinCenter_Ch1:
+	tempo 156
 	volume 7, 7
 	duty_cycle 2
-	note_type 12, 8, 3
-	tempo 152
+	vibrato 10, 1, 4
+	pitch_offset 1
 ;Bar 1
 .mainloop
+	note_type 12, 8, 3 
 	octave 3
-	volume_envelope 5, 7
 	note D#, 2
 	note F#, 2
-	volume_envelope 7, 7
 	note G#, 2
 	note D#, 2
 	note G#, 2
 	note B_, 2
-	volume_envelope 5, 7
 	note A#, 2
 	note B_, 2
 ;Bar 2
-	volume_envelope 7, 7
 	note G#, 2
 	note F#, 2
 	note B_, 2
@@ -49,9 +49,7 @@ Music_EirinCenter_Ch1:
 	note C#, 2
 	note D#, 2
 	note F#, 2
-	volume_envelope 5, 7
 	note F_, 2
-	volume_envelope 7, 7
 	note F#, 2
 ;Bar 4
 	note D#, 2
@@ -73,9 +71,7 @@ Music_EirinCenter_Ch1:
 	note D#, 2
 	note G#, 2
 	note F#, 2
-	volume_envelope 5, 7
 	note D#, 2
-	volume_envelope 7, 7
 	note F#, 2
 ;Bar 6
 	note C#, 2
@@ -98,9 +94,7 @@ Music_EirinCenter_Ch1:
 	note F#, 2
 	note G#, 2
 	note B_, 2
-	volume_envelope 5, 7
 	note A#, 2
-	volume_envelope 7, 7
 	note B_, 2
 ;Bar 8
 	note G#, 2
@@ -115,7 +109,6 @@ Music_EirinCenter_Ch1:
 ;Bar 9
 	note D#, 2
 	note F#, 2
-	volume_envelope 5, 7
 	note E_, 2
 	octave 3
 	note B_, 2
@@ -214,11 +207,9 @@ Music_EirinCenter_Ch1:
 	note G#, 2
 	octave 4
 	note C#, 2
-	volume_envelope 4, 7
 	note D#, 2
 	note F#, 2
 	note D#, 2
-	volume_envelope 3, 7
 	note C#, 2
 	octave 3
 	note G#, 2
@@ -226,14 +217,12 @@ Music_EirinCenter_Ch1:
 	note C#, 2
 ;Bar 18
 	note D#, 2
-	volume_envelope 2, 7
 	note F#, 2
 	note D#, 2
 	note C#, 2
 	octave 3
 	note G#, 2
 	octave 4
-	volume_envelope 1, 7
 	note C#, 2
 	note D#, 2
 	note F#, 2
@@ -242,43 +231,35 @@ Music_EirinCenter_Ch1:
 ; ============================================================================================================
 
 Music_EirinCenter_Ch2:
+	vibrato 16, 2, 5
 	duty_cycle 1
-	note_type 12, 10, 5
 ;Bar 1
 .mainloop
+	volume_envelope 12, 3
+	note_type 12, 10, 5
 	octave 4
-	volume_envelope 7, 7
 	note D#, 2
 	note F#, 2
-	volume_envelope 6, 7
-	note G#, 2
-	rest 4
-	volume_envelope 7, 7
+	note G#, 6
 	note B_, 2
 	note A#, 2
 	note B_, 1
 	note A#, 1
 ;Bar 2
-	volume_envelope 6, 7
 	note G#, 2
 	note F#, 2
-	volume_envelope 7, 7
-	note D#, 2
-	rest 10
+	note D#, 4
+	rest 8
 ;Bar 3
 	note B_, 2
 	octave 5
 	note C#, 2
 	note D#, 6
-	volume_envelope 6, 7
 	note F#, 2
-	volume_envelope 7, 7
 	note F_, 2
 	note F#, 1
-	volume_envelope 6, 7
 	note F_, 1
 ;Bar 4
-	volume_envelope 7, 7
 	note D#, 2
 	note C#, 2
 	note D#, 4
@@ -409,10 +390,9 @@ Music_EirinCenter_Ch3:
 	note_type 12, 2, 8
 ;Bar 1
 .mainloop
-	volume_envelope 2, 0
+	volume_envelope 3, 0
 	rest 4
 	octave 4
-	volume_envelope 3, 0
 	;note D#, 0 | WARNING: Rounded down to 0
 	octave 5
 	note D#, 1
