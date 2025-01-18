@@ -11,18 +11,10 @@ MACRO move
 	assert \6 <= 40, "PP must be 40 or less"
 ENDM
 
-Moves::
-; entries correspond to constants/move_constants.asm
-	indirect_table MOVE_LENGTH, 1
-	indirect_entries GEN1_MOVES, MovesGen1
-	indirect_entries GEN2_MOVES, MovesGen2
-	indirect_table_end
-
-PUSHS
-
-SECTION "Moves Gen 1", ROMX
-
-MovesGen1::
+Moves:
+; entries correspond to move ids (see constants/move_constants.asm)
+;Gen 1 Moves
+	table_width MOVE_LENGTH
 	move POUND,        EFFECT_NORMAL_HIT,         40, NORMAL,       100, 35,   0
 	move KARATE_CHOP,  EFFECT_NORMAL_HIT,         50, FIGHTING,     100, 25,   0
 	move DOUBLESLAP,   EFFECT_MULTI_HIT,          15, NORMAL,        90, 20,   0
@@ -188,11 +180,7 @@ MovesGen1::
 	move SLASH,        EFFECT_NORMAL_HIT,         70, STEEL,        100, 20,   0
 	move SUBSTITUTE,   EFFECT_SUBSTITUTE,          0, NORMAL,       100, 10,   0
 	move STRUGGLE,     EFFECT_RECOIL_HIT,         50, NORMAL,       100,  1,   0
-.IndirectEnd::
-
-SECTION "Moves Gen 2", ROMX
-
-MovesGen2::
+;Gen 2 Moves
 	move SKETCH,       EFFECT_SKETCH,              0, NORMAL,       100,  1,   0
 	move TRIPLE_KICK,  EFFECT_TRIPLE_KICK,        10, FIGHTING,      90, 15,   0
 	move THIEF,        EFFECT_THIEF,              60, DARK,         100, 25, 100
@@ -279,6 +267,4 @@ MovesGen2::
 	move ROCK_SMASH,   EFFECT_DEFENSE_DOWN_HIT,   50, FIGHTING,     100, 20,  50
 	move WHIRLPOOL,    EFFECT_TRAP_TARGET,        35, WATER,         85, 15,   0
 	move BEAT_UP,      EFFECT_BEAT_UP,            40, DARK,         100, 10,   0
-.IndirectEnd::
-
-POPS
+	assert_table_length NUM_ATTACKS

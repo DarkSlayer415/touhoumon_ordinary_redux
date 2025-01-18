@@ -408,10 +408,6 @@ SECTION "bank32", ROMX
 INCLUDE "engine/battle_anims/bg_effects.asm"
 INCLUDE "engine/events/poisonstep_pals.asm"
 
-SECTION "Battle Animation Data", ROMX
-
-INCLUDE "data/moves/animation_pointers.asm"
-
 SECTION "Move Animations", ROMX
 
 INCLUDE "engine/battle_anims/anim_commands.asm"
@@ -420,6 +416,7 @@ INCLUDE "engine/battle_anims/helpers.asm"
 INCLUDE "data/battle_anims/oam.asm"
 INCLUDE "data/battle_anims/object_gfx.asm"
 INCLUDE "engine/battle_anims/functions.asm"
+INCLUDE "data/moves/animation_pointers.asm"
 
 SECTION "bank38", ROMX
 

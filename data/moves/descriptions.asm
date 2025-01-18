@@ -1,11 +1,8 @@
 MoveDescriptions::
 ; entries correspond to move ids (see constants/move_constants.asm)
-	indirect_table 2, 1
-	indirect_entries GEN1_MOVES, MoveDescriptionsGen1
-	indirect_entries GEN2_MOVES, MoveDescriptionsGen2
-	indirect_table_end
 
-MoveDescriptionsGen1:
+Moves:
+;Gen 1 Moves
 	dw PoundDescription
 	dw KarateChopDescription
 	dw DoubleslapDescription
@@ -171,9 +168,7 @@ MoveDescriptionsGen1:
 	dw SlashDescription
 	dw SubstituteDescription
 	dw StruggleDescription
-.IndirectEnd::
-
-MoveDescriptionsGen2:
+;Gen 2 Moves
 	dw SketchDescription
 	dw TripleKickDescription
 	dw ThiefDescription
@@ -260,7 +255,7 @@ MoveDescriptionsGen2:
 	dw RockSmashDescription
 	dw WhirlpoolDescription
 	dw BeatUpDescription
-.IndirectEnd::
+	assert_table_length NUM_ATTACKS
 
 InvalidMoveDescription:
 	db "?@"

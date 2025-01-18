@@ -17,7 +17,16 @@ QueueBattleAnimation:
 	ld b, h
 	ld hl, wLastAnimObjectIndex
 	inc [hl]
-; InitBattleAnimation:
+	call InitBattleAnimation
+	ret
+
+DeinitBattleAnimation:
+	ld hl, BATTLEANIMSTRUCT_INDEX
+	add hl, bc
+	ld [hl], $0
+	ret
+
+InitBattleAnimation:
 	ld hl, wBattleObjectTempID
 	ld a, [hli]
 	ld e, a

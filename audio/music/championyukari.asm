@@ -2,7 +2,7 @@
 ;Code by TriteHexagon
 ;Version 5.2.0 (16-Nov-2022)
 ;Visit github.com/TriteHexagon/Midi2ASM-Converter for up-to-date versions.
-;Original: Yorimashi Between Dreams and Reality ~ Necro-Fantasia from 東方憑依華 Antinomy of Common Flowers, by ZUN
+;Original: Yorimashi Between Dreams and Reality ~ Necro-Fantasia by ZUN
 ;Arranged by PaterDM ぱたー for Touhoumon HeartGold
 
 ; ============================================================================================================
@@ -23,9 +23,9 @@ Music_ChampionYukariBattle_Ch1:
 	note_type 12, 11, 2
 ;Bar 1
 	octave 3
-	note C#, 6 ; WARNING: Rounded.
+	note C#, 6 
 	note C#, 4
-	note C#, 6 ; WARNING: Rounded.
+	note C#, 6 
 ;Bar 2
 	note G_, 2
 	note D#, 2
@@ -557,7 +557,7 @@ Music_ChampionYukariBattle_Ch1:
 	note F#, 6
 	note A_, 4
 ;Bar 59
-	note_type 12, 11, 0
+	volume_envelope 12, 0
 	octave 4
 	note D#, 4
 	note B_, 4
@@ -625,11 +625,13 @@ Music_ChampionYukariBattle_Ch1:
 	note F#, 4
 	note D#, 4
 	note F#, 2
+	volume_envelope 11, 0
 	note G#, 16
+	volume_envelope 11, 7
 	note G#, 14
 	rest 2
 ;Bar 75
-	;note D#, 0 | WARNING: Rounded down to 0
+	volume_envelope 12, 0
 	octave 4
 	note G#, 6
 	octave 5
@@ -1608,7 +1610,7 @@ Music_ChampionYukariBattle_Ch2:
 	note G#, 2
 ;Bar 75
 	;note D#, 0 | WARNING: Rounded down to 0
-	note_type 12, 10, 0
+	volume_envelope 12, 7
 	octave 3
 	note D#, 6
 	note B_, 4
@@ -2384,9 +2386,9 @@ Music_ChampionYukariBattle_Ch3:
 	note G_, 2
 	note A#, 2
 	octave 2
-	note D#, 2 ; WARNING: Rounded.
+	note D#, 2
 	octave 1
-	note A#, 2 ; WARNING: Rounded.
+	note A#, 2
 	octave 2
 	note D#, 2
 ;Bar 67

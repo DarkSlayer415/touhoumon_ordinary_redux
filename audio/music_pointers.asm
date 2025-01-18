@@ -44,8 +44,8 @@ Music:
 	dba Music_Route30
 	dba Music_EcruteakCity
 	dba Music_VioletCity
-	dba Music_JohtoGymBattle
 	dba Music_RivalBattle
+	dba Music_RocketBattle
 	dba Music_ElmsLab
 	dba Music_DarkCave
 	dba Music_Route29
@@ -105,10 +105,10 @@ Music:
 	dba Music_NuggetBridgeHGSS
 ; Custom Touhoumon Remixes
 	dba Music_EirinCenter
-	dba Music_RocketYoumuBattle
 	dba Music_FollowMeHiroshige
 	dba Music_ChampionYukariBattle
 	dba Music_JohtoSanaeBattle
+	dba Music_JohtoGymKaguya
 	dba Music_KantoMarisaBattle
 	dba Music_KantoGymFlandre
 	dba Music_LegendarySuikaBattle

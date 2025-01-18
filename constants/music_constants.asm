@@ -42,8 +42,8 @@
 	const MUSIC_ROUTE_30                     ; 2b
 	const MUSIC_ECRUTEAK_CITY                ; 2c
 	const MUSIC_VIOLET_CITY                  ; 2d
-	const MUSIC_JOHTO_GYM_LEADER_BATTLE      ; 2e
 	const MUSIC_RIVAL_BATTLE                 ; 30
+	const MUSIC_ROCKET_BATTLE                ; 31
 	const MUSIC_PROF_ELM                     ; 32
 	const MUSIC_DARK_CAVE                    ; 33
 	const MUSIC_ROUTE_29                     ; 34
@@ -103,10 +103,10 @@
 	const MUSIC_NUGGET_BRIDGE                ; 69
 ;Touhoumon Remixes
 	const MUSIC_EIRIN_CENTER
-	const MUSIC_ROCKET_YOUMU_BATTLE
 	const MUSIC_FOLLOWME_HIROSHIGE
 	const MUSIC_CHAMPION_YUKARI_BATTLE
 	const MUSIC_JOHTO_SANAE_BATTLE
+	const MUSIC_JOHTO_GYM_KAGUYA
 	const MUSIC_KANTO_MARISA_BATTLE
 	const MUSIC_KANTO_GYM_FLANDRE
 	const MUSIC_LEGENDARY_SUIKA_BATTLE
