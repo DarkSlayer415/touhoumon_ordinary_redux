@@ -36,7 +36,7 @@ CaterpieEggMoves:
 	
 WeedleEggMoves:
 	db HYDRO_PUMP
-	db RAGE
+	db BATON_PASS
 	db MACH_PUNCH
 	db SWEET_KISS
 	db ATTRACT
@@ -149,7 +149,7 @@ MankeyEggMoves:
 GrowlitheEggMoves:
 	db AMNESIA
 	db NIGHT_SHADE
-	db HYPER_FANG
+	db DREAM_EATER
 	db THRASH
 	db PHANTOM_DAZE
 	db -1 ; end
@@ -157,7 +157,7 @@ GrowlitheEggMoves:
 PoliwagEggMoves:
 	db MIST
 	db HAZE
-	db AURORA_BEAM
+	db AMNESIA
 	db PETAL_DANCE
 	db MIND_READER
 	db -1 ; end
@@ -509,9 +509,9 @@ SunkernEggMoves:
 WooperEggMoves:
 	db MIRROR_COAT
 	db COUNTER
-	db OUTRAGE
-	db FORESIGHT
-	db THRASH
+	db PSYCH_UP
+	db MEGA_PUNCH
+	db DREAM_EATER
 	db -1 ; end
 
 MurkrowEggMoves:
