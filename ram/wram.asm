@@ -3515,17 +3515,15 @@ wLastAnimObjectIndex:: db
 
 wBattleAnimFlags:: db
 wBattleAnimAddress:: dw
-wBattleAnimBank:: db
 wBattleAnimDelay:: db
 wBattleAnimParent:: dw
-wBattleAnimParentBank:: db
 wBattleAnimLoops:: db
 wBattleAnimVar:: db
 wBattleAnimByte:: db
 wBattleAnimOAMPointerLo:: db
 
 UNION
-wBattleObjectTempID:: dw
+wBattleObjectTempID:: db
 wBattleObjectTempXCoord:: db
 wBattleObjectTempYCoord:: db
 wBattleObjectTempParam:: db

@@ -5472,7 +5472,6 @@ BattleCommand_TrapTarget:
 .Traps:
 	dbw WRAP,      WrappedByText     ; 'was wrapped by'
 	dbw FIRE_SPIN, FireSpinTrapText  ; 'was trapped!'
-	dbw CLAMP,     ClampedByText     ; 'was clamped by'
 	dbw WHIRLPOOL, WhirlpoolTrapText ; 'was trapped!'
 
 INCLUDE "engine/battle/move_effects/mist.asm"

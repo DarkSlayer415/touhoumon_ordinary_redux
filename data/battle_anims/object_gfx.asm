@@ -47,8 +47,6 @@ AnimObjGFX:
 	anim_obj_gfx 35, AnimObjAngelsGFX
 	anim_obj_gfx 18, AnimObjWaveGFX
 	anim_obj_gfx 24, AnimObjAeroblastGFX
-	anim_obj_gfx  1, NULL
-	anim_obj_gfx  1, NULL
 	anim_obj_gfx 13, AnimObjBigGlowGFX
 	anim_obj_gfx 13, AnimObjBigGlowClearGFX
 	anim_obj_gfx  6, AnimObjLeafStormGFX
@@ -58,4 +56,6 @@ AnimObjGFX:
 	anim_obj_gfx 32, AnimObjVortexGFX
 	anim_obj_gfx 14, AnimObjSmokePuffBigGFX
 	anim_obj_gfx 10, AnimObjGlowGFX
+	anim_obj_gfx  1, NULL
+	anim_obj_gfx  1, NULL
 	assert_table_length NUM_ANIM_GFX 

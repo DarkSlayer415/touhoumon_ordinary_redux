@@ -422,7 +422,7 @@ BattleTowerMons:
 
 	db EXEGGCUTE ;CRika
 	db KINGS_ROCK
-	db TOXIC, CLAMP, POISON_GAS, ROLLOUT
+	db TOXIC, SMOKESCREEN, POISON_GAS, ROLLOUT
 	dw 0 ; OT ID
 	dt 1000 ; Exp
 	; Stat exp
@@ -1364,7 +1364,7 @@ BattleTowerMons:
 
 	db YANMA ;EFlandre
 	db BRIGHTPOWDER
-	db HYPER_FANG, LEECH_LIFE, STOMP, FIRE_PUNCH
+	db STOMP, LEECH_LIFE, STOMP, FIRE_PUNCH
 	dw 0 ; OT ID
 	dt 27000 ; Exp
 	; Stat exp
@@ -1512,10 +1512,10 @@ BattleTowerMons:
 	bigdw 118 ; HP
 	bigdw 118 ; Max HP
 	bigdw 74 ; Atk
-	bigdw 80 ; Def
-	bigdw 86 ; Spd
+	bigdw 83 ; Def
+	bigdw 80 ; Spd
 	bigdw 98 ; SAtk
-	bigdw 86 ; SDef
+	bigdw 89 ; SDef
 	db "E-HUi@@@@@@"
 
 	db UMBREON ;HKeine
@@ -2173,7 +2173,7 @@ BattleTowerMons:
 
 	db ELECTABUZZ ;EMomiji
 	db KINGS_ROCK
-	db SWORDS_DANCE, CRUNCH, HYPER_FANG, SLASH
+	db SWORDS_DANCE, CRUNCH, BODY_SLAM, SLASH
 	dw 0 ; OT ID
 	dt 64000 ; Exp
 	; Stat exp
@@ -2933,7 +2933,7 @@ BattleTowerMons:
 
 	db AERODACTYL ;EEllen
 	db LEFTOVERS
-	db ATTRACT, TRI_ATTACK, MEDITATE, FIRE_PUNCH
+	db ATTRACT, MYSTIC_BOMB, MEDITATE, FIRE_PUNCH
 	dw 0 ; OT ID
 	dt 216000 ; Exp
 	; Stat exp
@@ -2959,7 +2959,7 @@ BattleTowerMons:
 
 	db DRAGONITE ;EYukari
 	db MIRACLEBERRY
-	db TRI_ATTACK, DREAM_EATER, SNORE, FLASH
+	db PSYCHIC_M, DREAM_EATER, SNORE, FLASH
 	dw 0 ; OT ID
 	dt 216000 ; Exp
 	; Stat exp
@@ -3508,7 +3508,7 @@ BattleTowerMons:
 
 	db MEGANIUM ;EKaguya 
 	db MIRACLEBERRY
-	db RECOVER, MEDITATE, TRI_ATTACK, LEAF_STORM
+	db RECOVER, MEDITATE, MYSTIC_BOMB, LEAF_STORM
 	dw 0 ; OT ID
 	dt 343000 ; Exp
 	; Stat exp
@@ -3534,7 +3534,7 @@ BattleTowerMons:
 
 	db ESPEON ;EKeine
 	db GOLD_BERRY
-	db TRI_ATTACK, THUNDERPUNCH, ICE_PUNCH, MEDITATE
+	db PSYCHIC_M, THUNDERPUNCH, ICE_PUNCH, MEDITATE
 	dw 0 ; OT ID
 	dt 343000 ; Exp
 	; Stat exp
@@ -3552,10 +3552,10 @@ BattleTowerMons:
 	bigdw 264 ; HP
 	bigdw 264 ; Max HP
 	bigdw 168 ; Atk
-	bigdw 182 ; Def
-	bigdw 196 ; Spd
+	bigdw 189 ; Def
+	bigdw 182 ; Spd
 	bigdw 224 ; SAtk
-	bigdw 196 ; SDef
+	bigdw 203 ; SDef
 	db "BURAtuKI-@@"
 
 	db GYARADOS ;EDaiyousei
@@ -3690,7 +3690,7 @@ BattleTowerMons:
 
 	db AIPOM ;ERikako
 	db GOLD_BERRY
-	db AGILITY, MEDITATE, FIRE_BLAST, TRI_ATTACK
+	db AGILITY, MEDITATE, FIRE_BLAST, MYSTIC_BOMB
 	dw 0 ; OT ID
 	dt 343000 ; Exp
 	; Stat exp
@@ -4239,7 +4239,7 @@ BattleTowerMons:
 
 	db AERODACTYL ;EEllen
 	db MIRACLEBERRY
-	db TRI_ATTACK, ATTRACT, DREAM_EATER, MEDITATE
+	db MYSTIC_BOMB, ATTRACT, DREAM_EATER, MEDITATE
 	dw 0 ; OT ID
 	dt 512000 ; Exp
 	; Stat exp
@@ -4398,7 +4398,7 @@ BattleTowerMons:
 
 	db UMBREON ;HKeine
 	db KINGS_ROCK
-	db HI_JUMP_KICK, PETAL_DANCE, SWORDS_DANCE, PURSUIT
+	db HI_JUMP_KICK, PETAL_DANCE, SWORDS_DANCE, OUTRAGE
 	dw 0 ; OT ID
 	dt 729000 ; Exp
 	; Stat exp
@@ -4424,7 +4424,7 @@ BattleTowerMons:
 
 	db DRAGONITE ;EYukari
 	db QUICK_CLAW
-	db SNORE, TRI_ATTACK, NIGHTMARE, MEDITATE
+	db SNORE, MYSTIC_BOMB, PHANTOM_DAZE, MEDITATE
 	dw 0 ; OT ID
 	dt 729000 ; Exp
 	; Stat exp
@@ -4632,7 +4632,7 @@ BattleTowerMons:
 
 	db ESPEON ;EKeine
 	db GOLD_BERRY
-	db TRI_ATTACK, THUNDERBOLT, ICE_BEAM, MEDITATE
+	db MYSTIC_BOMB, THUNDERBOLT, ICE_BEAM, MEDITATE
 	dw 0 ; OT ID
 	dt 729000 ; Exp
 	; Stat exp
@@ -4650,10 +4650,10 @@ BattleTowerMons:
 	bigdw 336 ; HP
 	bigdw 336 ; Max HP
 	bigdw 214 ; Atk
-	bigdw 232 ; Def
-	bigdw 250 ; Spd
+	bigdw 241 ; Def
+	bigdw 232 ; Spd
 	bigdw 286 ; SAtk
-	bigdw 250 ; SDef
+	bigdw 259 ; SDef
 	db "E-HUi@@@@@@"
 
 	db MACHAMP ;EMeiling
@@ -4892,7 +4892,7 @@ BattleTowerMons:
 
 	db JUMPLUFF ;EUtsuho
 	db FOCUS_BAND
-	db FIRE_BLAST, TRI_ATTACK, SOLARBEAM, SUNNY_DAY
+	db FIRE_BLAST, HEADWIND, SOLARBEAM, SUNNY_DAY
 	dw 0 ; OT ID
 	dt 729000 ; Exp
 	; Stat exp
@@ -5051,7 +5051,7 @@ BattleTowerMons:
 
 	db MEGANIUM ;EKaguya
 	db LEFTOVERS
-	db LEAF_STORM, TRI_ATTACK, LEECH_SEED, HEAL_BELL
+	db LEAF_STORM, MYSTIC_BOMB, LEECH_SEED, HEAL_BELL
 	dw 0 ; OT ID
 	dt 1000000 ; Exp
 	; Stat exp
@@ -5389,7 +5389,7 @@ BattleTowerMons:
 
 	db OMASTAR ;Kirisame
 	db LEFTOVERS
-	db ZAP_CANNON, MIND_READER, TRI_ATTACK, HYPER_BEAM
+	db ZAP_CANNON, MIND_READER, MYSTIC_BOMB, HYPER_BEAM
 	dw 0 ; OT ID
 	dt 1000000 ; Exp
 	; Stat exp

@@ -59,8 +59,6 @@ BattleAnimFrameData:
 	dw .Frameset_ThunderBoltCore     ; BATTLE_ANIM_FRAMESET_THUNDERBOLT_CORE
 	dw .Frameset_ThunderShockSparks  ; BATTLE_ANIM_FRAMESET_THUNDERSHOCK_SPARKS
 	dw .Frameset_ThunderShockCore    ; BATTLE_ANIM_FRAMESET_THUNDERSHOCK_CORE
-	dw .Frameset_Clamp               ; BATTLE_ANIM_FRAMESET_CLAMP
-	dw .Frameset_ClampFlipped        ; BATTLE_ANIM_FRAMESET_CLAMP_FLIPPED
 	dw .Frameset_Bite1               ; BATTLE_ANIM_FRAMESET_BITE_1
 	dw .Frameset_Bite2               ; BATTLE_ANIM_FRAMESET_BITE_2
 	dw .Frameset_CutDownLeft         ; BATTLE_ANIM_FRAMESET_CUT_DOWN_LEFT
@@ -210,1197 +208,1189 @@ BattleAnimFrameData:
 	assert_table_length NUM_BATTLE_ANIM_FRAMESETS
 
 .Frameset_HitBig:
-	battleoamframe BATTLE_ANIM_OAMSET_00,  6
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_00,  6
+	oamdelete
 
 .Frameset_Hit:
-	battleoamframe BATTLE_ANIM_OAMSET_01,  6
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_01,  6
+	oamdelete
 
 .Frameset_HitSmall:
-	battleoamframe BATTLE_ANIM_OAMSET_02,  6
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_02,  6
+	oamdelete
 
 .Frameset_Punch:
-	battleoamframe BATTLE_ANIM_OAMSET_03,  6
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_03,  6
+	oamdelete
 
 .Frameset_Kick:
-	battleoamframe BATTLE_ANIM_OAMSET_04,  6
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_04,  6
+	oamdelete
 
 .Frameset_Palm:
-	battleoamframe BATTLE_ANIM_OAMSET_05,  6
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_05,  6
+	oamdelete
 
 .Frameset_Fang:
-	battleoamframe BATTLE_ANIM_OAMSET_06,  6
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_06,  6
+	oamdelete
 
 .Frameset_PunchShake:
-	battleoamframe BATTLE_ANIM_OAMSET_03,  4
-	battleoamframe BATTLE_ANIM_OAMSET_01,  1
-	battleoamframe BATTLE_ANIM_OAMSET_03,  4
-	battleoamframe BATTLE_ANIM_OAMSET_01,  1
-	battleoamframe BATTLE_ANIM_OAMSET_03,  4
-	battleoamframe BATTLE_ANIM_OAMSET_01,  1
-	battleoamframe BATTLE_ANIM_OAMSET_03,  4
-	battleoamframe BATTLE_ANIM_OAMSET_01,  1
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_03,  4
+	oamframe BATTLE_ANIM_OAMSET_01,  1
+	oamframe BATTLE_ANIM_OAMSET_03,  4
+	oamframe BATTLE_ANIM_OAMSET_01,  1
+	oamframe BATTLE_ANIM_OAMSET_03,  4
+	oamframe BATTLE_ANIM_OAMSET_01,  1
+	oamframe BATTLE_ANIM_OAMSET_03,  4
+	oamframe BATTLE_ANIM_OAMSET_01,  1
+	oamdelete
 
 .Frameset_CutDownLeft:
-	battleoamframe BATTLE_ANIM_OAMSET_4B,  2
-	battleoamframe BATTLE_ANIM_OAMSET_4C,  2
-	battleoamframe BATTLE_ANIM_OAMSET_4D,  4
-	battleoamframe BATTLE_ANIM_OAMSET_4E,  2
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_4E,  2
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_4E,  2
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_4E,  2
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_4B,  2
+	oamframe BATTLE_ANIM_OAMSET_4C,  2
+	oamframe BATTLE_ANIM_OAMSET_4D,  4
+	oamframe BATTLE_ANIM_OAMSET_4E,  2
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_4E,  2
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_4E,  2
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_4E,  2
+	oamdelete
 
 .Frameset_CutDownRight:
-	battleoamframe BATTLE_ANIM_OAMSET_4B,  2, OAM_X_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_4C,  2, OAM_X_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_4D,  4, OAM_X_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_4E,  2, OAM_X_FLIP
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_4E,  2, OAM_X_FLIP
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_4E,  2, OAM_X_FLIP
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_4E,  2, OAM_X_FLIP
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_4B,  2, OAM_X_FLIP
+	oamframe BATTLE_ANIM_OAMSET_4C,  2, OAM_X_FLIP
+	oamframe BATTLE_ANIM_OAMSET_4D,  4, OAM_X_FLIP
+	oamframe BATTLE_ANIM_OAMSET_4E,  2, OAM_X_FLIP
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_4E,  2, OAM_X_FLIP
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_4E,  2, OAM_X_FLIP
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_4E,  2, OAM_X_FLIP
+	oamdelete
 
 .Frameset_CutUpRight:
-	battleoamframe BATTLE_ANIM_OAMSET_4B,  2, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_4C,  2, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_4D,  4, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_4E,  2, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_4E,  2, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_4E,  2, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_4E,  2, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_4B,  2, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_4C,  2, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_4D,  4, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_4E,  2, OAM_X_FLIP, OAM_Y_FLIP
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_4E,  2, OAM_X_FLIP, OAM_Y_FLIP
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_4E,  2, OAM_X_FLIP, OAM_Y_FLIP
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_4E,  2, OAM_X_FLIP, OAM_Y_FLIP
+	oamdelete
 
 .Frameset_CutLongDownLeft:
-	battleoamframe BATTLE_ANIM_OAMSET_4B,  1
-	battleoamframe BATTLE_ANIM_OAMSET_4C,  1
-	battleoamframe BATTLE_ANIM_OAMSET_4D,  1
-	battleoamframe BATTLE_ANIM_OAMSET_4F,  1
-	battleoamframe BATTLE_ANIM_OAMSET_50,  1
-	battleoamframe BATTLE_ANIM_OAMSET_51,  1
-	battleoamframe BATTLE_ANIM_OAMSET_52,  2
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_52,  2
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_52,  2
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_52,  2
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_4B,  1
+	oamframe BATTLE_ANIM_OAMSET_4C,  1
+	oamframe BATTLE_ANIM_OAMSET_4D,  1
+	oamframe BATTLE_ANIM_OAMSET_4F,  1
+	oamframe BATTLE_ANIM_OAMSET_50,  1
+	oamframe BATTLE_ANIM_OAMSET_51,  1
+	oamframe BATTLE_ANIM_OAMSET_52,  2
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_52,  2
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_52,  2
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_52,  2
+	oamdelete
 
 .Frameset_CutLongDownRight:
-	battleoamframe BATTLE_ANIM_OAMSET_4B,  1, OAM_X_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_4C,  1, OAM_X_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_4D,  1, OAM_X_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_4F,  1, OAM_X_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_50,  1, OAM_X_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_51,  1, OAM_X_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_52,  2, OAM_X_FLIP
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_52,  2, OAM_X_FLIP
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_52,  2, OAM_X_FLIP
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_52,  2, OAM_X_FLIP
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_4B,  1, OAM_X_FLIP
+	oamframe BATTLE_ANIM_OAMSET_4C,  1, OAM_X_FLIP
+	oamframe BATTLE_ANIM_OAMSET_4D,  1, OAM_X_FLIP
+	oamframe BATTLE_ANIM_OAMSET_4F,  1, OAM_X_FLIP
+	oamframe BATTLE_ANIM_OAMSET_50,  1, OAM_X_FLIP
+	oamframe BATTLE_ANIM_OAMSET_51,  1, OAM_X_FLIP
+	oamframe BATTLE_ANIM_OAMSET_52,  2, OAM_X_FLIP
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_52,  2, OAM_X_FLIP
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_52,  2, OAM_X_FLIP
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_52,  2, OAM_X_FLIP
+	oamdelete
 
 .Frameset_BallPoof:
-	battleoamframe BATTLE_ANIM_OAMSET_00,  3
-	battleoamframe BATTLE_ANIM_OAMSET_07,  3
-	battleoamframe BATTLE_ANIM_OAMSET_08,  3
-	battleoamframe BATTLE_ANIM_OAMSET_09,  3
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_00,  3
+	oamframe BATTLE_ANIM_OAMSET_07,  3
+	oamframe BATTLE_ANIM_OAMSET_08,  3
+	oamframe BATTLE_ANIM_OAMSET_09,  3
+	oamdelete
 
 .Frameset_PokeBall1:
-	battleoamframe BATTLE_ANIM_OAMSET_0A,  7
-	battleoamframe BATTLE_ANIM_OAMSET_0B,  7
-	battleoamframe BATTLE_ANIM_OAMSET_0A,  7
-	battleoamframe BATTLE_ANIM_OAMSET_0B,  7, OAM_X_FLIP
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_0A,  7
+	oamframe BATTLE_ANIM_OAMSET_0B,  7
+	oamframe BATTLE_ANIM_OAMSET_0A,  7
+	oamframe BATTLE_ANIM_OAMSET_0B,  7, OAM_X_FLIP
+	oamrestart
 
 .Frameset_PokeBall2:
-	battleoamframe BATTLE_ANIM_OAMSET_0C,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_0C,  8
+	oamend
 
 .Frameset_PokeBall3:
-	battleoamframe BATTLE_ANIM_OAMSET_0D,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_0D,  8
+	oamend
 
 .Frameset_PokeBall4:
-	battleoamframe BATTLE_ANIM_OAMSET_0A,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_0A,  8
+	oamend
 
 .Frameset_PokeBall5:
-	battleoamframe BATTLE_ANIM_OAMSET_0A,  7
-	battleoamframe BATTLE_ANIM_OAMSET_0B,  7
-	battleoamframe BATTLE_ANIM_OAMSET_0A,  7
-	battleoamframe BATTLE_ANIM_OAMSET_0B,  7, OAM_X_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_0A,  7
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_0A,  7
+	oamframe BATTLE_ANIM_OAMSET_0B,  7
+	oamframe BATTLE_ANIM_OAMSET_0A,  7
+	oamframe BATTLE_ANIM_OAMSET_0B,  7, OAM_X_FLIP
+	oamframe BATTLE_ANIM_OAMSET_0A,  7
+	oamend
 
 .Frameset_DragonRage:
-	battleoamframe BATTLE_ANIM_OAMSET_0A,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_0A,  8
+	oamend
 
 .Frameset_Flamethrower:
-	battleoamframe BATTLE_ANIM_OAMSET_0A,  4
-	battleoamframe BATTLE_ANIM_OAMSET_0E,  4
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_0A,  4
+	oamframe BATTLE_ANIM_OAMSET_0E,  4
+	oamrestart
 
 .Frameset_Ember:
-	battleoamframe BATTLE_ANIM_OAMSET_0F,  4
-	battleoamframe BATTLE_ANIM_OAMSET_10,  4
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_0F,  4
+	oamframe BATTLE_ANIM_OAMSET_10,  4
+	oamrestart
 
 .Frameset_Burned:
-	battleoamframe BATTLE_ANIM_OAMSET_10,  4
-	battleoamframe BATTLE_ANIM_OAMSET_0F,  4
-	battleoamframe BATTLE_ANIM_OAMSET_0E,  4
-	battleoamframe BATTLE_ANIM_OAMSET_0A,  4
-	battleoamframe BATTLE_ANIM_OAMSET_0E,  4
-	battleoamframe BATTLE_ANIM_OAMSET_0A,  4
-	battleoamframe BATTLE_ANIM_OAMSET_0E,  4
-	battleoamframe BATTLE_ANIM_OAMSET_0A,  4
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_10,  4
+	oamframe BATTLE_ANIM_OAMSET_0F,  4
+	oamframe BATTLE_ANIM_OAMSET_0E,  4
+	oamframe BATTLE_ANIM_OAMSET_0A,  4
+	oamframe BATTLE_ANIM_OAMSET_0E,  4
+	oamframe BATTLE_ANIM_OAMSET_0A,  4
+	oamframe BATTLE_ANIM_OAMSET_0E,  4
+	oamframe BATTLE_ANIM_OAMSET_0A,  4
+	oamdelete
 
 .Frameset_Blizzard:
-	battleoamframe BATTLE_ANIM_OAMSET_10,  1
-	battleoamframe BATTLE_ANIM_OAMSET_0F,  1
-	battleoamframe BATTLE_ANIM_OAMSET_12,  1
-	battleoamframe BATTLE_ANIM_OAMSET_11,  1
-	battleoamframe BATTLE_ANIM_OAMSET_12,  1
-	battleoamframe BATTLE_ANIM_OAMSET_0F,  1
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_10,  1
+	oamframe BATTLE_ANIM_OAMSET_0F,  1
+	oamframe BATTLE_ANIM_OAMSET_12,  1
+	oamframe BATTLE_ANIM_OAMSET_11,  1
+	oamframe BATTLE_ANIM_OAMSET_12,  1
+	oamframe BATTLE_ANIM_OAMSET_0F,  1
+	oamrestart
 
 .Frameset_Ice:
-	battleoamframe BATTLE_ANIM_OAMSET_10,  3
-	battleoamframe BATTLE_ANIM_OAMSET_0F,  3
-	battleoamframe BATTLE_ANIM_OAMSET_12,  1
-	battleoamwait 1
-	battleoamframe BATTLE_ANIM_OAMSET_12,  1
-	battleoamwait 1
-	battleoamframe BATTLE_ANIM_OAMSET_12,  1
-	battleoamwait 1
-	battleoamframe BATTLE_ANIM_OAMSET_12,  1
-	battleoamwait 1
-	battleoamframe BATTLE_ANIM_OAMSET_12,  3
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_10,  3
+	oamframe BATTLE_ANIM_OAMSET_0F,  3
+	oamframe BATTLE_ANIM_OAMSET_12,  1
+	oamwait 1
+	oamframe BATTLE_ANIM_OAMSET_12,  1
+	oamwait 1
+	oamframe BATTLE_ANIM_OAMSET_12,  1
+	oamwait 1
+	oamframe BATTLE_ANIM_OAMSET_12,  1
+	oamwait 1
+	oamframe BATTLE_ANIM_OAMSET_12,  3
+	oamdelete
 
 .Frameset_IceBeam:
-	battleoamframe BATTLE_ANIM_OAMSET_13, 20
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_13, 20
+	oamdelete
 
 .Frameset_PowderSnow:
-	battleoamframe BATTLE_ANIM_OAMSET_10,  1
-	battleoamframe BATTLE_ANIM_OAMSET_0F,  1
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_10,  1
+	oamframe BATTLE_ANIM_OAMSET_0F,  1
+	oamrestart
 
 .Frameset_RazorLeaf1:
-	battleoamframe BATTLE_ANIM_OAMSET_14,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_14,  8
+	oamend
 
 .Frameset_RazorLeaf2:
-	battleoamframe BATTLE_ANIM_OAMSET_17,  4
-	battleoamframe BATTLE_ANIM_OAMSET_16,  8
-	battleoamframe BATTLE_ANIM_OAMSET_15,  8
-	battleoamframe BATTLE_ANIM_OAMSET_16,  8
-	battleoamframe BATTLE_ANIM_OAMSET_17,  4
-	battleoamframe BATTLE_ANIM_OAMSET_17,  4
-	battleoamframe BATTLE_ANIM_OAMSET_16,  8, OAM_X_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_15,  8, OAM_X_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_16,  8, OAM_X_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_17,  4
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_17,  4
+	oamframe BATTLE_ANIM_OAMSET_16,  8
+	oamframe BATTLE_ANIM_OAMSET_15,  8
+	oamframe BATTLE_ANIM_OAMSET_16,  8
+	oamframe BATTLE_ANIM_OAMSET_17,  4
+	oamframe BATTLE_ANIM_OAMSET_17,  4
+	oamframe BATTLE_ANIM_OAMSET_16,  8, OAM_X_FLIP
+	oamframe BATTLE_ANIM_OAMSET_15,  8, OAM_X_FLIP
+	oamframe BATTLE_ANIM_OAMSET_16,  8, OAM_X_FLIP
+	oamframe BATTLE_ANIM_OAMSET_17,  4
+	oamrestart
 
 .Frameset_LeechSeed1:
-	battleoamframe BATTLE_ANIM_OAMSET_69,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_69,  8
+	oamend
 
 .Frameset_LeechSeed2:
-	battleoamframe BATTLE_ANIM_OAMSET_69, 32
-	battleoamframe BATTLE_ANIM_OAMSET_6A,  4
-	battleoamframe BATTLE_ANIM_OAMSET_6B,  4
-	battleoamframe BATTLE_ANIM_OAMSET_6D,  4
-	battleoamframe BATTLE_ANIM_OAMSET_6C,  4
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_69, 32
+	oamframe BATTLE_ANIM_OAMSET_6A,  4
+	oamframe BATTLE_ANIM_OAMSET_6B,  4
+	oamframe BATTLE_ANIM_OAMSET_6D,  4
+	oamframe BATTLE_ANIM_OAMSET_6C,  4
+	oamend
 
 .Frameset_LeechSeed3:
-	battleoamframe BATTLE_ANIM_OAMSET_6C,  8
-	battleoamframe BATTLE_ANIM_OAMSET_6D,  8
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_6C,  8
+	oamframe BATTLE_ANIM_OAMSET_6D,  8
+	oamrestart
 
 .Frameset_Explosion:
-	battleoamframe BATTLE_ANIM_OAMSET_18,  4
-	battleoamframe BATTLE_ANIM_OAMSET_19,  4
-	battleoamframe BATTLE_ANIM_OAMSET_1A,  4
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_18,  4
+	oamframe BATTLE_ANIM_OAMSET_19,  4
+	oamframe BATTLE_ANIM_OAMSET_1A,  4
+	oamdelete
 
 .Frameset_BigRock:
-	battleoamframe BATTLE_ANIM_OAMSET_1B,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_1B,  8
+	oamend
 
 .Frameset_SmallRock:
-	battleoamframe BATTLE_ANIM_OAMSET_0F,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_0F,  8
+	oamend
 
 .Frameset_Strength:
-	battleoamframe BATTLE_ANIM_OAMSET_1C,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_1C,  8
+	oamend
 
 .Frameset_SkullCrossbone:
-	battleoamframe BATTLE_ANIM_OAMSET_0A,  8
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_0A,  8
+	oamdelete
 
 .Frameset_Acid:
-	battleoamframe BATTLE_ANIM_OAMSET_1D,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_1D,  8
+	oamend
 
 .Frameset_PoisonDropletUnused:
-	battleoamframe BATTLE_ANIM_OAMSET_17,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_17,  8
+	oamend
 
 .Frameset_SludgeBubble:
-	battleoamframe BATTLE_ANIM_OAMSET_0F,  3
-	battleoamframe BATTLE_ANIM_OAMSET_10,  3
-	battleoamframe BATTLE_ANIM_OAMSET_1E,  3
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_0F,  3
+	oamframe BATTLE_ANIM_OAMSET_10,  3
+	oamframe BATTLE_ANIM_OAMSET_1E,  3
+	oamend
 
 .Frameset_SludgeBubbleBurst:
-	battleoamframe BATTLE_ANIM_OAMSET_1F, 16
-	battleoamframe BATTLE_ANIM_OAMSET_20,  3
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_1F, 16
+	oamframe BATTLE_ANIM_OAMSET_20,  3
+	oamdelete
 
 .Frameset_SmallBubble:
-	battleoamframe BATTLE_ANIM_OAMSET_20,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_20,  8
+	oamend
 
 .Frameset_PulsingBubble:
-	battleoamframe BATTLE_ANIM_OAMSET_20,  8
-	battleoamframe BATTLE_ANIM_OAMSET_21,  8
-	battleoamframe BATTLE_ANIM_OAMSET_1B,  8
-	battleoamframe BATTLE_ANIM_OAMSET_21,  8
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_20,  8
+	oamframe BATTLE_ANIM_OAMSET_21,  8
+	oamframe BATTLE_ANIM_OAMSET_1B,  8
+	oamframe BATTLE_ANIM_OAMSET_21,  8
+	oamrestart
 
 .Frameset_Surf:
-	battleoamframe BATTLE_ANIM_OAMSET_22,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_22,  8
+	oamend
 
 .Frameset_MusicNote1:
-	battleoamframe BATTLE_ANIM_OAMSET_1B,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_1B,  8
+	oamend
 
 .Frameset_MusicNote2:
-	battleoamframe BATTLE_ANIM_OAMSET_23,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_23,  8
+	oamend
 
 .Frameset_MusicNote3:
-	battleoamframe BATTLE_ANIM_OAMSET_24,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_24,  8
+	oamend
 
 .Frameset_WaterGun1:
-	battleoamframe BATTLE_ANIM_OAMSET_25,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_25,  8
+	oamend
 
 .Frameset_WaterGun2:
-	battleoamframe BATTLE_ANIM_OAMSET_26,  8
-	battleoamframe BATTLE_ANIM_OAMSET_27,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_26,  8
+	oamframe BATTLE_ANIM_OAMSET_27,  8
+	oamend
 
 .Frameset_WaterGun3:
-	battleoamframe BATTLE_ANIM_OAMSET_28,  8
-	battleoamframe BATTLE_ANIM_OAMSET_29,  8
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_28,  8
+	oamframe BATTLE_ANIM_OAMSET_29,  8
+	oamdelete
 
 .Frameset_HydroPump:
-	battleoamframe BATTLE_ANIM_OAMSET_2A,  1
-	battleoamframe BATTLE_ANIM_OAMSET_2B,  1
-	battleoamframe BATTLE_ANIM_OAMSET_2C,  1
-	battleoamframe BATTLE_ANIM_OAMSET_2D,  1
-	battleoamframe BATTLE_ANIM_OAMSET_2E,  1
-	battleoamframe BATTLE_ANIM_OAMSET_2D,  1
-	battleoamframe BATTLE_ANIM_OAMSET_2C,  1
-	battleoamframe BATTLE_ANIM_OAMSET_2B,  1
-	battleoamframe BATTLE_ANIM_OAMSET_2A,  1
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_2A,  1
+	oamframe BATTLE_ANIM_OAMSET_2B,  1
+	oamframe BATTLE_ANIM_OAMSET_2C,  1
+	oamframe BATTLE_ANIM_OAMSET_2D,  1
+	oamframe BATTLE_ANIM_OAMSET_2E,  1
+	oamframe BATTLE_ANIM_OAMSET_2D,  1
+	oamframe BATTLE_ANIM_OAMSET_2C,  1
+	oamframe BATTLE_ANIM_OAMSET_2B,  1
+	oamframe BATTLE_ANIM_OAMSET_2A,  1
+	oamdelete
 
 .Frameset_Powder:
-	battleoamframe BATTLE_ANIM_OAMSET_14,  1
-	battleoamframe BATTLE_ANIM_OAMSET_15,  1
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_14,  1
+	oamframe BATTLE_ANIM_OAMSET_15,  1
+	oamrestart
 
 .Frameset_Beam:
-	battleoamframe BATTLE_ANIM_OAMSET_2F,  4
-	battleoamframe BATTLE_ANIM_OAMSET_30, 40
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_2F,  4
+	oamframe BATTLE_ANIM_OAMSET_30, 40
+	oamdelete
 
 .Frameset_BeamTip:
-	battleoamframe BATTLE_ANIM_OAMSET_31,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_31,  8
+	oamend
 
 .Frameset_IceBuildup:
-	battleoamframe BATTLE_ANIM_OAMSET_32, 32
-	battleoamframe BATTLE_ANIM_OAMSET_33, 32
-	battleoamframe BATTLE_ANIM_OAMSET_34, 32
-	battleoamframe BATTLE_ANIM_OAMSET_35, 32 ; fallthrough
+	oamframe BATTLE_ANIM_OAMSET_32, 32
+	oamframe BATTLE_ANIM_OAMSET_33, 32
+	oamframe BATTLE_ANIM_OAMSET_34, 32
+	oamframe BATTLE_ANIM_OAMSET_35, 32 ; fallthrough
 .Frameset_Frozen:
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_35,  4
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_35,  4
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_35,  4
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_35,  4
-	battleoamdelete
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_35,  4
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_35,  4
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_35,  4
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_35,  4
+	oamdelete
 
 .Frameset_CirclingSparkle:
-	battleoamframe BATTLE_ANIM_OAMSET_14,  4
-	battleoamframe BATTLE_ANIM_OAMSET_15,  4
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_14,  4
+	oamframe BATTLE_ANIM_OAMSET_15,  4
+	oamrestart
 
 .Frameset_ThunderCenter:
-	battleoamframe BATTLE_ANIM_OAMSET_36,  2
-	battleoamframe BATTLE_ANIM_OAMSET_37,  2
-	battleoamframe BATTLE_ANIM_OAMSET_38,  2
-	battleoamframe BATTLE_ANIM_OAMSET_39, 32
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_36,  2
+	oamframe BATTLE_ANIM_OAMSET_37,  2
+	oamframe BATTLE_ANIM_OAMSET_38,  2
+	oamframe BATTLE_ANIM_OAMSET_39, 32
+	oamdelete
 
 .Frameset_ThunderLeft:
-	battleoamframe BATTLE_ANIM_OAMSET_3A,  2
-	battleoamframe BATTLE_ANIM_OAMSET_3B,  2
-	battleoamframe BATTLE_ANIM_OAMSET_3C,  2
-	battleoamframe BATTLE_ANIM_OAMSET_3D, 32
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_3A,  2
+	oamframe BATTLE_ANIM_OAMSET_3B,  2
+	oamframe BATTLE_ANIM_OAMSET_3C,  2
+	oamframe BATTLE_ANIM_OAMSET_3D, 32
+	oamdelete
 
 .Frameset_ThunderRight:
-	battleoamframe BATTLE_ANIM_OAMSET_3A,  2, OAM_X_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_3B,  2, OAM_X_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_3C,  2, OAM_X_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_3D, 32, OAM_X_FLIP
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_3A,  2, OAM_X_FLIP
+	oamframe BATTLE_ANIM_OAMSET_3B,  2, OAM_X_FLIP
+	oamframe BATTLE_ANIM_OAMSET_3C,  2, OAM_X_FLIP
+	oamframe BATTLE_ANIM_OAMSET_3D, 32, OAM_X_FLIP
+	oamdelete
 
 .Frameset_ThunderWaveDisable:
-	battleoamframe BATTLE_ANIM_OAMSET_3E,  8
-	battleoamframe BATTLE_ANIM_OAMSET_3F,  8
-	battleoamframe BATTLE_ANIM_OAMSET_40,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_3E,  8
+	oamframe BATTLE_ANIM_OAMSET_3F,  8
+	oamframe BATTLE_ANIM_OAMSET_40,  8
+	oamend
 
 .Frameset_ThunderWaveExtra:
-	battleoamframe BATTLE_ANIM_OAMSET_40,  2
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_40,  2
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_41,  2
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_41,  2
-	battleoamwait 2
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_40,  2
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_40,  2
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_41,  2
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_41,  2
+	oamwait 2
+	oamrestart
 
 .Frameset_ThunderBoltSparks:
-	battleoamframe BATTLE_ANIM_OAMSET_42,  2
-	battleoamframe BATTLE_ANIM_OAMSET_43,  2
-	battleoamframe BATTLE_ANIM_OAMSET_44,  2
-	battleoamframe BATTLE_ANIM_OAMSET_45,  2
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_42,  2
+	oamframe BATTLE_ANIM_OAMSET_43,  2
+	oamframe BATTLE_ANIM_OAMSET_44,  2
+	oamframe BATTLE_ANIM_OAMSET_45,  2
+	oamrestart
 
 .Frameset_ThunderBoltCore:
-	battleoamframe BATTLE_ANIM_OAMSET_19,  2
-	battleoamwait 2
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_19,  2
+	oamwait 2
+	oamrestart
 
 .Frameset_ThunderShockSparks:
-	battleoamframe BATTLE_ANIM_OAMSET_46,  4
-	battleoamframe BATTLE_ANIM_OAMSET_47,  4
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_46,  4
+	oamframe BATTLE_ANIM_OAMSET_47,  4
+	oamrestart
 
 .Frameset_ThunderShockCore:
-	battleoamframe BATTLE_ANIM_OAMSET_18,  2
-	battleoamwait 2
-	battleoamrestart
-
-.Frameset_Clamp:
-	battleoamframe BATTLE_ANIM_OAMSET_48,  8
-	battleoamend
-
-.Frameset_ClampFlipped:
-	battleoamframe BATTLE_ANIM_OAMSET_48,  8, OAM_X_FLIP
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_18,  2
+	oamwait 2
+	oamrestart
 
 .Frameset_Bite1:
-	battleoamframe BATTLE_ANIM_OAMSET_49,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_49,  8
+	oamend
 
 .Frameset_Bite2:
-	battleoamframe BATTLE_ANIM_OAMSET_4A,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_4A,  8
+	oamend
 
 .Frameset_ChargeOrb1:
-	battleoamframe BATTLE_ANIM_OAMSET_20, 16
-	battleoamframe BATTLE_ANIM_OAMSET_1F, 16
-	battleoamframe BATTLE_ANIM_OAMSET_1E, 16
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_20, 16
+	oamframe BATTLE_ANIM_OAMSET_1F, 16
+	oamframe BATTLE_ANIM_OAMSET_1E, 16
+	oamend
 
 .Frameset_ChargeOrb2:
-	battleoamframe BATTLE_ANIM_OAMSET_20,  8
-	battleoamframe BATTLE_ANIM_OAMSET_1F,  8
-	battleoamframe BATTLE_ANIM_OAMSET_1E,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_20,  8
+	oamframe BATTLE_ANIM_OAMSET_1F,  8
+	oamframe BATTLE_ANIM_OAMSET_1E,  8
+	oamend
 
 .Frameset_AbsorbCenter:
-	battleoamwait 20
-	battleoamframe BATTLE_ANIM_OAMSET_55, 40
-	battleoamframe BATTLE_ANIM_OAMSET_54, 40
-	battleoamframe BATTLE_ANIM_OAMSET_53, 20
-	battleoamwait 4
-	battleoamframe BATTLE_ANIM_OAMSET_53,  4
-	battleoamwait 4
-	battleoamframe BATTLE_ANIM_OAMSET_53,  4
-	battleoamwait 4
-	battleoamframe BATTLE_ANIM_OAMSET_53,  4
-	battleoamdelete
+	oamwait 20
+	oamframe BATTLE_ANIM_OAMSET_55, 40
+	oamframe BATTLE_ANIM_OAMSET_54, 40
+	oamframe BATTLE_ANIM_OAMSET_53, 20
+	oamwait 4
+	oamframe BATTLE_ANIM_OAMSET_53,  4
+	oamwait 4
+	oamframe BATTLE_ANIM_OAMSET_53,  4
+	oamwait 4
+	oamframe BATTLE_ANIM_OAMSET_53,  4
+	oamdelete
 
 .Frameset_ShrinkingChargeOrb:
-	battleoamframe BATTLE_ANIM_OAMSET_1E,  8
-	battleoamframe BATTLE_ANIM_OAMSET_1F,  8
-	battleoamframe BATTLE_ANIM_OAMSET_20,  8
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_1E,  8
+	oamframe BATTLE_ANIM_OAMSET_1F,  8
+	oamframe BATTLE_ANIM_OAMSET_20,  8
+	oamdelete
 
 .Frameset_Gust:
-	battleoamwait 0
-	battleoamframe BATTLE_ANIM_OAMSET_14,  0
-	battleoamframe BATTLE_ANIM_OAMSET_15,  0
-	battleoamframe BATTLE_ANIM_OAMSET_14,  0, OAM_X_FLIP
-	battleoamwait 0
-	battleoamframe BATTLE_ANIM_OAMSET_16,  0, OAM_X_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_15,  0
-	battleoamframe BATTLE_ANIM_OAMSET_16,  0
-	battleoamrestart
+	oamwait 0
+	oamframe BATTLE_ANIM_OAMSET_14,  0
+	oamframe BATTLE_ANIM_OAMSET_15,  0
+	oamframe BATTLE_ANIM_OAMSET_14,  0, OAM_X_FLIP
+	oamwait 0
+	oamframe BATTLE_ANIM_OAMSET_16,  0, OAM_X_FLIP
+	oamframe BATTLE_ANIM_OAMSET_15,  0
+	oamframe BATTLE_ANIM_OAMSET_16,  0
+	oamrestart
 
 .Frameset_VineWhip1:
-	battleoamframe BATTLE_ANIM_OAMSET_56,  2
-	battleoamframe BATTLE_ANIM_OAMSET_57,  4
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_56,  2
+	oamframe BATTLE_ANIM_OAMSET_57,  4
+	oamdelete
 
 .Frameset_VineWhip2:
-	battleoamframe BATTLE_ANIM_OAMSET_56,  2, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_57,  4, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_56,  2, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_57,  4, OAM_X_FLIP, OAM_Y_FLIP
+	oamdelete
 
 .Frameset_RazorWind1:
-	battleoamframe BATTLE_ANIM_OAMSET_56,  1
-	battleoamframe BATTLE_ANIM_OAMSET_57,  1
-	battleoamframe BATTLE_ANIM_OAMSET_58,  1
-	battleoamframe BATTLE_ANIM_OAMSET_57,  1, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_58,  1, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_57,  2
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_56,  1
+	oamframe BATTLE_ANIM_OAMSET_57,  1
+	oamframe BATTLE_ANIM_OAMSET_58,  1
+	oamframe BATTLE_ANIM_OAMSET_57,  1, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_58,  1, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_57,  2
+	oamdelete
 
 .Frameset_RazorWind2:
-	battleoamframe BATTLE_ANIM_OAMSET_56,  1, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_57,  1, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_58,  1, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_57,  1
-	battleoamframe BATTLE_ANIM_OAMSET_58,  1
-	battleoamframe BATTLE_ANIM_OAMSET_57,  2, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_56,  1, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_57,  1, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_58,  1, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_57,  1
+	oamframe BATTLE_ANIM_OAMSET_58,  1
+	oamframe BATTLE_ANIM_OAMSET_57,  2, OAM_X_FLIP, OAM_Y_FLIP
+	oamdelete
 
 .Frameset_SonicboomJP:
-	battleoamframe BATTLE_ANIM_OAMSET_57,  1, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_58,  1, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_57,  1
-	battleoamframe BATTLE_ANIM_OAMSET_58,  1
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_57,  1, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_58,  1, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_57,  1
+	oamframe BATTLE_ANIM_OAMSET_58,  1
+	oamrestart
 
 .Frameset_Warp:
-	battleoamframe BATTLE_ANIM_OAMSET_59,  1
-	battleoamframe BATTLE_ANIM_OAMSET_5A,  1
-	battleoamframe BATTLE_ANIM_OAMSET_5B,  1
-	battleoamframe BATTLE_ANIM_OAMSET_5C,  2
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_59,  1
+	oamframe BATTLE_ANIM_OAMSET_5A,  1
+	oamframe BATTLE_ANIM_OAMSET_5B,  1
+	oamframe BATTLE_ANIM_OAMSET_5C,  2
+	oamdelete
 
 .Frameset_Egg:
-	battleoamframe BATTLE_ANIM_OAMSET_0A, 10
-	battleoamframe BATTLE_ANIM_OAMSET_0B,  3, OAM_X_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_5D,  3, OAM_X_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_0B,  3, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_0A,  2, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_0B,  1, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_5D,  1
-	battleoamframe BATTLE_ANIM_OAMSET_0B,  1
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_0A, 10
+	oamframe BATTLE_ANIM_OAMSET_0B,  3, OAM_X_FLIP
+	oamframe BATTLE_ANIM_OAMSET_5D,  3, OAM_X_FLIP
+	oamframe BATTLE_ANIM_OAMSET_0B,  3, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_0A,  2, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_0B,  1, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_5D,  1
+	oamframe BATTLE_ANIM_OAMSET_0B,  1
+	oamrestart
 
 .Frameset_EggWobble:
-	battleoamframe BATTLE_ANIM_OAMSET_0A,  3
-	battleoamframe BATTLE_ANIM_OAMSET_0B,  7, OAM_X_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_0A,  7
-	battleoamframe BATTLE_ANIM_OAMSET_0B,  7
-	battleoamframe BATTLE_ANIM_OAMSET_0A,  3
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_0A,  3
+	oamframe BATTLE_ANIM_OAMSET_0B,  7, OAM_X_FLIP
+	oamframe BATTLE_ANIM_OAMSET_0A,  7
+	oamframe BATTLE_ANIM_OAMSET_0B,  7
+	oamframe BATTLE_ANIM_OAMSET_0A,  3
+	oamrestart
 
 .Frameset_EggCrackedTop:
-	battleoamframe BATTLE_ANIM_OAMSET_5E, 32
-	battleoamframe BATTLE_ANIM_OAMSET_5E, 32
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_5E, 32
+	oamframe BATTLE_ANIM_OAMSET_5E, 32
+	oamdelete
 
 .Frameset_EggCrackedBottom:
-	battleoamframe BATTLE_ANIM_OAMSET_5F, 32
-	battleoamframe BATTLE_ANIM_OAMSET_5F, 32
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_5F, 32
+	oamframe BATTLE_ANIM_OAMSET_5F, 32
+	oamdelete
 
 .Frameset_Focus:
-	battleoamframe BATTLE_ANIM_OAMSET_60,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_60,  8
+	oamend
 
 .Frameset_Bind1:
-	battleoamframe BATTLE_ANIM_OAMSET_61,  1
-	battleoamframe BATTLE_ANIM_OAMSET_62,  1
-	battleoamframe BATTLE_ANIM_OAMSET_63,  1
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_61,  1
+	oamframe BATTLE_ANIM_OAMSET_62,  1
+	oamframe BATTLE_ANIM_OAMSET_63,  1
+	oamend
 
 .Frameset_Bind2:
-	battleoamframe BATTLE_ANIM_OAMSET_63,  7
-	battleoamframe BATTLE_ANIM_OAMSET_64,  7
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_63,  7
+	oamframe BATTLE_ANIM_OAMSET_64,  7
+	oamrestart
 
 .Frameset_Bind3:
-	battleoamframe BATTLE_ANIM_OAMSET_65,  1
-	battleoamframe BATTLE_ANIM_OAMSET_66,  1
-	battleoamframe BATTLE_ANIM_OAMSET_67,  1
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_65,  1
+	oamframe BATTLE_ANIM_OAMSET_66,  1
+	oamframe BATTLE_ANIM_OAMSET_67,  1
+	oamend
 
 .Frameset_Bind4:
-	battleoamframe BATTLE_ANIM_OAMSET_67,  7
-	battleoamframe BATTLE_ANIM_OAMSET_68,  7
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_67,  7
+	oamframe BATTLE_ANIM_OAMSET_68,  7
+	oamrestart
 
 .Frameset_Sound1:
-	battleoamframe BATTLE_ANIM_OAMSET_6E,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_6E,  8
+	oamend
 
 .Frameset_Sound2:
-	battleoamframe BATTLE_ANIM_OAMSET_6F,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_6F,  8
+	oamend
 
 .Frameset_Sound3:
-	battleoamframe BATTLE_ANIM_OAMSET_6E,  8, OAM_Y_FLIP
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_6E,  8, OAM_Y_FLIP
+	oamend
 
 .Frameset_Wave:
-	battleoamframe BATTLE_ANIM_OAMSET_18,  4
-	battleoamframe BATTLE_ANIM_OAMSET_70,  4
-	battleoamframe BATTLE_ANIM_OAMSET_71,  4
-	battleoamframe BATTLE_ANIM_OAMSET_72,  4
-	battleoamframe BATTLE_ANIM_OAMSET_73,  4
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_18,  4
+	oamframe BATTLE_ANIM_OAMSET_70,  4
+	oamframe BATTLE_ANIM_OAMSET_71,  4
+	oamframe BATTLE_ANIM_OAMSET_72,  4
+	oamframe BATTLE_ANIM_OAMSET_73,  4
+	oamdelete
 
 .Frameset_ConfuseRay1:
-	battleoamframe BATTLE_ANIM_OAMSET_74,  4
-	battleoamframe BATTLE_ANIM_OAMSET_75,  4
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_74,  4
+	oamframe BATTLE_ANIM_OAMSET_75,  4
+	oamrestart
 
 .Frameset_ConfuseRay2:
-	battleoamframe BATTLE_ANIM_OAMSET_14,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_14,  8
+	oamend
 
 .Frameset_Sparkle:
-	battleoamframe BATTLE_ANIM_OAMSET_74,  3
-	battleoamframe BATTLE_ANIM_OAMSET_14,  3
-	battleoamframe BATTLE_ANIM_OAMSET_15,  3
-	battleoamframe BATTLE_ANIM_OAMSET_14,  3
-	battleoamframe BATTLE_ANIM_OAMSET_15,  3
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_74,  3
+	oamframe BATTLE_ANIM_OAMSET_14,  3
+	oamframe BATTLE_ANIM_OAMSET_15,  3
+	oamframe BATTLE_ANIM_OAMSET_14,  3
+	oamframe BATTLE_ANIM_OAMSET_15,  3
+	oamdelete
 
 .Frameset_GrowingSparkle:
-	battleoamframe BATTLE_ANIM_OAMSET_14,  0
-	battleoamframe BATTLE_ANIM_OAMSET_15,  0
-	battleoamframe BATTLE_ANIM_OAMSET_14,  0
-	battleoamframe BATTLE_ANIM_OAMSET_15,  0
-	battleoamframe BATTLE_ANIM_OAMSET_74, 12
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_14,  0
+	oamframe BATTLE_ANIM_OAMSET_15,  0
+	oamframe BATTLE_ANIM_OAMSET_14,  0
+	oamframe BATTLE_ANIM_OAMSET_15,  0
+	oamframe BATTLE_ANIM_OAMSET_74, 12
+	oamdelete
 
 .Frameset_Leer:
-	battleoamframe BATTLE_ANIM_OAMSET_76,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_76,  8
+	oamend
 
 .Frameset_Reflect:
-	battleoamframe BATTLE_ANIM_OAMSET_77,  1
-	battleoamframe BATTLE_ANIM_OAMSET_78,  1
-	battleoamframe BATTLE_ANIM_OAMSET_79,  1
-	battleoamframe BATTLE_ANIM_OAMSET_7A,  1
-	battleoamframe BATTLE_ANIM_OAMSET_7B,  1
-	battleoamframe BATTLE_ANIM_OAMSET_7C,  1
-	battleoamframe BATTLE_ANIM_OAMSET_7D,  1
-	battleoamframe BATTLE_ANIM_OAMSET_7C,  1, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_7B,  1, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_7A,  1, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_79,  1, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_78,  1, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_77,  1, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_77,  1
+	oamframe BATTLE_ANIM_OAMSET_78,  1
+	oamframe BATTLE_ANIM_OAMSET_79,  1
+	oamframe BATTLE_ANIM_OAMSET_7A,  1
+	oamframe BATTLE_ANIM_OAMSET_7B,  1
+	oamframe BATTLE_ANIM_OAMSET_7C,  1
+	oamframe BATTLE_ANIM_OAMSET_7D,  1
+	oamframe BATTLE_ANIM_OAMSET_7C,  1, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_7B,  1, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_7A,  1, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_79,  1, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_78,  1, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_77,  1, OAM_X_FLIP, OAM_Y_FLIP
+	oamdelete
 
 .Frameset_Chick1:
-	battleoamframe BATTLE_ANIM_OAMSET_1B,  4
-	battleoamframe BATTLE_ANIM_OAMSET_7E,  4
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_1B,  4
+	oamframe BATTLE_ANIM_OAMSET_7E,  4
+	oamrestart
 
 .Frameset_Chick2:
-	battleoamframe BATTLE_ANIM_OAMSET_1B,  4, OAM_X_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_7E,  4, OAM_X_FLIP
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_1B,  4, OAM_X_FLIP
+	oamframe BATTLE_ANIM_OAMSET_7E,  4, OAM_X_FLIP
+	oamrestart
 
 .Frameset_Amnesia1:
-	battleoamframe BATTLE_ANIM_OAMSET_7F,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_7F,  8
+	oamend
 
 .Frameset_Amnesia2:
-	battleoamframe BATTLE_ANIM_OAMSET_25,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_25,  8
+	oamend
 
 .Frameset_Amnesia3:
-	battleoamframe BATTLE_ANIM_OAMSET_80,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_80,  8
+	oamend
 
 .Frameset_Asleep:
-	battleoamframe BATTLE_ANIM_OAMSET_83,  7
-	battleoamframe BATTLE_ANIM_OAMSET_82,  7
-	battleoamframe BATTLE_ANIM_OAMSET_81,  7
-	battleoamframe BATTLE_ANIM_OAMSET_82,  7
-	battleoamframe BATTLE_ANIM_OAMSET_83,  7
-	battleoamframe BATTLE_ANIM_OAMSET_82,  7
-	battleoamframe BATTLE_ANIM_OAMSET_81,  7
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_83,  7
+	oamframe BATTLE_ANIM_OAMSET_82,  7
+	oamframe BATTLE_ANIM_OAMSET_81,  7
+	oamframe BATTLE_ANIM_OAMSET_82,  7
+	oamframe BATTLE_ANIM_OAMSET_83,  7
+	oamframe BATTLE_ANIM_OAMSET_82,  7
+	oamframe BATTLE_ANIM_OAMSET_81,  7
+	oamdelete
 
 .Frameset_DigSand:
-	battleoamframe BATTLE_ANIM_OAMSET_1B, 16
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_1B, 16
+	oamdelete
 
 .Frameset_DigPile:
-	battleoamwait 15
-	battleoamframe BATTLE_ANIM_OAMSET_84, 15
-	battleoamframe BATTLE_ANIM_OAMSET_85, 15
-	battleoamframe BATTLE_ANIM_OAMSET_29, 15
-	battleoamframe BATTLE_ANIM_OAMSET_28, 15
-	battleoamframe BATTLE_ANIM_OAMSET_86, 32
-	battleoamdelete
+	oamwait 15
+	oamframe BATTLE_ANIM_OAMSET_84, 15
+	oamframe BATTLE_ANIM_OAMSET_85, 15
+	oamframe BATTLE_ANIM_OAMSET_29, 15
+	oamframe BATTLE_ANIM_OAMSET_28, 15
+	oamframe BATTLE_ANIM_OAMSET_86, 32
+	oamdelete
 
 .Frameset_Sand:
-	battleoamframe BATTLE_ANIM_OAMSET_1B,  3
-	battleoamframe BATTLE_ANIM_OAMSET_87,  3
-	battleoamframe BATTLE_ANIM_OAMSET_88,  3
-	battleoamframe BATTLE_ANIM_OAMSET_89,  3
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_1B,  3
+	oamframe BATTLE_ANIM_OAMSET_87,  3
+	oamframe BATTLE_ANIM_OAMSET_88,  3
+	oamframe BATTLE_ANIM_OAMSET_89,  3
+	oamdelete
 
 .Frameset_StringShot1:
-	battleoamframe BATTLE_ANIM_OAMSET_8A,  2
-	battleoamframe BATTLE_ANIM_OAMSET_8B,  2
-	battleoamframe BATTLE_ANIM_OAMSET_8C,  2
-	battleoamframe BATTLE_ANIM_OAMSET_8D,  2
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_8A,  2
+	oamframe BATTLE_ANIM_OAMSET_8B,  2
+	oamframe BATTLE_ANIM_OAMSET_8C,  2
+	oamframe BATTLE_ANIM_OAMSET_8D,  2
+	oamdelete
 
 .Frameset_StringShot2:
-	battleoamframe BATTLE_ANIM_OAMSET_61,  2
-	battleoamframe BATTLE_ANIM_OAMSET_62,  2
-	battleoamframe BATTLE_ANIM_OAMSET_63,  2
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_61,  2
+	oamframe BATTLE_ANIM_OAMSET_62,  2
+	oamframe BATTLE_ANIM_OAMSET_63,  2
+	oamend
 
 .Frameset_StringShot3:
-	battleoamframe BATTLE_ANIM_OAMSET_65,  2
-	battleoamframe BATTLE_ANIM_OAMSET_66,  2
-	battleoamframe BATTLE_ANIM_OAMSET_67,  2
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_65,  2
+	oamframe BATTLE_ANIM_OAMSET_66,  2
+	oamframe BATTLE_ANIM_OAMSET_67,  2
+	oamend
 
 .Frameset_Paralyzed:
-	battleoamframe BATTLE_ANIM_OAMSET_8E,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_8E,  8
+	oamend
 
 .Frameset_ParalyzedFlipped:
-	battleoamframe BATTLE_ANIM_OAMSET_8E,  8, OAM_X_FLIP
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_8E,  8, OAM_X_FLIP
+	oamend
 
 .Frameset_Haze:
-	battleoamframe BATTLE_ANIM_OAMSET_8F, 16
-	battleoamframe BATTLE_ANIM_OAMSET_90, 16
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_8F, 16
+	oamframe BATTLE_ANIM_OAMSET_90, 16
+	oamrestart
 
 .Frameset_Mist:
-	battleoamframe BATTLE_ANIM_OAMSET_91, 16
-	battleoamframe BATTLE_ANIM_OAMSET_92, 16
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_91, 16
+	oamframe BATTLE_ANIM_OAMSET_92, 16
+	oamrestart
 
 .Frameset_Horn:
-	battleoamframe BATTLE_ANIM_OAMSET_93,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_93,  8
+	oamend
 
 .Frameset_Needle:
-	battleoamframe BATTLE_ANIM_OAMSET_1E,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_1E,  8
+	oamend
 
 .Frameset_Flower:
-	battleoamframe BATTLE_ANIM_OAMSET_1B,  7
-	battleoamframe BATTLE_ANIM_OAMSET_94,  7
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_1B,  7
+	oamframe BATTLE_ANIM_OAMSET_94,  7
+	oamrestart
 
 .Frameset_BarrageBall:
-	battleoamframe BATTLE_ANIM_OAMSET_95,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_95,  8
+	oamend
 
 .Frameset_PayDay:
-	battleoamframe BATTLE_ANIM_OAMSET_96,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_96,  8
+	oamend
 
 .Frameset_Heart:
-	battleoamframe BATTLE_ANIM_OAMSET_95,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_95,  8
+	oamend
 
 .Frameset_SpinningBone:
-	battleoamframe BATTLE_ANIM_OAMSET_97,  1
-	battleoamframe BATTLE_ANIM_OAMSET_97,  1, OAM_X_FLIP
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_97,  1
+	oamframe BATTLE_ANIM_OAMSET_97,  1, OAM_X_FLIP
+	oamrestart
 
 .Frameset_Star:
-	battleoamframe BATTLE_ANIM_OAMSET_98,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_98,  8
+	oamend
 
 .Frameset_Spoon:
-	battleoamframe BATTLE_ANIM_OAMSET_99, 32
-	battleoamframe BATTLE_ANIM_OAMSET_99, 32
-	battleoamframe BATTLE_ANIM_OAMSET_99, 32
-	battleoamframe BATTLE_ANIM_OAMSET_99, 32
-	battleoamframe BATTLE_ANIM_OAMSET_99, 32
-	battleoamframe BATTLE_ANIM_OAMSET_9A,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_99, 32
+	oamframe BATTLE_ANIM_OAMSET_99, 32
+	oamframe BATTLE_ANIM_OAMSET_99, 32
+	oamframe BATTLE_ANIM_OAMSET_99, 32
+	oamframe BATTLE_ANIM_OAMSET_99, 32
+	oamframe BATTLE_ANIM_OAMSET_9A,  8
+	oamend
 
 .Frameset_SkyAttack:
-	battleoamframe BATTLE_ANIM_OAMSET_9B,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_9B,  8
+	oamend
 
 .Frameset_Lick:
-	battleoamframe BATTLE_ANIM_OAMSET_9C,  2
-	battleoamframe BATTLE_ANIM_OAMSET_9D,  2
-	battleoamframe BATTLE_ANIM_OAMSET_9E,  8
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_9E,  2
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_9E,  2
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_9E,  2
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_9C,  2
+	oamframe BATTLE_ANIM_OAMSET_9D,  2
+	oamframe BATTLE_ANIM_OAMSET_9E,  8
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_9E,  2
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_9E,  2
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_9E,  2
+	oamdelete
 
 .Frameset_WithdrawShell:
-	battleoamframe BATTLE_ANIM_OAMSET_9F,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_9F,  8
+	oamend
 
 .Frameset_Conversion:
-	battleoamframe BATTLE_ANIM_OAMSET_0F,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_0F,  8
+	oamend
 
 .Frameset_Sword:
-	battleoamframe BATTLE_ANIM_OAMSET_6B, 24
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_6B, 24
+	oamdelete
 
 .Frameset_SpeedLine1:
-	battleoamframe BATTLE_ANIM_OAMSET_A0,  1 ; fallthrough
+	oamframe BATTLE_ANIM_OAMSET_A0,  1 ; fallthrough
 .Frameset_SpeedLine2:
-	battleoamframe BATTLE_ANIM_OAMSET_A1,  1 ; fallthrough
+	oamframe BATTLE_ANIM_OAMSET_A1,  1 ; fallthrough
 .Frameset_SpeedLine3:
-	battleoamframe BATTLE_ANIM_OAMSET_A2,  1
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_A2,  1
+	oamdelete
 
 .Frameset_SeismicToss:
-	battleoamframe BATTLE_ANIM_OAMSET_A3,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_A3,  8
+	oamend
 
 .Frameset_Sharpen:
-	battleoamframe BATTLE_ANIM_OAMSET_A4,  4
-	battleoamframe BATTLE_ANIM_OAMSET_A5,  4
-	battleoamframe BATTLE_ANIM_OAMSET_A6,  4
-	battleoamframe BATTLE_ANIM_OAMSET_A7,  4
-	battleoamframe BATTLE_ANIM_OAMSET_A6,  4, OAM_X_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_A5,  4, OAM_X_FLIP
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_A4,  4
+	oamframe BATTLE_ANIM_OAMSET_A5,  4
+	oamframe BATTLE_ANIM_OAMSET_A6,  4
+	oamframe BATTLE_ANIM_OAMSET_A7,  4
+	oamframe BATTLE_ANIM_OAMSET_A6,  4, OAM_X_FLIP
+	oamframe BATTLE_ANIM_OAMSET_A5,  4, OAM_X_FLIP
+	oamrestart
 
 .Frameset_DefenseCurl:
-	battleoamframe BATTLE_ANIM_OAMSET_A8,  4
-	battleoamframe BATTLE_ANIM_OAMSET_A9,  4
-	battleoamframe BATTLE_ANIM_OAMSET_AA,  4
-	battleoamframe BATTLE_ANIM_OAMSET_AB,  4
-	battleoamframe BATTLE_ANIM_OAMSET_AA,  4, OAM_X_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_A9,  4, OAM_X_FLIP
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_A8,  4
+	oamframe BATTLE_ANIM_OAMSET_A9,  4
+	oamframe BATTLE_ANIM_OAMSET_AA,  4
+	oamframe BATTLE_ANIM_OAMSET_AB,  4
+	oamframe BATTLE_ANIM_OAMSET_AA,  4, OAM_X_FLIP
+	oamframe BATTLE_ANIM_OAMSET_A9,  4, OAM_X_FLIP
+	oamrestart
 
 .Frameset_MetronomeHand:
-	battleoamframe BATTLE_ANIM_OAMSET_1B,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_1B,  8
+	oamend
 
 .Frameset_Agility:
-	battleoamframe BATTLE_ANIM_OAMSET_AC,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_AC,  8
+	oamend
 
 .Frameset_Cotton:
-	battleoamframe BATTLE_ANIM_OAMSET_AD,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_AD,  8
+	oamend
 
 .Frameset_MilkBottle:
-	battleoamframe BATTLE_ANIM_OAMSET_AE,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_AE,  8
+	oamend
 
 .Frameset_Spike:
-	battleoamframe BATTLE_ANIM_OAMSET_AF,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_AF,  8
+	oamend
 
 .Frameset_AngerVein:
-	battleoamframe BATTLE_ANIM_OAMSET_B0, 32
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_B0, 32
+	oamdelete
 
 .Frameset_HealBell:
-	battleoamframe BATTLE_ANIM_OAMSET_B1,  7
-	battleoamframe BATTLE_ANIM_OAMSET_B1,  7, OAM_X_FLIP
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_B1,  7
+	oamframe BATTLE_ANIM_OAMSET_B1,  7, OAM_X_FLIP
+	oamrestart
 
 .Frameset_BatonPass:
-	battleoamframe BATTLE_ANIM_OAMSET_B2,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_B2,  8
+	oamend
 
 .Frameset_LockOn1:
-	battleoamframe BATTLE_ANIM_OAMSET_B3,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_B3,  8
+	oamend
 
 .Frameset_LockOn2:
-	battleoamframe BATTLE_ANIM_OAMSET_B3,  8, OAM_X_FLIP
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_B3,  8, OAM_X_FLIP
+	oamend
 
 .Frameset_LockOn3:
-	battleoamframe BATTLE_ANIM_OAMSET_B3,  8, OAM_Y_FLIP
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_B3,  8, OAM_Y_FLIP
+	oamend
 
 .Frameset_LockOn4:
-	battleoamframe BATTLE_ANIM_OAMSET_B3,  8, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_B3,  8, OAM_X_FLIP, OAM_Y_FLIP
+	oamend
 
 .Frameset_MindReader1:
-	battleoamframe BATTLE_ANIM_OAMSET_B5,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_B5,  8
+	oamend
 
 .Frameset_MindReader2:
-	battleoamframe BATTLE_ANIM_OAMSET_B5,  8, OAM_X_FLIP
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_B5,  8, OAM_X_FLIP
+	oamend
 
 .Frameset_MindReader3:
-	battleoamframe BATTLE_ANIM_OAMSET_B5,  8, OAM_Y_FLIP
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_B5,  8, OAM_Y_FLIP
+	oamend
 
 .Frameset_MindReader4:
-	battleoamframe BATTLE_ANIM_OAMSET_B5,  8, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_B5,  8, OAM_X_FLIP, OAM_Y_FLIP
+	oamend
 
 .Frameset_Safeguard:
-	battleoamframe BATTLE_ANIM_OAMSET_B4,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_B4,  8
+	oamend
 
 .Frameset_MegaphoneUnused:
-	battleoamframe BATTLE_ANIM_OAMSET_6B,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_6B,  8
+	oamend
 
 .Frameset_ItemBag:
-	battleoamframe BATTLE_ANIM_OAMSET_B6,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_B6,  8
+	oamend
 
 .Frameset_SpiderWeb:
-	battleoamframe BATTLE_ANIM_OAMSET_B7, 32
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_B7, 32
+	oamend
 
 .Frameset_UnusedCake:
-	battleoamframe BATTLE_ANIM_OAMSET_1B, 32
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_1B, 32
+	oamend
 
 .Frameset_Imp:
-	battleoamframe BATTLE_ANIM_OAMSET_B8, 32
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_B8, 32
+	oamend
 
 .Frameset_ImpFlipped:
-	battleoamframe BATTLE_ANIM_OAMSET_B8, 32, OAM_X_FLIP
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_B8, 32, OAM_X_FLIP
+	oamend
 
 .Frameset_Cherub:
-	battleoamframe BATTLE_ANIM_OAMSET_B9, 32
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_B9, 32
+	oamend
 
 .Frameset_Pencil:
-	battleoamframe BATTLE_ANIM_OAMSET_BA, 32
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_BA, 32
+	oamend
 
 .Frameset_EncoreHand:
-	battleoamframe BATTLE_ANIM_OAMSET_BB, 32, OAM_X_FLIP
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_BB, 32, OAM_X_FLIP
+	oamend
 
 .Frameset_EncoreHandFlipped:
-	battleoamframe BATTLE_ANIM_OAMSET_BB, 32
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_BB, 32
+	oamend
 
 .Frameset_DestinyBond:
-	battleoamframe BATTLE_ANIM_OAMSET_BC, 32
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_BC, 32
+	oamend
 
 .Frameset_MorningSun:
-	battleoamframe BATTLE_ANIM_OAMSET_BD, 11
-	battleoamframe BATTLE_ANIM_OAMSET_BE, 11
-	battleoamframe BATTLE_ANIM_OAMSET_1B, 11
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_BD, 11
+	oamframe BATTLE_ANIM_OAMSET_BE, 11
+	oamframe BATTLE_ANIM_OAMSET_1B, 11
+	oamdelete
 
 .Frameset_Glimmer:
-	battleoamframe BATTLE_ANIM_OAMSET_BF,  4
-	battleoamframe BATTLE_ANIM_OAMSET_C0,  4
-	battleoamframe BATTLE_ANIM_OAMSET_C1,  4
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_BF,  4
+	oamframe BATTLE_ANIM_OAMSET_C0,  4
+	oamframe BATTLE_ANIM_OAMSET_C1,  4
+	oamdelete
 
 .Frameset_Moonlight:
-	battleoamframe BATTLE_ANIM_OAMSET_C2, 32
-	battleoamframe BATTLE_ANIM_OAMSET_C2, 32
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_C2, 32
+	oamframe BATTLE_ANIM_OAMSET_C2, 32
+	oamdelete
 
 .Frameset_CrossChop1:
-	battleoamframe BATTLE_ANIM_OAMSET_4B,  2
-	battleoamframe BATTLE_ANIM_OAMSET_4C,  2
-	battleoamframe BATTLE_ANIM_OAMSET_4D, 32
-	battleoamframe BATTLE_ANIM_OAMSET_4D, 32
-	battleoamframe BATTLE_ANIM_OAMSET_4D, 32
-	battleoamframe BATTLE_ANIM_OAMSET_4F,  1
-	battleoamframe BATTLE_ANIM_OAMSET_50,  1
-	battleoamframe BATTLE_ANIM_OAMSET_51,  1
-	battleoamframe BATTLE_ANIM_OAMSET_52,  2
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_52,  2
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_52,  2
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_52,  2
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_4B,  2
+	oamframe BATTLE_ANIM_OAMSET_4C,  2
+	oamframe BATTLE_ANIM_OAMSET_4D, 32
+	oamframe BATTLE_ANIM_OAMSET_4D, 32
+	oamframe BATTLE_ANIM_OAMSET_4D, 32
+	oamframe BATTLE_ANIM_OAMSET_4F,  1
+	oamframe BATTLE_ANIM_OAMSET_50,  1
+	oamframe BATTLE_ANIM_OAMSET_51,  1
+	oamframe BATTLE_ANIM_OAMSET_52,  2
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_52,  2
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_52,  2
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_52,  2
+	oamdelete
 
 .Frameset_CrossChop2:
-	battleoamframe BATTLE_ANIM_OAMSET_4B,  2, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_4C,  2, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_4D, 32, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_4D, 32, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_4D, 32, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_4F,  1, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_50,  1, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_51,  1, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_52,  2, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_52,  2, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_52,  2, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamwait 2
-	battleoamframe BATTLE_ANIM_OAMSET_52,  2, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_4B,  2, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_4C,  2, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_4D, 32, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_4D, 32, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_4D, 32, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_4F,  1, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_50,  1, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_51,  1, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_52,  2, OAM_X_FLIP, OAM_Y_FLIP
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_52,  2, OAM_X_FLIP, OAM_Y_FLIP
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_52,  2, OAM_X_FLIP, OAM_Y_FLIP
+	oamwait 2
+	oamframe BATTLE_ANIM_OAMSET_52,  2, OAM_X_FLIP, OAM_Y_FLIP
+	oamdelete
 
 .Frameset_ZapCannon:
-	battleoamframe BATTLE_ANIM_OAMSET_C3,  1
-	battleoamframe BATTLE_ANIM_OAMSET_C3,  1, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_C3,  1
+	oamframe BATTLE_ANIM_OAMSET_C3,  1, OAM_X_FLIP, OAM_Y_FLIP
+	oamrestart
 
 .Frameset_CurseNail:
-	battleoamframe BATTLE_ANIM_OAMSET_C4, 32
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_C4, 32
+	oamend
 
 .Frameset_ForesightShine:
-	battleoamframe BATTLE_ANIM_OAMSET_C5,  4
-	battleoamframe BATTLE_ANIM_OAMSET_C6,  4
-	battleoamframe BATTLE_ANIM_OAMSET_C7,  4
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_C5,  4
+	oamframe BATTLE_ANIM_OAMSET_C6,  4
+	oamframe BATTLE_ANIM_OAMSET_C7,  4
+	oamdelete
 
 .Frameset_RapidSpin:
-	battleoamframe BATTLE_ANIM_OAMSET_C8,  1
-	battleoamframe BATTLE_ANIM_OAMSET_C8,  1, OAM_X_FLIP
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_C8,  1
+	oamframe BATTLE_ANIM_OAMSET_C8,  1, OAM_X_FLIP
+	oamrestart
 
 .Frameset_Swagger:
-	battleoamframe BATTLE_ANIM_OAMSET_C9,  3
-	battleoamframe BATTLE_ANIM_OAMSET_05,  3
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_C9,  3
+	oamframe BATTLE_ANIM_OAMSET_05,  3
+	oamdelete
 
 .Frameset_MeanLook:
-	battleoamframe BATTLE_ANIM_OAMSET_CA, 32
-	battleoamframe BATTLE_ANIM_OAMSET_CB,  3
-	battleoamframe BATTLE_ANIM_OAMSET_CA,  3
-	battleoamframe BATTLE_ANIM_OAMSET_CB,  3
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_CA, 32
+	oamframe BATTLE_ANIM_OAMSET_CB,  3
+	oamframe BATTLE_ANIM_OAMSET_CA,  3
+	oamframe BATTLE_ANIM_OAMSET_CB,  3
+	oamrestart
 
 .Frameset_UpsideDownPunch:
-	battleoamframe BATTLE_ANIM_OAMSET_03, 32, OAM_Y_FLIP
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_03, 32, OAM_Y_FLIP
+	oamend
 
 .Frameset_Rain:
-	battleoamframe BATTLE_ANIM_OAMSET_CC, 32
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_CC, 32
+	oamend
 
 .Frameset_PsychUp:
-	battleoamframe BATTLE_ANIM_OAMSET_7F,  2
-	battleoamframe BATTLE_ANIM_OAMSET_25,  2
-	battleoamframe BATTLE_ANIM_OAMSET_80,  2
-	battleoamframe BATTLE_ANIM_OAMSET_25,  2
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_7F,  2
+	oamframe BATTLE_ANIM_OAMSET_25,  2
+	oamframe BATTLE_ANIM_OAMSET_80,  2
+	oamframe BATTLE_ANIM_OAMSET_25,  2
+	oamrestart
 
 .Frameset_SpiralUnused:
-	battleoamframe BATTLE_ANIM_OAMSET_CD,  4
-	battleoamframe BATTLE_ANIM_OAMSET_CE,  4
-	battleoamframe BATTLE_ANIM_OAMSET_CD,  4, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_CE,  4, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_CD,  4
+	oamframe BATTLE_ANIM_OAMSET_CE,  4
+	oamframe BATTLE_ANIM_OAMSET_CD,  4, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_CE,  4, OAM_X_FLIP, OAM_Y_FLIP
+	oamrestart
 
 .Frameset_Aeroblast:
-	battleoamframe BATTLE_ANIM_OAMSET_CF,  4
-	battleoamframe BATTLE_ANIM_OAMSET_D0,  4
-	battleoamframe BATTLE_ANIM_OAMSET_D1,  4
-	battleoamframe BATTLE_ANIM_OAMSET_D2,  4
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_CF,  4
+	oamframe BATTLE_ANIM_OAMSET_D0,  4
+	oamframe BATTLE_ANIM_OAMSET_D1,  4
+	oamframe BATTLE_ANIM_OAMSET_D2,  4
+	oamdelete
 
 .Frameset_Sandstorm:
-	battleoamframe BATTLE_ANIM_OAMSET_D3, 32
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_D3, 32
+	oamend
 
 .Frameset_EnemyFeet1Row:
-	battleoamframe BATTLE_ANIM_OAMSET_D4,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_D4,  8
+	oamend
 
 .Frameset_PlayerHead1Row:
-	battleoamframe BATTLE_ANIM_OAMSET_D5,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_D5,  8
+	oamend
 
 .Frameset_EnemyFeet2Row:
-	battleoamframe BATTLE_ANIM_OAMSET_D6,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_D6,  8
+	oamend
 
 .Frameset_PlayerHead2Row:
-	battleoamframe BATTLE_ANIM_OAMSET_D7,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_D7,  8
+	oamend
 
 .Frameset_Hail:
-	battleoamframe BATTLE_ANIM_OAMSET_HAIL, 32
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_HAIL, 32
+	oamend
 
 .Frameset_GunkShot:
-	battleoamwait 20
-	battleoamframe BATTLE_ANIM_OAMSET_1F,  20
-	battleoamframe BATTLE_ANIM_OAMSET_GUNK_SHOT_1,  20
-	battleoamframe BATTLE_ANIM_OAMSET_GUNK_SHOT_2, 10
-	battleoamwait 4
-	battleoamframe BATTLE_ANIM_OAMSET_GUNK_SHOT_2, 4
-	battleoamwait 4
-	battleoamframe BATTLE_ANIM_OAMSET_GUNK_SHOT_2, 4
-	battleoamwait 4
-	battleoamframe BATTLE_ANIM_OAMSET_GUNK_SHOT_2, 4
-	battleoamdelete
+	oamwait 20
+	oamframe BATTLE_ANIM_OAMSET_1F,  20
+	oamframe BATTLE_ANIM_OAMSET_GUNK_SHOT_1,  20
+	oamframe BATTLE_ANIM_OAMSET_GUNK_SHOT_2, 10
+	oamwait 4
+	oamframe BATTLE_ANIM_OAMSET_GUNK_SHOT_2, 4
+	oamwait 4
+	oamframe BATTLE_ANIM_OAMSET_GUNK_SHOT_2, 4
+	oamwait 4
+	oamframe BATTLE_ANIM_OAMSET_GUNK_SHOT_2, 4
+	oamdelete
 
 .Frameset_Hurricane:
-	battleoamframe BATTLE_ANIM_OAMSET_HURRICANE, 2
-	battleoamframe BATTLE_ANIM_OAMSET_HURRICANE, 2, OAM_X_FLIP
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_HURRICANE, 2
+	oamframe BATTLE_ANIM_OAMSET_HURRICANE, 2, OAM_X_FLIP
+	oamrestart
 
 .Frameset_PhantomDazeN:
-	battleoamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_VERTICAL,  32, OAM_Y_FLIP
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_VERTICAL,  32, OAM_Y_FLIP
+	oamend
 
 .Frameset_PhantomDazeNE:
-	battleoamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_DIAGONAL,  32
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_DIAGONAL,  32
+	oamend
 
 .Frameset_PhantomDazeE:
-	battleoamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_HORIZONTAL,  32
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_HORIZONTAL,  32
+	oamend
 
 .Frameset_PhantomDazeSE:
-	battleoamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_DIAGONAL,  32, OAM_Y_FLIP
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_DIAGONAL,  32, OAM_Y_FLIP
+	oamend
 
 .Frameset_PhantomDazeS:
-	battleoamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_VERTICAL,  32
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_VERTICAL,  32
+	oamend
 
 .Frameset_PhantomDazeSW:
-	battleoamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_DIAGONAL,  32, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_DIAGONAL,  32, OAM_X_FLIP, OAM_Y_FLIP
+	oamend
 
 .Frameset_PhantomDazeW:
-	battleoamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_HORIZONTAL,  32, OAM_X_FLIP
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_HORIZONTAL,  32, OAM_X_FLIP
+	oamdelete
 
 .Frameset_PhantomDazeNW:
-	battleoamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_DIAGONAL,  32, OAM_X_FLIP
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_DIAGONAL,  32, OAM_X_FLIP
+	oamend
 
 .Frameset_BigGlow:
-	battleoamframe BATTLE_ANIM_OAMSET_BIG_GLOW_1,  1
-	battleoamframe BATTLE_ANIM_OAMSET_BIG_GLOW_3,  1
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_BIG_GLOW_1,  1
+	oamframe BATTLE_ANIM_OAMSET_BIG_GLOW_3,  1
+	oamrestart
 
 .Frameset_BigGlowClear:
-	battleoamframe BATTLE_ANIM_OAMSET_BIG_GLOW_2, 1
-	battleoamframe BATTLE_ANIM_OAMSET_BIG_GLOW_3,  1
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_BIG_GLOW_2, 1
+	oamframe BATTLE_ANIM_OAMSET_BIG_GLOW_3,  1
+	oamrestart
 
 .Frameset_LeafStormBigLeaf:
-	battleoamframe BATTLE_ANIM_OAMSET_1B,  1
-	battleoamframe BATTLE_ANIM_OAMSET_1B,  1, OAM_X_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_1B,  1, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_1B,  1, OAM_Y_FLIP
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_1B,  1
+	oamframe BATTLE_ANIM_OAMSET_1B,  1, OAM_X_FLIP
+	oamframe BATTLE_ANIM_OAMSET_1B,  1, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_1B,  1, OAM_Y_FLIP
+	oamrestart
 
 .Frameset_LeafStormSmallLeaf:
-	battleoamframe BATTLE_ANIM_OAMSET_0F,  1
-	battleoamframe BATTLE_ANIM_OAMSET_0F,  1, OAM_X_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_0F,  1, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_0F,  1, OAM_Y_FLIP
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_0F,  1
+	oamframe BATTLE_ANIM_OAMSET_0F,  1, OAM_X_FLIP
+	oamframe BATTLE_ANIM_OAMSET_0F,  1, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_0F,  1, OAM_Y_FLIP
+	oamrestart
 
 .Frameset_InkSplash:
-	battleoamframe BATTLE_ANIM_OAMSET_1F,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_1F,  8
+	oamend
 
 .Frameset_LavaPlumeSmoke:
-	battleoamframe BATTLE_ANIM_OAMSET_03, 2
-	battleoamframe BATTLE_ANIM_OAMSET_LAVA_PLUME_SMOKE, 2
-	battleoamframe BATTLE_ANIM_OAMSET_03, 2
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_03, 2
+	oamframe BATTLE_ANIM_OAMSET_LAVA_PLUME_SMOKE, 2
+	oamframe BATTLE_ANIM_OAMSET_03, 2
+	oamdelete
 	
 .Frameset_MudShot:
-	battleoamframe BATTLE_ANIM_OAMSET_MUDSHOT,  8
-	battleoamend
+	oamframe BATTLE_ANIM_OAMSET_MUDSHOT,  8
+	oamend
 
 .Frameset_SmallGlow:
-	battleoamframe BATTLE_ANIM_OAMSET_54,  1
-	battleoamframe BATTLE_ANIM_OAMSET_53,  1
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_54,  1
+	oamframe BATTLE_ANIM_OAMSET_53,  1
+	oamrestart
 
 .Frameset_Vortex:
-	battleoamframe BATTLE_ANIM_OAMSET_E1,  1
-	battleoamframe BATTLE_ANIM_OAMSET_E2,  1
-	battleoamframe BATTLE_ANIM_OAMSET_E3,  1
-	battleoamframe BATTLE_ANIM_OAMSET_E4,  1
-	battleoamrestart
+	oamframe BATTLE_ANIM_OAMSET_E1,  1
+	oamframe BATTLE_ANIM_OAMSET_E2,  1
+	oamframe BATTLE_ANIM_OAMSET_E3,  1
+	oamframe BATTLE_ANIM_OAMSET_E4,  1
+	oamrestart
 
 .Frameset_SwirlShort:
-	battleoamframe BATTLE_ANIM_OAMSET_CD,  1
-	battleoamframe BATTLE_ANIM_OAMSET_BA,  1
-	battleoamframe BATTLE_ANIM_OAMSET_CE,  1
-	battleoamframe BATTLE_ANIM_OAMSET_94,  1
-	battleoamframe BATTLE_ANIM_OAMSET_CD,  1, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_BA,  1, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_CE,  1, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamframe BATTLE_ANIM_OAMSET_94,  1, OAM_X_FLIP, OAM_Y_FLIP
-	battleoamdelete
+	oamframe BATTLE_ANIM_OAMSET_CD,  1
+	oamframe BATTLE_ANIM_OAMSET_BA,  1
+	oamframe BATTLE_ANIM_OAMSET_CE,  1
+	oamframe BATTLE_ANIM_OAMSET_94,  1
+	oamframe BATTLE_ANIM_OAMSET_CD,  1, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_BA,  1, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_CE,  1, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_94,  1, OAM_X_FLIP, OAM_Y_FLIP
+	oamdelete

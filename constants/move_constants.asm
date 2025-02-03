@@ -104,7 +104,6 @@
 	const MEDITATE     ; 60
 	const AGILITY      ; 61
 	const QUICK_ATTACK ; 62
-	const RAGE         ; 63
 	const TELEPORT     ; 64
 	const NIGHT_SHADE  ; 65
 	const MIMIC        ; 66
@@ -133,7 +132,6 @@
 	const BONE_CLUB    ; 7d
 	const FIRE_BLAST   ; 7e
 	const WATERFALL    ; 7f
-	const CLAMP        ; 80
 	const SWIFT        ; 81
 	const SKULL_BASH   ; 82
 	const SPIKE_CANNON ; 83
@@ -159,11 +157,8 @@
 	const ACID_ARMOR   ; 97
 	const CRABHAMMER   ; 98
 	const EXPLOSION    ; 99
-	const FURY_SWIPES  ; 9a
-	const BONEMERANG   ; 9b
 	const REST         ; 9c
 	const ROCK_SLIDE   ; 9d
-	const HYPER_FANG   ; 9e
 	const SHARPEN      ; 9f
 	const CONVERSION   ; a0
 	const TRI_ATTACK   ; a1
@@ -171,7 +166,6 @@
 	const SLASH        ; a3
 	const SUBSTITUTE   ; a4
 	const STRUGGLE     ; a5
-DEF GEN1_MOVES EQU const_value - 1
 	const SKETCH       ; a6
 	const TRIPLE_KICK  ; a7
 	const THIEF        ; a8
@@ -203,7 +197,6 @@ DEF GEN1_MOVES EQU const_value - 1
 	const DESTINY_BOND ; c2
 	const PERISH_SONG  ; c3
 	const ICY_WIND     ; c4
-	const DETECT       ; c5
 	const CANNON_BLAST ; c6
 	const LOCK_ON      ; c7
 	const OUTRAGE      ; c8
@@ -239,7 +232,6 @@ DEF GEN1_MOVES EQU const_value - 1
 	const SWEET_SCENT  ; e6
 	const IRON_TAIL    ; e7
 	const METAL_CLAW   ; e8
-	const VITAL_THROW  ; e9
 	const MORNING_SUN  ; ea
 	const SYNTHESIS    ; eb
 	const MOONLIGHT    ; ec
@@ -258,16 +250,12 @@ DEF GEN1_MOVES EQU const_value - 1
 	const ROCK_SMASH   ; f9
 	const WHIRLPOOL    ; fa
 	const BEAT_UP      ; fb
-DEF GEN2_MOVES EQU const_value - 1
-
 DEF NUM_ATTACKS EQU const_value - 1
-
-DEF NUM_SPECIAL_ANIMS EQU $16
-DEF SPECIAL_ANIM_OFFSET EQU (1 + HIGH(NUM_ATTACKS + NUM_SPECIAL_ANIMS)) << 8
 
 ; Battle animations use the same constants as the moves up to this point
 ; Animations with negative IDs will play even when animations are disabled
-DEF const_value = -NUM_SPECIAL_ANIMS
+	const_next $ff
+	const ANIM_SWEET_SCENT_2     ; ff
 	const ANIM_THROW_POKE_BALL   ; -15
 	const ANIM_SEND_OUT_MON      ; -14
 	const ANIM_RETURN_MON        ; -13
@@ -290,6 +278,7 @@ DEF const_value = -NUM_SPECIAL_ANIMS
 	const ANIM_WOBBLE            ; -3
 	const ANIM_SHAKE             ; -2
 	const ANIM_HIT_CONFUSION     ; -1
+DEF NUM_BATTLE_ANIMS EQU const_value - 1
 
 ; wNumHits uses offsets from ANIM_MISS
 	const_def

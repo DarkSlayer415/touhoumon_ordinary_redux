@@ -1,8 +1,7 @@
 MoveDescriptions::
 ; entries correspond to move ids (see constants/move_constants.asm)
-
-Moves:
 ;Gen 1 Moves
+	table_width 2, MoveDescriptions
 	dw PoundDescription
 	dw KarateChopDescription
 	dw DoubleslapDescription
@@ -101,7 +100,6 @@ Moves:
 	dw MeditateDescription
 	dw AgilityDescription
 	dw QuickAttackDescription
-	dw RageDescription
 	dw TeleportDescription
 	dw NightShadeDescription
 	dw MimicDescription
@@ -130,7 +128,6 @@ Moves:
 	dw BoneClubDescription
 	dw FireBlastDescription
 	dw WaterfallDescription
-	dw ClampDescription
 	dw SwiftDescription
 	dw SkullBashDescription
 	dw SpikeCannonDescription
@@ -142,7 +139,7 @@ Moves:
 	dw GlareDescription
 	dw DreamEaterDescription
 	dw PoisonGasDescription
-	dw BarrageDescription
+	dw RockBlastDescription
 	dw LeechLifeDescription
 	dw LovelyKissDescription
 	dw SkyAttackDescription
@@ -156,11 +153,8 @@ Moves:
 	dw AcidArmorDescription
 	dw CrabhammerDescription
 	dw ExplosionDescription
-	dw FurySwipesDescription
-	dw BonemerangDescription
 	dw RestDescription
 	dw RockSlideDescription
-	dw HyperFangDescription
 	dw SharpenDescription
 	dw ConversionDescription
 	dw TriAttackDescription
@@ -200,8 +194,7 @@ Moves:
 	dw DestinyBondDescription
 	dw PerishSongDescription
 	dw IcyWindDescription
-	dw DetectDescription
-	dw BoneRushDescription
+	dw CannonBlastDescription
 	dw LockOnDescription
 	dw OutrageDescription
 	dw SandstormDescription
@@ -236,7 +229,6 @@ Moves:
 	dw SweetScentDescription
 	dw IronTailDescription
 	dw MetalClawDescription
-	dw VitalThrowDescription
 	dw MorningSunDescription
 	dw SynthesisDescription
 	dw MoonlightDescription
@@ -256,8 +248,32 @@ Moves:
 	dw WhirlpoolDescription
 	dw BeatUpDescription
 	assert_table_length NUM_ATTACKS
+	dw MoveDescriptionUnused01
+	dw MoveDescriptionUnused02
+	dw MoveDescriptionUnused03
+	dw MoveDescriptionUnused04
+	dw MoveDescriptionUnused05
+	dw MoveDescriptionUnused06
+	dw MoveDescriptionUnused07
+	dw MoveDescriptionUnused08
+	dw MoveDescriptionUnused09
+	dw MoveDescriptionUnused10
+	dw MoveFFDescription
+	dw Move00Description
+	assert_table_length $100
 
-InvalidMoveDescription:
+MoveDescriptionUnused01:
+MoveDescriptionUnused02:
+MoveDescriptionUnused03:
+MoveDescriptionUnused04:
+MoveDescriptionUnused05:
+MoveDescriptionUnused06:
+MoveDescriptionUnused07:
+MoveDescriptionUnused08:
+MoveDescriptionUnused09:
+MoveDescriptionUnused10:
+MoveFFDescription:
+Move00Description:
 	db "?@"
 
 PoundDescription:
@@ -652,10 +668,6 @@ QuickAttackDescription:
 	db   "A fast attack that"
 	line "lands first.@"
 
-RageDescription:
-	db   "Raises ATTACK if"
-	line "the user is hit.@"
-
 TeleportDescription:
 	db   "A move for fleeing"
 	line "from battle.@"
@@ -768,10 +780,6 @@ WaterfallDescription:
 	db   "An attack that may"
 	line "cause flinching.@"
 
-ClampDescription:
-	db   "Traps the foe for"
-	line "2-5 turns.@"
-
 SwiftDescription:
 	db   "An attack that"
 	line "never misses.@"
@@ -816,7 +824,7 @@ PoisonGasDescription:
 	db   "A move that may"
 	line "poison the foe.@"
 
-BarrageDescription:
+RockBlastDescription:
 	db   "Throws rocks to hit"
 	line "2-5 times.@"
 
@@ -872,14 +880,6 @@ ExplosionDescription:
 	db   "Very powerful but"
 	line "makes user faint.@"
 
-FurySwipesDescription:
-	db   "Quickly scratches"
-	line "2-5 times.@"
-
-BonemerangDescription:
-	db   "An attack that"
-	line "strikes twice.@"
-
 RestDescription:
 	db   "Sleep for 2 turns"
 	line "to fully recover.@"
@@ -887,11 +887,7 @@ RestDescription:
 RockSlideDescription:
 	db   "An attack that may"
 	line "cause flinching.@"
-
-HyperFangDescription:
-	db   "An attack that may"
-	line "cause flinching.@"
-
+	
 SharpenDescription:
 	db   "A move that raises"
 	line "the user's ATTACK.@"
@@ -1044,11 +1040,7 @@ IcyWindDescription:
 	db   "An icy attack that"
 	line "lowers SPEED.@"
 
-DetectDescription:
-	db   "Foils attack that"
-	line "turn. It may fail.@"
-
-BoneRushDescription:
+CannonBlastDescription:
 	db   "An attack that"
 	line "hits 2-5 times.@"
 
@@ -1187,10 +1179,6 @@ IronTailDescription:
 MetalClawDescription:
 	db   "An attack that may"
 	line "raise ATTACK.@"
-
-VitalThrowDescription:
-	db   "A 2nd-strike move"
-	line "that never misses.@"
 
 MorningSunDescription:
 	db   "An attack that may"

@@ -406,17 +406,16 @@ INCLUDE "engine/events/trainer_scripts.asm"
 SECTION "bank32", ROMX
 
 INCLUDE "engine/battle_anims/bg_effects.asm"
+INCLUDE "data/moves/animations.asm"
 INCLUDE "engine/events/poisonstep_pals.asm"
 
 SECTION "Move Animations", ROMX
 
 INCLUDE "engine/battle_anims/anim_commands.asm"
 INCLUDE "engine/battle_anims/core.asm"
-INCLUDE "engine/battle_anims/helpers.asm"
-INCLUDE "data/battle_anims/oam.asm"
-INCLUDE "data/battle_anims/object_gfx.asm"
 INCLUDE "engine/battle_anims/functions.asm"
-INCLUDE "data/moves/animation_pointers.asm"
+INCLUDE "engine/battle_anims/helpers.asm"
+
 
 SECTION "bank38", ROMX
 
@@ -467,11 +466,6 @@ INCLUDE "engine/link/mystery_gift.asm"
 INCLUDE "engine/battle/used_move_text.asm"
 INCLUDE "mobile/mobile_41.asm"
 INCLUDE "engine/gfx/load_overworld_font.asm"
-
-SECTION "Move Animation Framesets", ROMX
-
-INCLUDE "engine/battle_anims/framesets.asm"
-
 
 SECTION "mobile42", ROMX
 

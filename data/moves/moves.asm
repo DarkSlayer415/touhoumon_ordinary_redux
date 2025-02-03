@@ -55,7 +55,7 @@ Moves:
 	move DOUBLE_EDGE,  EFFECT_RECOIL_HIT,        120, NORMAL,       100, 10,   0
 	move TAIL_WHIP,    EFFECT_DEFENSE_DOWN,        0, NORMAL,       100, 30,   0
 	move POISON_STING, EFFECT_POISON_HIT,         20, POISON,       100, 30,  20
-	move TWINEEDLE,    EFFECT_POISON_MULTI_HIT,   25, BUG,          100, 20,  20
+	move TWINEEDLE,    EFFECT_POISON_MULTI_HIT,   30, BUG,          100, 20,  20
 	move PIN_MISSILE,  EFFECT_MULTI_HIT,          25, FAIRY,         85, 15,   0
 	move LEER,         EFFECT_DEFENSE_DOWN,        0, NORMAL,       100, 30,   0
 	move BITE,         EFFECT_FLINCH_HIT,         50, DARK,         100, 25,  20
@@ -113,7 +113,6 @@ Moves:
 	move MEDITATE,     EFFECT_SP_ATK_UP_2,         0, PSYCHIC_TYPE, 100, 20,   0
 	move AGILITY,      EFFECT_SPEED_UP_2,          0, FLYING,       100, 20,   0
 	move QUICK_ATTACK, EFFECT_PRIORITY_HIT,       40, NORMAL,       100, 25,   0
-	move RAGE,         EFFECT_RAGE,               20, NORMAL,       100, 20,   0
 	move TELEPORT,     EFFECT_TELEPORT,            0, PSYCHIC_TYPE, 100, 20,   0
 	move NIGHT_SHADE,  EFFECT_LEVEL_DAMAGE,        1, GHOST,        100, 20,   0
 	move MIMIC,        EFFECT_MIMIC,               0, NORMAL,       100, 10,   0
@@ -142,7 +141,6 @@ Moves:
 	move BONE_CLUB,    EFFECT_FLINCH_HIT,         50, GROUND,       100, 25,  20
 	move FIRE_BLAST,   EFFECT_BURN_HIT,          120, FIRE,          85, 10,  30
 	move WATERFALL,    EFFECT_FLINCH_HIT,         80, WATER,        100, 15,  20
-	move CLAMP,        EFFECT_TRAP_TARGET,        35, STEEL,         85, 15,   0
 	move SWIFT,        EFFECT_ALWAYS_HIT,         60, NORMAL,       100, 20,   0
 	move SKULL_BASH,   EFFECT_SKULL_BASH,        100, NORMAL,       100, 15,   0
 	move SPIKE_CANNON, EFFECT_MULTI_HIT,          25, STEEL,         85, 15,   0
@@ -165,14 +163,11 @@ Moves:
 	move FLASH,        EFFECT_ACCURACY_DOWN_HIT,  70, FAIRY,         90, 20,  20
 	move PSYWAVE,      EFFECT_LEVEL_DAMAGE,        1, PSYCHIC_TYPE, 100, 20,   0
 	move HAIL,         EFFECT_HAIL,                0, ICE,          100, 10,   0
-	move ACID_ARMOR,   EFFECT_DEFENSE_UP_2,        0, ROCK,       	100, 20,   0
+	move ACID_ARMOR,   EFFECT_DEFENSE_UP_2,        0, ROCK,         100, 20,   0
 	move CRABHAMMER,   EFFECT_ATTACK_DOWN_HIT,    80, BUG,          100, 15,  20
 	move EXPLOSION,    EFFECT_SELFDESTRUCT,      250, NORMAL,       100,  5,   0
-	move FURY_SWIPES,  EFFECT_MULTI_HIT,          25, NORMAL,        85, 15,   0
-	move BONEMERANG,   EFFECT_DOUBLE_HIT,         30, GROUND,       100, 20,   0
 	move REST,         EFFECT_HEAL,                0, PSYCHIC_TYPE, 100, 10,   0
 	move ROCK_SLIDE,   EFFECT_FLINCH_HIT,         80, ROCK,         100, 15,  20
-	move HYPER_FANG,   EFFECT_FLINCH_HIT,         80, NORMAL,       100, 15,  20
 	move SHARPEN,      EFFECT_ATTACK_UP,           0, NORMAL,       100, 30,   0
 	move CONVERSION,   EFFECT_CONVERSION,          0, NORMAL,       100, 30,   0
 	move TRI_ATTACK,   EFFECT_TRI_ATTACK,        100, PSYCHIC_TYPE, 100, 10,  20
@@ -212,7 +207,6 @@ Moves:
 	move DESTINY_BOND, EFFECT_DESTINY_BOND,        0, GHOST,        100,  5,   0
 	move PERISH_SONG,  EFFECT_PERISH_SONG,         0, NORMAL,       100,  5,   0
 	move ICY_WIND,     EFFECT_SPEED_DOWN_HIT,     60, ICE,           95, 20, 100
-	move DETECT,       EFFECT_PROTECT,             0, FIGHTING,     100, 10,   0
 	move CANNON_BLAST, EFFECT_MULTI_HIT,          25, STEEL,         85, 15,   0
 	move LOCK_ON,      EFFECT_ACCURACY_UP_2,       0, NORMAL,       100, 20,   0
 	move OUTRAGE,      EFFECT_RECOIL_HIT,        120, DARK,         100, 10,   0
@@ -248,7 +242,6 @@ Moves:
 	move SWEET_SCENT,  EFFECT_EVASION_DOWN_2,      0, GRASS,        100, 20,   0
 	move IRON_TAIL,    EFFECT_DEFENSE_DOWN_HIT,   85, STEEL,        100, 15,  30
 	move METAL_CLAW,   EFFECT_ATTACK_UP_HIT,      50, STEEL,        100, 25,  20
-	move VITAL_THROW,  EFFECT_ALWAYS_HIT,         70, FIGHTING,     100, 15,   0
 	move MORNING_SUN,  EFFECT_SP_DEF_DOWN_HIT,    90, GRASS,        100, 15,  20
 	move SYNTHESIS,    EFFECT_SYNTHESIS,           0, GRASS,        100, 10,   0
 	move MOONLIGHT,    EFFECT_SP_ATK_DOWN_HIT,    90, FAIRY,        100, 15,  20
