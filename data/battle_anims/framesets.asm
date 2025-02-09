@@ -184,27 +184,26 @@ BattleAnimFrameData:
 	dw .Frameset_PlayerHead1Row      ; BATTLE_ANIM_FRAMESET_PLAYERHEAD_1ROW
 	dw .Frameset_EnemyFeet2Row       ; BATTLE_ANIM_FRAMESET_ENEMYFEET_2ROW
 	dw .Frameset_PlayerHead2Row      ; BATTLE_ANIM_FRAMESET_PLAYERHEAD_2ROW
-	dw .Frameset_Hail 				 ; BATTLEANIMFRAMESET_HAIL
-	dw .Frameset_GunkShot 			 ; BATTLEANIMFRAMESET_GUNK_SHOT
+	dw .Frameset_GunkShot            ; BATTLEANIMFRAMESET_GUNK_SHOT
 	dw .Frameset_LeafStormBigLeaf    ; BATTLEANIMFRAMESET_LEAF_STORM_BIG_LEAF
 	dw .Frameset_LeafStormSmallLeaf  ; BATTLEANIMFRAMESET_LEAF_STORM_SMALL_LEAF
 	dw .Frameset_Hurricane           ; BATTLEANIMFRAMESET_HURRICANE
-	dw .Frameset_PhantomDazeN        ; BATTLEANIMFRAMESET_PHANTOM_DAZE_N
-	dw .Frameset_PhantomDazeNE       ; BATTLEANIMFRAMESET_PHANTOM_DAZE_NE
-	dw .Frameset_PhantomDazeE        ; BATTLEANIMFRAMESET_PHANTOM_DAZE_E
-	dw .Frameset_PhantomDazeSE       ; BATTLEANIMFRAMESET_PHANTOM_DAZE_SE
-	dw .Frameset_PhantomDazeS        ; BATTLEANIMFRAMESET_PHANTOM_DAZE_S
-	dw .Frameset_PhantomDazeSW       ; BATTLEANIMFRAMESET_PHANTOM_DAZE_SW
-	dw .Frameset_PhantomDazeW        ; BATTLEANIMFRAMESET_PHANTOM_DAZE_W
-	dw .Frameset_PhantomDazeNW       ; BATTLEANIMFRAMESET_PHANTOM_DAZE_NW
-	dw .Frameset_BigGlow             ; BATTLEANIMFRAMESET_BIG_GLOW
-	dw .Frameset_BigGlowClear        ; BATTLEANIMFRAMESET_BIG_GLOW_CLEAR
-	dw .Frameset_InkSplash           ; BATTLEANIMFRAMESET_INK_SPLASH
-	dw .Frameset_LavaPlumeSmoke      ; BATTLEANIMFRAMESET_LAVA_PLUME_SMOKE
-	dw .Frameset_MudShot             ; BATTLEANIMFRAMESET_MUD_SHOT
-	dw .Frameset_SmallGlow           ; BATTLEANIMFRAMESET_SMALL_GLOW
-	dw .Frameset_Vortex			     ; BATTLEANIMFRAMESET_VORTEX
-	dw .Frameset_SwirlShort 		 ; BATTLEANIMFRAMESET_SWIRL_SHORT
+;	dw .Frameset_PhantomDazeN        ; BATTLEANIMFRAMESET_PHANTOM_DAZE_N
+;	dw .Frameset_PhantomDazeNE       ; BATTLEANIMFRAMESET_PHANTOM_DAZE_NE
+;	dw .Frameset_PhantomDazeE        ; BATTLEANIMFRAMESET_PHANTOM_DAZE_E
+;	dw .Frameset_PhantomDazeSE       ; BATTLEANIMFRAMESET_PHANTOM_DAZE_SE
+;	dw .Frameset_PhantomDazeS        ; BATTLEANIMFRAMESET_PHANTOM_DAZE_S
+;	dw .Frameset_PhantomDazeSW       ; BATTLEANIMFRAMESET_PHANTOM_DAZE_SW
+;	dw .Frameset_PhantomDazeW        ; BATTLEANIMFRAMESET_PHANTOM_DAZE_W
+;	dw .Frameset_PhantomDazeNW       ; BATTLEANIMFRAMESET_PHANTOM_DAZE_NW
+;	dw .Frameset_BigGlow             ; BATTLEANIMFRAMESET_BIG_GLOW
+;	dw .Frameset_BigGlowClear        ; BATTLEANIMFRAMESET_BIG_GLOW_CLEAR
+;	dw .Frameset_InkSplash           ; BATTLEANIMFRAMESET_INK_SPLASH
+;	dw .Frameset_LavaPlumeSmoke      ; BATTLEANIMFRAMESET_LAVA_PLUME_SMOKE
+;	dw .Frameset_MudShot             ; BATTLEANIMFRAMESET_MUD_SHOT
+;	dw .Frameset_SmallGlow           ; BATTLEANIMFRAMESET_SMALL_GLOW
+;	dw .Frameset_Vortex			     ; BATTLEANIMFRAMESET_VORTEX
+;	dw .Frameset_SwirlShort 		 ; BATTLEANIMFRAMESET_SWIRL_SHORT
 	assert_table_length NUM_BATTLE_ANIM_FRAMESETS
 
 .Frameset_HitBig:
@@ -1280,10 +1279,6 @@ BattleAnimFrameData:
 	oamframe BATTLE_ANIM_OAMSET_D7,  8
 	oamend
 
-.Frameset_Hail:
-	oamframe BATTLE_ANIM_OAMSET_HAIL, 32
-	oamend
-
 .Frameset_GunkShot:
 	oamwait 20
 	oamframe BATTLE_ANIM_OAMSET_1F,  20
@@ -1301,49 +1296,49 @@ BattleAnimFrameData:
 	oamframe BATTLE_ANIM_OAMSET_HURRICANE, 2
 	oamframe BATTLE_ANIM_OAMSET_HURRICANE, 2, OAM_X_FLIP
 	oamrestart
-
-.Frameset_PhantomDazeN:
-	oamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_VERTICAL,  32, OAM_Y_FLIP
-	oamend
-
-.Frameset_PhantomDazeNE:
-	oamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_DIAGONAL,  32
-	oamend
-
-.Frameset_PhantomDazeE:
-	oamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_HORIZONTAL,  32
-	oamend
-
-.Frameset_PhantomDazeSE:
-	oamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_DIAGONAL,  32, OAM_Y_FLIP
-	oamend
-
-.Frameset_PhantomDazeS:
-	oamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_VERTICAL,  32
-	oamend
-
-.Frameset_PhantomDazeSW:
-	oamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_DIAGONAL,  32, OAM_X_FLIP, OAM_Y_FLIP
-	oamend
-
-.Frameset_PhantomDazeW:
-	oamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_HORIZONTAL,  32, OAM_X_FLIP
-	oamdelete
-
-.Frameset_PhantomDazeNW:
-	oamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_DIAGONAL,  32, OAM_X_FLIP
-	oamend
-
-.Frameset_BigGlow:
-	oamframe BATTLE_ANIM_OAMSET_BIG_GLOW_1,  1
-	oamframe BATTLE_ANIM_OAMSET_BIG_GLOW_3,  1
-	oamrestart
-
-.Frameset_BigGlowClear:
-	oamframe BATTLE_ANIM_OAMSET_BIG_GLOW_2, 1
-	oamframe BATTLE_ANIM_OAMSET_BIG_GLOW_3,  1
-	oamrestart
-
+;
+;.Frameset_PhantomDazeN:
+;	oamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_VERTICAL,  32, OAM_Y_FLIP
+;	oamend
+;
+;.Frameset_PhantomDazeNE:
+;	oamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_DIAGONAL,  32
+;	oamend
+;
+;.Frameset_PhantomDazeE:
+;	oamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_HORIZONTAL,  32
+;	oamend
+;
+;.Frameset_PhantomDazeSE:
+;	oamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_DIAGONAL,  32, OAM_Y_FLIP
+;	oamend
+;
+;.Frameset_PhantomDazeS:
+;	oamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_VERTICAL,  32
+;	oamend
+;
+;.Frameset_PhantomDazeSW:
+;	oamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_DIAGONAL,  32, OAM_X_FLIP, OAM_Y_FLIP
+;	oamend
+;
+;.Frameset_PhantomDazeW:
+;	oamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_HORIZONTAL,  32, OAM_X_FLIP
+;	oamdelete
+;
+;.Frameset_PhantomDazeNW:
+;	oamframe BATTLE_ANIM_OAMSET_PHANTOM_DAZE_DIAGONAL,  32, OAM_X_FLIP
+;	oamend
+;
+;.Frameset_BigGlow:
+;	oamframe BATTLE_ANIM_OAMSET_BIG_GLOW_1,  1
+;	oamframe BATTLE_ANIM_OAMSET_BIG_GLOW_3,  1
+;	oamrestart
+;
+;.Frameset_BigGlowClear:
+;	oamframe BATTLE_ANIM_OAMSET_BIG_GLOW_2, 1
+;	oamframe BATTLE_ANIM_OAMSET_BIG_GLOW_3,  1
+;	oamrestart
+;
 .Frameset_LeafStormBigLeaf:
 	oamframe BATTLE_ANIM_OAMSET_1B,  1
 	oamframe BATTLE_ANIM_OAMSET_1B,  1, OAM_X_FLIP
@@ -1357,40 +1352,40 @@ BattleAnimFrameData:
 	oamframe BATTLE_ANIM_OAMSET_0F,  1, OAM_X_FLIP, OAM_Y_FLIP
 	oamframe BATTLE_ANIM_OAMSET_0F,  1, OAM_Y_FLIP
 	oamrestart
-
-.Frameset_InkSplash:
-	oamframe BATTLE_ANIM_OAMSET_1F,  8
-	oamend
-
-.Frameset_LavaPlumeSmoke:
-	oamframe BATTLE_ANIM_OAMSET_03, 2
-	oamframe BATTLE_ANIM_OAMSET_LAVA_PLUME_SMOKE, 2
-	oamframe BATTLE_ANIM_OAMSET_03, 2
-	oamdelete
-	
-.Frameset_MudShot:
-	oamframe BATTLE_ANIM_OAMSET_MUDSHOT,  8
-	oamend
-
-.Frameset_SmallGlow:
-	oamframe BATTLE_ANIM_OAMSET_54,  1
-	oamframe BATTLE_ANIM_OAMSET_53,  1
-	oamrestart
-
-.Frameset_Vortex:
-	oamframe BATTLE_ANIM_OAMSET_E1,  1
-	oamframe BATTLE_ANIM_OAMSET_E2,  1
-	oamframe BATTLE_ANIM_OAMSET_E3,  1
-	oamframe BATTLE_ANIM_OAMSET_E4,  1
-	oamrestart
-
-.Frameset_SwirlShort:
-	oamframe BATTLE_ANIM_OAMSET_CD,  1
-	oamframe BATTLE_ANIM_OAMSET_BA,  1
-	oamframe BATTLE_ANIM_OAMSET_CE,  1
-	oamframe BATTLE_ANIM_OAMSET_94,  1
-	oamframe BATTLE_ANIM_OAMSET_CD,  1, OAM_X_FLIP, OAM_Y_FLIP
-	oamframe BATTLE_ANIM_OAMSET_BA,  1, OAM_X_FLIP, OAM_Y_FLIP
-	oamframe BATTLE_ANIM_OAMSET_CE,  1, OAM_X_FLIP, OAM_Y_FLIP
-	oamframe BATTLE_ANIM_OAMSET_94,  1, OAM_X_FLIP, OAM_Y_FLIP
-	oamdelete
+;
+;.Frameset_InkSplash:
+;	oamframe BATTLE_ANIM_OAMSET_1F,  8
+;	oamend
+;
+;.Frameset_LavaPlumeSmoke:
+;	oamframe BATTLE_ANIM_OAMSET_03, 2
+;	oamframe BATTLE_ANIM_OAMSET_LAVA_PLUME_SMOKE, 2
+;	oamframe BATTLE_ANIM_OAMSET_03, 2
+;	oamdelete
+;	
+;.Frameset_MudShot:
+;	oamframe BATTLE_ANIM_OAMSET_MUDSHOT,  8
+;	oamend
+;
+;.Frameset_SmallGlow:
+;	oamframe BATTLE_ANIM_OAMSET_54,  1
+;	oamframe BATTLE_ANIM_OAMSET_53,  1
+;	oamrestart
+;
+;.Frameset_Vortex:
+;	oamframe BATTLE_ANIM_OAMSET_E1,  1
+;	oamframe BATTLE_ANIM_OAMSET_E2,  1
+;	oamframe BATTLE_ANIM_OAMSET_E3,  1
+;	oamframe BATTLE_ANIM_OAMSET_E4,  1
+;	oamrestart
+;
+;.Frameset_SwirlShort:
+;	oamframe BATTLE_ANIM_OAMSET_CD,  1
+;	oamframe BATTLE_ANIM_OAMSET_BA,  1
+;	oamframe BATTLE_ANIM_OAMSET_CE,  1
+;	oamframe BATTLE_ANIM_OAMSET_94,  1
+;	oamframe BATTLE_ANIM_OAMSET_CD,  1, OAM_X_FLIP, OAM_Y_FLIP
+;	oamframe BATTLE_ANIM_OAMSET_BA,  1, OAM_X_FLIP, OAM_Y_FLIP
+;	oamframe BATTLE_ANIM_OAMSET_CE,  1, OAM_X_FLIP, OAM_Y_FLIP
+;	oamframe BATTLE_ANIM_OAMSET_94,  1, OAM_X_FLIP, OAM_Y_FLIP
+;	oamdelete

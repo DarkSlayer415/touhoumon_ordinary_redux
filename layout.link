@@ -141,7 +141,6 @@ ROMX $32
 	"bank32"
 	"The End"
 ROMX $33
-	"Move Animations"
 	"Extra Songs 2"
 ROMX $36
 	"Font Inversed"
@@ -290,6 +289,8 @@ ROMX $73
 	"Pokedex Entries 129-192"
 ROMX $74
 	"Pokedex Entries 193-251"
+ROMX $76
+	"Move Animations"
 ROMX $77
 	"Unown Font"
 	"Print Party"
