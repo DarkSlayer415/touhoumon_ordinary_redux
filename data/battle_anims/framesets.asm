@@ -1297,6 +1297,20 @@ BattleAnimFrameData:
 	oamframe BATTLE_ANIM_OAMSET_GUNK_SHOT_2, 4
 	oamdelete
 
+.Frameset_LeafStormBigLeaf:
+	oamframe BATTLE_ANIM_OAMSET_1B,  1
+	oamframe BATTLE_ANIM_OAMSET_1B,  1, OAM_X_FLIP
+	oamframe BATTLE_ANIM_OAMSET_1B,  1, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_1B,  1, OAM_Y_FLIP
+	oamrestart
+
+.Frameset_LeafStormSmallLeaf:
+	oamframe BATTLE_ANIM_OAMSET_0F,  1
+	oamframe BATTLE_ANIM_OAMSET_0F,  1, OAM_X_FLIP
+	oamframe BATTLE_ANIM_OAMSET_0F,  1, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_0F,  1, OAM_Y_FLIP
+	oamrestart
+
 .Frameset_Hurricane:
 	oamframe BATTLE_ANIM_OAMSET_HURRICANE, 2
 	oamframe BATTLE_ANIM_OAMSET_HURRICANE, 2, OAM_X_FLIP
@@ -1342,20 +1356,6 @@ BattleAnimFrameData:
 .Frameset_BigGlowClear:
 	oamframe BATTLE_ANIM_OAMSET_BIG_GLOW_2, 1
 	oamframe BATTLE_ANIM_OAMSET_BIG_GLOW_3,  1
-	oamrestart
-
-.Frameset_LeafStormBigLeaf:
-	oamframe BATTLE_ANIM_OAMSET_1B,  1
-	oamframe BATTLE_ANIM_OAMSET_1B,  1, OAM_X_FLIP
-	oamframe BATTLE_ANIM_OAMSET_1B,  1, OAM_X_FLIP, OAM_Y_FLIP
-	oamframe BATTLE_ANIM_OAMSET_1B,  1, OAM_Y_FLIP
-	oamrestart
-
-.Frameset_LeafStormSmallLeaf:
-	oamframe BATTLE_ANIM_OAMSET_0F,  1
-	oamframe BATTLE_ANIM_OAMSET_0F,  1, OAM_X_FLIP
-	oamframe BATTLE_ANIM_OAMSET_0F,  1, OAM_X_FLIP, OAM_Y_FLIP
-	oamframe BATTLE_ANIM_OAMSET_0F,  1, OAM_Y_FLIP
 	oamrestart
 
 .Frameset_InkSplash:

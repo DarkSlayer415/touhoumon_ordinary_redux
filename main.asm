@@ -416,7 +416,6 @@ INCLUDE "engine/battle_anims/core.asm"
 INCLUDE "engine/battle_anims/functions.asm"
 INCLUDE "engine/battle_anims/helpers.asm"
 
-
 SECTION "bank38", ROMX
 
 INCLUDE "engine/games/card_flip.asm"
